@@ -1,0 +1,143 @@
+@import "compass";
+@import "compass/layout/";
+
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+
+
+/* ----------------------------------------------------------------------------
+ Variables
+-------------------------------------------------------------------------------*/
+@import 'vars';
+
+/* ----------------------------------------------------------------------------
+ Mixins
+-------------------------------------------------------------------------------*/
+@mixin body-color($body-color){
+	body, select, input, textarea {color: $body-color;}
+}
+@mixin highlight-color($highlight-color, $color: #ffffff){
+	::-moz-selection{background: $highlight-color; color: $color;}
+	::selection {background: $highlight-color; color: $color;} 
+	a:link {-webkit-tap-highlight-color: $highlight-color;}
+}
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+@mixin animation($name) {
+	animation:$name;
+	-moz-animation:$name;
+	-webkit-animation:$name;
+	-o-animation:$name;
+}
+@mixin animation-name($name) {
+	animation-name:$name;
+	-moz-animation-name:$name;
+	-webkit-animation-name:$name;
+	-o-animation-name:$name;
+}
+@mixin animation-duration($duration) {
+	animation-duration:$duration;
+	-moz-animation-duration:$duration;
+	-webkit-animation-duration:$duration;
+	-o-animation-duration:$duration;
+}
+@mixin animation-iteration-count($count) {
+	animation-iteration-count:$count;
+	-moz-animation-iteration-count:$count;
+	-webkit-animation-iteration-count:$count;
+	-o-animation-iteration-count:$count;
+}
+@mixin animation-timing-function($timing) {
+	animation-timing-function:$timing;
+	-moz-animation-timing-function:$timing;
+	-webkit-animation-timing-function:$timing;
+	-o-animation-timing-function:$timing;
+}
+@mixin animation-delay($delay) {
+	animation-delay:$delay;
+	-moz-animation-delay:$delay;
+	-webkit-animation-delay:$delay;
+	-o-animation-delay:$delay;
+}
+
+@function calc-em($target-px, $context: $base-font-size) {
+  @return ($target-px / $context) * 1em;
+}
+
+@mixin placeholder {
+	&.placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+ 	&::-webkit-input-placeholder { @content; }
+}
+
+@mixin default-reset(){
+	*{@include box-sizing(border-box);}
+	html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}									
+	article, aside, figure, footer, header, hgroup, nav, section {display: block;}
+	blockquote, q {quotes: none;}
+	blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
+	a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent; text-decoration: none;}
+	del {text-decoration: line-through;}
+	abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+	table {border-collapse: collapse; border-spacing: 0;}
+	th {font-weight: bold; vertical-align: bottom;}
+	td {font-weight: normal; vertical-align: top;}
+	hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+	input, select {vertical-align: middle;}
+	pre {white-space: pre; /* CSS2 */ white-space: pre-wrap; /* CSS 2.1 */ white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */ word-wrap: break-word; /* IE */}
+	input[type="radio"] {vertical-align: text-bottom;}
+	input[type="checkbox"] {vertical-align: bottom; *vertical-align: baseline;}
+	select, input, textarea {font: 99% sans-serif;}
+	table {font-size: inherit; font: 100%;}
+	small {font-size: 85%;}
+	strong, th {font-weight: bold;}
+	td, td img {vertical-align: top;} 
+	sub, sup {font-size: 75%; line-height: 0; position: relative;}
+	sup {top: -0.5em;}
+	sub {bottom: -0.25em;}
+	pre, code, kbd, samp {font-family: monospace, sans-serif;}
+	.clickable, label, input[type=button], input[type=submit], button {cursor: pointer;}
+	button, input, select, textarea {margin: 0;-webkit-appearance: none;@include border-radius(0);}
+	button {width: auto; overflow: visible;}
+	.ie7 img {-ms-interpolation-mode: bicubic;}
+	h1,h2,h3,h4,h5,h6{font-weight: normal;}
+	html,body{min-height: 100%;}
+	.clear{ clear: both; }
+	.clearfix {zoom: 1;&:before, &:after { content: ""; display: table; }&:after { clear: both; }}
+	.hide-text {text-indent: 200%;white-space: nowrap;overflow: hidden;color: transparent !important;display: block;}
+	.hidden{display: none !important;}
+	li{list-style:none;}
+}
+@mixin wp-core(){
+	.aligncenter, div.aligncenter { display:block; margin: 5px auto 5px auto;}
+	.alignright {float:right;margin: 5px 0 20px 20px;}
+	.alignleft {float:left;margin: 5px 20px 20px 0;}
+	.aligncenter {display: block;margin: 5px auto 5px auto;}
+	a img.alignright {float:right;margin: 5px 0 20px 20px;}
+	a img.alignnone {margin: 5px 20px 20px 0;}
+	a img.alignleft {float:left;margin: 5px 20px 20px 0;}
+	a img.aligncenter {display: block;margin-left: auto;margin-right: auto}
+	.wp-caption {background: #fff;border: 1px solid #f0f0f0;max-width: 96%; /* Image does not overflow the content area */padding: 5px 3px 10px;text-align: center;}
+	.wp-caption.alignnone {margin: 5px 20px 20px 0;}
+	.wp-caption.alignleft {margin: 5px 20px 20px 0;}
+	.wp-caption.alignright {margin: 5px 0 20px 20px;}
+	.wp-caption img {border: 0 none;height: auto;margin:0;max-width: 98.5%;padding:0;width: auto;}
+	.wp-caption p.wp-caption-text {font-size:11px;line-height:17px;margin:0;padding:0 4px 5px;}
+	.video-container {position: relative;padding-bottom: 56.25%;padding-top: 30px;height: 0;overflow: hidden;}
+	.video-container iframe,  .video-container object,  .video-container embed {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+	.video-wrapper {width: 600px;max-width: 100%;}
+}
