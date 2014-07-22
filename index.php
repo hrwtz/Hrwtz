@@ -26,6 +26,9 @@
 	
 	<?php // Favicon ?>
 	<link rel="shortcut icon" href="_/img/favicon.ico">
+
+	<?php // CSS ?>
+	<link href="_/css/application.css" rel=stylesheet />
 	
 </head>
 
@@ -39,8 +42,8 @@
 				<li class="navigation-li"><a href="" class="navigation-a">Contact</a></li>
 			</ul>
 		</nav>
-		<a href="" class="fixedButton"></a>
-		<a href="" class="fixedButton"></a>
+		<a href="" class="navigation-button"></a>
+		<a href="" class="navigation-button"></a>
 	</header>
 
 	<main>
@@ -66,6 +69,7 @@
 
 	
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src=""></script>
+	<script src="_/js/src/fabric.js"></script>
+	<script src="_/js/src/common.js"></script>
 </body>
 </html>
