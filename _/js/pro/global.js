@@ -1,5 +1,135 @@
-alert(9)
+(function($) {
+    var canvas;
 
+    var can = {
+        init: function(){
+            var $canvasParentCell;
+            
+            // Set up canvas object
+            canvas = new fabric.Canvas('canvas');
+
+            // Set canvas width/height
+            $canvasParentCell = $('#canvas').parents('.cell');
+            canvas.setWidth($canvasParentCell.width());
+            canvas.setHeight($canvasParentCell.height());
+
+            // Draw background
+            background.draw();
+
+            // Initialize triangle
+            triangle.init();
+
+            // Animate canvas
+            can.animate();
+        },
+        animate: function(){
+            // Animate Triangle
+            //triangle.draw();
+
+            // Request animation frame from browser to animate canvas
+            fabric.util.requestAnimFrame(can.animate, canvas.getElement());
+            canvas.renderAll();
+        },
+    }
+    var triangle = {
+        init: function(){
+            // Set starting angle for rotating
+            triangle.angle = 0;
+
+            // Set triangle side length
+            triangle.sideLength = 100;
+
+            // Draw triangle shape for first time
+            triangle.shape = triangle.createTriangle();
+            canvas.add(triangle.shape);
+
+            triangle.shape.animate('angle', 1440, {
+              onChange: canvas.renderAll.bind(canvas),
+              duration: 10000,
+              //easing: fabric.util.ease.easeOutBounce
+            });
+        },
+        createTriangle: function(){
+            var a,
+                h,
+                triCoords,
+                centerY,
+                pos,
+                shape;
+
+            // Get triangle height and width
+            a = triangle.sideLength;
+            h = a * (Math.sqrt(3)/2);
+
+            // Get x/y vars
+            x = canvas.width/2 - a/2;
+            y = canvas.height/2 - h/2;
+
+            // Move points up so triangle is center based on the triangle center
+            // not the outlying box center
+            triCoords = [
+                {x:0,y:-h/2},
+                {x:-a / 2,y:h/2},
+                {x:a / 2,y:h/2},
+            ]
+            centerY = (triCoords[0].y + triCoords[1].y + triCoords[2].y) / 3;
+            y -= centerY;
+
+            // Rotate points around center
+            pos = fabric.util.rotatePoint(
+                new fabric.Point(x, y),
+                new fabric.Point(x + a / 2, y + h / 3 * 2),
+                fabric.util.degreesToRadians(triangle.angle)
+            );
+            
+            // Create shape object and return it
+            shape =  new fabric.Triangle(
+            {
+                width: 100,
+                height: 100,
+                selectable: false,
+                fill: 'white',
+                strokeWidth: 2,
+                left: canvas.width/2,
+                top: canvas.height/2,
+                originX: 'center',
+                originY: 'center',
+                angle: triangle.angle,
+            });
+            return shape;
+        },
+        draw: function(){
+            canvas.renderAll(); 
+            
+            // Rotate Triangle
+            triangle.angle += 1;
+            canvas.remove(triangle.shape);
+            triangle.shape = triangle.createTriangle();
+            canvas.add(triangle.shape);    
+        },
+
+    }
+    var background = {
+        draw: function(){
+            // Add full width/height black background
+            var rect = new fabric.Rect({
+                left: 0,
+                top: 0,
+                fill: 'black',
+                width: canvas.width,
+                height: canvas.height,
+                selectable: false,
+            });
+            canvas.add(rect);
+        }
+    }
+
+
+
+    can.init();
+
+
+})(jQuery);
 /*
 
 

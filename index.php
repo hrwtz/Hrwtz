@@ -60,9 +60,7 @@
 				</div>
 			</div>
 			<div class="cell cell--color">
-				<canvas class="canvas">
-					
-				</canvas>
+				<canvas class="canvas" id="canvas"></canvas>
 			</div>
 		</div>
 	</main>
