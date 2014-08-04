@@ -93,6 +93,34 @@
             //}
         //}, opts.delay || 10)
     }
+   var ease = {
+      // no easing, no acceleration
+      linear: function (t) { return t },
+      // accelerating from zero velocity
+      easeInQuad: function (t) { return t*t },
+      // decelerating to zero velocity
+      easeOutQuad: function (t) { return t*(2-t) },
+      // acceleration until halfway, then deceleration
+      easeInOutQuad: function (t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
+      // accelerating from zero velocity 
+      easeInCubic: function (t) { return t*t*t },
+      // decelerating to zero velocity 
+      easeOutCubic: function (t) { return (--t)*t*t+1 },
+      // acceleration until halfway, then deceleration 
+      easeInOutCubic: function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 },
+      // accelerating from zero velocity 
+      easeInQuart: function (t) { return t*t*t*t },
+      // decelerating to zero velocity 
+      easeOutQuart: function (t) { return 1-(--t)*t*t*t },
+      // acceleration until halfway, then deceleration
+      easeInOutQuart: function (t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t },
+      // accelerating from zero velocity
+      easeInQuint: function (t) { return t*t*t*t*t },
+      // decelerating to zero velocity
+      easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
+      // acceleration until halfway, then deceleration 
+      easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
+    }
     var triangle = {
         side: 150,
         count: 0,
@@ -101,14 +129,34 @@
         scale: 0,
         animations: [
             {
-                start: countAniFrame,
-                //delay: 0,
-                duration: 50,
-                delta: function(p) {return p},
+                duration: 80,
+                delta: function(p) {
+                    return ease.easeOutQuad(p)
+                },
                 step: function(delta) {
-                    triangle.rotate = 720*delta * Math.PI/180;
-                    triangle.opacity = 1 * delta;
-                    triangle.scale = 1 * delta;
+                    triangle.rotate = 600*delta * Math.PI/180;
+                    triangle.opacity = delta;
+                }
+            },
+            {
+                duration: 40,
+                delta: function(p) {return ease.linear(p)},
+                step: function(delta) {
+                    triangle.scale = delta;
+                }
+            },
+            {
+                delay: 40,
+                duration: 75,
+                infinite: true,
+                delta: function(p) {return ease.linear(p)},
+                step: function(delta) {
+                    // Scale goes from -1 to 1
+                    var variant = .05,
+                        scale = Math.cos((Math.PI + (Math.PI * delta*2)));
+                    scale = scale / (1 / variant);
+                    scale = scale + 1 + variant;
+                    triangle.scale = scale ;
                 }
             }
         ],
@@ -157,15 +205,24 @@
             triangle.animations.forEach(function(el){
                 var timePassed, 
                     progress;
+                // Set up start time
+                if (!el.start)
+                    el.start = countAniFrame;
                 timePassed = countAniFrame - el.start;
+                // Add delay if one set
                 if (el.delay)
                     timePassed -= el.delay;
+                // Get percentage done
                 progress = timePassed / el.duration;
                 if (progress > 1) progress = 1;
-                if (progress <= 1 && progress >= 0){
+                if ((progress <= 1 && progress >= 0)){
                     var delta = el.delta(progress)
                     el.step(delta)
-
+                }
+                // If infinite, start over
+                if (progress == 1 && el.infinite) { 
+                    el.delay = 0;
+                    el.start = countAniFrame; 
                 }
 
 
