@@ -25,6 +25,7 @@
             // Initialize particles
            	particles.init();
 
+            // Initialize Triangle
             triangle.init();
 
             // Kick off animation loop!
@@ -121,6 +122,29 @@
       // acceleration until halfway, then deceleration 
       easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
     }
+    function animate(el){
+        var timePassed, 
+            progress;
+        // Set up start time
+        if (!el.start)
+            el.start = countAniFrame;
+        timePassed = countAniFrame - el.start;
+        // Add delay if one set
+        if (el.delay)
+            timePassed -= el.delay;
+        // Get percentage done
+        progress = timePassed / el.duration;
+        if (progress > 1) progress = 1;
+        if ((progress <= 1 && progress >= 0)){
+            var delta = el.delta(progress)
+            el.step(delta)
+        }
+        // If infinite, start over
+        if (progress == 1 && el.infinite) { 
+            el.delay = 0;
+            el.start = countAniFrame; 
+        }
+    }
     var triangle = {
         side: 150,
         count: 0,
@@ -198,37 +222,10 @@
             triangle.update();
         },
         update: function(){
-            //if (triangle.count < 300){
-                //triangle.rotate = (triangle.count+1) * Math.PI/180;
-            //}
             // Animations!
             triangle.animations.forEach(function(el){
-                var timePassed, 
-                    progress;
-                // Set up start time
-                if (!el.start)
-                    el.start = countAniFrame;
-                timePassed = countAniFrame - el.start;
-                // Add delay if one set
-                if (el.delay)
-                    timePassed -= el.delay;
-                // Get percentage done
-                progress = timePassed / el.duration;
-                if (progress > 1) progress = 1;
-                if ((progress <= 1 && progress >= 0)){
-                    var delta = el.delta(progress)
-                    el.step(delta)
-                }
-                // If infinite, start over
-                if (progress == 1 && el.infinite) { 
-                    el.delay = 0;
-                    el.start = countAniFrame; 
-                }
-
-
+                animate(el);
             });
-
-            triangle.count++;
         },
     }
 	var particles = {
