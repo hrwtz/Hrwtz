@@ -22,6 +22,9 @@
             // Run resize function
             canvas.resize();
 
+            // Run click event handler
+            canvas.click();
+
             // Initialize particles
            	particles.init();
 
@@ -31,6 +34,11 @@
             // Kick off animation loop!
             canvas.animloop();
 		},
+        click: function(){
+            $(canvas.can).click(function(e){
+                background.addCircle(e.offsetX, e.offsetY)
+            })
+        },
 		resize: function(){
             $(window).resize(function(){
                 // Create temp canvas and context. This is so on resize 
@@ -66,34 +74,60 @@
             requestAnimFrame(canvas.animloop);
 		},
 	}
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 8) ];
+        }
+        return color;
+    }
 	var background = {
+        circles: [],
+        color: 'black',
 		draw: function(){
+            // Draw background
 			canvas.ctx.save();
-            canvas.ctx.fillStyle = 'black';
+            canvas.ctx.fillStyle = background.color;
             canvas.ctx.fillRect(0, 0, canvas.can.width, canvas.can.height);
             canvas.ctx.restore();
+
+            // Draw circles
+            if (background.circles){
+                background.circles.forEach(function(el){
+                    canvas.ctx.save();
+                    canvas.ctx.beginPath();
+                    canvas.ctx.arc(el.x, el.y, el.radius, 0, 2 * Math.PI, false);
+                    canvas.ctx.fillStyle = el.fill;
+                    canvas.ctx.fill();
+                    canvas.ctx.restore();
+                });
+            }
+
+            // Update info
+            background.update();
 		},
+        update: function(){
+            var i = 0;
+            background.circles.forEach(function(el){
+                // If radius is bigger than canvas, remove from array and change bg color
+                if (el.radius > canvas.can.width  && el.radius > canvas.can.height){
+                    background.color = el.fill;
+                    background.circles.splice(i--, 1);
+                }
+                el.radius *= 1.05;
+                i++;
+            });
+        },
+        addCircle: function(x, y){
+            background.circles.push({
+                x: x,
+                y: y,
+                radius : 1,
+                fill: getRandomColor(),
+            })
+        }
 	}
-
-    function animate(opts) {
-            //var opts.start = 10;
-        //var id = setInterval(function() {
-            var timePassed = countAniFrame - 10
-            var progress = timePassed / opts.duration
-
-            if (progress > 1) progress = 1
-                var delta = opts.delta(progress)
-            if (progress != 1)
-                //requestAnimFrame(opts)
-            
-            opts.step(delta)
-
-            //console.log(countAniFrame)
-        
-        //        clearInterval(id)
-            //}
-        //}, opts.delay || 10)
-    }
    var ease = {
       // no easing, no acceleration
       linear: function (t) { return t },
@@ -139,10 +173,15 @@
             var delta = el.delta(progress)
             el.step(delta)
         }
-        // If infinite, start over
-        if (progress == 1 && el.infinite) { 
-            el.delay = 0;
-            el.start = countAniFrame; 
+        if (progress == 1){
+            if (el.infinite) { 
+                // If infinite, start over
+                el.delay = 0;
+                el.start = countAniFrame; 
+            }else{
+                // Tell animation we're done when it runs through
+                el.finished = true;
+            }
         }
     }
     var triangle = {
@@ -217,14 +256,22 @@
             canvas.ctx.lineTo(triCoords[2].x, triCoords[2].y);
             canvas.ctx.lineTo(triCoords[0].x, triCoords[0].y);
             canvas.ctx.fill();
+            canvas.ctx.closePath();
             canvas.ctx.restore();
 
             triangle.update();
         },
         update: function(){
             // Animations!
+            //console.log(triangle.animations.length)
+            var i = 0;
             triangle.animations.forEach(function(el){
+                // If object is done animating, unset it
+                if (el.finished)
+                    triangle.animations.splice(i--, 1);
+                // Animate based off of object
                 animate(el);
+                i++;
             });
         },
     }
