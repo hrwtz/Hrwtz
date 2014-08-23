@@ -38,7 +38,7 @@
 			<div class="row row--window">
 				<?php if ( $i % 2 == 1 ) : ?>
 					<div class="cell cell--color">
-						<canvas class="canvas" id="canvas"></canvas>
+						<canvas class="canvas" id="canvas-<?php echo $i; ?>"></canvas>
 					</div>
 				<?php endif; ?>
 				<div class="cell cell--mono">
@@ -56,7 +56,7 @@
 				</div>
 				<?php if ( $i % 2 == 0 ) : ?>
 					<div class="cell cell--color">
-						<canvas class="canvas" id="canvas"></canvas>
+						<canvas class="canvas" id="canvas-<?php echo $i; ?>"></canvas>
 					</div>
 				<?php endif; ?>
 
