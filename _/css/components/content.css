@@ -1,0 +1,10 @@
+/* line 7, ../../sass/components/content.scss */
+.content {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+/* line 17, ../../sass/components/content.scss */
+.content-inner {
+  display: table-cell;
+  vertical-align: middle; }

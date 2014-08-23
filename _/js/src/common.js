@@ -25,6 +25,9 @@
             // Run click event handler
             canvas.click();
 
+            // Initialize Background
+            background.init();
+
             // Initialize particles
            	particles.init();
 
@@ -84,11 +87,15 @@
     }
 	var background = {
         circles: [],
-        color: 'black',
+        colors: ['#25aaca', '#fae075', '#7abaa7', '#845aa5', '#265a71'],
+        init: function(){
+            // Copy colors to array used for circles
+            background.circleColors = this.colors.slice(0);
+        }, 
 		draw: function(){
             // Draw background
 			canvas.ctx.save();
-            canvas.ctx.fillStyle = background.color;
+            canvas.ctx.fillStyle = background.colors[0];
             canvas.ctx.fillRect(0, 0, canvas.can.width, canvas.can.height);
             canvas.ctx.restore();
 
@@ -112,7 +119,7 @@
             background.circles.forEach(function(el){
                 // If radius is bigger than canvas, remove from array and change bg color
                 if (el.radius > canvas.can.width  && el.radius > canvas.can.height){
-                    background.color = el.fill;
+                    background.colors.push(background.colors.shift());
                     background.circles.splice(i--, 1);
                 }
                 el.radius *= 1.05;
@@ -120,11 +127,14 @@
             });
         },
         addCircle: function(x, y){
+            // Update circle colors
+            background.circleColors.push(background.circleColors.shift());
+            // Add circle object to circles array
             background.circles.push({
                 x: x,
                 y: y,
                 radius : 1,
-                fill: getRandomColor(),
+                fill: background.circleColors[0],
             })
         }
 	}

@@ -250,8 +250,7 @@ img {
 
 /* line 15, ../sass/components/_row.sass */
 .row {
-  overflow: hidden;
-  padding: 0 1.25em; }
+  overflow: hidden; }
 
 /* line 25, ../sass/components/_row.sass */
 .row--a {
@@ -260,6 +259,17 @@ img {
 /* line 28, ../sass/components/_row.sass */
 .row--b {
   background: #b5b5c0; }
+
+/* line 7, ../sass/components/content.scss */
+.content {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+/* line 17, ../sass/components/content.scss */
+.content-inner {
+  display: table-cell;
+  vertical-align: middle; }
 
 /* line 8, ../sass/components/canvas.scss */
 .canvas {

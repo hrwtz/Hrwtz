@@ -63,6 +63,38 @@
 				<canvas class="canvas" id="canvas"></canvas>
 			</div>
 		</div>
+		<div class="row">
+			<div class="cell cell--color">
+				<canvas class="canvas" id="canvas"></canvas>
+			</div>
+			<div class="cell cell--mono">
+				<div class="content">
+					<h1 class="content-title">Front End Developer</h1>
+					<p class="content-text">
+						Professional Problem Solver<br>
+						Maker of the Interwebs<br>
+						Amateur Beer Maker<br>
+						300 Ring Owner based in Orlando, Florida.<br>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="cell cell--mono">
+				<div class="content">
+					<h1 class="content-title">Front End Developer</h1>
+					<p class="content-text">
+						Professional Problem Solver<br>
+						Maker of the Interwebs<br>
+						Amateur Beer Maker<br>
+						300 Ring Owner based in Orlando, Florida.<br>
+					</p>
+				</div>
+			</div>
+			<div class="cell cell--color">
+				<canvas class="canvas" id="canvas"></canvas>
+			</div>
+		</div>
 	</main>
 
 	
