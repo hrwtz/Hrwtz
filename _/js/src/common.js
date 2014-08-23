@@ -371,10 +371,24 @@
 
             }
         },
-	}
+	};
+
+    var common = { // Rename me?
+        init: function(){
+            common.resize();
+        },
+        resize: function(){
+            $(window).resize(function(){
+                // Make all window size sections window sizes
+                $('.row--window').css('height', $(window).height());
+            });
+        },
+    };
 
 	// On Ready
 	$(function(){
+        common.init();
+
 		canvas.init();
 	});
 

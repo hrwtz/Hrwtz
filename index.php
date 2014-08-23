@@ -33,68 +33,47 @@
 </head>
 
 <body>
-	<header class="header">
-		<nav class="navigation is-hidden">
-			<ul>
-				<li class="navigation-li"><a href="" class="navigation-a">Who</a></li>
-				<li class="navigation-li"><a href="" class="navigation-a">Skills</a></li>
-				<li class="navigation-li"><a href="" class="navigation-a">Work</a></li>
-				<li class="navigation-li"><a href="" class="navigation-a">Contact</a></li>
-			</ul>
-		</nav>
-		<a href="" class="navigation-button"></a>
-		<a href="" class="navigation-button"></a>
-	</header>
-
 	<main>
-		<div class="row">
-			<div class="cell cell--mono">
-				<div class="content">
-					<h1 class="content-title">Front End Developer</h1>
-					<p class="content-text">
-						Professional Problem Solver<br>
-						Maker of the Interwebs<br>
-						Amateur Beer Maker<br>
-						300 Ring Owner based in Orlando, Florida.<br>
-					</p>
+		<?php for ($i=0; $i < 5; $i++) : ?>
+			<div class="row row--window">
+				<?php if ( $i % 2 == 1 ) : ?>
+					<div class="cell cell--color">
+						<canvas class="canvas" id="canvas"></canvas>
+					</div>
+				<?php endif; ?>
+				<div class="cell cell--mono">
+					<div class="content table">
+						<div class="table-cell table-cell--middle">
+							<h1 class="content-title">Front End Developer</h1>
+							<p class="content-text">
+								Professional Problem Solver<br>
+								Maker of the Interwebs<br>
+								Amateur Beer Maker<br>
+								300 Ring Owner based in Orlando, Florida.<br>
+							</p>
+						</div>
+					</div>
+				</div>
+				<?php if ( $i % 2 == 0 ) : ?>
+					<div class="cell cell--color">
+						<canvas class="canvas" id="canvas"></canvas>
+					</div>
+				<?php endif; ?>
+
+				<div class="navigation-clip">
+					<nav class="navigation">
+						<ul class="navigation-list">
+							<li class="navigation-item"><a href="#" class="navigation-item-link">Who</a></li>
+							<li class="navigation-item"><a href="#" class="navigation-item-link">Skills</a></li>
+							<li class="navigation-item"><a href="#" class="navigation-item-link">Work</a></li>
+							<li class="navigation-item"><a href="#" class="navigation-item-link">Contact</a></li>
+						</ul>
+						<a href="#" class="navigation-button"></a>
+						<a href="#" class="navigation-button"></a>
+					</nav>
 				</div>
 			</div>
-			<div class="cell cell--color">
-				<canvas class="canvas" id="canvas"></canvas>
-			</div>
-		</div>
-		<div class="row">
-			<div class="cell cell--color">
-				<canvas class="canvas" id="canvas"></canvas>
-			</div>
-			<div class="cell cell--mono">
-				<div class="content">
-					<h1 class="content-title">Front End Developer</h1>
-					<p class="content-text">
-						Professional Problem Solver<br>
-						Maker of the Interwebs<br>
-						Amateur Beer Maker<br>
-						300 Ring Owner based in Orlando, Florida.<br>
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="cell cell--mono">
-				<div class="content">
-					<h1 class="content-title">Front End Developer</h1>
-					<p class="content-text">
-						Professional Problem Solver<br>
-						Maker of the Interwebs<br>
-						Amateur Beer Maker<br>
-						300 Ring Owner based in Orlando, Florida.<br>
-					</p>
-				</div>
-			</div>
-			<div class="cell cell--color">
-				<canvas class="canvas" id="canvas"></canvas>
-			</div>
-		</div>
+		<?php endfor; ?>
 	</main>
 
 	

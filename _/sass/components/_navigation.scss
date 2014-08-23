@@ -1,0 +1,79 @@
+// *************************************
+//
+//   Navigation
+//   -> Header Navigation
+//
+// *************************************
+
+.navigation{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 950;
+}
+
+// -------------------------------------
+//   Structure
+// -------------------------------------
+
+.navigation-clip{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    clip: rect(auto,auto,auto,auto);
+}
+
+.navigation-list{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    padding-right: $b-space-3x;
+    margin-bottom: 0;
+    line-height: $b-space-3x;
+    text-align: right;
+}
+
+.navigation-item{
+    display: inline-block;
+}
+
+.navigation-item-link{
+
+}
+
+.navigation-button{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    width: $b-space-3x;
+    height: $b-space-3x;
+    margin-left: -$b-space-3x;
+    background-color: red;
+
+    &:nth-of-type(2){
+        margin-left: 0;
+        background-color: $c-background;
+    }
+}
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+.row{
+    &:nth-of-type(2n){
+        .navigation-button{
+            background-color: $c-background;
+
+            &:nth-of-type(2){
+                margin-left: 0;
+                background-color: red;
+            }
+        }
+    }
+}

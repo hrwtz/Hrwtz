@@ -223,16 +223,17 @@ h3, .h3 {
 h4, .h4 {
   font-size: 110%; }
 
-/* line 69, ../sass/foundation/_base.scss */
+/*
 a {
-  border-bottom: 2px solid #9a9aa8;
-  color: #4e4e5b;
-  text-decoration: none; }
-  /* line 74, ../sass/foundation/_base.scss */
-  a:hover, a:focus {
-    border-bottom-color: #4e4e5b;
-    color: #b5b5c0; }
-
+  border-bottom: $b-border;
+  color: $c-highlight;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    border-bottom-color: $c-highlight;
+    color: $c-subdue;
+  }
+}*/
 /* line 82, ../sass/foundation/_base.scss */
 img {
   height: auto;
@@ -244,34 +245,94 @@ img {
   float: left;
   width: 50%;
   max-width: 64em;
-  height: 400px;
+  height: 100%;
   margin-right: auto;
   margin-left: auto; }
 
 /* line 15, ../sass/components/_row.sass */
 .row {
+  position: relative;
   overflow: hidden; }
 
-/* line 25, ../sass/components/_row.sass */
+/* line 26, ../sass/components/_row.sass */
 .row--a {
   background: #4e4e5b; }
 
-/* line 28, ../sass/components/_row.sass */
+/* line 29, ../sass/components/_row.sass */
 .row--b {
   background: #b5b5c0; }
 
-/* line 7, ../sass/components/content.scss */
-.content {
+/* line 8, ../sass/components/_navigation.scss */
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 950; }
+
+/* line 20, ../sass/components/_navigation.scss */
+.navigation-clip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  clip: rect(auto, auto, auto, auto); }
+
+/* line 30, ../sass/components/_navigation.scss */
+.navigation-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  padding-right: 3.75em;
+  margin-bottom: 0;
+  line-height: 3.75em;
+  text-align: right; }
+
+/* line 41, ../sass/components/_navigation.scss */
+.navigation-item {
+  display: inline-block; }
+
+/* line 49, ../sass/components/_navigation.scss */
+.navigation-button {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 3.75em;
+  height: 3.75em;
+  margin-left: -3.75em;
+  background-color: red; }
+  /* line 59, ../sass/components/_navigation.scss */
+  .navigation-button:nth-of-type(2) {
+    margin-left: 0;
+    background-color: #ecf0f1; }
+
+/* line 70, ../sass/components/_navigation.scss */
+.row:nth-of-type(2n) .navigation-button {
+  background-color: #ecf0f1; }
+  /* line 73, ../sass/components/_navigation.scss */
+  .row:nth-of-type(2n) .navigation-button:nth-of-type(2) {
+    margin-left: 0;
+    background-color: red; }
+
+/* line 7, ../sass/components/_table.scss */
+.table {
   display: table;
   width: 100%;
   height: 100%; }
 
-/* line 17, ../sass/components/content.scss */
-.content-inner {
-  display: table-cell;
+/* line 17, ../sass/components/_table.scss */
+.table-cell {
+  display: table-cell; }
+
+/* line 21, ../sass/components/_table.scss */
+.table-cell--middle {
   vertical-align: middle; }
 
-/* line 8, ../sass/components/canvas.scss */
+/* line 8, ../sass/components/_canvas.scss */
 .canvas {
   position: absolute;
   top: 0;
