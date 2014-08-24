@@ -225,7 +225,6 @@
                 }
             },
         };
-
         var triangle = {
             side: 150,
             count: 0,
