@@ -68,7 +68,9 @@
 							<li class="navigation-item"><a href="#" class="navigation-item-link">Work</a></li>
 							<li class="navigation-item"><a href="#" class="navigation-item-link">Contact</a></li>
 						</ul>
-						<a href="#" class="navigation-button"></a>
+						<a href="#" class="navigation-button navigation-menu">
+							<span class="navigation-hamburger"><span class="navigation-hamburger-center"></span></span>
+						</a>
 						<a href="#" class="navigation-button"></a>
 					</nav>
 				</div>

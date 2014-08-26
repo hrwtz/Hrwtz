@@ -10,7 +10,9 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: $b-space-3x;
     z-index: 950;
+    pointer-events: auto;
 }
 
 // -------------------------------------
@@ -31,14 +33,21 @@
 .navigation-list{
     position: absolute;
     top: 0;
-    left: 0;
-    display: none;
-    width: 50%;
-    padding-right: $b-space-3x;
+    left: 50%;
+    width: 0;
+    height: $b-space-3x;
+    padding: 0;
     margin-bottom: 0;
+    overflow: hidden;
+    @include transition(all 0.3s cubic-bezier(0.600, -0.280, 0.735, 0.045));
     pointer-events: auto;
     line-height: $b-space-3x;
     text-align: right;
+    .is-open &{
+        left: 0;
+        width: 50%;
+        padding-right: $b-space-3x;
+    }
 }
 
 .navigation-item{
@@ -63,7 +72,65 @@
         margin-left: 0;
         background-color: $c-background;
     }
+
 }
+
+.navigation-hamburger{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 40%;
+    height: 2px;
+    margin-top: -1px; 
+    margin-left: -20%;
+    
+    /* Set Up lines */
+    .navigation-hamburger-center,
+    &:before,
+    &:after{
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: white;
+        @include transition(all 0.3s cubic-bezier(0.600, -0.280, 0.735, 0.045));
+        @include transform(translate3d(0,0,0));
+        content: "";
+        /* Webskit fix for weird bugs */
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+    }
+    .navigation-hamburger-center{
+        top: 0;
+        left: 50%;
+        margin-left: -50%;
+    }
+    &:before{
+        top: -7px;
+    }
+    &:after {
+        top: 7px;
+    }
+    
+    /* Close State */
+    .is-open &{
+        &:after{
+            @include transform(rotate(-45deg) translate(2px, 4px));
+
+            transform-origin: bottom left;
+        }
+        &:before{
+            @include transform(rotate(45deg) translate(1px, -3px));
+            transform-origin: bottom left;
+        }
+        .navigation-hamburger-center{
+            width: 0;
+            margin-left: 0;
+            opacity: .5;
+        }
+    }
+}   
+
 
 // -------------------------------------
 //   Modifiers

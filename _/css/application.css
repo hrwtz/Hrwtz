@@ -268,9 +268,11 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 950; }
+  height: 3.75em;
+  z-index: 950;
+  pointer-events: auto; }
 
-/* line 20, ../sass/components/_navigation.scss */
+/* line 22, ../sass/components/_navigation.scss */
 .navigation-clip {
   position: absolute;
   top: 0;
@@ -281,24 +283,34 @@ img {
   pointer-events: none;
   clip: rect(auto, auto, auto, auto); }
 
-/* line 31, ../sass/components/_navigation.scss */
+/* line 33, ../sass/components/_navigation.scss */
 .navigation-list {
   position: absolute;
   top: 0;
-  left: 0;
-  display: none;
-  width: 50%;
-  padding-right: 3.75em;
+  left: 50%;
+  width: 0;
+  height: 3.75em;
+  padding: 0;
   margin-bottom: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  -moz-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  -o-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   pointer-events: auto;
   line-height: 3.75em;
   text-align: right; }
+  /* line 46, ../sass/components/_navigation.scss */
+  .is-open .navigation-list {
+    left: 0;
+    width: 50%;
+    padding-right: 3.75em; }
 
-/* line 44, ../sass/components/_navigation.scss */
+/* line 53, ../sass/components/_navigation.scss */
 .navigation-item {
   display: inline-block; }
 
-/* line 52, ../sass/components/_navigation.scss */
+/* line 61, ../sass/components/_navigation.scss */
 .navigation-button {
   position: absolute;
   top: 0;
@@ -308,15 +320,79 @@ img {
   height: 3.75em;
   margin-left: -3.75em;
   background-color: red; }
-  /* line 62, ../sass/components/_navigation.scss */
+  /* line 71, ../sass/components/_navigation.scss */
   .navigation-button:nth-of-type(2) {
     margin-left: 0;
     background-color: #ecf0f1; }
 
-/* line 73, ../sass/components/_navigation.scss */
+/* line 78, ../sass/components/_navigation.scss */
+.navigation-hamburger {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 40%;
+  height: 2px;
+  margin-top: -1px;
+  margin-left: -20%;
+  /* Set Up lines */
+  /* Close State */ }
+  /* line 91, ../sass/components/_navigation.scss */
+  .navigation-hamburger .navigation-hamburger-center, .navigation-hamburger:before, .navigation-hamburger:after {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: white;
+    -webkit-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    -moz-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    -o-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    content: "";
+    /* Webskit fix for weird bugs */
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0); }
+  /* line 103, ../sass/components/_navigation.scss */
+  .navigation-hamburger .navigation-hamburger-center {
+    top: 0;
+    left: 50%;
+    margin-left: -50%; }
+  /* line 108, ../sass/components/_navigation.scss */
+  .navigation-hamburger:before {
+    top: -7px; }
+  /* line 111, ../sass/components/_navigation.scss */
+  .navigation-hamburger:after {
+    top: 7px; }
+  /* line 117, ../sass/components/_navigation.scss */
+  .is-open .navigation-hamburger:after {
+    -webkit-transform: rotate(-45deg) translate(2px, 4px);
+    -moz-transform: rotate(-45deg) translate(2px, 4px);
+    -ms-transform: rotate(-45deg) translate(2px, 4px);
+    -o-transform: rotate(-45deg) translate(2px, 4px);
+    transform: rotate(-45deg) translate(2px, 4px);
+    transform-origin: bottom left; }
+  /* line 122, ../sass/components/_navigation.scss */
+  .is-open .navigation-hamburger:before {
+    -webkit-transform: rotate(45deg) translate(1px, -3px);
+    -moz-transform: rotate(45deg) translate(1px, -3px);
+    -ms-transform: rotate(45deg) translate(1px, -3px);
+    -o-transform: rotate(45deg) translate(1px, -3px);
+    transform: rotate(45deg) translate(1px, -3px);
+    transform-origin: bottom left; }
+  /* line 126, ../sass/components/_navigation.scss */
+  .is-open .navigation-hamburger .navigation-hamburger-center {
+    width: 0;
+    margin-left: 0;
+    opacity: .5; }
+
+/* line 140, ../sass/components/_navigation.scss */
 .row:nth-of-type(2n) .navigation-button {
   background-color: #ecf0f1; }
-  /* line 76, ../sass/components/_navigation.scss */
+  /* line 143, ../sass/components/_navigation.scss */
   .row:nth-of-type(2n) .navigation-button:nth-of-type(2) {
     margin-left: 0;
     background-color: red; }

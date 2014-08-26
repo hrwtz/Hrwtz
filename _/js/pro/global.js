@@ -385,6 +385,13 @@
 
     var common = { // Rename me?
         init: function(){
+            // Header functionality
+            $('.navigation-menu').click(function(e){
+                $('.navigation').toggleClass('is-open')
+
+                e.preventDefault();
+            });
+
             common.resize();
         },
         resize: function(){
