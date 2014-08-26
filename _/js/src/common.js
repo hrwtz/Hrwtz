@@ -87,15 +87,17 @@
 
         var background = {
             circles: [],
-            colors: ['#25aaca', '#fae075', '#7abaa7', '#845aa5', '#265a71'],
+            colors: ['#F29727', '#E05723', '#B0382F', '#982E4B', '#713045', ],
+            //colors: ['#0A4148', '#3E9F8F', '#E2FF94', '#D94E58', '#8A3451', ],
             init: function(){
+                background.colors.reverse();
                 // Copy colors to array used for circles
                 background.circleColors = this.colors.slice(0);
             }, 
             draw: function(){
                 // Draw background
                 canvas.ctx.save();
-                canvas.ctx.fillStyle = background.colors[0];
+                canvas.ctx.fillStyle = background.colors[index];
                 canvas.ctx.fillRect(0, 0, canvas.can.width, canvas.can.height);
                 canvas.ctx.restore();
 
@@ -105,7 +107,7 @@
                         canvas.ctx.save();
                         canvas.ctx.beginPath();
                         canvas.ctx.arc(el.x, el.y, el.radius, 0, 2 * Math.PI, false);
-                        canvas.ctx.fillStyle = el.fill;
+                        canvas.ctx.fillStyle = 'el.fill';
                         canvas.ctx.fill();
                         canvas.ctx.restore();
                     });
