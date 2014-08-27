@@ -270,16 +270,19 @@ img {
   width: 100%;
   height: 3.75em;
   z-index: 950;
-  pointer-events: auto; }
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden; }
 
-/* line 22, ../sass/components/_navigation.scss */
+/* line 23, ../sass/components/_navigation.scss */
 .navigation-clip {
   position: absolute;
   top: 0;
-  right: 0;
   left: 0;
-  bottom: 0;
-  z-index: 10;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   clip: rect(auto, auto, auto, auto); }
 
@@ -302,15 +305,19 @@ img {
   text-align: right; }
   /* line 46, ../sass/components/_navigation.scss */
   .is-open .navigation-list {
+    -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     left: 0;
     width: 50%;
     padding-right: 3.75em; }
 
-/* line 53, ../sass/components/_navigation.scss */
+/* line 54, ../sass/components/_navigation.scss */
 .navigation-item {
   display: inline-block; }
 
-/* line 61, ../sass/components/_navigation.scss */
+/* line 62, ../sass/components/_navigation.scss */
 .navigation-button {
   position: absolute;
   top: 0;
@@ -319,13 +326,14 @@ img {
   width: 3.75em;
   height: 3.75em;
   margin-left: -3.75em;
+  pointer-events: auto;
   background-color: red; }
-  /* line 71, ../sass/components/_navigation.scss */
+  /* line 73, ../sass/components/_navigation.scss */
   .navigation-button:nth-of-type(2) {
     margin-left: 0;
     background-color: #ecf0f1; }
 
-/* line 78, ../sass/components/_navigation.scss */
+/* line 80, ../sass/components/_navigation.scss */
 .navigation-hamburger {
   position: relative;
   top: 50%;
@@ -337,7 +345,7 @@ img {
   margin-left: -20%;
   /* Set Up lines */
   /* Close State */ }
-  /* line 91, ../sass/components/_navigation.scss */
+  /* line 93, ../sass/components/_navigation.scss */
   .navigation-hamburger .navigation-hamburger-center, .navigation-hamburger:before, .navigation-hamburger:after {
     position: absolute;
     width: 100%;
@@ -356,18 +364,18 @@ img {
     /* Webskit fix for weird bugs */
     -webkit-backface-visibility: hidden;
     -webkit-transform: translateZ(0); }
-  /* line 103, ../sass/components/_navigation.scss */
+  /* line 105, ../sass/components/_navigation.scss */
   .navigation-hamburger .navigation-hamburger-center {
     top: 0;
     left: 50%;
     margin-left: -50%; }
-  /* line 108, ../sass/components/_navigation.scss */
+  /* line 110, ../sass/components/_navigation.scss */
   .navigation-hamburger:before {
     top: -7px; }
-  /* line 111, ../sass/components/_navigation.scss */
+  /* line 113, ../sass/components/_navigation.scss */
   .navigation-hamburger:after {
     top: 7px; }
-  /* line 117, ../sass/components/_navigation.scss */
+  /* line 119, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger:after {
     -webkit-transform: rotate(-45deg) translate(2px, 4px);
     -moz-transform: rotate(-45deg) translate(2px, 4px);
@@ -375,7 +383,7 @@ img {
     -o-transform: rotate(-45deg) translate(2px, 4px);
     transform: rotate(-45deg) translate(2px, 4px);
     transform-origin: bottom left; }
-  /* line 122, ../sass/components/_navigation.scss */
+  /* line 124, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger:before {
     -webkit-transform: rotate(45deg) translate(1px, -3px);
     -moz-transform: rotate(45deg) translate(1px, -3px);
@@ -383,16 +391,16 @@ img {
     -o-transform: rotate(45deg) translate(1px, -3px);
     transform: rotate(45deg) translate(1px, -3px);
     transform-origin: bottom left; }
-  /* line 126, ../sass/components/_navigation.scss */
+  /* line 128, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger .navigation-hamburger-center {
     width: 0;
     margin-left: 0;
     opacity: .5; }
 
-/* line 140, ../sass/components/_navigation.scss */
+/* line 142, ../sass/components/_navigation.scss */
 .row:nth-of-type(2n) .navigation-button {
   background-color: #ecf0f1; }
-  /* line 143, ../sass/components/_navigation.scss */
+  /* line 145, ../sass/components/_navigation.scss */
   .row:nth-of-type(2n) .navigation-button:nth-of-type(2) {
     margin-left: 0;
     background-color: red; }

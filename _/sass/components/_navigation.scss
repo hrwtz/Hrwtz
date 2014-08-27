@@ -12,7 +12,8 @@
     width: 100%;
     height: $b-space-3x;
     z-index: 950;
-    pointer-events: auto;
+    //pointer-events: auto;
+    @include backface-visibility(hidden);
 }
 
 // -------------------------------------
@@ -22,10 +23,9 @@
 .navigation-clip{
     position: absolute;
     top: 0;
-    right: 0;
     left: 0;
-    bottom: 0;
-    z-index: 10;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
     clip: rect(auto,auto,auto,auto);
 }
@@ -44,6 +44,7 @@
     line-height: $b-space-3x;
     text-align: right;
     .is-open &{
+        @include transition(all 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275));
         left: 0;
         width: 50%;
         padding-right: $b-space-3x;
@@ -66,6 +67,7 @@
     width: $b-space-3x;
     height: $b-space-3x;
     margin-left: -$b-space-3x;
+    pointer-events: auto;
     background-color: red;
 
     &:nth-of-type(2){
