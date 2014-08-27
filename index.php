@@ -80,7 +80,6 @@
 
 	
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="_/js/src/fabric.js"></script>
 	<script src="_/js/src/common.js"></script>
 </body>
 </html>

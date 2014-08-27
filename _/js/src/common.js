@@ -11,14 +11,12 @@
                 window.msRequestAnimationFrame     ||  
                 function( callback ){
                     window.setTimeout(function(){
-                        $.each(canvasIni, function(index, val){
-                            val.draw();
-                        });
+                        animloop();
                     }, 1000 / 60);
                 };
     })();
 
-	var canvass = function(can, index){
+	var canvass = function(can, index, options){
         this.index = index;
         var canvas = this;
 		this.init = function(){
@@ -41,8 +39,6 @@
             // Initialize Triangle
             triangle.init();
 
-            // Kick off animation loop!
-            canvas.animloop();
 		};
 
         this.click = function(){
@@ -76,28 +72,22 @@
             // Draw triangle
             triangle.draw();
         }
-        // Start the main animation loop using requestAnimFrame
-        this.animloop = function(){
-            countAniFrame++;
-
-			canvas.draw();
-			
-            requestAnimFrame(canvas.animloop);
-		};
 
         var background = {
+            options: {color: 'blue'},
             circles: [],
             colors: ['#F29727', '#E05723', '#B0382F', '#982E4B', '#713045', ],
-            //colors: ['#0A4148', '#3E9F8F', '#E2FF94', '#D94E58', '#8A3451', ],
             init: function(){
+                $.extend(background.options, options.background)
+
                 background.colors.reverse();
                 // Copy colors to array used for circles
-                background.circleColors = this.colors.slice(0);
+                background.circleColors = background.options.color;
             }, 
             draw: function(){
                 // Draw background
                 canvas.ctx.save();
-                canvas.ctx.fillStyle = background.colors[index];
+                canvas.ctx.fillStyle = background.options.color;
                 canvas.ctx.fillRect(0, 0, canvas.can.width, canvas.can.height);
                 canvas.ctx.restore();
 
@@ -145,37 +135,27 @@
             particlesArray: [],
             center: {},
             init: function(){
-                // Set up particlesArray
-                //for(var i = 0; i < particles.particleCount; i++) {
-                    
-                //}
+
             },
             draw: function(){
+                
                 // Add new particle every 5 frames
                 if (countAniFrame % 3 == 0){
                     particles.particlesArray.push(new particles.particle());
                 }
+                
                 // Call the function that will draw the particles using a loop
                 for (var i = 0; i < particles.particlesArray.length; i++) {
                     particles.particlesArray[i].draw();
                 }
+
             },
             particle: function(){
-                // Set up distance from center, skew to farther away to make up for clumping near center
-                //this.cenDis = Math.pow(Math.random(), .6) * 50;
-                // Starting position
-                //this.x = ( Math.random() * 40 ) + canvas.can.width / 2;
-                //this.y = ( Math.random() * 40 ) + canvas.can.height / 2;
-                // Start Position is a sphere
-
-                //var startPositionDiameter = 20;
-                //var theta = Math.random()*2*Math.PI;
-                //var phi = Math.acos(Math.random()*2-1);
-                //this.x = startPositionDiameter*Math.sin(phi)*Math.cos(theta) + canvas.can.width / 2;
-                //this.y = startPositionDiameter*Math.sin(phi)*Math.sin(theta) + canvas.can.height / 2;
                 
+                // Location is set to middle of canvas                
                 this.x = canvas.can.width / 2;
                 this.y = canvas.can.height / 2;
+                
                 // Velocity
                 this.vx = Math.random()*20-10;
                 this.vy = Math.random()*20-10;
@@ -197,6 +177,8 @@
 
                     this.update();
                 }
+
+                // Update values for next round
                 this.update = function(){
                     // Update position of particle
                     this.x = this.x + this.vx;
@@ -275,12 +257,14 @@
                     centerY;
                 // Get triangle height
                 h = triangle.side * (Math.sqrt(3)/2);
+                
                 // Get triangle point coordinates
                 triCoords = [
                     {x:0,y:-h/2},
                     {x:-triangle.side / 2,y:h/2},
                     {x:triangle.side / 2,y:h/2},
                 ]
+                
                 // Fix Y coords to center triangle
                 centerY = (triCoords[0].y + triCoords[1].y + triCoords[2].y) / 3;
                 triCoords.forEach(function(el){
@@ -301,7 +285,6 @@
                 canvas.ctx.fill();
                 canvas.ctx.closePath();
                 canvas.ctx.restore();
-
                 triangle.update();
             },
             update: function(){
@@ -408,14 +391,32 @@
 	$(function(){
         common.init();
 
-        // I probably want to do this differently
         // Set up each canvas
+        var options = {background: {color: 'red'}};
         $('canvas').each(function(index){
-            canvasIni[index] = new canvass($(this)[0], index);
-        })
-        $.each(canvasIni, function(index, val){
+            canvasIni[index] = new canvass($(this)[0], index, options);
             canvasIni[index].init();
-        });
+        })
+
+        // Start the main animation loop using requestAnimFrame
+        var animloop = function(){
+            // Update frame count
+            countAniFrame++;
+
+            // Call draw method on each canvas
+            $.each(canvasIni, function(index){
+                canvasIni[index].draw();
+            });
+            
+            // Recursion
+            requestAnimFrame(animloop);
+
+        }
+
+        // Kick off animation loop!
+        requestAnimationFrame(animloop);
+
+       
 
 	});
 
