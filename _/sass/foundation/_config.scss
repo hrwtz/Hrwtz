@@ -21,15 +21,20 @@
 
 // ----- Palette ----- //
 
-$plum: #4e4e5b;
+$c-canvasBg0: #713045;
+$c-canvasBg1: #982E4B;
+$c-canvasBg2: #B0382F;
+$c-canvasBg3: #E05723;
+$c-canvasBg4: #F29727;
+
 
 // ----- Base ----- //
 
 $c-background-invert: white;
 $c-background: #ecf0f1;
-$c-border: lighten($plum, 30%);
-$c-highlight: $plum;
-$c-subdue: lighten($plum, 40%);
+$c-border: red;
+$c-highlight: red;
+$c-subdue: lighten(red, 40%);
 $c-text-invert: white;
 $c-text: #444444;
 

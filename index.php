@@ -38,7 +38,7 @@
 			<div class="row row--window">
 				<?php if ( $i % 2 == 1 ) : ?>
 					<div class="cell cell--color">
-						<canvas class="canvas" id="canvas-<?php echo $i; ?>"></canvas>
+						<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
 					</div>
 				<?php endif; ?>
 				<div class="cell cell--mono">
@@ -56,7 +56,7 @@
 				</div>
 				<?php if ( $i % 2 == 0 ) : ?>
 					<div class="cell cell--color">
-						<canvas class="canvas" id="canvas-<?php echo $i; ?>"></canvas>
+						<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
 					</div>
 				<?php endif; ?>
 
@@ -68,10 +68,12 @@
 							<li class="navigation-item"><a href="#" class="navigation-item-link">Work</a></li>
 							<li class="navigation-item"><a href="#" class="navigation-item-link">Contact</a></li>
 						</ul>
-						<a href="#" class="navigation-button navigation-menu">
+						<a href="#" class="navigation-button navigation-menu <?php echo ($i % 2) ? 'bcr navigation-button--bc' . $i : 'bc' . $i . ' navigation-button--bcr'; ?>">
 							<span class="navigation-hamburger"><span class="navigation-hamburger-center"></span></span>
 						</a>
-						<a href="#" class="navigation-button"></a>
+						<a href="#" class="navigation-button <?php echo ($i % 2) ? 'bc' . $i . ' navigation-button--bcr' : 'bcr navigation-button--bc' . $i; ?>">
+							<?php include('_/img/svg/logo-main.svg'); ?>
+						</a>
 					</nav>
 				</div>
 			</div>

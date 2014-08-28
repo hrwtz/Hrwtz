@@ -256,11 +256,11 @@ img {
 
 /* line 26, ../sass/components/_row.sass */
 .row--a {
-  background: #4e4e5b; }
+  background: red; }
 
 /* line 29, ../sass/components/_row.sass */
 .row--b {
-  background: #b5b5c0; }
+  background: #ffcccc; }
 
 /* line 8, ../sass/components/_navigation.scss */
 .navigation {
@@ -326,14 +326,19 @@ img {
   width: 3.75em;
   height: 3.75em;
   margin-left: -3.75em;
-  pointer-events: auto;
-  background-color: red; }
-  /* line 73, ../sass/components/_navigation.scss */
+  pointer-events: auto; }
+  /* line 72, ../sass/components/_navigation.scss */
   .navigation-button:nth-of-type(2) {
-    margin-left: 0;
-    background-color: #ecf0f1; }
+    margin-left: 0; }
+  /* line 76, ../sass/components/_navigation.scss */
+  .navigation-button .icon {
+    position: relative;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%; }
 
-/* line 80, ../sass/components/_navigation.scss */
+/* line 86, ../sass/components/_navigation.scss */
 .navigation-hamburger {
   position: relative;
   top: 50%;
@@ -345,12 +350,11 @@ img {
   margin-left: -20%;
   /* Set Up lines */
   /* Close State */ }
-  /* line 93, ../sass/components/_navigation.scss */
+  /* line 99, ../sass/components/_navigation.scss */
   .navigation-hamburger .navigation-hamburger-center, .navigation-hamburger:before, .navigation-hamburger:after {
     position: absolute;
     width: 100%;
     height: 2px;
-    background: white;
     -webkit-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
     -moz-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
     -o-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
@@ -364,18 +368,18 @@ img {
     /* Webskit fix for weird bugs */
     -webkit-backface-visibility: hidden;
     -webkit-transform: translateZ(0); }
-  /* line 105, ../sass/components/_navigation.scss */
+  /* line 110, ../sass/components/_navigation.scss */
   .navigation-hamburger .navigation-hamburger-center {
     top: 0;
     left: 50%;
     margin-left: -50%; }
-  /* line 110, ../sass/components/_navigation.scss */
+  /* line 115, ../sass/components/_navigation.scss */
   .navigation-hamburger:before {
     top: -7px; }
-  /* line 113, ../sass/components/_navigation.scss */
+  /* line 118, ../sass/components/_navigation.scss */
   .navigation-hamburger:after {
     top: 7px; }
-  /* line 119, ../sass/components/_navigation.scss */
+  /* line 124, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger:after {
     -webkit-transform: rotate(-45deg) translate(2px, 4px);
     -moz-transform: rotate(-45deg) translate(2px, 4px);
@@ -383,7 +387,7 @@ img {
     -o-transform: rotate(-45deg) translate(2px, 4px);
     transform: rotate(-45deg) translate(2px, 4px);
     transform-origin: bottom left; }
-  /* line 124, ../sass/components/_navigation.scss */
+  /* line 129, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger:before {
     -webkit-transform: rotate(45deg) translate(1px, -3px);
     -moz-transform: rotate(45deg) translate(1px, -3px);
@@ -391,19 +395,66 @@ img {
     -o-transform: rotate(45deg) translate(1px, -3px);
     transform: rotate(45deg) translate(1px, -3px);
     transform-origin: bottom left; }
-  /* line 128, ../sass/components/_navigation.scss */
+  /* line 133, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger .navigation-hamburger-center {
     width: 0;
     margin-left: 0;
     opacity: .5; }
 
-/* line 142, ../sass/components/_navigation.scss */
-.row:nth-of-type(2n) .navigation-button {
-  background-color: #ecf0f1; }
-  /* line 145, ../sass/components/_navigation.scss */
-  .row:nth-of-type(2n) .navigation-button:nth-of-type(2) {
-    margin-left: 0;
-    background-color: red; }
+/* line 150, ../sass/components/_navigation.scss */
+.navigation-button--bcr .navigation-hamburger-center, .navigation-button--bcr
+.navigation-hamburger:before, .navigation-button--bcr
+.navigation-hamburger:after {
+  background: #ecf0f1; }
+/* line 154, ../sass/components/_navigation.scss */
+.navigation-button--bc0 .navigation-hamburger-center, .navigation-button--bc0
+.navigation-hamburger:before, .navigation-button--bc0
+.navigation-hamburger:after {
+  background: #713045; }
+/* line 158, ../sass/components/_navigation.scss */
+.navigation-button--bc1 .navigation-hamburger-center, .navigation-button--bc1
+.navigation-hamburger:before, .navigation-button--bc1
+.navigation-hamburger:after {
+  background: #982e4b; }
+/* line 162, ../sass/components/_navigation.scss */
+.navigation-button--bc2 .navigation-hamburger-center, .navigation-button--bc2
+.navigation-hamburger:before, .navigation-button--bc2
+.navigation-hamburger:after {
+  background: #b0382f; }
+/* line 166, ../sass/components/_navigation.scss */
+.navigation-button--bc3 .navigation-hamburger-center, .navigation-button--bc3
+.navigation-hamburger:before, .navigation-button--bc3
+.navigation-hamburger:after {
+  background: #e05723; }
+/* line 170, ../sass/components/_navigation.scss */
+.navigation-button--bc4 .navigation-hamburger-center, .navigation-button--bc4
+.navigation-hamburger:before, .navigation-button--bc4
+.navigation-hamburger:after {
+  background: #f29727; }
+
+/* line 177, ../sass/components/_navigation.scss */
+.navigation-button--bcr .icon {
+  fill: #ecf0f1; }
+
+/* line 181, ../sass/components/_navigation.scss */
+.navigation-button--bc0 .icon {
+  fill: #713045; }
+
+/* line 185, ../sass/components/_navigation.scss */
+.navigation-button--bc1 .icon {
+  fill: #982e4b; }
+
+/* line 189, ../sass/components/_navigation.scss */
+.navigation-button--bc2 .icon {
+  fill: #b0382f; }
+
+/* line 193, ../sass/components/_navigation.scss */
+.navigation-button--bc3 .icon {
+  fill: #e05723; }
+
+/* line 197, ../sass/components/_navigation.scss */
+.navigation-button--bc4 .icon {
+  fill: #f29727; }
 
 /* line 7, ../sass/components/_table.scss */
 .table {
@@ -429,7 +480,7 @@ img {
 
 /* line 12, ../sass/foundation/_tools.scss */
 .bch {
-  background: #4e4e5b; }
+  background: red; }
 
 /* line 16, ../sass/foundation/_tools.scss */
 .bci {
@@ -437,341 +488,365 @@ img {
 
 /* line 20, ../sass/foundation/_tools.scss */
 .bcs {
-  background: #b5b5c0; }
+  background: #ffcccc; }
+
+/* line 24, ../sass/foundation/_tools.scss */
+.bcr {
+  background: #ecf0f1; }
 
 /* line 28, ../sass/foundation/_tools.scss */
+.bc0 {
+  background-color: #713045; }
+
+/* line 32, ../sass/foundation/_tools.scss */
+.bc1 {
+  background-color: #982e4b; }
+
+/* line 36, ../sass/foundation/_tools.scss */
+.bc2 {
+  background-color: #b0382f; }
+
+/* line 40, ../sass/foundation/_tools.scss */
+.bc3 {
+  background-color: #e05723; }
+
+/* line 44, ../sass/foundation/_tools.scss */
+.bc4 {
+  background-color: #f29727; }
+
+/* line 52, ../sass/foundation/_tools.scss */
 .db {
   display: block; }
 
-/* line 32, ../sass/foundation/_tools.scss */
+/* line 56, ../sass/foundation/_tools.scss */
 .di {
   display: inline; }
 
-/* line 36, ../sass/foundation/_tools.scss */
+/* line 60, ../sass/foundation/_tools.scss */
 .dib {
   display: inline-block; }
 
-/* line 40, ../sass/foundation/_tools.scss */
+/* line 64, ../sass/foundation/_tools.scss */
 .dn {
   display: none; }
 
-/* line 50, ../sass/foundation/_tools.scss */
+/* line 74, ../sass/foundation/_tools.scss */
 .maxs {
   margin: 0.3125em; }
 
-/* line 54, ../sass/foundation/_tools.scss */
+/* line 78, ../sass/foundation/_tools.scss */
 .mas {
   margin: 0.625em; }
 
-/* line 58, ../sass/foundation/_tools.scss */
+/* line 82, ../sass/foundation/_tools.scss */
 .mam {
   margin: 1.25em; }
 
-/* line 62, ../sass/foundation/_tools.scss */
+/* line 86, ../sass/foundation/_tools.scss */
 .mal {
   margin: 2.5em; }
 
-/* line 66, ../sass/foundation/_tools.scss */
+/* line 90, ../sass/foundation/_tools.scss */
 .maxl {
   margin: 5em; }
 
-/* line 72, ../sass/foundation/_tools.scss */
+/* line 96, ../sass/foundation/_tools.scss */
 .mbf {
   margin-bottom: 0; }
 
-/* line 76, ../sass/foundation/_tools.scss */
+/* line 100, ../sass/foundation/_tools.scss */
 .mbxs {
   margin-bottom: 0.3125em; }
 
-/* line 80, ../sass/foundation/_tools.scss */
+/* line 104, ../sass/foundation/_tools.scss */
 .mbs {
   margin-bottom: 0.625em; }
 
-/* line 84, ../sass/foundation/_tools.scss */
+/* line 108, ../sass/foundation/_tools.scss */
 .mbm {
   margin-bottom: 1.25em; }
 
-/* line 88, ../sass/foundation/_tools.scss */
+/* line 112, ../sass/foundation/_tools.scss */
 .mbl {
   margin-bottom: 2.5em; }
 
-/* line 92, ../sass/foundation/_tools.scss */
+/* line 116, ../sass/foundation/_tools.scss */
 .mbxl {
   margin-bottom: 5em; }
 
-/* line 98, ../sass/foundation/_tools.scss */
+/* line 122, ../sass/foundation/_tools.scss */
 .mhc {
   margin-left: auto;
   margin-right: auto; }
 
-/* line 105, ../sass/foundation/_tools.scss */
+/* line 129, ../sass/foundation/_tools.scss */
 .mlf {
   margin-left: 0; }
 
-/* line 109, ../sass/foundation/_tools.scss */
+/* line 133, ../sass/foundation/_tools.scss */
 .mlxs {
   margin-left: 0.3125em; }
 
-/* line 113, ../sass/foundation/_tools.scss */
+/* line 137, ../sass/foundation/_tools.scss */
 .mls {
   margin-left: 0.625em; }
 
-/* line 117, ../sass/foundation/_tools.scss */
+/* line 141, ../sass/foundation/_tools.scss */
 .mlm {
   margin-left: 1.25em; }
 
-/* line 121, ../sass/foundation/_tools.scss */
+/* line 145, ../sass/foundation/_tools.scss */
 .mll {
   margin-left: 2.5em; }
 
-/* line 127, ../sass/foundation/_tools.scss */
+/* line 151, ../sass/foundation/_tools.scss */
 .mrf {
   margin-right: 0; }
 
-/* line 131, ../sass/foundation/_tools.scss */
+/* line 155, ../sass/foundation/_tools.scss */
 .mrxs {
   margin-right: 0.3125em; }
 
-/* line 135, ../sass/foundation/_tools.scss */
+/* line 159, ../sass/foundation/_tools.scss */
 .mrs {
   margin-right: 0.625em; }
 
-/* line 139, ../sass/foundation/_tools.scss */
+/* line 163, ../sass/foundation/_tools.scss */
 .mrm {
   margin-right: 1.25em; }
 
-/* line 143, ../sass/foundation/_tools.scss */
+/* line 167, ../sass/foundation/_tools.scss */
 .mrl {
   margin-right: 2.5em; }
 
-/* line 149, ../sass/foundation/_tools.scss */
+/* line 173, ../sass/foundation/_tools.scss */
 .mtf {
   margin-top: 0; }
 
-/* line 153, ../sass/foundation/_tools.scss */
+/* line 177, ../sass/foundation/_tools.scss */
 .mtxs {
   margin-top: 0.3125em; }
 
-/* line 157, ../sass/foundation/_tools.scss */
+/* line 181, ../sass/foundation/_tools.scss */
 .mts {
   margin-top: 0.625em; }
 
-/* line 161, ../sass/foundation/_tools.scss */
+/* line 185, ../sass/foundation/_tools.scss */
 .mtm {
   margin-top: 1.25em; }
 
-/* line 165, ../sass/foundation/_tools.scss */
+/* line 189, ../sass/foundation/_tools.scss */
 .mtl {
   margin-top: 2.5em; }
 
-/* line 169, ../sass/foundation/_tools.scss */
+/* line 193, ../sass/foundation/_tools.scss */
 .mtxl {
   margin-top: 5em; }
 
-/* line 179, ../sass/foundation/_tools.scss */
+/* line 203, ../sass/foundation/_tools.scss */
 .paxs {
   padding: 0.3125em; }
 
-/* line 183, ../sass/foundation/_tools.scss */
+/* line 207, ../sass/foundation/_tools.scss */
 .pas {
   padding: 0.625em; }
 
-/* line 187, ../sass/foundation/_tools.scss */
+/* line 211, ../sass/foundation/_tools.scss */
 .pam {
   padding: 1.25em; }
 
-/* line 191, ../sass/foundation/_tools.scss */
+/* line 215, ../sass/foundation/_tools.scss */
 .pal {
   padding: 2.5em; }
 
-/* line 195, ../sass/foundation/_tools.scss */
+/* line 219, ../sass/foundation/_tools.scss */
 .paxl {
   padding: 5em; }
 
-/* line 201, ../sass/foundation/_tools.scss */
+/* line 225, ../sass/foundation/_tools.scss */
 .pbf {
   padding-bottom: 0; }
 
-/* line 205, ../sass/foundation/_tools.scss */
+/* line 229, ../sass/foundation/_tools.scss */
 .pbxs {
   padding-bottom: 0.3125em; }
 
-/* line 209, ../sass/foundation/_tools.scss */
+/* line 233, ../sass/foundation/_tools.scss */
 .pbs {
   padding-bottom: 0.625em; }
 
-/* line 213, ../sass/foundation/_tools.scss */
+/* line 237, ../sass/foundation/_tools.scss */
 .pbm {
   padding-bottom: 1.25em; }
 
-/* line 217, ../sass/foundation/_tools.scss */
+/* line 241, ../sass/foundation/_tools.scss */
 .pbl {
   padding-bottom: 2.5em; }
 
-/* line 221, ../sass/foundation/_tools.scss */
+/* line 245, ../sass/foundation/_tools.scss */
 .pbxl {
   padding-bottom: 5em; }
 
-/* line 227, ../sass/foundation/_tools.scss */
+/* line 251, ../sass/foundation/_tools.scss */
 .plf {
   padding-left: 0; }
 
-/* line 231, ../sass/foundation/_tools.scss */
+/* line 255, ../sass/foundation/_tools.scss */
 .plxs {
   padding-left: 0.3125em; }
 
-/* line 235, ../sass/foundation/_tools.scss */
+/* line 259, ../sass/foundation/_tools.scss */
 .pls {
   padding-left: 0.625em; }
 
-/* line 239, ../sass/foundation/_tools.scss */
+/* line 263, ../sass/foundation/_tools.scss */
 .plm {
   padding-left: 1.25em; }
 
-/* line 243, ../sass/foundation/_tools.scss */
+/* line 267, ../sass/foundation/_tools.scss */
 .pll {
   padding-left: 2.5em; }
 
-/* line 249, ../sass/foundation/_tools.scss */
+/* line 273, ../sass/foundation/_tools.scss */
 .prf {
   padding-right: 0; }
 
-/* line 253, ../sass/foundation/_tools.scss */
+/* line 277, ../sass/foundation/_tools.scss */
 .prxs {
   padding-right: 0.3125em; }
 
-/* line 257, ../sass/foundation/_tools.scss */
+/* line 281, ../sass/foundation/_tools.scss */
 .prs {
   padding-right: 0.625em; }
 
-/* line 261, ../sass/foundation/_tools.scss */
+/* line 285, ../sass/foundation/_tools.scss */
 .prm {
   padding-right: 1.25em; }
 
-/* line 265, ../sass/foundation/_tools.scss */
+/* line 289, ../sass/foundation/_tools.scss */
 .prl {
   padding-right: 2.5em; }
 
-/* line 271, ../sass/foundation/_tools.scss */
+/* line 295, ../sass/foundation/_tools.scss */
 .ptf {
   padding-top: 0; }
 
-/* line 275, ../sass/foundation/_tools.scss */
+/* line 299, ../sass/foundation/_tools.scss */
 .ptxs {
   padding-top: 0.3125em; }
 
-/* line 279, ../sass/foundation/_tools.scss */
+/* line 303, ../sass/foundation/_tools.scss */
 .pts {
   padding-top: 0.625em; }
 
-/* line 283, ../sass/foundation/_tools.scss */
+/* line 307, ../sass/foundation/_tools.scss */
 .ptm {
   padding-top: 1.25em; }
 
-/* line 287, ../sass/foundation/_tools.scss */
+/* line 311, ../sass/foundation/_tools.scss */
 .ptl {
   padding-top: 2.5em; }
 
-/* line 291, ../sass/foundation/_tools.scss */
+/* line 315, ../sass/foundation/_tools.scss */
 .ptxl {
   padding-top: 5em; }
 
-/* line 299, ../sass/foundation/_tools.scss */
+/* line 323, ../sass/foundation/_tools.scss */
 .fl {
   float: left; }
 
-/* line 303, ../sass/foundation/_tools.scss */
+/* line 327, ../sass/foundation/_tools.scss */
 .fr {
   float: right; }
 
-/* line 307, ../sass/foundation/_tools.scss */
+/* line 331, ../sass/foundation/_tools.scss */
 .poa {
   position: absolute; }
 
-/* line 311, ../sass/foundation/_tools.scss */
+/* line 335, ../sass/foundation/_tools.scss */
 .pof {
   position: fixed; }
 
-/* line 315, ../sass/foundation/_tools.scss */
+/* line 339, ../sass/foundation/_tools.scss */
 .por {
   position: relative; }
 
-/* line 319, ../sass/foundation/_tools.scss */
+/* line 343, ../sass/foundation/_tools.scss */
 .pos {
   position: static; }
 
-/* line 327, ../sass/foundation/_tools.scss */
+/* line 351, ../sass/foundation/_tools.scss */
 .ra {
   border-radius: 50%; }
 
-/* line 331, ../sass/foundation/_tools.scss */
+/* line 355, ../sass/foundation/_tools.scss */
 .ram {
   border-radius: 3px; }
 
-/* line 335, ../sass/foundation/_tools.scss */
+/* line 359, ../sass/foundation/_tools.scss */
 .ran {
   border-radius: 0; }
 
-/* line 345, ../sass/foundation/_tools.scss */
+/* line 369, ../sass/foundation/_tools.scss */
 .tac {
   text-align: center; }
 
-/* line 351, ../sass/foundation/_tools.scss */
+/* line 375, ../sass/foundation/_tools.scss */
 .tch {
-  color: #4e4e5b; }
+  color: red; }
 
-/* line 355, ../sass/foundation/_tools.scss */
+/* line 379, ../sass/foundation/_tools.scss */
 .tci {
   color: white; }
 
-/* line 359, ../sass/foundation/_tools.scss */
+/* line 383, ../sass/foundation/_tools.scss */
 .tcs {
-  color: #b5b5c0; }
+  color: #ffcccc; }
 
-/* line 363, ../sass/foundation/_tools.scss */
+/* line 387, ../sass/foundation/_tools.scss */
 .tct {
   color: #444444; }
 
-/* line 369, ../sass/foundation/_tools.scss */
+/* line 393, ../sass/foundation/_tools.scss */
 .tfb {
   font-family: sans-serif; }
 
-/* line 373, ../sass/foundation/_tools.scss */
+/* line 397, ../sass/foundation/_tools.scss */
 .tfh {
   font-family: sans-serif; }
 
-/* line 379, ../sass/foundation/_tools.scss */
+/* line 403, ../sass/foundation/_tools.scss */
 .tsxs {
   font-size: 60%; }
 
-/* line 383, ../sass/foundation/_tools.scss */
+/* line 407, ../sass/foundation/_tools.scss */
 .tss {
   font-size: 75%; }
 
-/* line 387, ../sass/foundation/_tools.scss */
+/* line 411, ../sass/foundation/_tools.scss */
 .tsm {
   font-size: 90%; }
 
-/* line 391, ../sass/foundation/_tools.scss */
+/* line 415, ../sass/foundation/_tools.scss */
 .tsl {
   font-size: 115%; }
 
-/* line 395, ../sass/foundation/_tools.scss */
+/* line 419, ../sass/foundation/_tools.scss */
 .tsxl {
   font-size: 150%; }
 
-/* line 401, ../sass/foundation/_tools.scss */
+/* line 425, ../sass/foundation/_tools.scss */
 .tsi {
   font-style: italic; }
 
-/* line 407, ../sass/foundation/_tools.scss */
+/* line 431, ../sass/foundation/_tools.scss */
 .ttu {
   text-transform: uppercase; }
 
-/* line 413, ../sass/foundation/_tools.scss */
+/* line 437, ../sass/foundation/_tools.scss */
 .twn {
   font-weight: normal; }
 
-/* line 417, ../sass/foundation/_tools.scss */
+/* line 441, ../sass/foundation/_tools.scss */
 .twb {
   font-weight: bold; }

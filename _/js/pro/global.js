@@ -16,7 +16,7 @@
                 };
     })();
 
-	var canvass = function(can, index, options){
+	var canvass = function(can, index){
         this.index = index;
         var canvas = this;
 		this.init = function(){
@@ -74,20 +74,23 @@
         }
 
         var background = {
-            options: {color: 'blue'},
             circles: [],
-            colors: ['#F29727', '#E05723', '#B0382F', '#982E4B', '#713045', ],
-            init: function(){
-                $.extend(background.options, options.background)
+            //colors: ['#F29727', '#E05723', '#B0382F', '#982E4B', '#713045', ],
 
-                background.colors.reverse();
+            init: function(){
+
+                //background.colors.reverse();
                 // Copy colors to array used for circles
-                background.circleColors = background.options.color;
+                //background.circleColors = background.colors;
+
+                // Set up background console
+                background.color = rgb2hex($(canvas.can).css('background-color'));
+                background.colorOrig = background.color;
             }, 
             draw: function(){
                 // Draw background
                 canvas.ctx.save();
-                canvas.ctx.fillStyle = background.options.color;
+                canvas.ctx.fillStyle = background.color;
                 canvas.ctx.fillRect(0, 0, canvas.can.width, canvas.can.height);
                 canvas.ctx.restore();
 
@@ -97,7 +100,7 @@
                         canvas.ctx.save();
                         canvas.ctx.beginPath();
                         canvas.ctx.arc(el.x, el.y, el.radius, 0, 2 * Math.PI, false);
-                        canvas.ctx.fillStyle = 'el.fill';
+                        canvas.ctx.fillStyle = el.fill;
                         canvas.ctx.fill();
                         canvas.ctx.restore();
                     });
@@ -111,22 +114,28 @@
                 background.circles.forEach(function(el){
                     // If radius is bigger than canvas, remove from array and change bg color
                     if (el.radius > canvas.can.width  && el.radius > canvas.can.height){
-                        background.colors.push(background.colors.shift());
+                        background.color = el.fill;
                         background.circles.splice(i--, 1);
                     }
                     el.radius *= 1.05;
                     i++;
                 });
+                // Gradually bring background color back to the original color
+                background.color = blendColors(background.color, background.colorOrig, .1);
             },
             addCircle: function(x, y){
                 // Update circle colors
-                background.circleColors.push(background.circleColors.shift());
+                //background.circleColors.push(background.circleColors.shift());
+
+                // Get random shaded color based off of original color
+                var colorShaded =  shadeColor(background.colorOrig, Math.random() * (.5 - -.5) + -.5);
+
                 // Add circle object to circles array
                 background.circles.push({
                     x: x,
                     y: y,
                     radius : 1,
-                    fill: background.circleColors[0],
+                    fill: colorShaded,
                 })
             }
         }
@@ -366,6 +375,25 @@
             }
         }
     }
+    // http://stackoverflow.com/a/13542669/1552042
+    function shadeColor(color, percent) {   
+        var f=parseInt(color.slice(1),16),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=f>>16,G=f>>8&0x00FF,B=f&0x0000FF;
+        return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
+    }
+    function blendColors(c0, c1, p) {
+        var f=parseInt(c0.slice(1),16),t=parseInt(c1.slice(1),16),R1=f>>16,G1=f>>8&0x00FF,B1=f&0x0000FF,R2=t>>16,G2=t>>8&0x00FF,B2=t&0x0000FF;
+        return "#"+(0x1000000+(Math.round((R2-R1)*p)+R1)*0x10000+(Math.round((G2-G1)*p)+G1)*0x100+(Math.round((B2-B1)*p)+B1)).toString(16).slice(1);
+    }
+    // http://stackoverflow.com/a/3627747/1552042
+    function rgb2hex(rgb) {
+        if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
+
+        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        function hex(x) {
+            return ("0" + parseInt(x).toString(16)).slice(-2);
+        }
+        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
 	
 
     var common = { // Rename me?
@@ -394,7 +422,7 @@
         // Set up each canvas
         var options = {background: {color: 'red'}};
         $('canvas').each(function(index){
-            canvasIni[index] = new canvass($(this)[0], index, options);
+            canvasIni[index] = new canvass($(this)[0], index);
             canvasIni[index].init();
         })
 

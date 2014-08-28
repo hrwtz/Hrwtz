@@ -68,11 +68,17 @@
     height: $b-space-3x;
     margin-left: -$b-space-3x;
     pointer-events: auto;
-    background-color: red;
 
     &:nth-of-type(2){
         margin-left: 0;
-        background-color: $c-background;
+    }
+
+    .icon{
+        position: relative;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
     }
 
 }
@@ -94,7 +100,6 @@
         position: absolute;
         width: 100%;
         height: 2px;
-        background: white;
         @include transition(all 0.3s cubic-bezier(0.600, -0.280, 0.735, 0.045));
         @include transform(translate3d(0,0,0));
         content: "";
@@ -137,15 +142,58 @@
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
-.row{
-    &:nth-of-type(2n){
-        .navigation-button{
-            background-color: $c-background;
 
-            &:nth-of-type(2){
-                margin-left: 0;
-                background-color: red;
-            }
-        }
+.navigation-hamburger-center,
+.navigation-hamburger:before,
+.navigation-hamburger:after{
+
+    .navigation-button--bcr &{
+        background: $c-background;
     }
+
+    .navigation-button--bc0 &{
+        background: $c-canvasBg0;
+    }
+
+    .navigation-button--bc1 &{
+        background: $c-canvasBg1;
+    }
+
+    .navigation-button--bc2 &{
+        background: $c-canvasBg2;
+    }
+
+    .navigation-button--bc3 &{
+        background: $c-canvasBg3;
+    }
+
+    .navigation-button--bc4 &{
+        background: $c-canvasBg4;
+    }
+
+}
+
+
+.navigation-button--bcr .icon{
+    fill: $c-background;
+}
+
+.navigation-button--bc0 .icon{
+    fill: $c-canvasBg0;
+}
+
+.navigation-button--bc1 .icon{
+    fill: $c-canvasBg1;
+}
+
+.navigation-button--bc2 .icon{
+    fill: $c-canvasBg2;
+}
+
+.navigation-button--bc3 .icon{
+    fill: $c-canvasBg3;
+}
+
+.navigation-button--bc4 .icon{
+    fill: $c-canvasBg4;
 }
