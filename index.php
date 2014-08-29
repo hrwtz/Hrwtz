@@ -33,9 +33,9 @@
 </head>
 
 <body>
-	<main>
+
 		<?php for ($i=0; $i < 5; $i++) : ?>
-			<div class="row row--window">
+			<section class="row row--window">
 				<?php if ( $i % 2 == 1 ) : ?>
 					<div class="cell cell--color">
 						<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
@@ -76,12 +76,12 @@
 						</a>
 					</nav>
 				</div>
-			</div>
+			</section>
 		<?php endfor; ?>
-	</main>
+
 
 	
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="_/js/src/common.js"></script>
+	<script src="_/js/pro/global.js"></script>
 </body>
 </html>

@@ -405,6 +405,9 @@
                 e.preventDefault();
             });
 
+            // Panel Snap
+            $('body').panelSnap();
+
             common.resize();
         },
         resize: function(){

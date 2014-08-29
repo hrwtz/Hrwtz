@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 			// Configuration for concatinating files goes here.
 			dist: {
 				src: [
+						'../js/libs/jquery.panelSnap.js',
 						'../js/src/common.js'  
 				],
 				dest: '../js/pro/global.js',
