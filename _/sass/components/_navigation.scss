@@ -103,33 +103,44 @@
         @include transition(all 0.3s cubic-bezier(0.600, -0.280, 0.735, 0.045));
         @include transform(translate3d(0,0,0));
         content: "";
-        /* Webskit fix for weird bugs */
+        /* Webkit fix for weird bugs */
         -webkit-backface-visibility: hidden;
         -webkit-transform: translateZ(0);
     }
+
     .navigation-hamburger-center{
         top: 0;
         left: 50%;
         margin-left: -50%;
     }
+
     &:before{
         top: -7px;
     }
+    
     &:after {
         top: 7px;
     }
     
     /* Close State */
     .is-open &{
+        .navigation-hamburger-center,
+        &:before,
+        &:after{
+            @include transition(all 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275));
+        }
+
         &:after{
             @include transform(rotate(-45deg) translate(2px, 4px));
 
             transform-origin: bottom left;
         }
+
         &:before{
             @include transform(rotate(45deg) translate(1px, -3px));
             transform-origin: bottom left;
         }
+
         .navigation-hamburger-center{
             width: 0;
             margin-left: 0;

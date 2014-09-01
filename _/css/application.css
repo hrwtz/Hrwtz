@@ -369,21 +369,27 @@ img {
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     content: "";
-    /* Webskit fix for weird bugs */
+    /* Webkit fix for weird bugs */
     -webkit-backface-visibility: hidden;
     -webkit-transform: translateZ(0); }
-  /* line 110, ../sass/components/_navigation.scss */
+  /* line 111, ../sass/components/_navigation.scss */
   .navigation-hamburger .navigation-hamburger-center {
     top: 0;
     left: 50%;
     margin-left: -50%; }
-  /* line 115, ../sass/components/_navigation.scss */
+  /* line 117, ../sass/components/_navigation.scss */
   .navigation-hamburger:before {
     top: -7px; }
-  /* line 118, ../sass/components/_navigation.scss */
+  /* line 121, ../sass/components/_navigation.scss */
   .navigation-hamburger:after {
     top: 7px; }
-  /* line 124, ../sass/components/_navigation.scss */
+  /* line 129, ../sass/components/_navigation.scss */
+  .is-open .navigation-hamburger .navigation-hamburger-center, .is-open .navigation-hamburger:before, .is-open .navigation-hamburger:after {
+    -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  /* line 133, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger:after {
     -webkit-transform: rotate(-45deg) translate(2px, 4px);
     -moz-transform: rotate(-45deg) translate(2px, 4px);
@@ -391,7 +397,7 @@ img {
     -o-transform: rotate(-45deg) translate(2px, 4px);
     transform: rotate(-45deg) translate(2px, 4px);
     transform-origin: bottom left; }
-  /* line 129, ../sass/components/_navigation.scss */
+  /* line 139, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger:before {
     -webkit-transform: rotate(45deg) translate(1px, -3px);
     -moz-transform: rotate(45deg) translate(1px, -3px);
@@ -399,64 +405,64 @@ img {
     -o-transform: rotate(45deg) translate(1px, -3px);
     transform: rotate(45deg) translate(1px, -3px);
     transform-origin: bottom left; }
-  /* line 133, ../sass/components/_navigation.scss */
+  /* line 144, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger .navigation-hamburger-center {
     width: 0;
     margin-left: 0;
     opacity: .5; }
 
-/* line 150, ../sass/components/_navigation.scss */
+/* line 161, ../sass/components/_navigation.scss */
 .navigation-button--bcr .navigation-hamburger-center, .navigation-button--bcr
 .navigation-hamburger:before, .navigation-button--bcr
 .navigation-hamburger:after {
   background: #ecf0f1; }
-/* line 154, ../sass/components/_navigation.scss */
+/* line 165, ../sass/components/_navigation.scss */
 .navigation-button--bc0 .navigation-hamburger-center, .navigation-button--bc0
 .navigation-hamburger:before, .navigation-button--bc0
 .navigation-hamburger:after {
   background: #713045; }
-/* line 158, ../sass/components/_navigation.scss */
+/* line 169, ../sass/components/_navigation.scss */
 .navigation-button--bc1 .navigation-hamburger-center, .navigation-button--bc1
 .navigation-hamburger:before, .navigation-button--bc1
 .navigation-hamburger:after {
   background: #982e4b; }
-/* line 162, ../sass/components/_navigation.scss */
+/* line 173, ../sass/components/_navigation.scss */
 .navigation-button--bc2 .navigation-hamburger-center, .navigation-button--bc2
 .navigation-hamburger:before, .navigation-button--bc2
 .navigation-hamburger:after {
   background: #b0382f; }
-/* line 166, ../sass/components/_navigation.scss */
+/* line 177, ../sass/components/_navigation.scss */
 .navigation-button--bc3 .navigation-hamburger-center, .navigation-button--bc3
 .navigation-hamburger:before, .navigation-button--bc3
 .navigation-hamburger:after {
   background: #e05723; }
-/* line 170, ../sass/components/_navigation.scss */
+/* line 181, ../sass/components/_navigation.scss */
 .navigation-button--bc4 .navigation-hamburger-center, .navigation-button--bc4
 .navigation-hamburger:before, .navigation-button--bc4
 .navigation-hamburger:after {
   background: #f29727; }
 
-/* line 177, ../sass/components/_navigation.scss */
+/* line 188, ../sass/components/_navigation.scss */
 .navigation-button--bcr .icon {
   fill: #ecf0f1; }
 
-/* line 181, ../sass/components/_navigation.scss */
+/* line 192, ../sass/components/_navigation.scss */
 .navigation-button--bc0 .icon {
   fill: #713045; }
 
-/* line 185, ../sass/components/_navigation.scss */
+/* line 196, ../sass/components/_navigation.scss */
 .navigation-button--bc1 .icon {
   fill: #982e4b; }
 
-/* line 189, ../sass/components/_navigation.scss */
+/* line 200, ../sass/components/_navigation.scss */
 .navigation-button--bc2 .icon {
   fill: #b0382f; }
 
-/* line 193, ../sass/components/_navigation.scss */
+/* line 204, ../sass/components/_navigation.scss */
 .navigation-button--bc3 .icon {
   fill: #e05723; }
 
-/* line 197, ../sass/components/_navigation.scss */
+/* line 208, ../sass/components/_navigation.scss */
 .navigation-button--bc4 .icon {
   fill: #f29727; }
 
