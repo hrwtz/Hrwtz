@@ -27,6 +27,9 @@
             // Run resize function
             canvas.resize();
 
+            // Run scroll function
+            canvas.scroll();
+
             // Run click event handler
             canvas.click();
 
@@ -64,14 +67,42 @@
                 canvas.ctx.drawImage(tempContext.canvas, 0, 0);
             }).trigger('resize');
         };
+        this.scroll = function(){
+            $(window).scroll(function(){
+                var docViewTop = $(window).scrollTop();
+                var docViewBottom = docViewTop + $(window).height();
+
+                var elemTop = $(canvas.can).offset().top;
+                var elemBottom = elemTop + $(canvas.can).height();
+
+                // If canvase is in viewport at all, update visible property
+                if  ( ( elemTop >= docViewTop && elemTop < docViewBottom ) || ( elemBottom <= docViewBottom && elemBottom > docViewTop ) ){
+                    canvas.visible = true;
+                }else{
+                    canvas.visible = false;
+                }
+            }).trigger('scroll');
+        };
         this.draw = function(){
+            // Only draw on canvas if canvas is in view
+            if (!canvas.visible)
+                return;
+
         	// Draw gradient background
         	background.draw();
         	// Draw particles
         	particles.draw();
             // Draw triangle
             triangle.draw();
-        }
+        };
+        this.update = function(){
+            // Update gradient background
+            background.update();
+            // Update particles
+            particles.update();
+            // Update triangle
+            triangle.update();
+        };
 
         var background = {
             circles: [],
@@ -105,9 +136,6 @@
                         canvas.ctx.restore();
                     });
                 }
-
-                // Update info
-                background.update();
             },
             update: function(){
                 var i = 0;
@@ -148,14 +176,22 @@
             },
             draw: function(){
                 
+                // Call the function that will draw the particles using a loop
+                for (var i = 0; i < particles.particlesArray.length; i++) {
+                    particles.particlesArray[i].draw();
+                }
+
+            },
+            update: function(){
+                
                 // Add new particle every 5 frames
                 if (countAniFrame % 3 == 0){
                     particles.particlesArray.push(new particles.particle());
                 }
                 
-                // Call the function that will draw the particles using a loop
+                // Call the function that will update the particles using a loop
                 for (var i = 0; i < particles.particlesArray.length; i++) {
-                    particles.particlesArray[i].draw();
+                    particles.particlesArray[i].update();
                 }
 
             },
@@ -183,8 +219,6 @@
                     canvas.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
                     canvas.ctx.fill();
                     canvas.ctx.restore();
-
-                    this.update();
                 }
 
                 // Update values for next round
@@ -294,7 +328,6 @@
                 canvas.ctx.fill();
                 canvas.ctx.closePath();
                 canvas.ctx.restore();
-                triangle.update();
             },
             update: function(){
                 // Animations!
@@ -434,9 +467,10 @@
             // Update frame count
             countAniFrame++;
 
-            // Call draw method on each canvas
+            // Call draw and update methods on each canvas
             $.each(canvasIni, function(index){
                 canvasIni[index].draw();
+                canvasIni[index].update();
             });
             
             // Recursion
