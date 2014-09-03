@@ -27,15 +27,17 @@ $c-canvasBg2: #B0382F;
 $c-canvasBg3: #E05723;
 $c-canvasBg4: #F29727;
 
+$c-offWhite: #ecf0f1;
+
 
 // ----- Base ----- //
 
 //$c-background-invert: white;
-$c-background: #ecf0f1;
+$c-background: $c-offWhite;
 //$c-border: red;
 //$c-highlight: red;
 //$c-subdue: lighten(red, 40%);
-//$c-text-invert: white;
+$c-text-invert: $c-offWhite;
 $c-text: #5d6975;
 $c-text-highlight: $c-canvasBg0;
 $c-text-headline: #263146;
@@ -66,6 +68,9 @@ $b-fontFamily-heading: 'Khand', sans-serif;
 $b-fontFamily: 'Vollkorn', serif;
 $b-fontSize: 20px;
 
+$b-fontSize-s-px: 18px;
+$b-fontSize-s: em($b-fontSize-s-px);
+
 $b-fontSize-l-px: 24px;
 $b-fontSize-l: em($b-fontSize-l-px);
 
@@ -78,8 +83,9 @@ $b-lineHeight-subhead: 4/3;
 
 // ----- Sizing ----- //
 
-$b-maxWidth: em(1024px);
+$b-maxWidth: em(1300px);
 $b-maxWidth-s: em(670px);
+$b-maxWidth-m: em(800px);
 
 $b-space-px: 20px;
 $b-space: em($b-space-px);
@@ -95,6 +101,12 @@ $b-space-2o5x:em($b-space-2o5x-px);
 
 $b-space-3x-px: 3 * $b-space-px;
 $b-space-3x:em($b-space-3x-px);
+
+$b-space-4x-px: 4 * $b-space-px;
+$b-space-4x:em($b-space-4x-px);
+
+$b-space-10x-px: 10 * $b-space-px;
+$b-space-10x:em($b-space-10x-px);
 
 
 

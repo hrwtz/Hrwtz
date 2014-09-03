@@ -225,7 +225,10 @@ ul:last-child {
 /* line 95, ../sass/foundation/_base.scss */
 p a,
 .p a {
-  border-bottom: 1px solid #713045;
+  border-bottom: 1px solid #713045; }
+
+/* line 99, ../sass/foundation/_base.scss */
+a {
   color: #713045; }
 
 /*
@@ -239,25 +242,60 @@ a {
     color: $c-subdue;
   }
 }*/
-/* line 114, ../sass/foundation/_base.scss */
+/* line 117, ../sass/foundation/_base.scss */
 img {
   height: auto;
   max-width: 100%; }
 
+/* line 15, ../sass/components/_well.scss */
+.well {
+  margin-top: 10em;
+  margin-bottom: 4em; }
+
 /* line 15, ../sass/components/_cell.scss */
 .cell {
   position: relative;
-  float: left;
-  width: 50%;
-  max-width: 51.2em;
-  height: 100%;
+  width: 100%;
+  max-width: 65em;
   margin-right: auto;
   margin-left: auto; }
 
-/* line 15, ../sass/components/_row.sass */
+/* line 35, ../sass/components/_cell.scss */
+.cell--s {
+  max-width: 33.5em; }
+
+/* line 39, ../sass/components/_cell.scss */
+.cell--m {
+  max-width: 40em; }
+
+/* line 43, ../sass/components/_cell.scss */
+.cell--half {
+  float: left;
+  width: 50%;
+  max-width: none;
+  height: 100%; }
+
+/* line 50, ../sass/components/_cell.scss */
+.cell-content--left {
+  float: right;
+  padding-left: 1em;
+  padding-right: 25%; }
+
+/* line 56, ../sass/components/_cell.scss */
+.cell-content--right {
+  float: left;
+  padding-right: 1em;
+  padding-left: 25%; }
+
+/* line 15, ../sass/components/_row.scss */
 .row {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 0 1em; }
+
+/* line 26, ../sass/components/_row.scss */
+.row--window {
+  padding: 0; }
 
 /* line 8, ../sass/components/_navigation.scss */
 .navigation {
@@ -512,21 +550,43 @@ img {
   width: 100%;
   height: 100%; }
 
-/* line 7, ../sass/components/_content.scss */
-.content {
-  max-width: 33.5em; }
+/* line 16, ../sass/components/_work.scss */
+.work-h2 {
+  margin-bottom: 1em; }
 
-/* line 15, ../sass/components/_content.scss */
-.content--left {
-  float: right;
+/* line 21, ../sass/components/_work.scss */
+.work-skills {
+  margin-top: 1em; }
+
+/* line 25, ../sass/components/_work.scss */
+.work-skill {
+  display: inline-block;
   padding-left: 1em;
-  padding-right: 25%; }
-
-/* line 21, ../sass/components/_content.scss */
-.content--right {
-  float: left;
   padding-right: 1em;
-  padding-left: 25%; }
+  background-color: #b0382f;
+  list-style: none;
+  color: #ecf0f1;
+  font-style: italic; }
+
+/* line 35, ../sass/components/_work.scss */
+.work-content {
+  margin-bottom: 4em; }
+  /* line 38, ../sass/components/_work.scss */
+  .work-content:last-child {
+    margin-bottom: 0; }
+
+/* line 43, ../sass/components/_work.scss */
+.work-launch {
+  text-align: right; }
+  /* line 46, ../sass/components/_work.scss */
+  .work-launch svg {
+    position: relative;
+    top: 3px;
+    fill: #713045; }
+
+/* line 53, ../sass/components/_work.scss */
+.work-image {
+  width: 100%; }
 
 /*
 .bch {

@@ -14,16 +14,47 @@
 
 .cell{
     position: relative;
-    float: left;
-    width: 50%;
+    width: 100%;
     max-width: $b-maxWidth;
-    height: 100%;
     margin-right: auto;
     margin-left: auto;
 }
+
+
+// -------------------------------------
+//   Structure
+// -------------------------------------
+
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
 // ----- Sizes ----- //
+
+.cell--s{
+    max-width: $b-maxWidth-s;
+}
+
+.cell--m{
+    max-width: $b-maxWidth-m;
+}
+
+.cell--half{
+    float: left;
+    width: 50%;
+    max-width: none;
+    height: 100%;
+}
+
+.cell-content--left{
+    float: right;
+    padding-left: $b-space;
+    padding-right: 25%;
+}
+
+.cell-content--right{
+    float: left;
+    padding-right: $b-space;
+    padding-left: 25%;
+}

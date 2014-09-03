@@ -1,121 +1,69 @@
-<!DOCTYPE html>
+<?php require('header.php'); ?>
 
-<!--[if lt IE 7 ]> <html class="ie ie6 no-js"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie ie7 no-js"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie ie8 no-js"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9 no-js"> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js"><!--<![endif]-->
+<?php 
+$content = array(
+   '<h2 class="h2">Front End Developer</h2>
+	<p class="p">
+		Professional Problem Solver<br>
+		Maker of the Interwebs<br>
+		Amateur Beer Maker<br>
+		300 Ring Owner based in Orlando, Florida.<br>
+	</p>',
 
-<head>
-	<meta charset="UTF-8">
-	
-	<?php // Force latest IE rendering engine and chrome fram ?>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	
-	<title>Mike A Hurwitz - Front End Developer</title>
-	
-	<?php // Meta SEO Information ?>
-	<meta name="title" content="">
-	<meta name="description" content="">
-	<meta name="author" content="Mike A Hurwitz">
-	
-	<?php // Mobile Friendly ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
-	
-	<?php // Favicon ?>
-	<link rel="shortcut icon" href="_/img/favicon.ico">
+   '<h2 class="h2">I Am A Creator</h2>
+    <h3 class="h3">I pride myself in building top-notch websites.</h3>
+	<p>With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing the projects and the web in general forward is what I am passionate about.</p>
+	<p>The web has endless potential and I work every day to push new and alternative technologies to use in production</p>',
 
-	<?php // CSS ?>
-	<link href='http://fonts.googleapis.com/css?family=Khand|Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
-	<link href="_/css/application.css" rel=stylesheet />
-	
-</head>
+   '<h2 class="h2">Learning / Skills</h2>
+	<p>The web is a moving target and it is important to never stop learning. I am constantly looking into tools that can streamline my workflow, along with improving current skills. As any front end developer HTML, CSS, and JavaScript are my bread and butter.</p>
+	<p>I am also experienced in the LAMP stack, version control, CSS preprocessors, and the command line. See my résumé for a more complete list of skills.</p>
+	<h3 class="h3">As a web developer, it is vastly important to invest in myself. </h3>',
 
-<body>
-	<?php 
+   '<h2 class="h2">Usability / Experience Building usable sites</h2>
+	<p class="p">Anyone can take a PSD and make it into a webpage, but it takes much more consideration to create a thoughtful and beautiful experience. I strive to make websites usable and work in real life situations.</p>
+	<p class="p">I work towards this goal by creating websites that work across all platforms and sizes, maximize page load speed, and following accessibility standards.</p>
+	<h3 class="h3">Alternative: Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
 
-	$content = array(
-	   '<h2 class="h2">Front End Developer</h2>
-		<p class="p">
-			Professional Problem Solver<br>
-			Maker of the Interwebs<br>
-			Amateur Beer Maker<br>
-			300 Ring Owner based in Orlando, Florida.<br>
-		</p>',
-
-	   '<h2 class="h2">I Am A Creator</h2>
-	    <h3 class="h3">I pride myself in building top-notch websites.</h3>
-		<p>With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing the projects and the web in general forward is what I am passionate about.</p>
-		<p>The web has endless potential and I work every day to push new and alternative technologies to use in production</p>',
-
-	   '<h2 class="h2">Learning / Skills</h2>
-		<p>The web is a moving target and it is important to never stop learning. I am constantly looking into tools that can streamline my workflow, along with improving current skills. As any front end developer HTML, CSS, and JavaScript are my bread and butter.</p>
-		<p>I am also experienced in the LAMP stack, version control, CSS preprocessors, and the command line. See my résumé for a more complete list of skills.</p>
-		<h3 class="h3">As a web developer, it is vastly important to invest in myself. </h3>',
-
-	   '<h2 class="h2">Usability / Experience Building usable sites</h2>
-		<p class="p">Anyone can take a PSD and make it into a webpage, but it takes much more consideration to create a thoughtful and beautiful experience. I strive to make websites usable and work in real life situations.</p>
-		<p class="p">I work towards this goal by creating websites that work across all platforms and sizes, maximize page load speed, and following accessibility standards.</p>
-		<h3 class="h3">Alternative: Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
-
-	   '<h2 class="h2">Contact</h2>
-		<p class="p">
-			Mike A Hurwitz <br>
-			<a href="mailto:mike@mike.com">mike@mikeahurwitz.com</a><br>
-			Orlando, Florida
-		</p>',
-
-	);
-	?>
+   '<h2 class="h2">Contact</h2>
+	<p class="p">
+		Mike A Hurwitz <br>
+		<a href="mailto:mike@mike.com">mike@mikeahurwitz.com</a><br>
+		Orlando, Florida
+	</p>',
+);
+?>
 
 
 
 		<?php for ($i=0; $i < 5; $i++) : ?>
 			<section class="row row--window">
 				<?php if ( $i % 2 == 1 ) : ?>
-					<div class="cell cell--color">
+					<div class="cell cell--half cell--color">
 						<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
 					</div>
 				<?php endif; ?>
-				<div class="cell cell--mono">
+				<div class="cell cell--half cell--mono">
 					<div class="table">
 						<div class="table-cell table-cell--middle">
-							<div class="content <?php echo ( $i % 2 == 1) ? 'content--right' : 'content--left'; ?>">
+							<div class="cell cell--s <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?>">
 								<?php if (isset($content[$i])) echo $content[$i]; ?>
 							</div>
 						</div>
 					</div>
 				</div>
 				<?php if ( $i % 2 == 0 ) : ?>
-					<div class="cell cell--color">
+					<div class="cell cell--half cell--color">
 						<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
 					</div>
 				<?php endif; ?>
 
 				<div class="navigation-clip">
-					<nav class="navigation">
-						<ul class="navigation-list">
-							<li class="navigation-item"><a href="#" class="navigation-item-link <?php echo ($i % 2) ? 'navigation-item-link--tcr' : 'navigation-item-link--tc' . $i; ?>">Who</a></li>
-							<li class="navigation-item"><a href="#" class="navigation-item-link <?php echo ($i % 2) ? 'navigation-item-link--tcr' : 'navigation-item-link--tc' . $i; ?>">Skills</a></li>
-							<li class="navigation-item"><a href="#" class="navigation-item-link <?php echo ($i % 2) ? 'navigation-item-link--tcr' : 'navigation-item-link--tc' . $i; ?>">Work</a></li>
-							<li class="navigation-item"><a href="#" class="navigation-item-link <?php echo ($i % 2) ? 'navigation-item-link--tcr' : 'navigation-item-link--tc' . $i; ?>">Contact</a></li>
-						</ul>
-						<a href="#" class="navigation-button navigation-menu <?php echo ($i % 2) ? 'bcr navigation-button--bc' . $i : 'bc' . $i . ' navigation-button--bcr'; ?>">
-							<span class="navigation-hamburger"><span class="navigation-hamburger-center"></span></span>
-						</a>
-						<a href="#" class="navigation-button <?php echo ($i % 2) ? 'bc' . $i . ' navigation-button--bcr' : 'bcr navigation-button--bc' . $i; ?>">
-							<?php include('_/img/svg/logo-main.svg'); ?>
-						</a>
-					</nav>
+					<?php require('nav.php'); ?>
 				</div>
 			</section>
 		<?php endfor; ?>
 
 
 	
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="_/js/pro/global.js"></script>
-</body>
-</html>
+	<?php require('footer.php'); ?>

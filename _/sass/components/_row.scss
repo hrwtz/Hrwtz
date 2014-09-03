@@ -1,28 +1,28 @@
 // *************************************
 //
-//   Well
-//   -> Vertical spacing
+//   Row
+//   -> Width-spanning blocks
 //
 // -------------------------------------
 //   Template (Haml)
 // -------------------------------------
 //
-// .well[.well--l]
+// .row[.row--a|b]
 //   / ...
 //
 // *************************************
 
-.well
-  margin-bottom: $b-space
-  margin-top: $b-space
+.row{
+    position: relative;
+    overflow: hidden;
+    padding: 0 $b-space;
+}
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-// ----- Sizes ----- //
-
-.well--l
-  margin-bottom: $b-space-l
-  margin-top: $b-space-l
-
+// ----- Theme ----- //
+.row--window{
+    padding: 0;
+}
