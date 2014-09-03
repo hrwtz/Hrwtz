@@ -30,14 +30,15 @@ main{
 //   Block Content
 // -------------------------------------
 
-ul, p {
-  margin-bottom: $b-space;
+p, .p,
+ul {
+  margin-bottom: $b-space-o5x;
   margin-top: 0;
 }
 
 li {
-  margin-bottom: $b-space-s;
-  margin-top: 0;
+  //margin-bottom: $b-space-s;
+  //margin-top: 0;
 }
 
 // ----- Headings ----- //
@@ -46,27 +47,43 @@ h1, .h1,
 h2, .h2,
 h3, .h3,
 h4, .h4 {
-  font-family: $b-fontFamily-heading;
-  font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: $b-space-xs;
-  margin-top: 0;
+    //margin-bottom: $b-space-xs;
 }
 
 h1, .h1 {
-  font-size: 200%;
+
 }
 
 h2, .h2 {
-  font-size: 150%;
+    margin-bottom: em($b-space-2o5x-px, $b-fontSize-xl-px);
+    color: $c-text-headline;
+    font-family: $b-fontFamily-heading;
+    font-size: $b-fontSize-xl;
+    line-height: $b-lineHeight-headline;
+    text-transform: uppercase;
 }
 
 h3, .h3 {
-  font-size: 125%;
+    margin-bottom: em($b-space-o5x-px, $b-fontSize-l-px);
+    color: $c-text-highlight;
+    font-size: $b-fontSize-l;
+    font-style: italic;
+    line-height: $b-lineHeight-subhead;
 }
 
 h4, .h4 {
-  font-size: 110%;
+ // font-size: 110%;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+p,  .p,
+ul  {
+    &:last-child{
+        margin-bottom: 0;
+    }
 }
 
 // -------------------------------------

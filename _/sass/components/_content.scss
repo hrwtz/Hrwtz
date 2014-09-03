@@ -1,0 +1,25 @@
+// *************************************
+//
+//   Contant
+//
+// *************************************
+
+.content{
+    max-width: $b-maxWidth-s;
+}
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.content--left{
+    float: right;
+    padding-left: $b-space;
+    padding-right: 25%;
+}
+
+.content--right{
+    float: left;
+    padding-right: $b-space;
+    padding-left: 25%;
+}

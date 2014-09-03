@@ -30,13 +30,15 @@ $c-canvasBg4: #F29727;
 
 // ----- Base ----- //
 
-$c-background-invert: white;
+//$c-background-invert: white;
 $c-background: #ecf0f1;
-$c-border: red;
-$c-highlight: red;
-$c-subdue: lighten(red, 40%);
-$c-text-invert: white;
-$c-text: #444444;
+//$c-border: red;
+//$c-highlight: red;
+//$c-subdue: lighten(red, 40%);
+//$c-text-invert: white;
+$c-text: #5d6975;
+$c-text-highlight: $c-canvasBg0;
+$c-text-headline: #263146;
 
 // ----- Components ----- //
 
@@ -52,36 +54,54 @@ $c-text: #444444;
 
 // ----- Borders & Box Shadow ----- //
 
-$b-borderRadius: 3px;
-$b-borderStyle: solid;
-$b-borderWidth: 2px;
-$b-border: $b-borderWidth $b-borderStyle $c-border;
-$b-boxShadow: 0 2px 0 rgba($c-text, 0.25);
+//$b-borderRadius: 3px;
+//$b-borderStyle: solid;
+//$b-borderWidth: 2px;
+//$b-border: $b-borderWidth $b-borderStyle $c-border;
+//$b-boxShadow: 0 2px 0 rgba($c-text, 0.25);
 
 // ----- Typography ----- //
 
-$b-fontFamily-heading: sans-serif;
-$b-fontFamily: sans-serif;
-$b-fontSize: 16px;
-$b-fontSize-xs: 60%;
-$b-fontSize-s: 75%;
-$b-fontSize-m: 90%;
-$b-fontSize-l: 115%;
-$b-fontSize-xl: 150%;
-$b-lineHeight: 1.5;
+$b-fontFamily-heading: 'Khand', sans-serif;
+$b-fontFamily: 'Vollkorn', serif;
+$b-fontSize: 20px;
+
+$b-fontSize-l-px: 24px;
+$b-fontSize-l: em($b-fontSize-l-px);
+
+$b-fontSize-xl-px: 60px;
+$b-fontSize-xl: em($b-fontSize-xl-px);
+
+$b-lineHeight: 1.6;
+$b-lineHeight-headline: 5/6;
+$b-lineHeight-subhead: 4/3;
 
 // ----- Sizing ----- //
 
 $b-maxWidth: em(1024px);
-$b-maxWidth-s: em(700px);
-$b-space: em(20px);
-$b-space-3x: 3 * em(20px);
+$b-maxWidth-s: em(670px);
+
+$b-space-px: 20px;
+$b-space: em($b-space-px);
+
+$b-space-o25x-px: .25 * $b-space-px;
+$b-space-o25x: em($b-space-o25x-px);
+
+$b-space-o5x-px: .5 * $b-space-px;
+$b-space-o5x: em($b-space-o5x-px);
+
+$b-space-2o5x-px: 2.5 * $b-space-px;
+$b-space-2o5x:em($b-space-2o5x-px);
+
+$b-space-3x-px: 3 * $b-space-px;
+$b-space-3x:em($b-space-3x-px);
 
 
-$b-space-xs: 0.25 * $b-space;
-$b-space-s: 0.5 * $b-space;
-$b-space-l: 2 * $b-space;
-$b-space-xl: 4 * $b-space;
+
+//$b-space-xs: 0.25 * $b-space;
+//$b-space-s: 0.5 * $b-space;
+//$b-space-l: 2 * $b-space;
+//$b-space-xl: 4 * $b-space;
 
 // -------------------------------------
 //   Components

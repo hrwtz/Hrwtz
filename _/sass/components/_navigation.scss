@@ -53,10 +53,14 @@
 
 .navigation-item{
     display: inline-block;
+
+    &:last-of-type{
+        margin-right: $b-space;
+    }
 }
 
 .navigation-item-link{
-
+    padding: 0 $b-space-o25x;
 }
 
 .navigation-button{
@@ -132,7 +136,6 @@
 
         &:after{
             @include transform(rotate(-45deg) translate(2px, 4px));
-
             transform-origin: bottom left;
         }
 
@@ -207,4 +210,31 @@
 
 .navigation-button--bc4 .icon{
     fill: $c-canvasBg4;
+}
+
+
+
+
+.navigation-item-link--tcr{
+    color: $c-background;
+}
+
+.navigation-item-link--tc0{
+    color: $c-canvasBg0;
+}
+
+.navigation-item-link--tc1{
+    color: $c-canvasBg1;
+}
+
+.navigation-item-link--tc2{
+    color: $c-canvasBg2;
+}
+
+.navigation-item-link--tc3{
+    color: $c-canvasBg3;
+}
+
+.navigation-item-link--tc4{
+    color: $c-canvasBg4;
 }

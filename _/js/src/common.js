@@ -103,6 +103,11 @@
             // Update triangle
             triangle.update();
         };
+        this.land = function($target){
+            // Update 
+            console.log($target.index())
+            //canvas.
+        }
 
         var background = {
             circles: [],
@@ -431,17 +436,29 @@
 
     var common = { // Rename me?
         init: function(){
+            common.resize();
+
             // Header functionality
             $('.navigation-menu').click(function(e){
-                $('.navigation').toggleClass('is-open')
-
                 e.preventDefault();
+
+                $('.navigation').toggleClass('is-open')
             });
 
             // Panel Snap
-            $('body').panelSnap();
+            $('body').panelSnap({
+                onSnapFinish: function($target){
+                    $.each(canvasIni, function(index){
+                        canvasIni[index].land($target);
+                    });
+                }
+            });
 
-            common.resize();
+            // Set up each canvas
+            $('canvas').each(function(index){
+                canvasIni[index] = new canvass($(this)[0], index);
+                canvasIni[index].init();
+            })
         },
         resize: function(){
             $(window).resize(function(){
@@ -454,13 +471,7 @@
 	// On Ready
 	$(function(){
         common.init();
-
-        // Set up each canvas
-        var options = {background: {color: 'red'}};
-        $('canvas').each(function(index){
-            canvasIni[index] = new canvass($(this)[0], index);
-            canvasIni[index].init();
-        })
+        
 
         // Start the main animation loop using requestAnimFrame
         var animloop = function(){
