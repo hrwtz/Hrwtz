@@ -58,7 +58,14 @@
 	   '<h2 class="h2">Usability / Experience Building usable sites</h2>
 		<p class="p">Anyone can take a PSD and make it into a webpage, but it takes much more consideration to create a thoughtful and beautiful experience. I strive to make websites usable and work in real life situations.</p>
 		<p class="p">I work towards this goal by creating websites that work across all platforms and sizes, maximize page load speed, and following accessibility standards.</p>
-		<h3 class="h3">Alternative: Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>'
+		<h3 class="h3">Alternative: Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
+
+	   '<h2 class="h2">Contact</h2>
+		<p class="p">
+			Mike A Hurwitz <br>
+			<a href="mailto:mike@mike.com">mike@mikeahurwitz.com</a><br>
+			Orlando, Florida
+		</p>',
 
 	);
 	?>

@@ -198,7 +198,7 @@ ul {
 
 /* line 57, ../sass/foundation/_base.scss */
 h2, .h2 {
-  margin-bottom: 0.83333em;
+  margin-bottom: 0.33333em;
   color: #263146;
   font-family: "Khand", sans-serif;
   font-size: 3em;
@@ -213,7 +213,7 @@ h3, .h3 {
   font-style: italic;
   line-height: 1.33333; }
 
-/* line 84, ../sass/foundation/_base.scss */
+/* line 83, ../sass/foundation/_base.scss */
 h1:last-child, .h1:last-child,
 h2:last-child, .h2:last-child,
 h3:last-child, .h3:last-child,
@@ -221,6 +221,12 @@ h4:last-child, .h4:last-child,
 p:last-child, .p:last-child,
 ul:last-child {
   margin-bottom: 0; }
+
+/* line 95, ../sass/foundation/_base.scss */
+p a,
+.p a {
+  border-bottom: 1px solid #713045;
+  color: #713045; }
 
 /*
 a {
@@ -233,7 +239,7 @@ a {
     color: $c-subdue;
   }
 }*/
-/* line 108, ../sass/foundation/_base.scss */
+/* line 114, ../sass/foundation/_base.scss */
 img {
   height: auto;
   max-width: 100%; }

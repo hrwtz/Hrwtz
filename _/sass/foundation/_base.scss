@@ -55,7 +55,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-    margin-bottom: em($b-space-2o5x-px, $b-fontSize-xl-px);
+    margin-bottom: em($b-space-px, $b-fontSize-xl-px);
     color: $c-text-headline;
     font-family: $b-fontFamily-heading;
     font-size: $b-fontSize-xl;
@@ -72,7 +72,6 @@ h3, .h3 {
 }
 
 h4, .h4 {
- // font-size: 110%;
 }
 
 h1, .h1,
@@ -91,6 +90,13 @@ ul  {
 // -------------------------------------
 
 // ----- Links ----- //
+
+p a,
+.p a{
+    border-bottom: 1px solid $c-text-highlight;
+    color: $c-text-highlight;
+}
+
 /*
 a {
   border-bottom: $b-border;
