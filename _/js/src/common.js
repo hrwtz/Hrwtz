@@ -461,10 +461,6 @@
             })
         },
         resize: function(){
-            $(window).resize(function(){
-                // Make all window size sections window sizes
-                $('.row--window').css('height', $(window).height());
-            });
         },
     };
 

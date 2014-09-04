@@ -295,7 +295,8 @@ img {
 
 /* line 26, ../sass/components/_row.scss */
 .row--window {
-  padding: 0; }
+  padding: 0;
+  height: 100%; }
 
 /* line 8, ../sass/components/_navigation.scss */
 .navigation {
