@@ -311,7 +311,21 @@ img {
   -o-backface-visibility: hidden;
   backface-visibility: hidden; }
 
-/* line 23, ../sass/components/_navigation.scss */
+/* line 19, ../sass/components/_navigation.scss */
+.navigationSide {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  z-index: 950;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+/* line 33, ../sass/components/_navigation.scss */
 .navigation-clip {
   position: absolute;
   top: 0;
@@ -321,7 +335,7 @@ img {
   pointer-events: none;
   clip: rect(auto, auto, auto, auto); }
 
-/* line 33, ../sass/components/_navigation.scss */
+/* line 43, ../sass/components/_navigation.scss */
 .navigation-list {
   position: absolute;
   top: 0;
@@ -338,28 +352,28 @@ img {
   pointer-events: auto;
   line-height: 3em;
   text-align: right; }
-  /* line 46, ../sass/components/_navigation.scss */
+  /* line 56, ../sass/components/_navigation.scss */
   .is-open .navigation-list {
-    -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    -moz-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    -o-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    -moz-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    -o-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
     left: 0;
     width: 50%;
     padding-right: 3em; }
 
-/* line 54, ../sass/components/_navigation.scss */
+/* line 64, ../sass/components/_navigation.scss */
 .navigation-item {
   display: inline-block; }
-  /* line 57, ../sass/components/_navigation.scss */
+  /* line 67, ../sass/components/_navigation.scss */
   .navigation-item:last-of-type {
     margin-right: 1em; }
 
-/* line 62, ../sass/components/_navigation.scss */
+/* line 72, ../sass/components/_navigation.scss */
 .navigation-item-link {
   padding: 0 0.25em; }
 
-/* line 66, ../sass/components/_navigation.scss */
+/* line 76, ../sass/components/_navigation.scss */
 .navigation-button {
   position: absolute;
   top: 0;
@@ -369,10 +383,10 @@ img {
   height: 3em;
   margin-left: -3em;
   pointer-events: auto; }
-  /* line 76, ../sass/components/_navigation.scss */
+  /* line 86, ../sass/components/_navigation.scss */
   .navigation-button:nth-of-type(2) {
     margin-left: 0; }
-  /* line 80, ../sass/components/_navigation.scss */
+  /* line 90, ../sass/components/_navigation.scss */
   .navigation-button .icon {
     position: relative;
     top: 10%;
@@ -380,7 +394,7 @@ img {
     width: 80%;
     height: 80%; }
 
-/* line 90, ../sass/components/_navigation.scss */
+/* line 100, ../sass/components/_navigation.scss */
 .navigation-hamburger {
   position: relative;
   top: 50%;
@@ -392,7 +406,7 @@ img {
   margin-left: -20%;
   /* Set Up lines */
   /* Close State */ }
-  /* line 103, ../sass/components/_navigation.scss */
+  /* line 113, ../sass/components/_navigation.scss */
   .navigation-hamburger .navigation-hamburger-center, .navigation-hamburger:before, .navigation-hamburger:after {
     position: absolute;
     width: 100%;
@@ -410,24 +424,24 @@ img {
     /* Webkit fix for weird bugs */
     -webkit-backface-visibility: hidden;
     -webkit-transform: translateZ(0); }
-  /* line 115, ../sass/components/_navigation.scss */
+  /* line 125, ../sass/components/_navigation.scss */
   .navigation-hamburger .navigation-hamburger-center {
     top: 0;
     left: 50%;
     margin-left: -50%; }
-  /* line 121, ../sass/components/_navigation.scss */
+  /* line 131, ../sass/components/_navigation.scss */
   .navigation-hamburger:before {
     top: -7px; }
-  /* line 125, ../sass/components/_navigation.scss */
+  /* line 135, ../sass/components/_navigation.scss */
   .navigation-hamburger:after {
     top: 7px; }
-  /* line 133, ../sass/components/_navigation.scss */
+  /* line 143, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger .navigation-hamburger-center, .is-open .navigation-hamburger:before, .is-open .navigation-hamburger:after {
-    -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    -moz-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    -o-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-  /* line 137, ../sass/components/_navigation.scss */
+    -webkit-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    -moz-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    -o-transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transition: all 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045); }
+  /* line 147, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger:after {
     -webkit-transform: rotate(-45deg) translate(2px, 4px);
     -moz-transform: rotate(-45deg) translate(2px, 4px);
@@ -435,7 +449,7 @@ img {
     -o-transform: rotate(-45deg) translate(2px, 4px);
     transform: rotate(-45deg) translate(2px, 4px);
     transform-origin: bottom left; }
-  /* line 142, ../sass/components/_navigation.scss */
+  /* line 152, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger:before {
     -webkit-transform: rotate(45deg) translate(1px, -3px);
     -moz-transform: rotate(45deg) translate(1px, -3px);
@@ -443,88 +457,153 @@ img {
     -o-transform: rotate(45deg) translate(1px, -3px);
     transform: rotate(45deg) translate(1px, -3px);
     transform-origin: bottom left; }
-  /* line 147, ../sass/components/_navigation.scss */
+  /* line 157, ../sass/components/_navigation.scss */
   .is-open .navigation-hamburger .navigation-hamburger-center {
     width: 0;
     margin-left: 0;
     opacity: .5; }
 
-/* line 164, ../sass/components/_navigation.scss */
+/* line 165, ../sass/components/_navigation.scss */
+.navigationSide-list {
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  pointer-events: auto; }
+
+/* line 173, ../sass/components/_navigation.scss */
+.navigationSide-item {
+  position: relative;
+  list-style: none; }
+  /* line 177, ../sass/components/_navigation.scss */
+  .navigationSide-item:hover .navigationSide-dot {
+    opacity: .7; }
+  /* line 180, ../sass/components/_navigation.scss */
+  .navigationSide-item:hover .navigationSide-text {
+    right: 1.33333em;
+    opacity: 1; }
+  /* line 186, ../sass/components/_navigation.scss */
+  .navigationSide-item.is-current .navigationSide-dot {
+    opacity: 1;
+    -webkit-box-shadow: inset 0 0 0 8px white;
+    -moz-box-shadow: inset 0 0 0 8px white;
+    box-shadow: inset 0 0 0 8px white; }
+
+/* line 193, ../sass/components/_navigation.scss */
+.navigationSide-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0 0 0 1px white;
+  -moz-box-shadow: inset 0 0 0 1px white;
+  box-shadow: inset 0 0 0 1px white;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+/* line 204, ../sass/components/_navigation.scss */
+.navigationSide-text {
+  position: absolute;
+  top: 50%;
+  right: 3.33333em;
+  margin-top: -0.72222em;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #ecf0f1;
+  font-size: 14px; }
+
+/* line 225, ../sass/components/_navigation.scss */
 .navigation-button--bcr .navigation-hamburger-center, .navigation-button--bcr
 .navigation-hamburger:before, .navigation-button--bcr
 .navigation-hamburger:after {
   background: #ecf0f1; }
-/* line 168, ../sass/components/_navigation.scss */
+/* line 229, ../sass/components/_navigation.scss */
 .navigation-button--bc0 .navigation-hamburger-center, .navigation-button--bc0
 .navigation-hamburger:before, .navigation-button--bc0
 .navigation-hamburger:after {
   background: #713045; }
-/* line 172, ../sass/components/_navigation.scss */
+/* line 233, ../sass/components/_navigation.scss */
 .navigation-button--bc1 .navigation-hamburger-center, .navigation-button--bc1
 .navigation-hamburger:before, .navigation-button--bc1
 .navigation-hamburger:after {
   background: #982e4b; }
-/* line 176, ../sass/components/_navigation.scss */
+/* line 237, ../sass/components/_navigation.scss */
 .navigation-button--bc2 .navigation-hamburger-center, .navigation-button--bc2
 .navigation-hamburger:before, .navigation-button--bc2
 .navigation-hamburger:after {
   background: #b0382f; }
-/* line 180, ../sass/components/_navigation.scss */
+/* line 241, ../sass/components/_navigation.scss */
 .navigation-button--bc3 .navigation-hamburger-center, .navigation-button--bc3
 .navigation-hamburger:before, .navigation-button--bc3
 .navigation-hamburger:after {
   background: #e05723; }
-/* line 184, ../sass/components/_navigation.scss */
+/* line 245, ../sass/components/_navigation.scss */
 .navigation-button--bc4 .navigation-hamburger-center, .navigation-button--bc4
 .navigation-hamburger:before, .navigation-button--bc4
 .navigation-hamburger:after {
   background: #f29727; }
 
-/* line 191, ../sass/components/_navigation.scss */
+/* line 252, ../sass/components/_navigation.scss */
 .navigation-button--bcr .icon {
   fill: #ecf0f1; }
 
-/* line 195, ../sass/components/_navigation.scss */
+/* line 256, ../sass/components/_navigation.scss */
 .navigation-button--bc0 .icon {
   fill: #713045; }
 
-/* line 199, ../sass/components/_navigation.scss */
+/* line 260, ../sass/components/_navigation.scss */
 .navigation-button--bc1 .icon {
   fill: #982e4b; }
 
-/* line 203, ../sass/components/_navigation.scss */
+/* line 264, ../sass/components/_navigation.scss */
 .navigation-button--bc2 .icon {
   fill: #b0382f; }
 
-/* line 207, ../sass/components/_navigation.scss */
+/* line 268, ../sass/components/_navigation.scss */
 .navigation-button--bc3 .icon {
   fill: #e05723; }
 
-/* line 211, ../sass/components/_navigation.scss */
+/* line 272, ../sass/components/_navigation.scss */
 .navigation-button--bc4 .icon {
   fill: #f29727; }
 
-/* line 218, ../sass/components/_navigation.scss */
+/* line 279, ../sass/components/_navigation.scss */
 .navigation-item-link--tcr {
   color: #ecf0f1; }
 
-/* line 222, ../sass/components/_navigation.scss */
+/* line 283, ../sass/components/_navigation.scss */
 .navigation-item-link--tc0 {
   color: #713045; }
 
-/* line 226, ../sass/components/_navigation.scss */
+/* line 287, ../sass/components/_navigation.scss */
 .navigation-item-link--tc1 {
   color: #982e4b; }
 
-/* line 230, ../sass/components/_navigation.scss */
+/* line 291, ../sass/components/_navigation.scss */
 .navigation-item-link--tc2 {
   color: #b0382f; }
 
-/* line 234, ../sass/components/_navigation.scss */
+/* line 295, ../sass/components/_navigation.scss */
 .navigation-item-link--tc3 {
   color: #e05723; }
 
-/* line 238, ../sass/components/_navigation.scss */
+/* line 299, ../sass/components/_navigation.scss */
 .navigation-item-link--tc4 {
   color: #f29727; }
 

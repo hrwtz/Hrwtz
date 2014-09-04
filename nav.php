@@ -1,5 +1,5 @@
 <nav class="navigation">
-	<ul class="navigation-list">
+	<ul class="navigation-list <?php echo ($i % 2) ? 'bc' . $i : 'bcr'; ?>">
 		<li class="navigation-item"><a href="index.php#who" class="navigation-item-link <?php echo ($i % 2) ? 'navigation-item-link--tcr' : 'navigation-item-link--tc' . $i; ?>">Who</a></li>
 		<li class="navigation-item"><a href="index.php#skills" class="navigation-item-link <?php echo ($i % 2) ? 'navigation-item-link--tcr' : 'navigation-item-link--tc' . $i; ?>">Skills</a></li>
 		<li class="navigation-item"><a href="index.php#work" class="navigation-item-link <?php echo ($i % 2) ? 'navigation-item-link--tcr' : 'navigation-item-link--tc' . $i; ?>">Work</a></li>

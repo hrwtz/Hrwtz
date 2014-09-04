@@ -35,8 +35,8 @@ $content = array(
 ?>
 
 
-
-		<?php for ($i=0; $i < 5; $i++) : ?>
+		<?php $sections = 5; ?>
+		<?php for ($i=0; $i < $sections; $i++) : ?>
 			<section class="row row--window">
 				<?php if ( $i % 2 == 1 ) : ?>
 					<div class="cell cell--half cell--color">
@@ -60,6 +60,18 @@ $content = array(
 
 				<div class="navigation-clip">
 					<?php require('nav.php'); ?>
+					<nav class="navigationSide">
+						<ul class="navigationSide-list">
+							<?php for ($k=0; $k < $sections; $k++) : ?>
+								<li class="navigationSide-item">
+									<a href="#" class="navigationSide-item-link">
+										<span class="navigationSide-dot"></span>
+										<span class="navigationSide-text">Work</span>
+									</a>
+								</li>
+							<?php endfor; ?>
+						</ul>
+					</nav>
 				</div>
 			</section>
 		<?php endfor; ?>

@@ -16,6 +16,16 @@
     @include backface-visibility(hidden);
 }
 
+.navigationSide{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    z-index: 950;
+    @include backface-visibility(hidden);
+}
+
 // -------------------------------------
 //   Structure
 // -------------------------------------
@@ -39,12 +49,12 @@
     padding: 0;
     margin-bottom: 0;
     overflow: hidden;
-    @include transition(all 0.3s cubic-bezier(0.600, -0.280, 0.735, 0.045));
+    @include transition($t-trans-easeInBack);
     pointer-events: auto;
     line-height: $b-space-3x;
     text-align: right;
     .is-open &{
-        @include transition(all 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275));
+        @include transition($t-trans-easeOutBack);
         left: 0;
         width: 50%;
         padding-right: $b-space-3x;
@@ -104,7 +114,7 @@
         position: absolute;
         width: 100%;
         height: 2px;
-        @include transition(all 0.3s cubic-bezier(0.600, -0.280, 0.735, 0.045));
+        @include transition($t-trans-easeInBack);
         @include transform(translate3d(0,0,0));
         content: "";
         /* Webkit fix for weird bugs */
@@ -131,7 +141,7 @@
         .navigation-hamburger-center,
         &:before,
         &:after{
-            @include transition(all 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275));
+            @include transition($t-trans-easeOutBack);
         }
 
         &:after{
@@ -152,6 +162,57 @@
     }
 }   
 
+.navigationSide-list{
+    position: absolute;
+    top: 50%;
+    right: $b-space;
+    @include transform(translateY(-50%));
+    pointer-events: auto;
+}    
+
+.navigationSide-item{
+    position: relative;
+    list-style: none;
+    &:hover{
+        .navigationSide-dot{
+            opacity: .7;
+        }
+        .navigationSide-text{
+            right: em(24px, $b-fontSize-s-px);        // MAGIC NUMBER
+            opacity: 1;
+        }
+    }
+    &.is-current{
+        .navigationSide-dot{
+            opacity: 1;
+            @include box-shadow(inset 0 0 0 8px white);
+        }
+    }
+}
+
+.navigationSide-dot{
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    @include border-radius(50%);
+    @include box-shadow(inset 0 0 0 1px white);
+    @include transition(all $t-speed);
+}
+
+.navigationSide-text{
+    position: absolute;
+    top: 50%;
+    right: em($b-space-3x-px, $b-fontSize-s-px);
+    margin-top: em(-13px, $b-fontSize-s-px);  // MAGIC NUMBER
+    opacity: 0;
+    pointer-events: none;
+    @include transition(all $t-speed);
+    color: $c-text-invert;
+    font-size: 14px;
+    //display: none;
+}
 
 // -------------------------------------
 //   Modifiers

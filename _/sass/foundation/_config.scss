@@ -109,11 +109,14 @@ $b-space-10x-px: 10 * $b-space-px;
 $b-space-10x:em($b-space-10x-px);
 
 
+// ----- Transitions ----- //
+$t-speed: .3s;
+$t-ease-easeInBack: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+$t-ease-easeOutBack:  cubic-bezier(0.175, 0.885, 0.320, 1.275);
+$t-trans-easeInBack: all $t-speed $t-ease-easeInBack;
+$t-trans-easeOutBack: all $t-speed $t-ease-easeInBack;
 
-//$b-space-xs: 0.25 * $b-space;
-//$b-space-s: 0.5 * $b-space;
-//$b-space-l: 2 * $b-space;
-//$b-space-xl: 4 * $b-space;
+
 
 // -------------------------------------
 //   Components
@@ -128,15 +131,6 @@ $g-m: em(800px);
 $g-l: em(1024px);
 
 // Settings
-
-$g-columns: 12;
-$g-defaults: "s" $g-s, "m" $g-m, "l" $g-l;
-$g-gutter: 20px;
-$g-silent: false;
-
-// Selector
-
-$g-selector: if($g-silent, unquote("%"), unquote("."));
 
 // -------------------------------------
 //   Structures
