@@ -447,7 +447,7 @@
 
             // Panel Snap
             $('body').panelSnap({
-                $menu: $('.navigationSide-list'),
+                $menu: $('.navigationSide-list, .navigation-list'),
                 menuSelector: 'li',
                 onSnapFinish: function($target){
                     //$.each(canvasIni, function(index){

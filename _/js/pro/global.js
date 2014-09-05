@@ -1216,7 +1216,7 @@ if ( typeof Object.create !== 'function' ) {
 
             // Panel Snap
             $('body').panelSnap({
-                $menu: $('.navigationSide-list'),
+                $menu: $('.navigationSide-list, .navigation-list'),
                 menuSelector: 'li',
                 onSnapFinish: function($target){
                     //$.each(canvasIni, function(index){
