@@ -36,8 +36,9 @@ $content = array(
 
 
 		<?php $sections = 5; ?>
+		<?php $section_titles = array('I&nbsp;Am', 'Creator', 'Skills', 'Usability', 'Contact'); ?>
 		<?php for ($i=0; $i < $sections; $i++) : ?>
-			<section class="row row--window">
+			<section class="row row--window" data-panel="<?php echo $section_titles[$i]; ?>">
 				<?php if ( $i % 2 == 1 ) : ?>
 					<div class="cell cell--half cell--color">
 						<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
@@ -60,18 +61,26 @@ $content = array(
 
 				<div class="navigation-clip">
 					<?php require('nav.php'); ?>
+					<?php //if ($i == 0) : ?>
 					<nav class="navigationSide">
-						<ul class="navigationSide-list">
+						<ul class="navigationSide-list <?php echo ($i % 2 == 0) ? 'navigation-list--cr navigation-list--bc' . $i : 'navigation-list--bcr navigation-list--c' . $i; ?>">
 							<?php for ($k=0; $k < $sections; $k++) : ?>
-								<li class="navigationSide-item">
-									<a href="#" class="navigationSide-item-link">
+								<li class="navigationSide-item" data-panel="<?php echo $section_titles[$k]; ?>">
+									<a href="#" class="navigationSide-item-link " >
 										<span class="navigationSide-dot"></span>
-										<span class="navigationSide-text">Work</span>
+										<span class="navigationSide-text"><?php echo $section_titles[$k]; ?></span>
 									</a>
 								</li>
 							<?php endfor; ?>
+							<li class="navigationSide-item">
+								<a href="#" class="navigationSide-item-link " >
+									<span class="navigationSide-dot navigationSide-dot--rectangle"></span>
+									<span class="navigationSide-text">Resume</span>
+								</a>
+							</li>
 						</ul>
 					</nav>
+					<?php //endif; ?>
 				</div>
 			</section>
 		<?php endfor; ?>

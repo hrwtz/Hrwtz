@@ -165,6 +165,7 @@
 .navigationSide-list{
     position: absolute;
     top: 50%;
+    //right: em(($b-space-px - $b-space-o5x-px) / 2);
     right: $b-space;
     @include transform(translateY(-50%));
     pointer-events: auto;
@@ -173,50 +174,72 @@
 .navigationSide-item{
     position: relative;
     list-style: none;
-    &:hover{
+    &.is-hover{
         .navigationSide-dot{
             opacity: .7;
         }
         .navigationSide-text{
-            right: em(24px, $b-fontSize-s-px);        // MAGIC NUMBER
+            right: em($b-space-o5x-px, $b-fontSize-xs-px);
+            right: em($b-space-px, $b-fontSize-xs-px);
             opacity: 1;
         }
     }
-    &.is-current{
+    &.active{
         .navigationSide-dot{
             opacity: 1;
-            @include box-shadow(inset 0 0 0 8px white);
+            //@include box-shadow(inset 0 0 0 8px $c-text-invert);
         }
     }
 }
 
 .navigationSide-dot{
     display: block;
-    width: 10px;
-    height: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: $b-space-o5x;
+    height: $b-space-o5x;
+    margin-top: $b-space-o5x;
+    margin-bottom: $b-space-o5x;
     @include border-radius(50%);
-    @include box-shadow(inset 0 0 0 1px white);
+    //@include box-shadow(inset 0 0 0 1px $c-text-invert);
     @include transition(all $t-speed);
 }
 
 .navigationSide-text{
     position: absolute;
     top: 50%;
-    right: em($b-space-3x-px, $b-fontSize-s-px);
-    margin-top: em(-13px, $b-fontSize-s-px);  // MAGIC NUMBER
+    right: em($b-space-3x-px, $b-fontSize-xs-px);
+    margin-top: em(-12px, $b-fontSize-xs-px);  // MAGIC NUMBER
     opacity: 0;
     pointer-events: none;
     @include transition(all $t-speed);
-    color: $c-text-invert;
-    font-size: 14px;
+    //color: $c-text-invert;
+    font-size: $b-fontSize-xs;
     //display: none;
+}
+
+.navigationSide-item-link{
+    display: block;
 }
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
+
+.navigationSide-dot--rectangle{
+    position: relative;
+    overflow: hidden;
+    height: 14px;
+    @include border-radius(0);
+    &:after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3px;
+        height: 3px;
+        content: '';
+        @include transform(rotate(45deg));
+        backface-visibility: hidden;
+    }
+}
 
 .navigation-hamburger-center,
 .navigation-hamburger:before,
@@ -298,4 +321,68 @@
 
 .navigation-item-link--tc4{
     color: $c-canvasBg4;
+}
+
+.navigation-list--cr{
+    .navigationSide-item{
+        &.active{
+            .navigationSide-dot{
+                @include box-shadow(inset 0 0 0 8px $c-background);
+            }
+        }
+    }
+    .navigationSide-dot{
+        @include box-shadow(inset 0 0 0 1px $c-background);
+        &:after{
+            background: $c-background;
+        }
+    }
+    .navigationSide-text{
+        color: $c-background;
+    }
+}
+
+.navigation-list--c1{
+    .navigationSide-item{
+        &.active{
+            .navigationSide-dot{
+                @include box-shadow(inset 0 0 0 8px $c-canvasBg1);
+            }
+        }
+    }
+    .navigationSide-dot{
+        @include box-shadow(inset 0 0 0 1px $c-canvasBg1);
+        &:after{
+            background: $c-canvasBg1;
+        }
+    }
+    .navigationSide-text{
+        color: $c-canvasBg1;
+    }
+}
+
+.navigation-list--c3{
+    .navigationSide-item{
+        &.active{
+            .navigationSide-dot{
+                @include box-shadow(inset 0 0 0 8px $c-canvasBg3);
+            }
+        }
+    }
+    .navigationSide-dot{
+        @include box-shadow(inset 0 0 0 1px $c-canvasBg3);
+        &:after{
+            background: $c-canvasBg3;
+        }
+    }
+    .navigationSide-text{
+        color: $c-canvasBg3;
+    }
+}
+
+.navigation-list--bcr{
+    .navigationSide-text{
+        background-color: $c-background;
+        @include box-shadow(0 0 7px 7px $c-background);
+    }
 }

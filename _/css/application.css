@@ -476,137 +476,218 @@ img {
   transform: translateY(-50%);
   pointer-events: auto; }
 
-/* line 173, ../sass/components/_navigation.scss */
+/* line 174, ../sass/components/_navigation.scss */
 .navigationSide-item {
   position: relative;
   list-style: none; }
-  /* line 177, ../sass/components/_navigation.scss */
-  .navigationSide-item:hover .navigationSide-dot {
+  /* line 178, ../sass/components/_navigation.scss */
+  .navigationSide-item.is-hover .navigationSide-dot {
     opacity: .7; }
-  /* line 180, ../sass/components/_navigation.scss */
-  .navigationSide-item:hover .navigationSide-text {
-    right: 1.33333em;
+  /* line 181, ../sass/components/_navigation.scss */
+  .navigationSide-item.is-hover .navigationSide-text {
+    right: 0.71429em;
+    right: 1.42857em;
     opacity: 1; }
-  /* line 186, ../sass/components/_navigation.scss */
-  .navigationSide-item.is-current .navigationSide-dot {
-    opacity: 1;
-    -webkit-box-shadow: inset 0 0 0 8px white;
-    -moz-box-shadow: inset 0 0 0 8px white;
-    box-shadow: inset 0 0 0 8px white; }
+  /* line 188, ../sass/components/_navigation.scss */
+  .navigationSide-item.active .navigationSide-dot {
+    opacity: 1; }
 
-/* line 193, ../sass/components/_navigation.scss */
+/* line 195, ../sass/components/_navigation.scss */
 .navigationSide-dot {
   display: block;
-  width: 10px;
-  height: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 0.5em;
+  height: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  -webkit-box-shadow: inset 0 0 0 1px white;
-  -moz-box-shadow: inset 0 0 0 1px white;
-  box-shadow: inset 0 0 0 1px white;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s; }
 
-/* line 204, ../sass/components/_navigation.scss */
+/* line 206, ../sass/components/_navigation.scss */
 .navigationSide-text {
   position: absolute;
   top: 50%;
-  right: 3.33333em;
-  margin-top: -0.72222em;
+  right: 4.28571em;
+  margin-top: -0.85714em;
   opacity: 0;
   pointer-events: none;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
-  color: #ecf0f1;
-  font-size: 14px; }
+  font-size: 0.7em; }
 
-/* line 225, ../sass/components/_navigation.scss */
+/* line 219, ../sass/components/_navigation.scss */
+.navigationSide-item-link {
+  display: block; }
+
+/* line 227, ../sass/components/_navigation.scss */
+.navigationSide-dot--rectangle {
+  position: relative;
+  overflow: hidden;
+  height: 14px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0; }
+  /* line 232, ../sass/components/_navigation.scss */
+  .navigationSide-dot--rectangle:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 3px;
+    content: '';
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    backface-visibility: hidden; }
+
+/* line 248, ../sass/components/_navigation.scss */
 .navigation-button--bcr .navigation-hamburger-center, .navigation-button--bcr
 .navigation-hamburger:before, .navigation-button--bcr
 .navigation-hamburger:after {
   background: #ecf0f1; }
-/* line 229, ../sass/components/_navigation.scss */
+/* line 252, ../sass/components/_navigation.scss */
 .navigation-button--bc0 .navigation-hamburger-center, .navigation-button--bc0
 .navigation-hamburger:before, .navigation-button--bc0
 .navigation-hamburger:after {
   background: #713045; }
-/* line 233, ../sass/components/_navigation.scss */
+/* line 256, ../sass/components/_navigation.scss */
 .navigation-button--bc1 .navigation-hamburger-center, .navigation-button--bc1
 .navigation-hamburger:before, .navigation-button--bc1
 .navigation-hamburger:after {
   background: #982e4b; }
-/* line 237, ../sass/components/_navigation.scss */
+/* line 260, ../sass/components/_navigation.scss */
 .navigation-button--bc2 .navigation-hamburger-center, .navigation-button--bc2
 .navigation-hamburger:before, .navigation-button--bc2
 .navigation-hamburger:after {
   background: #b0382f; }
-/* line 241, ../sass/components/_navigation.scss */
+/* line 264, ../sass/components/_navigation.scss */
 .navigation-button--bc3 .navigation-hamburger-center, .navigation-button--bc3
 .navigation-hamburger:before, .navigation-button--bc3
 .navigation-hamburger:after {
   background: #e05723; }
-/* line 245, ../sass/components/_navigation.scss */
+/* line 268, ../sass/components/_navigation.scss */
 .navigation-button--bc4 .navigation-hamburger-center, .navigation-button--bc4
 .navigation-hamburger:before, .navigation-button--bc4
 .navigation-hamburger:after {
   background: #f29727; }
 
-/* line 252, ../sass/components/_navigation.scss */
+/* line 275, ../sass/components/_navigation.scss */
 .navigation-button--bcr .icon {
   fill: #ecf0f1; }
 
-/* line 256, ../sass/components/_navigation.scss */
+/* line 279, ../sass/components/_navigation.scss */
 .navigation-button--bc0 .icon {
   fill: #713045; }
 
-/* line 260, ../sass/components/_navigation.scss */
+/* line 283, ../sass/components/_navigation.scss */
 .navigation-button--bc1 .icon {
   fill: #982e4b; }
 
-/* line 264, ../sass/components/_navigation.scss */
+/* line 287, ../sass/components/_navigation.scss */
 .navigation-button--bc2 .icon {
   fill: #b0382f; }
 
-/* line 268, ../sass/components/_navigation.scss */
+/* line 291, ../sass/components/_navigation.scss */
 .navigation-button--bc3 .icon {
   fill: #e05723; }
 
-/* line 272, ../sass/components/_navigation.scss */
+/* line 295, ../sass/components/_navigation.scss */
 .navigation-button--bc4 .icon {
   fill: #f29727; }
 
-/* line 279, ../sass/components/_navigation.scss */
+/* line 302, ../sass/components/_navigation.scss */
 .navigation-item-link--tcr {
   color: #ecf0f1; }
 
-/* line 283, ../sass/components/_navigation.scss */
+/* line 306, ../sass/components/_navigation.scss */
 .navigation-item-link--tc0 {
   color: #713045; }
 
-/* line 287, ../sass/components/_navigation.scss */
+/* line 310, ../sass/components/_navigation.scss */
 .navigation-item-link--tc1 {
   color: #982e4b; }
 
-/* line 291, ../sass/components/_navigation.scss */
+/* line 314, ../sass/components/_navigation.scss */
 .navigation-item-link--tc2 {
   color: #b0382f; }
 
-/* line 295, ../sass/components/_navigation.scss */
+/* line 318, ../sass/components/_navigation.scss */
 .navigation-item-link--tc3 {
   color: #e05723; }
 
-/* line 299, ../sass/components/_navigation.scss */
+/* line 322, ../sass/components/_navigation.scss */
 .navigation-item-link--tc4 {
   color: #f29727; }
+
+/* line 329, ../sass/components/_navigation.scss */
+.navigation-list--cr .navigationSide-item.active .navigationSide-dot {
+  -webkit-box-shadow: inset 0 0 0 8px #ecf0f1;
+  -moz-box-shadow: inset 0 0 0 8px #ecf0f1;
+  box-shadow: inset 0 0 0 8px #ecf0f1; }
+/* line 334, ../sass/components/_navigation.scss */
+.navigation-list--cr .navigationSide-dot {
+  -webkit-box-shadow: inset 0 0 0 1px #ecf0f1;
+  -moz-box-shadow: inset 0 0 0 1px #ecf0f1;
+  box-shadow: inset 0 0 0 1px #ecf0f1; }
+  /* line 336, ../sass/components/_navigation.scss */
+  .navigation-list--cr .navigationSide-dot:after {
+    background: #ecf0f1; }
+/* line 340, ../sass/components/_navigation.scss */
+.navigation-list--cr .navigationSide-text {
+  color: #ecf0f1; }
+
+/* line 348, ../sass/components/_navigation.scss */
+.navigation-list--c1 .navigationSide-item.active .navigationSide-dot {
+  -webkit-box-shadow: inset 0 0 0 8px #982e4b;
+  -moz-box-shadow: inset 0 0 0 8px #982e4b;
+  box-shadow: inset 0 0 0 8px #982e4b; }
+/* line 353, ../sass/components/_navigation.scss */
+.navigation-list--c1 .navigationSide-dot {
+  -webkit-box-shadow: inset 0 0 0 1px #982e4b;
+  -moz-box-shadow: inset 0 0 0 1px #982e4b;
+  box-shadow: inset 0 0 0 1px #982e4b; }
+  /* line 355, ../sass/components/_navigation.scss */
+  .navigation-list--c1 .navigationSide-dot:after {
+    background: #982e4b; }
+/* line 359, ../sass/components/_navigation.scss */
+.navigation-list--c1 .navigationSide-text {
+  color: #982e4b; }
+
+/* line 367, ../sass/components/_navigation.scss */
+.navigation-list--c3 .navigationSide-item.active .navigationSide-dot {
+  -webkit-box-shadow: inset 0 0 0 8px #e05723;
+  -moz-box-shadow: inset 0 0 0 8px #e05723;
+  box-shadow: inset 0 0 0 8px #e05723; }
+/* line 372, ../sass/components/_navigation.scss */
+.navigation-list--c3 .navigationSide-dot {
+  -webkit-box-shadow: inset 0 0 0 1px #e05723;
+  -moz-box-shadow: inset 0 0 0 1px #e05723;
+  box-shadow: inset 0 0 0 1px #e05723; }
+  /* line 374, ../sass/components/_navigation.scss */
+  .navigation-list--c3 .navigationSide-dot:after {
+    background: #e05723; }
+/* line 378, ../sass/components/_navigation.scss */
+.navigation-list--c3 .navigationSide-text {
+  color: #e05723; }
+
+/* line 384, ../sass/components/_navigation.scss */
+.navigation-list--bcr .navigationSide-text {
+  background-color: #ecf0f1;
+  -webkit-box-shadow: 0 0 7px 7px #ecf0f1;
+  -moz-box-shadow: 0 0 7px 7px #ecf0f1;
+  box-shadow: 0 0 7px 7px #ecf0f1; }
 
 /* line 7, ../sass/components/_table.scss */
 .table {

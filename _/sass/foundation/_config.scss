@@ -68,6 +68,9 @@ $b-fontFamily-heading: 'Khand', sans-serif;
 $b-fontFamily: 'Vollkorn', serif;
 $b-fontSize: 20px;
 
+$b-fontSize-xs-px: 14px;
+$b-fontSize-xs: em($b-fontSize-xs-px);
+
 $b-fontSize-s-px: 18px;
 $b-fontSize-s: em($b-fontSize-s-px);
 

@@ -447,11 +447,20 @@
 
             // Panel Snap
             $('body').panelSnap({
+                $menu: $('.navigationSide-list'),
+                menuSelector: 'li',
                 onSnapFinish: function($target){
-                    $.each(canvasIni, function(index){
-                        canvasIni[index].land($target);
-                    });
+                    //$.each(canvasIni, function(index){
+                        //canvasIni[index].land($target);
+                    //});
                 }
+            });
+
+            // Side navigation hover / Click
+            $('.navigationSide-item').hover(function(){
+                $('.navigationSide-list .navigationSide-item:nth-of-type('+ ($(this).index()+1) +')').addClass('is-hover');
+            }, function(){
+                $('.navigationSide-list .navigationSide-item:nth-of-type('+ ($(this).index()+1) +')').removeClass('is-hover');
             });
 
             // Set up each canvas
