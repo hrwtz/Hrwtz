@@ -446,15 +446,17 @@
             });
 
             // Panel Snap
-            $('body').panelSnap({
-                $menu: $('.navigationSide-list, .navigation-list'),
-                menuSelector: 'li',
-                onSnapFinish: function($target){
-                    //$.each(canvasIni, function(index){
-                        //canvasIni[index].land($target);
-                    //});
-                }
-            });
+            if ($('section[data-panel]').length){
+                $('body').panelSnap({
+                    $menu: $('.navigationSide-list, .navigation-list'),
+                    menuSelector: 'li',
+                    onSnapFinish: function($target){
+                        //$.each(canvasIni, function(index){
+                            //canvasIni[index].land($target);
+                        //});
+                    }
+                });
+            }
 
             // Side navigation hover / Click
             $('.navigationSide-item').hover(function(){
