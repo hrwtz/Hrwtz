@@ -1268,9 +1268,63 @@ if ( typeof Object.create !== 'function' ) {
         // Kick off animation loop!
         requestAnimationFrame(animloop);
 
-       
+       var test = function(data){
+            console.log(9)
+            $('html').html(data);
+            console.log(8)
+            window.pageYOffset
+            window.scrollTo(0, 0);
+            window.pageYOffset
+
+       }
+       $('.navigation-item-link').smarthistory('work.php', test)
 
 	});
+
+
+    /*
+     * jquery.smarthistory.js
+     *
+     * Copyright (c) 2010 Kazuhito Hokamura
+     * Licensed under the MIT License:
+     * http://www.opensource.org/licenses/mit-license.php
+     *
+     * @author   Kazuhito Hokamura (http://webtech-walker.com/)
+     * @version  0.0.1
+     *
+     * Page transition jQuery plugin, useing history.pushState.
+     *
+     */
+    $.fn.smarthistory = function(target, changeHandler) {
+        if ( !('pushState' in history) ) {
+            return this;
+        }
+     
+        window.addEventListener('popstate', function(event) {
+            var state = event.state || {};
+            var data = state.data;
+            if (data) {
+                changeHandler(data);
+            }
+            else {
+                console.log($('html').html());
+                history.replaceState({data: $('html').html()}, null, null);
+            }
+        });
+        return this.click(function(event) {
+            var $elem = $(this);
+            var targetname = $.isFunction(target) ? target.call(this) : target;
+            event.preventDefault();
+            $.get(targetname)
+                .done(function(data) {
+                    changeHandler(data);
+                    history.pushState({data: data}, targetname, targetname);
+                })
+                .fail(function() {
+                    location.href = targetname;
+                });
+        });
+    };
 
 
 })(jQuery);
