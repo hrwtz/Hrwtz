@@ -64,7 +64,7 @@ $content = array(
 			<nav class="navigationSide">
 				<ul class="navigationSide-list <?php echo ($i % 2 == 0) ? 'navigation-list--cr navigation-list--bc' . $i : 'navigation-list--bcr navigation-list--c' . $i; ?>">
 					<?php for ($k=0; $k < $sections; $k++) : ?>
-						<li class="navigationSide-item" data-panel="<?php echo $section_titles[$k]; ?>">
+						<li class="navigationSide-item <?php if ($request_path == strtolower($section_titles[$k])) echo 'active'; ?>" data-panel="<?php echo $section_titles[$k]; ?>">
 							<a href="#" class="navigationSide-item-link " >
 								<span class="navigationSide-dot"></span>
 								<span class="navigationSide-text"><?php echo $section_titles[$k]; ?></span>
