@@ -1,5 +1,4 @@
 <?php 
-
 // Define variables
 $is_secondary = false;
 $is_404 = false;
@@ -20,7 +19,7 @@ $pages_secondary = array(
 );
 
 // Get base path for project
-$page_uri = $_SERVER['SCRIPT_NAME'];
+$page_uri = $_SERVER['PHP_SELF'];
 $page_base = str_replace(basename(__FILE__), '', $page_uri);
 
 // Get request path minus the base

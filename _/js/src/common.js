@@ -501,14 +501,14 @@
 
        var test = function(data){
             console.log(9)
-            $('html').html(data);
+            $('body').html(data);
             console.log(8)
             window.pageYOffset
             window.scrollTo(0, 0);
             window.pageYOffset
 
        }
-       $('.navigation-item-link').smarthistory('work.php', test)
+       //$('.navigation-item-link').smarthistory(pagebase, test)
 
 	});
 
