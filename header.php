@@ -25,11 +25,11 @@
 	<meta name="MobileOptimized" content="320">
 	
 	<?php // Favicon ?>
-	<link rel="shortcut icon" href="_/img/favicon.ico">
+	<link rel="shortcut icon" href="<?php echo $page_base; ?>_/img/favicon.ico">
 
 	<?php // CSS ?>
 	<link href='http://fonts.googleapis.com/css?family=Khand|Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
-	<link href="_/css/application.css" rel=stylesheet />
+	<link href="<?php echo $page_base; ?>_/css/application.css" rel=stylesheet />
 	
 </head>
 

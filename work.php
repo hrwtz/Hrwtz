@@ -12,7 +12,7 @@
 		<div class="cell cell--s work-content">
 			
 			<?php if ($work['title']) : ?>
-				<h2 class="h2 work-h2"><?php echo $work['title']; ?></h2>
+				<h2 class="h2 h2--mbl"><?php echo $work['title']; ?></h2>
 			<?php endif; ?>
 
 

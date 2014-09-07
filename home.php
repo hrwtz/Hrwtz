@@ -23,7 +23,9 @@ $content = array(
 	
 	<h3 class="h3">Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
 
-   '<h2 class="h2">Work</h2>',
+   '<h2 class="h2">Work</h2>
+   	<p class="p"><a href="'.$page_base.'work/nine82">NINE82</a></p>
+   	<p class="p"><a href="'.$page_base.'work/turnkey">Turnkey Media Solutions</a></p>',
 
    '<h2 class="h2">Contact</h2>
 	<p class="p">

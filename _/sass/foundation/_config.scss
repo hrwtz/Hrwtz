@@ -30,18 +30,20 @@ $c-canvasBg5: #F29727;
 
 $c-offWhite: #ecf0f1;
 
+$c-darkBlue: #263146;
+
 
 // ----- Base ----- //
 
 //$c-background-invert: white;
 $c-background: $c-offWhite;
-//$c-border: red;
+$c-border: $c-darkBlue;
 //$c-highlight: red;
 //$c-subdue: lighten(red, 40%);
 $c-text-invert: $c-offWhite;
 $c-text: #5d6975;
 $c-text-highlight: $c-canvasBg0;
-$c-text-headline: #263146;
+$c-text-headline: $c-darkBlue;
 
 // ----- Components ----- //
 
@@ -58,9 +60,9 @@ $c-text-headline: #263146;
 // ----- Borders & Box Shadow ----- //
 
 //$b-borderRadius: 3px;
-//$b-borderStyle: solid;
-//$b-borderWidth: 2px;
-//$b-border: $b-borderWidth $b-borderStyle $c-border;
+$b-borderStyle: solid;
+$b-borderWidth: 1px;
+$b-border: $b-borderWidth $b-borderStyle $c-border;
 //$b-boxShadow: 0 2px 0 rgba($c-text, 0.25);
 
 // ----- Typography ----- //
@@ -99,6 +101,9 @@ $b-space-o25x: em($b-space-o25x-px);
 
 $b-space-o5x-px: .5 * $b-space-px;
 $b-space-o5x: em($b-space-o5x-px);
+
+$b-space-2x-px: 2 * $b-space-px;
+$b-space-2x:em($b-space-2x-px);
 
 $b-space-2o5x-px: 2.5 * $b-space-px;
 $b-space-2o5x:em($b-space-2o5x-px);

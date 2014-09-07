@@ -14,6 +14,11 @@
     z-index: 950;
     //pointer-events: auto;
     @include backface-visibility(hidden);
+
+    @media print {
+        display: none;
+    }
+
 }
 
 .navigationSide{
@@ -24,6 +29,11 @@
     width: 100px;
     z-index: 950;
     @include backface-visibility(hidden);
+
+    @media print {
+        display: none;
+    }
+    
 }
 
 // -------------------------------------

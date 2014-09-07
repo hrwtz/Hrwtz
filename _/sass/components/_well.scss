@@ -15,6 +15,12 @@
 .well{
     margin-top: $b-space-10x;
     margin-bottom: $b-space-4x;
+
+    @media print {
+        margin-top: $b-space;
+        margin-bottom: 0;
+    }
+
 }
 
 // -------------------------------------

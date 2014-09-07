@@ -26,4 +26,11 @@
 .row--window{
     padding: 0;
     height: 100%;
+
+    @media print {
+        height: auto;
+        padding-top: $b-space-2x;
+        padding-bottom: $b-space-2x;
+    }
+
 }

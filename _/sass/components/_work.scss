@@ -13,11 +13,6 @@
 //   Structure
 // -------------------------------------
 
-.work-h2{
-    margin-bottom: em($b-space-3x-px, $b-fontSize-xl-px);
-    //text-align: center;
-}
-
 .work-skills{
     margin-top: $b-space;
 }
@@ -27,6 +22,7 @@
     padding-left: $b-space;
     padding-right: $b-space;
     background-color: $c-canvasBg2;
+    -webkit-print-color-adjust: exact;
     list-style: none;
     color: $c-text-invert;
     font-style: italic;
