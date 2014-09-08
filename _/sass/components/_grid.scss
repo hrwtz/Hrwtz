@@ -16,7 +16,7 @@
 //   .g-b[.g-b--center|1of2|1of3|...]
 //
 // *************************************
-
+/*
 // -------------------------------------
 //   Base
 // -------------------------------------
@@ -220,3 +220,32 @@
     @include device-type("#{nth($device, 1)}--");
   }
 }
+*/
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.g {
+  @extend .clearfix;
+  display: block;
+  margin-left: -$b-space / 2;
+  margin-right: -$b-space / 2;
+}
+
+.g-b {
+  float: left;
+  margin: 0;
+  padding-left: $b-space / 2;
+  padding-right: $b-space / 2;
+  width: 100%;
+}
+
+.g-b--1of3{
+    width: 33.33%;
+
+    @media screen and (max-width: $g-m) {
+        width: 50%;
+    }
+}
+

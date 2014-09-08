@@ -50,23 +50,20 @@
 
 				<h4 class="h4 bc4">Skills</h4>
 				
-				<div class="section-inner c3">
-					<ul class="list">
-						<li>Photoshop</li>
-						<li>Illustrator</li>
-						<li>HTML5 & CSS3</li>
-						<li>After Effects</li>
-						<li>Prototyping</li>
-						<li>Photoshop</li>
-						<li>Illustrator</li>
-						<li>HTML5 & CSS3</li>
-						<li>After Effects</li>
-						<li>Prototyping</li>
-						<li>Photoshop</li>
-						<li>Illustrator</li>
-						<li>HTML5 & CSS3</li>
-						<li>After Effects</li>
-						<li>Prototyping</li>
+				<div class="section-inner">
+					<ul class="list clearfix">
+						<li class="w-1of3 fl">Photoshop</li>
+						<li class="w-1of3 fl">Illustrator</li>
+						<li class="w-1of3 fl">HTML5 & CSS3</li>
+						<li class="w-1of3 fl">After Effects</li>
+						<li class="w-1of3 fl">Photoshop</li>
+						<li class="w-1of3 fl">Illustrator</li>
+						<li class="w-1of3 fl">HTML5 & CSS3</li>
+						<li class="w-1of3 fl">After Effects</li>
+						<li class="w-1of3 fl">Photoshop</li>
+						<li class="w-1of3 fl">Illustrator</li>
+						<li class="w-1of3 fl">HTML5 & CSS3</li>
+						<li class="w-1of3 fl">After Effects</li>
 					</ul>
 
 				</div>

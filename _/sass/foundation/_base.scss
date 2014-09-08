@@ -52,8 +52,8 @@ body {
 
 }
 
-main{
-    
+@page {
+    margin: 0.5cm;
 }
 
 // -------------------------------------
@@ -136,6 +136,12 @@ ul  {
 p a,
 .p a{
     border-bottom: 1px solid $c-text-highlight;
+
+    @media print {
+        &:after{ 
+            content: " (" attr(href) ") "; 
+        }
+    }
 }
 
 a{

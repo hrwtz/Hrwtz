@@ -23,9 +23,20 @@
     padding-right: $b-space;
     background-color: $c-canvasBg2;
     -webkit-print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     list-style: none;
     color: $c-text-invert;
     font-style: italic;
+
+    @media print {
+        color: $c-text-invert !important;
+        &.bc0{@include box-shadow(0 0 0 $b-space $c-canvasBg0 inset)}
+        &.bc1{@include box-shadow(0 0 0 $b-space $c-canvasBg1 inset)}
+        &.bc2{@include box-shadow(0 0 0 $b-space $c-canvasBg2 inset)}
+        &.bc3{@include box-shadow(0 0 0 $b-space $c-canvasBg3 inset)}
+        &.bc4{@include box-shadow(0 0 0 $b-space $c-canvasBg4 inset)}
+    }
 }
 
 .work-content{

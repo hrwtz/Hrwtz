@@ -135,9 +135,9 @@ $t-trans-easeOutBack: all $t-speed $t-ease-easeInBack;
 
 // Breakpoints
 
-$g-s: em(480px);
-$g-m: em(800px);
-$g-l: em(1024px);
+$g-s: $b-maxWidth-s;
+$g-m: $b-maxWidth-m;
+$g-l: $b-maxWidth;
 
 // Settings
 
