@@ -1,0 +1,52 @@
+// *************************************
+//
+//   Block
+//
+// *************************************
+
+.block{
+    position: relative;
+    float: left;
+}
+
+
+// -------------------------------------
+//   Structure
+// -------------------------------------
+
+.block-preview{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+}
+
+.block-cell{
+    height: 80%;
+}
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.block--half{
+    width: 100%;
+    height: 50%;
+}
+
+.block--tall{
+    height: 55%;
+}
+
+.block--short{
+    height: 45%;
+}
+
+.block--long{
+    width: 55%;
+}
+
+.block--narrow{
+    width: 45%;
+}

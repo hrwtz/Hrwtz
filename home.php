@@ -23,9 +23,13 @@ $content = array(
 	
 	<h3 class="h3">Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
 
-   '<h2 class="h2">Work</h2>
-   	<p class="p"><a class="ajax" href="'.$page_base.'work/nine82">NINE82</a></p>
-   	<p class="p"><a class="ajax" href="'.$page_base.'work/turnkey">Turnkey Media Solutions</a></p>',
+   '<div class="block block--tall block--narrow"><div class="block-preview"></div></div>
+    <div class="block block--tall block--long">
+    	<div class="block block--half"><div class="block-preview"></div></div>
+    	<div class="block block--half"><div class="block-preview"></div></div>
+    </div>
+    <div class="block block--short block--long"><div class="block-preview"></div></div>
+    <div class="block block--short block--narrow"><div class="block-preview"></div></div>',
 
    '<h2 class="h2">Contact</h2>
 	<p class="p">
@@ -51,7 +55,7 @@ $content = array(
 		<div class="cell cell--half cell--mono">
 			<div class="table">
 				<div class="table-cell table-cell--middle">
-					<div class="cell cell--s <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?>">
+					<div class="cell cell--s <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?> <?php if ($section_titles[$i] == 'Work') echo 'block-cell'; ?>">
 						<?php if (isset($content[$i])) echo $content[$i]; ?>
 					</div>
 				</div>
