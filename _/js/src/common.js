@@ -1,6 +1,6 @@
 (function($) {
-
-	// RequestAnimFrame: a browser API for getting smooth animations
+    // RequestAnimFrame: a browser API for getting smooth animations
+    var panelInitiated = false;
     var canvasIni = new Array();
     var countAniFrame = 0;
     var requestAnimFrame = (function(){
@@ -16,11 +16,11 @@
                 };
     })();
 
-	var canvass = function(can, index){
+    var canvass = function(can, index){
         this.index = index;
         var canvas = this;
-		this.init = function(){
-			// Set up canvas variables
+        this.init = function(){
+            // Set up canvas variables
             canvas.can = can,
             canvas.ctx = canvas.can.getContext('2d');
 
@@ -37,19 +37,19 @@
             background.init();
 
             // Initialize particles
-           	particles.init();
+            particles.init();
 
             // Initialize Triangle
             triangle.init();
 
-		};
+        };
 
         this.click = function(){
             $(canvas.can).click(function(e){
                 background.addCircle(e.offsetX, e.offsetY)
             })
         };
-		this.resize = function(){
+        this.resize = function(){
             $(window).resize(function(){
                 // Create temp canvas and context. This is so on resize 
                 // the canvas doesn't redraw everything and flash a 
@@ -88,10 +88,10 @@
             if (!canvas.visible)
                 return;
 
-        	// Draw gradient background
-        	background.draw();
-        	// Draw particles
-        	particles.draw();
+            // Draw gradient background
+            background.draw();
+            // Draw particles
+            particles.draw();
             // Draw triangle
             triangle.draw();
         };
@@ -105,7 +105,7 @@
         };
         this.land = function($target){
             // Update 
-            console.log($target.index())
+            //console.log($target.index())
             //canvas.
         }
 
@@ -347,7 +347,7 @@
                 });
             },
         }
-	}
+    }
     /*function getRandomColor() {
         var letters = '0123456789ABCDEF'.split('');
         var color = '#';
@@ -356,7 +356,7 @@
         }
         return color;
     }*/
-	
+    
    var ease = {
       // no easing, no acceleration
       linear: function (t) { return t },
@@ -432,7 +432,7 @@
         }
         return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
     }
-	
+    
 
     var common = { // Rename me?
         init: function(){
@@ -449,13 +449,20 @@
             if ($('section[data-panel]').length){
                 $('body').panelSnap({
                     $menu: $('.navigationSide-list, .navigation-list'),
-                    menuSelector: 'li',
+                    menuSelector: 'li[data-panel]',
                     onSnapFinish: function($target){
+                        //var historySection = ($target.index() == 0) ? pagebase : $target.attr('data-panel').toLowerCase();
+                        //history.replaceState({data: $('html').html()}, historySection, historySection);
                         //$.each(canvasIni, function(index){
                             //canvasIni[index].land($target);
                         //});
                     }
                 });
+                $('.navigation-button.ajax').click(function(e){
+                    e.preventDefault();
+                    $('body').panelSnap('snapToPanel', $('section:first'));
+                });
+                panelInitiated = true;
             }
 
             // Side navigation hover / Click
@@ -475,8 +482,8 @@
         },
     };
 
-	// On Ready
-	$(function(){
+    // On Ready
+    $(function(){
         common.init();
         
 
@@ -499,18 +506,86 @@
         // Kick off animation loop!
         requestAnimationFrame(animloop);
 
-       var test = function(data){
-            console.log(9)
+       // Set up page after ajax stuff
+        /*var setupPage = function(data){
+            
+            alert(9)
             $('body').html(data);
-            console.log(8)
-            window.pageYOffset
-            window.scrollTo(0, 0);
-            window.pageYOffset
+            alert(8)
 
-       }
-       //$('.navigation-item-link').smarthistory(pagebase, test)
+            // After page has loaded....
 
-	});
+            // If panelsnap has already run, destroy old planelsnap instance
+            if (panelInitiated){
+                $('body').panelSnap('destroy')
+                panelInitiated = false;
+            }
+
+            // Run common functions for new page
+            common.init();
+        }
+        // Set up navigation for html5 history
+        $('.ajax').smarthistory(setupPage)*/
+
+
+        test = function(){
+
+            var state = History.getState();
+
+            //for when they click on an ajax link
+            $('.ajax').on('click', function(e){
+                e.preventDefault();
+                alert(9)
+                var $this = $(this);
+                var href = $this.attr('href'); // use the href value to determine what content to ajax in
+                $.ajax({
+                    url: pagebase + href, // create the necessary path for our ajax request
+                    dataType: 'html',
+                    success: function(data) {
+                        $('body').html(data); // place our ajaxed content into our content area
+                        history.pushState(null,href, href); // change the url and add our ajax request to our history
+
+                        // If panelsnap has already run, destroy old planelsnap instance
+                        if (panelInitiated){
+                            $('body').panelSnap('destroy')
+                            panelInitiated = false;
+                        }
+
+                        // Run common functions for new page
+                        common.init();
+
+                        test();
+                    }
+                });
+            });
+
+            //for when they hit the back button
+            History.Adapter.bind(window, 'statechange', function () {
+                alert(8)
+                state = History.getState(); // find out what we previously ajaxed in
+                alert(pagebase + state.title)
+                $.ajax({
+                    url: pagebase + state.title, //create our path
+                    dataType: 'html',
+                    success: function(data) {
+                        $('body').html(data);
+
+                        // If panelsnap has already run, destroy old planelsnap instance
+                        if (panelInitiated){
+                            $('body').panelSnap('destroy')
+                            panelInitiated = false;
+                        }
+
+                        // Run common functions for new page
+                        common.init();
+                    }
+                });
+            });
+
+        }
+
+        test();
+    });
 
 
     /*
@@ -526,7 +601,7 @@
      * Page transition jQuery plugin, useing history.pushState.
      *
      */
-    $.fn.smarthistory = function(target, changeHandler) {
+    $.fn.smarthistory = function(changeHandler) {
         if ( !('pushState' in history) ) {
             return this;
         }
@@ -538,13 +613,18 @@
                 changeHandler(data);
             }
             else {
-                console.log($('html').html());
-                history.replaceState({data: $('html').html()}, null, null);
+                window.location = location.href;
+                console.log(history)
+                return false;
+                console.log($('body').html());
+                history.replaceState({data: $('body').html()}, null, null);
             }
         });
         return this.click(function(event) {
             var $elem = $(this);
-            var targetname = $.isFunction(target) ? target.call(this) : target;
+            //var targetname = $.isFunction(target) ? target.call(this) : target;
+            var targetname = $elem.attr('href');
+            if ($elem.hasClass('ajax--home') && $elem.parents('.home').length) return this;
             event.preventDefault();
             $.get(targetname)
                 .done(function(data) {

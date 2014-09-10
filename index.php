@@ -3,6 +3,7 @@
 $is_secondary = false;
 $is_404 = false;
 $load_pages = array();
+$is_ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
 
 // Define Available Pages
 $pages = array(
@@ -56,7 +57,8 @@ endif;
 
 // Load page up!
 
-require('header.php');
+if (!$is_ajax)
+	require('header.php');
 
 // Load in all required pages
 if ( $load_pages ) :
@@ -68,5 +70,5 @@ else:
 	require('404.php');
 endif; 
 
-
-require('footer.php');
+if (!$is_ajax)
+	require('footer.php');

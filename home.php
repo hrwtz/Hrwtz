@@ -15,7 +15,7 @@ $content = array(
 */
    '<h2 class="h2">Skills</h2>
 	<p>The web is a moving target and it is important to never stop learning. I am constantly looking into tools that can streamline my workflow, along with improving current skills. As any front end developer HTML, CSS, and JavaScript are my bread and butter.</p>
-	<p>I am also experienced in the LAMP stack, version control, CSS preprocessors, and the command line. See my <a href="#">résumé</a> for a more complete list of skills.</p>
+	<p>I am also experienced in the LAMP stack, version control, CSS preprocessors, and the command line. See my <a href="' . $page_base . 'resume" class="ajax">résumé</a> for a more complete list of skills.</p>
 	<h3 class="h3">As a web developer, it is vastly important to invest in myself. </h3>',
 
    '<h2 class="h2">Building usable sites</h2>
@@ -24,8 +24,8 @@ $content = array(
 	<h3 class="h3">Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
 
    '<h2 class="h2">Work</h2>
-   	<p class="p"><a href="'.$page_base.'work/nine82">NINE82</a></p>
-   	<p class="p"><a href="'.$page_base.'work/turnkey">Turnkey Media Solutions</a></p>',
+   	<p class="p"><a class="ajax" href="'.$page_base.'work/nine82">NINE82</a></p>
+   	<p class="p"><a class="ajax" href="'.$page_base.'work/turnkey">Turnkey Media Solutions</a></p>',
 
    '<h2 class="h2">Contact</h2>
 	<p class="p">
@@ -40,7 +40,7 @@ $content = array(
 <?php $sections = 5; ?>
 <?php $section_titles = array('I&nbsp;Am', 'Skills', 'Usability', 'Work', 'Contact'); ?>
 <?php for ($i=0; $i < $sections; $i++) : ?>
-	<section class="row row--window" data-panel="<?php echo $section_titles[$i]; ?>">
+	<section class="row row--window home" data-panel="<?php echo $section_titles[$i]; ?>">
 		<?php if ( $i % 2 == 1 ) : ?>
 			<div class="cell cell--half cell--color">
 				<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
