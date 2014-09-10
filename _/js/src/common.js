@@ -1,6 +1,5 @@
 (function($) {
     // RequestAnimFrame: a browser API for getting smooth animations
-    var panelInitiated = false;
     var canvasIni = new Array();
     var countAniFrame = 0;
     var requestAnimFrame = (function(){
@@ -462,7 +461,6 @@
                     e.preventDefault();
                     $('body').panelSnap('snapToPanel', $('section:first'));
                 });
-                panelInitiated = true;
             }
 
             // Side navigation hover / Click
@@ -505,137 +503,7 @@
 
         // Kick off animation loop!
         requestAnimationFrame(animloop);
-
-       // Set up page after ajax stuff
-        /*var setupPage = function(data){
-            
-            alert(9)
-            $('body').html(data);
-            alert(8)
-
-            // After page has loaded....
-
-            // If panelsnap has already run, destroy old planelsnap instance
-            if (panelInitiated){
-                $('body').panelSnap('destroy')
-                panelInitiated = false;
-            }
-
-            // Run common functions for new page
-            common.init();
-        }
-        // Set up navigation for html5 history
-        $('.ajax').smarthistory(setupPage)*/
-
-
-        test = function(){
-
-            var state = History.getState();
-
-            //for when they click on an ajax link
-            $('.ajax').on('click', function(e){
-                e.preventDefault();
-                alert(9)
-                var $this = $(this);
-                var href = $this.attr('href'); // use the href value to determine what content to ajax in
-                $.ajax({
-                    url: pagebase + href, // create the necessary path for our ajax request
-                    dataType: 'html',
-                    success: function(data) {
-                        $('body').html(data); // place our ajaxed content into our content area
-                        history.pushState(null,href, href); // change the url and add our ajax request to our history
-
-                        // If panelsnap has already run, destroy old planelsnap instance
-                        if (panelInitiated){
-                            $('body').panelSnap('destroy')
-                            panelInitiated = false;
-                        }
-
-                        // Run common functions for new page
-                        common.init();
-
-                        test();
-                    }
-                });
-            });
-
-            //for when they hit the back button
-            History.Adapter.bind(window, 'statechange', function () {
-                alert(8)
-                state = History.getState(); // find out what we previously ajaxed in
-                alert(pagebase + state.title)
-                $.ajax({
-                    url: pagebase + state.title, //create our path
-                    dataType: 'html',
-                    success: function(data) {
-                        $('body').html(data);
-
-                        // If panelsnap has already run, destroy old planelsnap instance
-                        if (panelInitiated){
-                            $('body').panelSnap('destroy')
-                            panelInitiated = false;
-                        }
-
-                        // Run common functions for new page
-                        common.init();
-                    }
-                });
-            });
-
-        }
-
-        test();
     });
-
-
-    /*
-     * jquery.smarthistory.js
-     *
-     * Copyright (c) 2010 Kazuhito Hokamura
-     * Licensed under the MIT License:
-     * http://www.opensource.org/licenses/mit-license.php
-     *
-     * @author   Kazuhito Hokamura (http://webtech-walker.com/)
-     * @version  0.0.1
-     *
-     * Page transition jQuery plugin, useing history.pushState.
-     *
-     */
-    $.fn.smarthistory = function(changeHandler) {
-        if ( !('pushState' in history) ) {
-            return this;
-        }
-     
-        window.addEventListener('popstate', function(event) {
-            var state = event.state || {};
-            var data = state.data;
-            if (data) {
-                changeHandler(data);
-            }
-            else {
-                window.location = location.href;
-                console.log(history)
-                return false;
-                console.log($('body').html());
-                history.replaceState({data: $('body').html()}, null, null);
-            }
-        });
-        return this.click(function(event) {
-            var $elem = $(this);
-            //var targetname = $.isFunction(target) ? target.call(this) : target;
-            var targetname = $elem.attr('href');
-            if ($elem.hasClass('ajax--home') && $elem.parents('.home').length) return this;
-            event.preventDefault();
-            $.get(targetname)
-                .done(function(data) {
-                    changeHandler(data);
-                    history.pushState({data: data}, targetname, targetname);
-                })
-                .fail(function() {
-                    location.href = targetname;
-                });
-        });
-    };
 
 
 })(jQuery);
