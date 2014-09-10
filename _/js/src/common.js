@@ -450,8 +450,8 @@
                     $menu: $('.navigationSide-list, .navigation-list'),
                     menuSelector: 'li[data-panel]',
                     onSnapFinish: function($target){
-                        //var historySection = ($target.index() == 0) ? pagebase : $target.attr('data-panel').toLowerCase();
-                        //history.replaceState({data: $('html').html()}, historySection, historySection);
+                        var historySection = ($target.index() == 0) ? pagebase : $target.attr('data-panel').toLowerCase();
+                        history.replaceState({data: $('html').html()}, historySection, historySection);
                         //$.each(canvasIni, function(index){
                             //canvasIni[index].land($target);
                         //});

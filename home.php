@@ -30,8 +30,10 @@ $content = array(
    '<h2 class="h2">Contact</h2>
 	<p class="p">
 		Mike A Hurwitz <br>
-		<a href="mailto:mike@mike.com">mike@mikeahurwitz.com</a><br>
-		Orlando, Florida
+		<a href="mailto:mike@hrwtz.com">mike@hrwtz.com</a><br>
+		Orlando, Florida <br>
+		<a href="'.$page_base.'resume">Résumé</a>
+		
 	</p>',
 );
 ?>
@@ -73,12 +75,14 @@ $content = array(
 							</a>
 						</li>
 					<?php endfor; ?>
+					<?php /*
 					<li class="navigationSide-item" data-panel="Résumé">
 						<a href="#" class="navigationSide-item-link" >
 							<span class="navigationSide-dot navigationSide-dot--rectangle"></span>
 							<span class="navigationSide-text">Résumé</span>
 						</a>
 					</li>
+					*/ ?>
 				</ul>
 			</nav>
 		</div>
