@@ -3,9 +3,6 @@
 <?php require('nav.php'); ?>
 
 
-<?php require('work-nine82.php'); ?>
-
-
 <section class="row">
 	<div class="well">
 
@@ -52,11 +49,41 @@
 
 			<?php if ($work['images']) : ?>
 
-				<?php foreach ($work['images'] as $image) : ?>
+				<div class="tac">
 
-					<img src="<?php echo $image; ?>" alt="" class="work-image">
+					<?php foreach ($work['images'] as $image) : ?>
 
-				<?php endforeach;?>
+						<?php if ( $image['size'] == 'desktop' ) : ?>
+						
+							<div class="device device-desktop">
+								<div class="device-desktop-top">
+									<div class="device-desktop-buttons"></div>
+								</div>
+								<img src="<?php echo $image['image']; ?>" alt="" class="device-desktop-image">
+							</div>
+
+						<?php elseif ( $image['size'] == 'phone' || $image['size'] == 'tablet' ) : ?>
+
+							<div class="device device-mobile device-mobile--<?php echo $image['size']; ?>">
+								<div class="device-mobile-circle device-mobile-circle--<?php echo $image['size']; ?>1"></div>
+								<div class="device-mobile-circle device-mobile-circle--<?php echo $image['size']; ?>2"></div>
+								<div class="device-mobile-home device-mobile-home--<?php echo $image['size']; ?>"></div>
+
+								<?php if ( $image['size'] == 'phone' ) : ?>
+									<div class="device-mobile-circle device-mobile-circle--phone3"></div>
+									<div class="device-mobile-speaker"></div>
+								<?php endif; ?>
+								
+								<div class="device-mobile-padding--<?php echo $image['size']; ?>">
+									<img src="<?php echo $image['image']; ?>" alt="" class="device-mobile-image">
+								</div>
+							</div>
+
+						<?php endif; ?>
+
+					<?php endforeach;?>
+
+				</div>
 
 			<?php endif; ?>
 

@@ -24,6 +24,20 @@
   }
 }
 
+// ----- Per ----- //
+// -> Converts pixel value to an percentage
+//
+// $target - the target pixel size
+// $context - the context pixel-size
+@function per($target, $context) {
+  @if $target == 0 {
+    @return 0;
+  }
+  @else {
+    @return $target / $context * 100%;
+  }
+}
+
 // -------------------------------------
 //   Mixins
 // -------------------------------------

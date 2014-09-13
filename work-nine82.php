@@ -7,11 +7,9 @@ $work['copy'] = '<p class="p">With every project comes new challenges, and I mak
 $work['skills'] = array('Skills name','Other skill name','Skill');
 $work['url'] = 'http://google.com';
 $work['images'] = array(
-	$page_base . '_/img/work-image.png',
-	$page_base . '_/img/work-image.png',
-	$page_base . '_/img/work-image.png',
-	$page_base . '_/img/work-image.png',
-	$page_base . '_/img/work-image.png',
+	$page_base . '_/img/tkm1.png',
+	$page_base . '_/img/tkm2.png',
+	$page_base . '_/img/tkm3.png',
 	);
 
 ?>

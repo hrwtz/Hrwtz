@@ -1,0 +1,169 @@
+// *************************************
+//
+//   Device
+//
+// *************************************
+
+.device{
+    display: inline-block;
+	margin-bottom: $b-space;
+    
+    &:last-of-type{
+        margin-bottom: 0;
+    }
+}
+
+// -------------------------------------
+//   Structure
+// -------------------------------------
+
+// ----- Colors ----- //
+
+$device-border: #dddddd;
+$device-button: #5b5b5b;
+
+// ----- Desktop ----- //
+
+.device-desktop-top{
+    position: relative;
+    height: 34px;
+    border: 3px solid $device-border;
+    @include border-radius(8px 8px 0 0);
+    background: white;
+}
+
+.device-desktop-buttons{
+    
+    &,
+    &:before,
+    &:after{
+        position: absolute;
+        left: $b-space-o5x;
+        top: 50%;
+        width: $b-space-o5x;
+        height: $b-space-o5x;
+        @include border-radius(50%);
+        @include transform(translateY(-50%));
+        background-color: $device-button;
+        content: "";
+    }
+
+    &:before{
+        left: 17px;
+    }
+
+    &:after{
+        left: 34px;
+    }
+}
+
+.device-desktop-image{
+    display: block;
+    width: 100%;
+    border: 3px solid $device-border;
+    border-top: none;
+    @include border-radius(0 0 8px 8px);
+}
+
+// ----- Phone / Tablet ----- //
+
+.device-mobile{
+    position: relative;
+    border: 3px solid $device-border;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+}
+
+.device-mobile--phone{
+    max-width: 390px;
+    @include border-radius(55px);
+    margin-left: $b-space;
+    margin-right: $b-space;
+}
+
+.device-mobile--tablet{
+    max-width: 825px;
+    @include border-radius(40px);
+}
+
+.device-mobile-padding--phone{
+    padding: per($b-space-3x-px, 390px) per($b-space-o75x-px, 390px);
+}
+
+.device-mobile-padding--tablet{
+    padding: per(50px, 825px) per(25px, 825px);
+}
+
+.device-mobile-image{
+    width: 100%;
+    border: 1px solid $device-border;
+    @include border-radius(5px);
+}
+
+.device-mobile-speaker{
+    position: absolute;
+    top: $b-space-o75x;
+    left: 50%;
+    width: 80px;
+    height: 7px;
+    @include border-radius(7px);
+    background-color: $device-border;
+    @include transform(translateX(-50%));
+}
+
+.device-mobile-circle{
+    position: absolute;
+    top: $b-space-o5x;
+    left: 50%;
+    width: $b-space-o5x;
+    height: $b-space-o5x;
+    @include border-radius(50%);
+    background-color: $device-button;
+}
+
+.device-mobile-circle--phone1{
+    margin-left: -63px;
+}
+
+.device-mobile-circle--phone2{
+    margin-left: 46px;
+}
+
+.device-mobile-circle--phone3{
+    margin-left: 63px;
+}
+
+.device-mobile-circle--tablet1{
+    margin-left: -$b-space-o75x;
+}
+
+.device-mobile-circle--tablet2{
+    margin-left: $b-space-o75x;
+}
+
+.device-mobile-home{
+    position: absolute;
+    bottom: $b-space;
+    left: 50%;
+    width: 84px;
+    height: 26px;
+    border: 2px solid $device-border;
+    @include border-radius(8px);
+    @include transform(translateX(-50%));
+}
+
+.device-mobile-home--phone{
+
+}
+
+.device-mobile-home--tablet{
+    width: $b-space-3x;
+    height: $b-space; 
+}  
+
+// ----- Tablet ----- //
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------

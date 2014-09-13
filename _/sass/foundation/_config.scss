@@ -89,7 +89,7 @@ $b-lineHeight-subhead: 4/3;
 
 // ----- Sizing ----- //
 
-$b-maxWidth: em(1300px);
+$b-maxWidth: em(1050px);
 $b-maxWidth-s: em(670px);
 $b-maxWidth-m: em(800px);
 
@@ -101,6 +101,9 @@ $b-space-o25x: em($b-space-o25x-px);
 
 $b-space-o5x-px: .5 * $b-space-px;
 $b-space-o5x: em($b-space-o5x-px);
+
+$b-space-o75x-px: .75 * $b-space-px;
+$b-space-o75x: em($b-space-o75x-px);
 
 $b-space-2x-px: 2 * $b-space-px;
 $b-space-2x:em($b-space-2x-px);

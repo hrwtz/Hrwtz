@@ -7,11 +7,30 @@ $work['copy'] = '<p class="p">With every project comes new challenges, and I mak
 $work['skills'] = array('Skills name','Other skill name','Skill');
 $work['url'] = 'http://google.com';
 $work['images'] = array(
-	$page_base . '_/img/work-image.png',
-	$page_base . '_/img/work-image.png',
-	$page_base . '_/img/work-image.png',
-	$page_base . '_/img/work-image.png',
-	$page_base . '_/img/work-image.png',
-	);
+	array(
+		'image' => $page_base . '_/img/tkm1.png', 
+		'size'	=> 'desktop'
+	),
+	array(
+		'image' => $page_base . '_/img/tkm4.jpg', 
+		'size'	=> 'phone'
+	),
+	array(
+		'image' => $page_base . '_/img/tkm4.jpg', 
+		'size'	=> 'phone'
+	),
+	array(
+		'image' => $page_base . '_/img/tkm3.png', 
+		'size'	=> 'tablet'
+	),
+	array(
+		'image' => $page_base . '_/img/tkm2.png', 
+		'size'	=> 'desktop'
+	),
+	array(
+		'image' => $page_base . '_/img/tkm3.png', 
+		'size'	=> 'desktop'
+	),
+);
 
 ?>
