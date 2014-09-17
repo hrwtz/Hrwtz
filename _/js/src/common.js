@@ -16,8 +16,8 @@
     })();
 
     var canvass = function(can, index){
-        this.index = index;
         var canvas = this;
+        canvas.index = index;
         this.init = function(){
             // Set up canvas variables
             canvas.can = can,
@@ -40,6 +40,9 @@
 
             // Initialize Triangle
             triangle.init();
+
+            // Initialize Split
+            split.init();
 
         };
 
@@ -93,6 +96,8 @@
             particles.draw();
             // Draw triangle
             triangle.draw();
+            // Draw split
+            triangle.draw();
         };
         this.update = function(){
             // Update gradient background
@@ -101,6 +106,8 @@
             particles.update();
             // Update triangle
             triangle.update();
+            // Update split
+            split.update();
         };
         this.land = function($target){
             // Update 
@@ -296,28 +303,25 @@
                 }
             ],
             init: function(){
-
-            },
-            draw: function(){
                 var h,
-                    triCoords,
                     centerY;
                 // Get triangle height
                 h = triangle.side * (Math.sqrt(3)/2);
                 
                 // Get triangle point coordinates
-                triCoords = [
+                triangle.triCoords = [
                     {x:0,y:-h/2},
                     {x:-triangle.side / 2,y:h/2},
                     {x:triangle.side / 2,y:h/2},
                 ]
-                
+
                 // Fix Y coords to center triangle
-                centerY = (triCoords[0].y + triCoords[1].y + triCoords[2].y) / 3;
-                triCoords.forEach(function(el){
+                centerY = (triangle.triCoords[0].y + triangle.triCoords[1].y + triangle.triCoords[2].y) / 3;
+                triangle.triCoords.forEach(function(el){
                     el.y = el.y - centerY;
                 });
-
+            },
+            draw: function(){
                 canvas.ctx.save();
                 canvas.ctx.fillStyle = 'rgba(255,255,255,'+triangle.opacity+')';
                 canvas.ctx.translate(canvas.can.width/2, canvas.can.height/2);
@@ -325,10 +329,10 @@
                 canvas.ctx.scale(triangle.scale, triangle.scale);
 
                 canvas.ctx.beginPath();
-                canvas.ctx.moveTo(triCoords[0].x, triCoords[0].y);
-                canvas.ctx.lineTo(triCoords[1].x, triCoords[1].y);
-                canvas.ctx.lineTo(triCoords[2].x, triCoords[2].y);
-                canvas.ctx.lineTo(triCoords[0].x, triCoords[0].y);
+                canvas.ctx.moveTo(triangle.triCoords[0].x, triangle.triCoords[0].y);
+                canvas.ctx.lineTo(triangle.triCoords[1].x, triangle.triCoords[1].y);
+                canvas.ctx.lineTo(triangle.triCoords[2].x, triangle.triCoords[2].y);
+                canvas.ctx.lineTo(triangle.triCoords[0].x, triangle.triCoords[0].y);
                 canvas.ctx.fill();
                 canvas.ctx.closePath();
                 canvas.ctx.restore();
@@ -345,44 +349,116 @@
                     i++;
                 });
             },
-        }
+        };
+        var split = {
+            init: function(){
+                split.triangle = {};
+                split.triangle = jQuery.extend(true, {}, triangle);
+            },
+            draw: function(){
+
+            },
+            update: function(){
+                if (index)
+                    return;
+                if (countAniFrame == 160)
+                    split.init();
+                if (countAniFrame > 160){
+
+                    var newCoords = [];
+
+                    newCoords[0] = split.triangle.triCoords[2];
+                    newCoords[1] = split.triangle.triCoords[0];
+                    newCoords[2] = getMidPoint(split.triangle.triCoords[0], split.triangle.triCoords[1], .3);
+                    newCoords[3] = getMidPoint(split.triangle.triCoords[1], split.triangle.triCoords[2], .6);
+
+
+                    if (countAniFrame == 161)
+                        console.log(newCoords)
+
+
+
+
+
+
+                    //console.log(newCoords)
+
+
+                    canvas.ctx.save();
+                    canvas.ctx.fillStyle = 'rgba(0,255,0,'+1+')';
+                    canvas.ctx.translate(canvas.can.width/2, canvas.can.height/2);
+                    canvas.ctx.rotate(split.triangle.rotate);
+                    canvas.ctx.scale(split.triangle.scale, split.triangle.scale);
+
+                    canvas.ctx.beginPath();
+                    canvas.ctx.moveTo(newCoords[0].x, newCoords[0].y);
+                    canvas.ctx.lineTo(newCoords[1].x, newCoords[1].y);
+                    canvas.ctx.lineTo(newCoords[2].x, newCoords[2].y);
+                    canvas.ctx.lineTo(newCoords[3].x, newCoords[3].y);
+                    canvas.ctx.lineTo(newCoords[0].x, newCoords[0].y);
+                    canvas.ctx.fill();
+                    canvas.ctx.closePath();
+                    canvas.ctx.restore();
+                }
+            },
+        };
     }
-    /*function getRandomColor() {
-        var letters = '0123456789ABCDEF'.split('');
-        var color = '#';
-        for (var i = 0; i < 6; i++ ) {
-            color += letters[Math.floor(Math.random() * 8) ];
+    var animation = [
+        {
+            triggered: false,
+            done: false,
+            init: function(){
+                particles.init();
+            },
+            draw: function(){
+                particles.draw();
+            },
+            update: function(){
+                particles.update();
+            },
+        },
+        {
+            triggered: false,
+            done: false,
+            init: function(){
+                triangle.init();
+            },
+            draw: function(){
+                triangle.draw();
+            },
+            update: function(){
+                triangle.update();
+            },
         }
-        return color;
-    }*/
+    ]
     
-   var ease = {
-      // no easing, no acceleration
-      linear: function (t) { return t },
-      // accelerating from zero velocity
-      easeInQuad: function (t) { return t*t },
-      // decelerating to zero velocity
-      easeOutQuad: function (t) { return t*(2-t) },
-      // acceleration until halfway, then deceleration
-      easeInOutQuad: function (t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
-      // accelerating from zero velocity 
-      easeInCubic: function (t) { return t*t*t },
-      // decelerating to zero velocity 
-      easeOutCubic: function (t) { return (--t)*t*t+1 },
-      // acceleration until halfway, then deceleration 
-      easeInOutCubic: function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 },
-      // accelerating from zero velocity 
-      easeInQuart: function (t) { return t*t*t*t },
-      // decelerating to zero velocity 
-      easeOutQuart: function (t) { return 1-(--t)*t*t*t },
-      // acceleration until halfway, then deceleration
-      easeInOutQuart: function (t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t },
-      // accelerating from zero velocity
-      easeInQuint: function (t) { return t*t*t*t*t },
-      // decelerating to zero velocity
-      easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
-      // acceleration until halfway, then deceleration 
-      easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
+    var ease = {
+        // no easing, no acceleration
+        linear: function (t) { return t },
+        // accelerating from zero velocity
+        easeInQuad: function (t) { return t*t },
+        // decelerating to zero velocity
+        easeOutQuad: function (t) { return t*(2-t) },
+        // acceleration until halfway, then deceleration
+        easeInOutQuad: function (t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
+        // accelerating from zero velocity 
+        easeInCubic: function (t) { return t*t*t },
+        // decelerating to zero velocity 
+        easeOutCubic: function (t) { return (--t)*t*t+1 },
+        // acceleration until halfway, then deceleration 
+        easeInOutCubic: function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 },
+        // accelerating from zero velocity 
+        easeInQuart: function (t) { return t*t*t*t },
+        // decelerating to zero velocity 
+        easeOutQuart: function (t) { return 1-(--t)*t*t*t },
+        // acceleration until halfway, then deceleration
+        easeInOutQuart: function (t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t },
+        // accelerating from zero velocity
+        easeInQuint: function (t) { return t*t*t*t*t },
+        // decelerating to zero velocity
+        easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
+        // acceleration until halfway, then deceleration 
+        easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
     }
     function animate(el){
         var timePassed, 
@@ -430,6 +506,17 @@
             return ("0" + parseInt(x).toString(16)).slice(-2);
         }
         return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
+
+    // Get mid point of a line given two points and midpoint percentage position
+    // http://stackoverflow.com/a/1934226/1552042
+    function getMidPoint(point1, point2, r){
+        var point3 = {};
+
+        point3.x = r * point2.x + (1 - r) * point1.x //find point that divides the segment
+        point3.y = r * point2.y + (1 - r) * point1.y //into the ratio (1-r):r
+
+        return point3;
     }
     
 
@@ -493,7 +580,7 @@
             // Call draw and update methods on each canvas
             $.each(canvasIni, function(index){
                 canvasIni[index].draw();
-                canvasIni[index].update();
+                //canvasIni[index].update();
             });
             
             // Recursion
