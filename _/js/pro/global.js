@@ -787,6 +787,7 @@ if ( typeof Object.create !== 'function' ) {
     var canvass = function(can, index){
         var canvas = this;
         canvas.index = index;
+        //canvas.triggerAnimation = 0;
         this.init = function(){
             // Set up canvas variables
             canvas.can = can,
@@ -803,7 +804,7 @@ if ( typeof Object.create !== 'function' ) {
 
             // Initialize Background
             background.init();
-
+/*
             // Initialize particles
             particles.init();
 
@@ -812,9 +813,30 @@ if ( typeof Object.create !== 'function' ) {
 
             // Initialize Split
             split.init();
-
+*/
         };
+        this.controller = function(){
+            // Run n amount of animation for n panels that have been triggered
+            for (var i = 0; i < canvas.triggerAnimation+1; i++) {
 
+                // If previous animation is finished or current animation is done Or if not in correct section
+                if ( ( i != 0 && animation[i-1].finished != true ) || ( animation[i].done == true && canvas.index < i ) || ( i > canvas.index ) )
+                    break;
+
+                // Initalize animation if not already done
+                if ( animation[i].triggered == false ){
+                    animation[i].init();
+                    animation[i].triggered = true;
+                }
+
+                // Only draw on canvas if canvas is in view
+                if (canvas.visible)
+                    animation[i].draw();
+
+                // Update animation
+                animation[i].update()
+;            };
+        };
         this.click = function(){
             $(canvas.can).click(function(e){
                 background.addCircle(e.offsetX, e.offsetY)
@@ -878,11 +900,6 @@ if ( typeof Object.create !== 'function' ) {
             // Update split
             split.update();
         };
-        this.land = function($target){
-            // Update 
-            //console.log($target.index())
-            //canvas.
-        }
 
         var background = {
             circles: [],
@@ -1171,35 +1188,41 @@ if ( typeof Object.create !== 'function' ) {
                 }
             },
         };
+        var animation = [
+            {
+                finished: true,
+                triggered: false,
+                done: false,
+                init: function(){
+                    background.init();
+                    particles.init();
+                },
+                draw: function(){
+                    // Draw background
+                    background.draw();
+
+                    // Draw Particles
+                    particles.draw();
+                },
+                update: function(){
+                    particles.update();
+                },
+            },
+            {
+                triggered: false,
+                done: false,
+                init: function(){
+                    triangle.init();
+                },
+                draw: function(){
+                    triangle.draw();
+                },
+                update: function(){
+                    triangle.update();
+                },
+            }
+        ]
     }
-    var animation = [
-        {
-            triggered: false,
-            done: false,
-            init: function(){
-                particles.init();
-            },
-            draw: function(){
-                particles.draw();
-            },
-            update: function(){
-                particles.update();
-            },
-        },
-        {
-            triggered: false,
-            done: false,
-            init: function(){
-                triangle.init();
-            },
-            draw: function(){
-                triangle.draw();
-            },
-            update: function(){
-                triangle.update();
-            },
-        }
-    ]
     
     var ease = {
         // no easing, no acceleration
@@ -1308,9 +1331,12 @@ if ( typeof Object.create !== 'function' ) {
                     onSnapFinish: function($target){
                         var historySection = ($target.index() == 0) ? pagebase : $target.attr('data-panel').toLowerCase();
                         history.replaceState({data: $('html').html()}, historySection, historySection);
-                        //$.each(canvasIni, function(index){
-                            //canvasIni[index].land($target);
-                        //});
+
+                        $.each(canvasIni, function(index){
+                            if ( $target.index() > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
+                                canvasIni[index].triggerAnimation = $target.index();
+                            }
+                        });
                     }
                 });
                 $('.navigation-button.ajax').click(function(e){
@@ -1348,7 +1374,7 @@ if ( typeof Object.create !== 'function' ) {
 
             // Call draw and update methods on each canvas
             $.each(canvasIni, function(index){
-                canvasIni[index].draw();
+                canvasIni[index].controller();
                 //canvasIni[index].update();
             });
             
