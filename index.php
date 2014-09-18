@@ -25,10 +25,11 @@ $page_uri = $_SERVER['PHP_SELF'];
 $page_base = str_replace(basename(__FILE__), '', $page_uri);
 
 // Get request path minus the base
-$request_path = str_replace($page_base, '', $_SERVER['REQUEST_URI']);
+$request_path = preg_replace('/'.preg_quote($page_base,'/').'/', '', $_SERVER['REQUEST_URI'], 1);
 
 // Remove trailing slashes
 $request_path = rtrim($request_path, '/');
+
 
 // If request path has single subdirectory, 
 // mark as so and make request path an array
