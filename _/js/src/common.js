@@ -371,56 +371,78 @@
                     i++;
                 });
             },
+            destroy: function(){
+                this.draw = function(){return false};
+            }
         };
         var split = {
-            split1: {Coords: {}},
-            split2: {Coords: {}},
+            split: [],
             init: function(){
-                //split.triangle = {};
+                // Set up vars
+                split.split[0] = {Coords: {}};
+                split.split[1] = {Coords: {}};
                 split.triangle = jQuery.extend(true, {}, triangle);
+                triangle.destroy();
                 
+                // Get split shape 0 coords
+                split.split[0].Coords[0] = split.triangle.triCoords[2];
+                split.split[0].Coords[1] = split.triangle.triCoords[0];
+                split.split[0].Coords[2] = getMidPoint(split.triangle.triCoords[0], split.triangle.triCoords[1], .3);
+                split.split[0].Coords[3] = getMidPoint(split.triangle.triCoords[1], split.triangle.triCoords[2], .6);
+                split.split[0].vx = -.5;
+                split.split[0].vy = -1.3;
+                split.split[0].vrotate = .002;
+                split.split[0].rotate = 0;
 
-                split.split1.Coords[0] = split.triangle.triCoords[2];
-                split.split1.Coords[1] = split.triangle.triCoords[0];
-                split.split1.Coords[2] = getMidPoint(split.triangle.triCoords[0], split.triangle.triCoords[1], .3);
-                split.split1.Coords[3] = getMidPoint(split.triangle.triCoords[1], split.triangle.triCoords[2], .6);
-
-                split.split2.Coords[0] = split.triangle.triCoords[1];
-                split.split2.Coords[1] = getMidPoint(split.triangle.triCoords[0], split.triangle.triCoords[1], .3);
-                split.split2.Coords[2] = getMidPoint(split.triangle.triCoords[1], split.triangle.triCoords[2], .6);
+                // Get split shape 1 coords
+                split.split[1].Coords[0] = split.triangle.triCoords[1];
+                split.split[1].Coords[1] = getMidPoint(split.triangle.triCoords[0], split.triangle.triCoords[1], .3);
+                split.split[1].Coords[2] = getMidPoint(split.triangle.triCoords[1], split.triangle.triCoords[2], .6);
+                split.split[1].vx = .5;
+                split.split[1].vy = 1.3;
+                split.split[1].vrotate = .0005;
+                split.split[1].rotate = 0;
             },
             draw: function(){
                 canvas.ctx.save();
-                canvas.ctx.fillStyle = 'rgba(0,255,0,'+1+')';
+                canvas.ctx.fillStyle = 'rgba(255,255,255,'+1+')';
                 canvas.ctx.translate(canvas.can.width/2, canvas.can.height/2);
-                canvas.ctx.rotate(split.triangle.rotate);
+                //canvas.ctx.rotate(split.triangle.rotate);
                 canvas.ctx.scale(split.triangle.scale, split.triangle.scale);
 
-                canvas.ctx.beginPath();
-                canvas.ctx.moveTo(split.split1.Coords[0].x, split.split1.Coords[0].y);
-                canvas.ctx.lineTo(split.split1.Coords[1].x, split.split1.Coords[1].y);
-                canvas.ctx.lineTo(split.split1.Coords[2].x, split.split1.Coords[2].y);
-                canvas.ctx.lineTo(split.split1.Coords[3].x, split.split1.Coords[3].y);
-                canvas.ctx.lineTo(split.split1.Coords[0].x, split.split1.Coords[0].y);
-                canvas.ctx.fill();
-                canvas.ctx.closePath();
+                $.each(split.split, function(index, splitValue){
+                    canvas.ctx.rotate(splitValue.rotate);
 
-                canvas.ctx.fillStyle = 'rgba(0,0,255,'+1+')';
-                canvas.ctx.beginPath();
-                canvas.ctx.moveTo(split.split2.Coords[0].x, split.split2.Coords[0].y);
-                canvas.ctx.lineTo(split.split2.Coords[1].x, split.split2.Coords[1].y);
-                canvas.ctx.lineTo(split.split2.Coords[2].x, split.split2.Coords[2].y);
-                canvas.ctx.lineTo(split.split2.Coords[0].x, split.split2.Coords[0].y);
-                canvas.ctx.fill();
-                canvas.ctx.closePath();
+                    canvas.ctx.beginPath();
+                    canvas.ctx.lineTo(splitValue.Coords[0].x, splitValue.Coords[0].y);
+                    $.each(splitValue.Coords, function(index, Coords){
+                        if (index == 0)
+                            return;
+                        canvas.ctx.lineTo(Coords.x, Coords.y);    
+                    })
+                    canvas.ctx.lineTo(splitValue.Coords[0].x, splitValue.Coords[0].y);
+                    canvas.ctx.fill();
+                    canvas.ctx.closePath();
+                   // return false;
+                })
 
                 canvas.ctx.restore();
             },
             update: function(){
+                $.each(split.split, function(index, splitValue){
+                    $.each(splitValue.Coords, function(index, Coords){
+                        Coords.x +=  splitValue.vx;
+                        Coords.y +=  splitValue.vy;
+                    })
+                    splitValue.vx *= .9995;
+                    splitValue.vy *= .9995;
+                    splitValue.rotate += splitValue.vrotate;
+                })
+
 /*
-                split.split2.Coords[0].x += 1;
-                split.split2.Coords[1].x += 1;
-                split.split2.Coords[2].x += 1;
+                split.split[1].Coords[0].x += 1;
+                split.split[1].Coords[1].x += 1;
+                split.split[1].Coords[2].x += 1;
 */
 
             },

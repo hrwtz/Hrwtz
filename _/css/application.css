@@ -958,13 +958,12 @@ img {
   -moz-border-radius: 8px 8px 0 0;
   -ms-border-radius: 8px 8px 0 0;
   -o-border-radius: 8px 8px 0 0;
-  border-radius: 8px 8px 0 0; }
-  /* line 65, ../sass/components/_device.scss */
-  .device--desktop .device-image {
-    border: 1px solid #ccc;
-    border-top: 0; }
+  border-radius: 8px 8px 0 0;
+  -webkit-box-shadow: 0px 1px 0px 0px #cccccc, 1px 0px 0px 0px #cccccc, -1px 0px 0px 0px #cccccc;
+  -moz-box-shadow: 0px 1px 0px 0px #cccccc, 1px 0px 0px 0px #cccccc, -1px 0px 0px 0px #cccccc;
+  box-shadow: 0px 1px 0px 0px #cccccc, 1px 0px 0px 0px #cccccc, -1px 0px 0px 0px #cccccc; }
 
-/* line 71, ../sass/components/_device.scss */
+/* line 67, ../sass/components/_device.scss */
 .device--phone {
   max-width: 19.5em;
   -webkit-border-radius: 55px;
@@ -974,11 +973,11 @@ img {
   border-radius: 55px;
   margin-left: 1em;
   margin-right: 1em; }
-  /* line 77, ../sass/components/_device.scss */
+  /* line 73, ../sass/components/_device.scss */
   .device--phone .device-image {
     padding: 20.51282% 5.38462%; }
 
-/* line 82, ../sass/components/_device.scss */
+/* line 78, ../sass/components/_device.scss */
 .device--tablet {
   max-width: 41.25em;
   -webkit-border-radius: 40px;
@@ -986,7 +985,7 @@ img {
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
   border-radius: 40px; }
-  /* line 86, ../sass/components/_device.scss */
+  /* line 82, ../sass/components/_device.scss */
   .device--tablet .device-image {
     padding: 4.84848% 3.63636%; }
 
