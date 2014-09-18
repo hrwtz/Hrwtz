@@ -61,8 +61,10 @@
     overflow: hidden;
     @include transition($t-trans-easeInBack);
     pointer-events: auto;
+    font-family: $b-fontFamily-heading;
     line-height: $b-space-3x;
     text-align: right;
+    text-transform: uppercase;
     .is-open &{
         @include transition($t-trans-easeOutBack);
         left: 0;

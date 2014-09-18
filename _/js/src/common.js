@@ -50,8 +50,8 @@
             // Run n amount of animation for n panels that have been triggered
             for (var i = 0; i < canvas.triggerAnimation+1; i++) {
 
-                // If previous animation is finished or current animation is done Or if not in correct section
-                if ( ( i != 0 && animation[i-1].finished != true ) || ( animation[i].done == true && canvas.index < i ) || ( i > canvas.index ) )
+                // If previous animation is finished or if not in correct section or if no animation
+                if ( ( i != 0 && animation[i-1].finished != true )  || ( i > canvas.index ) || ( !animation[i] ) )
                     break;
 
                 // Initalize animation if not already done
@@ -107,6 +107,7 @@
                 }
             }).trigger('scroll');
         };
+        /*
         this.draw = function(){
             // Only draw on canvas if canvas is in view
             if (!canvas.visible)
@@ -130,7 +131,7 @@
             triangle.update();
             // Update split
             split.update();
-        };
+        };*/
 
         var background = {
             circles: [],
@@ -286,6 +287,7 @@
             rotate: 0,
             opacity: 0,
             scale: 0,
+            finished: false,
             animations: [
                 {
                     duration: 80,
@@ -295,6 +297,9 @@
                     step: function(delta) {
                         triangle.rotate = 600*delta * Math.PI/180;
                         triangle.opacity = delta;
+                    },
+                    complete: function(){
+                        triangle.finished = true;
                     }
                 },
                 {
@@ -368,62 +373,62 @@
             },
         };
         var split = {
+            split1: {Coords: {}},
+            split2: {Coords: {}},
             init: function(){
-                split.triangle = {};
+                //split.triangle = {};
                 split.triangle = jQuery.extend(true, {}, triangle);
+                
+
+                split.split1.Coords[0] = split.triangle.triCoords[2];
+                split.split1.Coords[1] = split.triangle.triCoords[0];
+                split.split1.Coords[2] = getMidPoint(split.triangle.triCoords[0], split.triangle.triCoords[1], .3);
+                split.split1.Coords[3] = getMidPoint(split.triangle.triCoords[1], split.triangle.triCoords[2], .6);
+
+                split.split2.Coords[0] = split.triangle.triCoords[1];
+                split.split2.Coords[1] = getMidPoint(split.triangle.triCoords[0], split.triangle.triCoords[1], .3);
+                split.split2.Coords[2] = getMidPoint(split.triangle.triCoords[1], split.triangle.triCoords[2], .6);
             },
             draw: function(){
+                canvas.ctx.save();
+                canvas.ctx.fillStyle = 'rgba(0,255,0,'+1+')';
+                canvas.ctx.translate(canvas.can.width/2, canvas.can.height/2);
+                canvas.ctx.rotate(split.triangle.rotate);
+                canvas.ctx.scale(split.triangle.scale, split.triangle.scale);
 
+                canvas.ctx.beginPath();
+                canvas.ctx.moveTo(split.split1.Coords[0].x, split.split1.Coords[0].y);
+                canvas.ctx.lineTo(split.split1.Coords[1].x, split.split1.Coords[1].y);
+                canvas.ctx.lineTo(split.split1.Coords[2].x, split.split1.Coords[2].y);
+                canvas.ctx.lineTo(split.split1.Coords[3].x, split.split1.Coords[3].y);
+                canvas.ctx.lineTo(split.split1.Coords[0].x, split.split1.Coords[0].y);
+                canvas.ctx.fill();
+                canvas.ctx.closePath();
+
+                canvas.ctx.fillStyle = 'rgba(0,0,255,'+1+')';
+                canvas.ctx.beginPath();
+                canvas.ctx.moveTo(split.split2.Coords[0].x, split.split2.Coords[0].y);
+                canvas.ctx.lineTo(split.split2.Coords[1].x, split.split2.Coords[1].y);
+                canvas.ctx.lineTo(split.split2.Coords[2].x, split.split2.Coords[2].y);
+                canvas.ctx.lineTo(split.split2.Coords[0].x, split.split2.Coords[0].y);
+                canvas.ctx.fill();
+                canvas.ctx.closePath();
+
+                canvas.ctx.restore();
             },
             update: function(){
-                if (index)
-                    return;
-                if (countAniFrame == 160)
-                    split.init();
-                if (countAniFrame > 160){
+/*
+                split.split2.Coords[0].x += 1;
+                split.split2.Coords[1].x += 1;
+                split.split2.Coords[2].x += 1;
+*/
 
-                    var newCoords = [];
-
-                    newCoords[0] = split.triangle.triCoords[2];
-                    newCoords[1] = split.triangle.triCoords[0];
-                    newCoords[2] = getMidPoint(split.triangle.triCoords[0], split.triangle.triCoords[1], .3);
-                    newCoords[3] = getMidPoint(split.triangle.triCoords[1], split.triangle.triCoords[2], .6);
-
-
-                    if (countAniFrame == 161)
-                        console.log(newCoords)
-
-
-
-
-
-
-                    //console.log(newCoords)
-
-
-                    canvas.ctx.save();
-                    canvas.ctx.fillStyle = 'rgba(0,255,0,'+1+')';
-                    canvas.ctx.translate(canvas.can.width/2, canvas.can.height/2);
-                    canvas.ctx.rotate(split.triangle.rotate);
-                    canvas.ctx.scale(split.triangle.scale, split.triangle.scale);
-
-                    canvas.ctx.beginPath();
-                    canvas.ctx.moveTo(newCoords[0].x, newCoords[0].y);
-                    canvas.ctx.lineTo(newCoords[1].x, newCoords[1].y);
-                    canvas.ctx.lineTo(newCoords[2].x, newCoords[2].y);
-                    canvas.ctx.lineTo(newCoords[3].x, newCoords[3].y);
-                    canvas.ctx.lineTo(newCoords[0].x, newCoords[0].y);
-                    canvas.ctx.fill();
-                    canvas.ctx.closePath();
-                    canvas.ctx.restore();
-                }
             },
         };
         var animation = [
             {
                 finished: true,
                 triggered: false,
-                done: false,
                 init: function(){
                     background.init();
                     particles.init();
@@ -436,12 +441,13 @@
                     particles.draw();
                 },
                 update: function(){
+                    background.update();
                     particles.update();
                 },
             },
             {
+                finished: false,
                 triggered: false,
-                done: false,
                 init: function(){
                     triangle.init();
                 },
@@ -450,10 +456,27 @@
                 },
                 update: function(){
                     triangle.update();
+                    this.finished = triangle.finished;
+                },
+            },
+            {
+                finished: true,
+                triggered: false,
+                init: function(){
+                    split.init();
+                },
+                draw: function(){
+                    split.draw();
+                },
+                update: function(){
+                    split.update();
                 },
             }
         ]
     }
+
+
+
     
     var ease = {
         // no easing, no acceleration
@@ -508,6 +531,8 @@
             }else{
                 // Tell animation we're done when it runs through
                 el.finished = true;
+                if (el.complete)
+                    el.complete();
             }
         }
     }
