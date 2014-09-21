@@ -166,3 +166,30 @@ img {
   height: auto;
   max-width: 100%;
 }
+
+
+.resume-line{
+    line-height: 42px;
+
+    svg{
+        margin-left: em($b-space-o5x-px, $b-fontSize-l-px);
+        fill: $c-text-highlight;
+    }
+}
+
+.h1{
+    position: relative;
+    top: 50%;
+    width: 200%;
+    margin-top: -1em;
+    color: $c-text-invert;
+    font-size: em(330px);
+    font-family: $b-fontFamily-heading;
+    line-height: 1em;
+    text-align: center;
+}
+
+.h1--right{
+    left: -100%;
+    color: $c-canvasBg1;
+}

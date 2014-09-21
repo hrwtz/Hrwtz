@@ -70,8 +70,12 @@
 			
 			</div>
 
-			<h3 class="h3">
-				<a href="mailto:mikeahurwitz@gmail.com">mikeahurwitz@gmail.com</a> • <a href="tel:778.883.9631">778.883.9631</a>
+			<h3 class="h3 resume-line">
+				<a href="mailto:mike@hrwtz.com">mike@hrwtz.com</a> • <a href="tel:772.678.0778">772.678.0778</a>
+				<div class="fr">
+					<a href="" target="_blank"><?php include('_/img/svg/icon-pdf.svg'); ?> </a>
+					<a href="javascript:if(window.print)window.print()"><?php include('_/img/svg/icon-print.svg'); ?> </a>
+				</div>
 			</h3>
 
 
