@@ -23,7 +23,8 @@
 // -------------------------------------
 
 // ----- Theme ----- //
-.row--window{
+.row--window,
+.row--minwindow{
     padding: 0;
     height: 100%;
 
@@ -33,4 +34,9 @@
         padding-bottom: $b-space-2x;
     }
 
+}
+
+.row--minwindow{
+    height: auto;
+    min-height: 100%;
 }

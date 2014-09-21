@@ -181,11 +181,10 @@ img {
     position: relative;
     top: 50%;
     width: 200%;
-    margin-top: -1em;
     color: $c-text-invert;
     font-size: em(330px);
     font-family: $b-fontFamily-heading;
-    line-height: 1em;
+    line-height: em(230px, 330px);
     text-align: center;
 }
 

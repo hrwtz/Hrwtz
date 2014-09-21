@@ -65,6 +65,12 @@
 
 }
 
+.cell--404{
+    position: static;
+    margin-left: 50%;
+    overflow: hidden;
+}
+
 .cell-content--left{
     float: right;
     padding-left: $b-space;

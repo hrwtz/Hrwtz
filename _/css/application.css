@@ -310,14 +310,13 @@ img {
   position: relative;
   top: 50%;
   width: 200%;
-  margin-top: -1em;
   color: #ecf0f1;
   font-size: 16.5em;
   font-family: "Khand", sans-serif;
-  line-height: 1em;
+  line-height: 0.69697em;
   text-align: center; }
 
-/* line 192, ../sass/foundation/_base.scss */
+/* line 191, ../sass/foundation/_base.scss */
 .h1--right {
   left: -100%;
   color: #982e4b; }
@@ -372,24 +371,30 @@ img {
       width: 100%; } }
 
 /* line 68, ../sass/components/_cell.scss */
+.cell--404 {
+  position: static;
+  margin-left: 50%;
+  overflow: hidden; }
+
+/* line 74, ../sass/components/_cell.scss */
 .cell-content--left {
   float: right;
   padding-left: 1em;
   padding-right: 20%; }
   @media print {
-    /* line 68, ../sass/components/_cell.scss */
+    /* line 74, ../sass/components/_cell.scss */
     .cell-content--left {
       float: none;
       padding-left: 0;
       padding-right: 0; } }
 
-/* line 81, ../sass/components/_cell.scss */
+/* line 87, ../sass/components/_cell.scss */
 .cell-content--right {
   float: left;
   padding-right: 1em;
   padding-left: 20%; }
   @media print {
-    /* line 81, ../sass/components/_cell.scss */
+    /* line 87, ../sass/components/_cell.scss */
     .cell-content--right {
       float: none;
       padding-left: 0;
@@ -401,16 +406,23 @@ img {
   overflow: hidden;
   padding: 0 1em; }
 
-/* line 26, ../sass/components/_row.scss */
-.row--window {
+/* line 27, ../sass/components/_row.scss */
+.row--window,
+.row--minwindow {
   padding: 0;
   height: 100%; }
   @media print {
-    /* line 26, ../sass/components/_row.scss */
-    .row--window {
+    /* line 27, ../sass/components/_row.scss */
+    .row--window,
+    .row--minwindow {
       height: auto;
       padding-top: 2em;
       padding-bottom: 2em; } }
+
+/* line 39, ../sass/components/_row.scss */
+.row--minwindow {
+  height: auto;
+  min-height: 100%; }
 
 /* line 8, ../sass/components/_navigation.scss */
 .navigation {
@@ -1083,22 +1095,26 @@ img {
   float: right; }
 
 /* line 347, ../sass/foundation/_tools.scss */
+.fn {
+  float: none; }
+
+/* line 351, ../sass/foundation/_tools.scss */
 .poa {
   position: absolute; }
 
-/* line 351, ../sass/foundation/_tools.scss */
+/* line 355, ../sass/foundation/_tools.scss */
 .pof {
   position: fixed; }
 
-/* line 355, ../sass/foundation/_tools.scss */
+/* line 359, ../sass/foundation/_tools.scss */
 .por {
   position: relative; }
 
-/* line 359, ../sass/foundation/_tools.scss */
+/* line 363, ../sass/foundation/_tools.scss */
 .pos {
   position: static; }
 
-/* line 367, ../sass/foundation/_tools.scss */
+/* line 371, ../sass/foundation/_tools.scss */
 .ra {
   border-radius: 50%; }
 
@@ -1106,11 +1122,11 @@ img {
 .ram {
   border-radius: $b-borderRadius;
 }*/
-/* line 375, ../sass/foundation/_tools.scss */
+/* line 379, ../sass/foundation/_tools.scss */
 .ran {
   border-radius: 0; }
 
-/* line 383, ../sass/foundation/_tools.scss */
+/* line 387, ../sass/foundation/_tools.scss */
 .c3 {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -1123,11 +1139,11 @@ img {
   -o-column-gap: 1em;
   column-gap: 1em; }
 
-/* line 394, ../sass/foundation/_tools.scss */
+/* line 398, ../sass/foundation/_tools.scss */
 .tac {
   text-align: center; }
 
-/* line 398, ../sass/foundation/_tools.scss */
+/* line 402, ../sass/foundation/_tools.scss */
 .tar {
   text-align: right; }
 
@@ -1147,15 +1163,15 @@ img {
 .tct {
   color: $c-text;
 }*/
-/* line 420, ../sass/foundation/_tools.scss */
+/* line 424, ../sass/foundation/_tools.scss */
 .tct {
   color: #5d6975; }
 
-/* line 426, ../sass/foundation/_tools.scss */
+/* line 430, ../sass/foundation/_tools.scss */
 .tfb {
   font-family: "Vollkorn", serif; }
 
-/* line 430, ../sass/foundation/_tools.scss */
+/* line 434, ../sass/foundation/_tools.scss */
 .tfh {
   font-family: "Khand", sans-serif; }
 
@@ -1171,26 +1187,26 @@ img {
 .tsm {
   font-size: $b-fontSize-m;
 }*/
-/* line 448, ../sass/foundation/_tools.scss */
+/* line 452, ../sass/foundation/_tools.scss */
 .tsl {
   font-size: 1.2em; }
 
-/* line 452, ../sass/foundation/_tools.scss */
+/* line 456, ../sass/foundation/_tools.scss */
 .tsxl {
   font-size: 3em; }
 
-/* line 458, ../sass/foundation/_tools.scss */
+/* line 462, ../sass/foundation/_tools.scss */
 .tsi {
   font-style: italic; }
 
-/* line 464, ../sass/foundation/_tools.scss */
+/* line 468, ../sass/foundation/_tools.scss */
 .ttu {
   text-transform: uppercase; }
 
-/* line 470, ../sass/foundation/_tools.scss */
+/* line 474, ../sass/foundation/_tools.scss */
 .twn {
   font-weight: normal; }
 
-/* line 474, ../sass/foundation/_tools.scss */
+/* line 478, ../sass/foundation/_tools.scss */
 .twb {
   font-weight: bold; }
