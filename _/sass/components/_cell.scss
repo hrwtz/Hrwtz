@@ -58,6 +58,7 @@
     width: 50%;
     max-width: none;
     height: 100%;
+    overflow: auto;
 
     @media print {
         width: 100%;

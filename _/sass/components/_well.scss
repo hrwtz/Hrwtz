@@ -21,6 +21,16 @@
         margin-bottom: 0;
     }
 
+    @media screen and (max-width: $g-m) {
+        margin-top: $b-space * 8;
+        margin-bottom: $b-space * 3;
+    }
+
+    @media screen and (max-width: $g-s) {
+        margin-top: $b-space * 6;
+        margin-bottom: $b-space * 2;
+    }
+
 }
 
 // -------------------------------------
@@ -29,7 +39,7 @@
 
 // ----- Sizes ----- //
 
-.well--l{
-    //margin-bottom: $b-space-l;
-    //margin-top: $b-space-l;
+.well--s{
+    margin-bottom: $b-space-3x;
+    margin-top: $b-space-3x;
 }

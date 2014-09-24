@@ -89,9 +89,12 @@ $b-lineHeight-subhead: 4/3;
 
 // ----- Sizing ----- //
 
-$b-maxWidth: em(1050px);
-$b-maxWidth-s: em(670px);
-$b-maxWidth-m: em(800px);
+$b-maxWidth-px: 1050px;
+$b-maxWidth: em($b-maxWidth-px);
+$b-maxWidth-s-px: 670px;
+$b-maxWidth-s: em($b-maxWidth-s-px);
+$b-maxWidth-m-px: 800px;
+$b-maxWidth-m: em($b-maxWidth-m-px);
 
 $b-space-px: 20px;
 $b-space: em($b-space-px);
@@ -123,6 +126,7 @@ $b-space-10x:em($b-space-10x-px);
 
 // ----- Transitions ----- //
 $t-speed: .3s;
+$t-speed-s: .6s;
 $t-ease-easeInBack: cubic-bezier(0.600, -0.280, 0.735, 0.045);
 $t-ease-easeOutBack:  cubic-bezier(0.175, 0.885, 0.320, 1.275);
 $t-trans-easeInBack: all $t-speed $t-ease-easeInBack;
@@ -138,9 +142,10 @@ $t-trans-easeOutBack: all $t-speed $t-ease-easeInBack;
 
 // Breakpoints
 
-$g-s: $b-maxWidth-s;
-$g-m: $b-maxWidth-m;
-$g-l: $b-maxWidth;
+$g-xs: em(400px, 16px);
+$g-s: em($b-maxWidth-s-px, 16px);
+$g-m: em($b-maxWidth-m-px, 16px);
+$g-l: em($b-maxWidth-px, 16px);
 
 // Settings
 

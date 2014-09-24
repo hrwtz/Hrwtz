@@ -12,7 +12,18 @@
 //
 // *************************************
 
-// .structure
+.resumeLine{
+    line-height: 42px;
+
+    @media print {
+        display: none;
+    }
+
+    @media screen and (max-width: $g-s) {
+        text-align: center;
+        line-height: $b-lineHeight;
+    }
+}
 
 // -------------------------------------
 //   Modifiers
@@ -36,5 +47,31 @@
 //   Scaffolding
 // -------------------------------------
 
-// .structure-scaffolding
+.resumeLine-iconWrap{
+    float: right;
 
+    @media screen and (max-width: $g-s) {
+        float: none;
+        display: block;
+        margin-top: $b-space-o5x;
+    }
+}
+
+.resumeLine-icon{
+    margin-left: em($b-space-o5x-px, $b-fontSize-l-px);
+    fill: $c-text-highlight;
+}
+
+.resumeLine-link{
+
+    @media screen and (max-width: $g-xs) {
+        display: block;   
+    }
+}
+
+.resumeLine-dot{
+
+    @media screen and (max-width: $g-xs) {
+        display: none;   
+    }
+}

@@ -97,6 +97,10 @@ h2, .h2 {
     font-size: $b-fontSize-xl;
     line-height: $b-lineHeight-headline;
     text-transform: uppercase;
+
+    @media screen and (max-width: $g-s) {
+        font-size: em(46px);
+    }
 }
 
 .h2--mbl{
@@ -165,16 +169,6 @@ a {
 img {
   height: auto;
   max-width: 100%;
-}
-
-
-.resume-line{
-    line-height: 42px;
-
-    svg{
-        margin-left: em($b-space-o5x-px, $b-fontSize-l-px);
-        fill: $c-text-highlight;
-    }
 }
 
 .h1{

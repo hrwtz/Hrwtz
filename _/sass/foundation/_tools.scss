@@ -79,6 +79,14 @@
 
 .w-1of3{
     width: 33.33%;
+
+    @media screen and (max-width: $g-m) {
+        width: 50%;
+    }
+
+    @media screen and (max-width: $g-s) {
+        width: 100%;
+    }
 }
 
 // -------------------------------------

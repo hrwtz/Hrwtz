@@ -55,7 +55,7 @@ $content = array(
 		<div class="cell cell--half cell--mono">
 			<div class="table">
 				<div class="table-cell table-cell--middle">
-					<div class="cell cell--s <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?> <?php if ($section_titles[$i] == 'Work') echo 'block-cell'; ?>">
+					<div class="cell cell--s well well--s <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?> <?php if ($section_titles[$i] == 'Work') echo 'block-cell'; ?>">
 						<?php if (isset($content[$i])) echo $content[$i]; ?>
 					</div>
 				</div>

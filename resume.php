@@ -70,12 +70,14 @@
 			
 			</div>
 
-			<h3 class="h3 resume-line">
-				<a href="mailto:mike@hrwtz.com">mike@hrwtz.com</a> • <a href="tel:772.678.0778">772.678.0778</a>
-				<div class="fr">
-					<a href="" target="_blank"><?php include('_/img/svg/icon-pdf.svg'); ?> </a>
-					<a href="javascript:if(window.print)window.print()"><?php include('_/img/svg/icon-print.svg'); ?> </a>
-				</div>
+			<h3 class="h3 resumeLine">
+				<a href="mailto:mike@hrwtz.com" class="resumeLine-link">mike@hrwtz.com</a>
+				<span class="resumeLine-dot">•</span>
+				<a href="tel:772.678.0778" class="resumeLine-link">772.678.0778</a>
+				<span class="resumeLine-iconWrap">
+					<a href="" target="_blank" class="resumeLine-icon"><?php include('_/img/svg/icon-pdf.svg'); ?> </a>
+					<a href="javascript:if(window.print)window.print()" class="resumeLine-icon" ><?php include('_/img/svg/icon-print.svg'); ?> </a>
+				</span>
 			</h3>
 
 
