@@ -68,11 +68,8 @@
 							
 							<?php endif; ?>
 							
-							<?php if ( $image['size'] == 'desktop' ) : ?>
-							
-								<div class="device-buttons"></div>
-							
-							<?php endif; ?>
+							<div class="device-buttons"></div>
+
 						</div>
 
 					<?php endforeach;?>

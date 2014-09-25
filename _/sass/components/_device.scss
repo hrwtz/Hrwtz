@@ -70,8 +70,17 @@
     margin-left: $b-space;
     margin-right: $b-space;   
 
+    @media screen and (max-width: $g-m) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     .device-image{
         padding: per(80px, 390px) per(21px, 390px);
+    }
+
+    .device-buttons{
+        display: none;
     }
 }
 
@@ -82,4 +91,30 @@
     .device-image{
         padding: per(40px, 825px) per(30px, 825px);
     }
+
+    .device-buttons{
+        display: none;
+    }
+}
+
+.device--phone,
+.device--tablet{
+
+    @media screen and (max-width: $g-s) {
+        // Match device--desktop
+        padding-top: 32px;
+        @include border-radius(8px 8px 0 0);
+        @include box-shadow(0px 1px 0px 0px #ccc, 1px 0px 0px 0px #ccc, -1px 0px 0px 0px #ccc);
+
+        // Reset other styles
+        .device-image{
+            padding: 0;
+        }
+
+        .device-buttons{
+            display: block;
+        }
+
+    }
+    
 }
