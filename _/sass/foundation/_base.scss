@@ -95,11 +95,23 @@ h1, .h1 {
     font-family: $b-fontFamily-heading;
     line-height: em(230px, 330px);
     text-align: center;
+
+    @media print, screen and (max-width: $g-m) {
+        font-size: em(250px);
+    }
+
+    @media print, screen and (max-width: $g-s) {
+        font-size: em(175px);
+    }
 }  
 
 .h1--right{
     left: -100%;
     color: $c-canvasBg1;
+
+    @media screen and (max-width: $g-s) {
+        left: -50%;
+    }
 }
 
 h2, .h2 {

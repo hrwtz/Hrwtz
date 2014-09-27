@@ -47,7 +47,7 @@ $content = array(
 <?php $section_titles = array('I&nbsp;Am', 'Skills', 'Usability', 'Work', 'Contact'); ?>
 <?php for ($i=0; $i < $sections; $i++) : ?>
 	<section class="row row--window home" data-panel="<?php echo $section_titles[$i]; ?>">
-		<div class="cell cell--half cell--mono <?php if ( $i % 2 == 1 ) echo 'fr'; ?>">
+		<div class="cell cell--half cell--home cell--mono <?php if ( $i % 2 == 1 ) echo 'fr'; ?>">
 			<div class="table">
 				<div class="table-cell table-cell--middle">
 					<div class="cell cell--s well well--s <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?> <?php if ($section_titles[$i] == 'Work') echo 'block-cell'; ?>">
@@ -56,7 +56,7 @@ $content = array(
 				</div>
 			</div>
 		</div>
-		<div class="cell cell--half cell--color">
+		<div class="cell cell--half cell--home cell--color">
 			<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
 		</div>
 

@@ -243,13 +243,25 @@ h1, .h1 {
   font-family: "Khand", sans-serif;
   line-height: 0.69697em;
   text-align: center; }
+  @media print, screen and (max-width: 50em) {
+    /* line 89, ../sass/foundation/_base.scss */
+    h1, .h1 {
+      font-size: 12.5em; } }
+  @media print, screen and (max-width: 41.875em) {
+    /* line 89, ../sass/foundation/_base.scss */
+    h1, .h1 {
+      font-size: 8.75em; } }
 
-/* line 100, ../sass/foundation/_base.scss */
+/* line 108, ../sass/foundation/_base.scss */
 .h1--right {
   left: -100%;
   color: #982e4b; }
+  @media screen and (max-width: 41.875em) {
+    /* line 108, ../sass/foundation/_base.scss */
+    .h1--right {
+      left: -50%; } }
 
-/* line 105, ../sass/foundation/_base.scss */
+/* line 117, ../sass/foundation/_base.scss */
 h2, .h2 {
   margin-bottom: 0.33333em;
   color: #263146;
@@ -258,15 +270,15 @@ h2, .h2 {
   line-height: 0.83333;
   text-transform: uppercase; }
   @media screen and (max-width: 41.875em) {
-    /* line 105, ../sass/foundation/_base.scss */
+    /* line 117, ../sass/foundation/_base.scss */
     h2, .h2 {
       font-size: 2.3em; } }
 
-/* line 118, ../sass/foundation/_base.scss */
+/* line 130, ../sass/foundation/_base.scss */
 .h2--mbl {
   margin-bottom: 1em; }
 
-/* line 122, ../sass/foundation/_base.scss */
+/* line 134, ../sass/foundation/_base.scss */
 h3, .h3 {
   margin-bottom: 0.41667em;
   color: #713045;
@@ -274,11 +286,11 @@ h3, .h3 {
   font-style: italic;
   line-height: 1.33333; }
 
-/* line 130, ../sass/foundation/_base.scss */
+/* line 142, ../sass/foundation/_base.scss */
 h4, .h4 {
   margin-bottom: 1em; }
 
-/* line 141, ../sass/foundation/_base.scss */
+/* line 153, ../sass/foundation/_base.scss */
 h1:last-child, .h1:last-child,
 h2:last-child, .h2:last-child,
 h3:last-child, .h3:last-child,
@@ -287,17 +299,17 @@ p:last-child, .p:last-child,
 ul:last-child {
   margin-bottom: 0; }
 
-/* line 153, ../sass/foundation/_base.scss */
+/* line 165, ../sass/foundation/_base.scss */
 p a,
 .p a {
   border-bottom: 1px solid #713045; }
   @media print {
-    /* line 157, ../sass/foundation/_base.scss */
+    /* line 169, ../sass/foundation/_base.scss */
     p a:after,
     .p a:after {
       content: " (" attr(href) ") "; } }
 
-/* line 163, ../sass/foundation/_base.scss */
+/* line 175, ../sass/foundation/_base.scss */
 a {
   color: #713045; }
 
@@ -312,7 +324,7 @@ a {
     color: $c-subdue;
   }
 }*/
-/* line 181, ../sass/foundation/_base.scss */
+/* line 193, ../sass/foundation/_base.scss */
 img {
   height: auto;
   max-width: 100%; }
@@ -389,48 +401,72 @@ img {
     /* line 56, ../sass/components/_cell.scss */
     .cell--half {
       width: 100%; } }
-  @media screen and (max-width: 50em) {
-    /* line 56, ../sass/components/_cell.scss */
-    .cell--half {
+
+@media screen and (max-width: 50em) {
+  /* line 68, ../sass/components/_cell.scss */
+  .cell--home {
+    float: none;
+    width: 100%;
+    height: auto;
+    min-height: 15em;
+    overflow: hidden; } }
+
+/* line 79, ../sass/components/_cell.scss */
+.cell--404left {
+  position: absolute;
+  overflow: hidden;
+  background-color: #982e4b; }
+  @media screen and (max-width: 41.875em) {
+    /* line 79, ../sass/components/_cell.scss */
+    .cell--404left {
+      display: none; } }
+
+/* line 89, ../sass/components/_cell.scss */
+.cell--404right {
+  position: static;
+  margin-left: 50%;
+  overflow: hidden; }
+  @media screen and (max-width: 41.875em) {
+    /* line 89, ../sass/components/_cell.scss */
+    .cell--404right {
       float: none;
       width: 100%;
       height: auto;
       min-height: 15em;
-      overflow: hidden; } }
+      overflow: hidden;
+      margin-left: 0;
+      text-align: center; }
+      /* line 103, ../sass/components/_cell.scss */
+      .cell--404right .cell-content--left {
+        padding-right: 1em; } }
 
-/* line 77, ../sass/components/_cell.scss */
-.cell--404 {
-  position: static;
-  margin-left: 50%;
-  overflow: hidden; }
-
-/* line 83, ../sass/components/_cell.scss */
+/* line 110, ../sass/components/_cell.scss */
 .cell-content--left {
   float: right;
   padding-left: 1em;
   padding-right: 20%; }
   @media print, screen and (max-width: 50em) {
-    /* line 83, ../sass/components/_cell.scss */
-    .cell-content--left {
+    /* line 116, ../sass/components/_cell.scss */
+    .cell--home .cell-content--left {
       float: none;
       padding-left: 0;
       padding-right: 0; } }
 
-/* line 96, ../sass/components/_cell.scss */
+/* line 125, ../sass/components/_cell.scss */
 .cell-content--right {
   float: left;
   padding-right: 1em;
   padding-left: 20%; }
   @media print, screen and (max-width: 50em) {
-    /* line 96, ../sass/components/_cell.scss */
-    .cell-content--right {
+    /* line 131, ../sass/components/_cell.scss */
+    .cell--home .cell-content--right {
       float: none;
       padding-left: 0;
       padding-right: 0; } }
 
 @media print, screen and (max-width: 50em) {
-  /* line 109, ../sass/components/_cell.scss */
-  .cell--mono {
+  /* line 140, ../sass/components/_cell.scss */
+  .cell--mono.cell--home {
     padding-left: 1em;
     padding-right: 1em; } }
 
@@ -1238,51 +1274,59 @@ img {
 .dn {
   display: none; }
 
-/* line 72, ../sass/foundation/_tools.scss */
+@media screen and (max-width: 41.875em) {
+  /* line 70, ../sass/foundation/_tools.scss */
+  .db--s {
+    display: block; }
+
+  /* line 74, ../sass/foundation/_tools.scss */
+  .dn--s {
+    display: none; } }
+/* line 83, ../sass/foundation/_tools.scss */
 .ofh {
   overflow: hidden; }
 
-/* line 80, ../sass/foundation/_tools.scss */
+/* line 91, ../sass/foundation/_tools.scss */
 .w-1of3 {
   width: 33.33%; }
   @media screen and (max-width: 50em) {
-    /* line 80, ../sass/foundation/_tools.scss */
+    /* line 91, ../sass/foundation/_tools.scss */
     .w-1of3 {
       width: 50%; } }
   @media screen and (max-width: 41.875em) {
-    /* line 80, ../sass/foundation/_tools.scss */
+    /* line 91, ../sass/foundation/_tools.scss */
     .w-1of3 {
       width: 100%; } }
 
-/* line 347, ../sass/foundation/_tools.scss */
+/* line 358, ../sass/foundation/_tools.scss */
 .fl {
   float: left; }
 
-/* line 351, ../sass/foundation/_tools.scss */
+/* line 362, ../sass/foundation/_tools.scss */
 .fr {
   float: right; }
 
-/* line 355, ../sass/foundation/_tools.scss */
+/* line 366, ../sass/foundation/_tools.scss */
 .fn {
   float: none; }
 
-/* line 359, ../sass/foundation/_tools.scss */
+/* line 370, ../sass/foundation/_tools.scss */
 .poa {
   position: absolute; }
 
-/* line 363, ../sass/foundation/_tools.scss */
+/* line 374, ../sass/foundation/_tools.scss */
 .pof {
   position: fixed; }
 
-/* line 367, ../sass/foundation/_tools.scss */
+/* line 378, ../sass/foundation/_tools.scss */
 .por {
   position: relative; }
 
-/* line 371, ../sass/foundation/_tools.scss */
+/* line 382, ../sass/foundation/_tools.scss */
 .pos {
   position: static; }
 
-/* line 379, ../sass/foundation/_tools.scss */
+/* line 390, ../sass/foundation/_tools.scss */
 .ra {
   border-radius: 50%; }
 
@@ -1290,11 +1334,11 @@ img {
 .ram {
   border-radius: $b-borderRadius;
 }*/
-/* line 387, ../sass/foundation/_tools.scss */
+/* line 398, ../sass/foundation/_tools.scss */
 .ran {
   border-radius: 0; }
 
-/* line 395, ../sass/foundation/_tools.scss */
+/* line 406, ../sass/foundation/_tools.scss */
 .c3 {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -1307,11 +1351,11 @@ img {
   -o-column-gap: 1em;
   column-gap: 1em; }
 
-/* line 406, ../sass/foundation/_tools.scss */
+/* line 417, ../sass/foundation/_tools.scss */
 .tac {
   text-align: center; }
 
-/* line 410, ../sass/foundation/_tools.scss */
+/* line 421, ../sass/foundation/_tools.scss */
 .tar {
   text-align: right; }
 
@@ -1331,15 +1375,15 @@ img {
 .tct {
   color: $c-text;
 }*/
-/* line 432, ../sass/foundation/_tools.scss */
+/* line 443, ../sass/foundation/_tools.scss */
 .tct {
   color: #5d6975; }
 
-/* line 438, ../sass/foundation/_tools.scss */
+/* line 449, ../sass/foundation/_tools.scss */
 .tfb {
   font-family: "Vollkorn", serif; }
 
-/* line 442, ../sass/foundation/_tools.scss */
+/* line 453, ../sass/foundation/_tools.scss */
 .tfh {
   font-family: "Khand", sans-serif; }
 
@@ -1355,26 +1399,26 @@ img {
 .tsm {
   font-size: $b-fontSize-m;
 }*/
-/* line 460, ../sass/foundation/_tools.scss */
+/* line 471, ../sass/foundation/_tools.scss */
 .tsl {
   font-size: 1.2em; }
 
-/* line 464, ../sass/foundation/_tools.scss */
+/* line 475, ../sass/foundation/_tools.scss */
 .tsxl {
   font-size: 3em; }
 
-/* line 470, ../sass/foundation/_tools.scss */
+/* line 481, ../sass/foundation/_tools.scss */
 .tsi {
   font-style: italic; }
 
-/* line 476, ../sass/foundation/_tools.scss */
+/* line 487, ../sass/foundation/_tools.scss */
 .ttu {
   text-transform: uppercase; }
 
-/* line 482, ../sass/foundation/_tools.scss */
+/* line 493, ../sass/foundation/_tools.scss */
 .twn {
   font-weight: normal; }
 
-/* line 486, ../sass/foundation/_tools.scss */
+/* line 497, ../sass/foundation/_tools.scss */
 .twb {
   font-weight: bold; }

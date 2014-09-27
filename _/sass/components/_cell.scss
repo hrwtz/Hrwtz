@@ -63,6 +63,9 @@
     @media print {
         width: 100%;
     }
+}
+
+.cell--home{
 
     @media screen and (max-width: $g-m) {
         float: none;
@@ -71,14 +74,38 @@
         min-height: em(300px);
         overflow: hidden;
     }
-
 }
 
-.cell--404{
+.cell--404left{
+    position: absolute;
+    overflow: hidden;
+    background-color: $c-canvasBg1;
+
+    @media screen and (max-width: $g-s) {
+        display: none;
+    }
+}
+
+.cell--404right{
     position: static;
     margin-left: 50%;
     overflow: hidden;
+
+    @media screen and (max-width: $g-s) {
+        float: none;
+        width: 100%;
+        height: auto;
+        min-height: em(300px);
+        overflow: hidden;
+        margin-left: 0;
+        text-align: center;
+
+        .cell-content--left{
+            padding-right: 1em;
+        }
+    }
 }
+
 
 .cell-content--left{
     float: right;
@@ -86,9 +113,11 @@
     padding-right: 20%;
 
     @media print, screen and (max-width: $g-m) {
-        float: none;
-        padding-left: 0;
-        padding-right: 0;
+        .cell--home &{
+            float: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 
 }
@@ -99,14 +128,16 @@
     padding-left: 20%;
 
     @media print, screen and (max-width: $g-m) {
-        float: none;
-        padding-left: 0;
-        padding-right: 0;
+        .cell--home &{
+            float: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 
 }
 
-.cell--mono{
+.cell--mono.cell--home{
 
     @media print, screen and (max-width: $g-m) {
         padding-left: $b-space;

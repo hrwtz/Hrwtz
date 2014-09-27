@@ -65,6 +65,17 @@
   display: none;
 }
 
+@media screen and (max-width: $g-s) {
+
+    .db--s {
+      display: block;
+    }
+
+    .dn--s {
+      display: none;
+    }   
+}
+
 // -------------------------------------
 //   Overflow
 // -------------------------------------
