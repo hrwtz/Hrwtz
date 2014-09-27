@@ -588,11 +588,27 @@
 
         return point3;
     }
-    
+    // Resturn if element is in viewport
+    // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433
+    function isElementInViewport (el) {
+
+        //special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+            el = el[0];
+        }
+
+        var rect = el.getBoundingClientRect();
+
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= $(window).height() &&
+            rect.right <= $(window).width()
+        );
+    }
 
     var common = { // Rename me?
         init: function(){
-            common.resize();
 
             // Header functionality
             $('.navigation-menu').click(function(e){
@@ -607,7 +623,7 @@
                     $menu: $('.navigationSide-list, .navigation-list'),
                     menuSelector: 'li[data-panel]',
                     onSnapFinish: function($target){
-                        var historySection = ($target.index() == 0) ? pagebase : $target.attr('data-panel').toLowerCase();
+                        var historySection = $('.cell--half').css('float') == 'none' || ($target.index() == 0) ? pagebase : $target.attr('data-panel').toLowerCase();
                         history.replaceState({data: $('html').html()}, historySection, historySection);
 
                         $.each(canvasIni, function(index){
@@ -621,6 +637,7 @@
                     e.preventDefault();
                     $('body').panelSnap('snapToPanel', $('section:first'));
                 });
+
             }
 
             // Side navigation hover / Click
@@ -635,8 +652,36 @@
                 canvasIni[index] = new canvass($(this)[0], index);
                 canvasIni[index].init();
             })
-        },
-        resize: function(){
+
+            //
+            $(window).on('resize', function(){
+                if ($('section[data-panel]').length){
+                    // Start / Destroy panelSnap depending on window size
+                    if ( $('.cell--half').css('float') == 'none' ){
+                        $('body').panelSnap('disable');
+                        
+                    }else{
+                        $('body').panelSnap('enable');
+                    }
+                }
+            });
+            $(window).on('resize scroll', function(){
+                 if ($('section[data-panel]').length){
+                    if ( $('.cell--half').css('float') == 'none' ){
+                        // If canvas is in full view, show animation
+                        $('.canvas').each(function(){
+                            if ( isElementInViewport($(this)) ) {
+                                $target = $(this).parents('section[data-panel]');
+                                $.each(canvasIni, function(index){
+                                    if ( $target.index() > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
+                                        canvasIni[index].triggerAnimation = $target.index();
+                                    }
+                                });
+                            }
+                        });
+                    }
+                }
+            }).trigger('resize');
         },
     };
 

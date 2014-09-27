@@ -64,6 +64,14 @@
         width: 100%;
     }
 
+    @media screen and (max-width: $g-m) {
+        float: none;
+        width: 100%;
+        height: auto;
+        min-height: em(300px);
+        overflow: hidden;
+    }
+
 }
 
 .cell--404{
@@ -77,7 +85,7 @@
     padding-left: $b-space;
     padding-right: 20%;
 
-    @media print {
+    @media print, screen and (max-width: $g-m) {
         float: none;
         padding-left: 0;
         padding-right: 0;
@@ -90,10 +98,18 @@
     padding-right: $b-space;
     padding-left: 20%;
 
-    @media print {
+    @media print, screen and (max-width: $g-m) {
         float: none;
         padding-left: 0;
         padding-right: 0;
     }
 
+}
+
+.cell--mono{
+
+    @media print, screen and (max-width: $g-m) {
+        padding-left: $b-space;
+        padding-right: $b-space;
+    }   
 }

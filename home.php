@@ -31,7 +31,7 @@ $content = array(
     <div class="block block--short block--long"><div class="block-preview"></div></div>
     <div class="block block--short block--narrow"><div class="block-preview"></div></div>',
 
-   '<h2 class="h2">Contact</h2>
+   '<h2 class="h2">Contact Me</h2>
 	<p class="p">
 		Mike A Hurwitz <br>
 		<a href="mailto:mike@hrwtz.com">mike@hrwtz.com</a><br>
@@ -47,12 +47,7 @@ $content = array(
 <?php $section_titles = array('I&nbsp;Am', 'Skills', 'Usability', 'Work', 'Contact'); ?>
 <?php for ($i=0; $i < $sections; $i++) : ?>
 	<section class="row row--window home" data-panel="<?php echo $section_titles[$i]; ?>">
-		<?php if ( $i % 2 == 1 ) : ?>
-			<div class="cell cell--half cell--color">
-				<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
-			</div>
-		<?php endif; ?>
-		<div class="cell cell--half cell--mono">
+		<div class="cell cell--half cell--mono <?php if ( $i % 2 == 1 ) echo 'fr'; ?>">
 			<div class="table">
 				<div class="table-cell table-cell--middle">
 					<div class="cell cell--s well well--s <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?> <?php if ($section_titles[$i] == 'Work') echo 'block-cell'; ?>">
@@ -61,11 +56,9 @@ $content = array(
 				</div>
 			</div>
 		</div>
-		<?php if ( $i % 2 == 0 ) : ?>
-			<div class="cell cell--half cell--color">
-				<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
-			</div>
-		<?php endif; ?>
+		<div class="cell cell--half cell--color">
+			<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
+		</div>
 
 		<div class="navigation-clip">
 			<?php require('nav.php'); ?>
@@ -79,19 +72,8 @@ $content = array(
 							</a>
 						</li>
 					<?php endfor; ?>
-					<?php /*
-					<li class="navigationSide-item" data-panel="Résumé">
-						<a href="#" class="navigationSide-item-link" >
-							<span class="navigationSide-dot navigationSide-dot--rectangle"></span>
-							<span class="navigationSide-text">Résumé</span>
-						</a>
-					</li>
-					*/ ?>
 				</ul>
 			</nav>
 		</div>
 	</section>
 <?php endfor; ?>
-<!--<section class="row row--window" data-panel="Résumé">
-	
-</section>-->

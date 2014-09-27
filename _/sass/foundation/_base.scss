@@ -87,7 +87,19 @@ h4, .h4 {
 }
 
 h1, .h1 {
+    position: relative;
+    top: 50%;
+    width: 200%;
+    color: $c-text-invert;
+    font-size: em(330px);
+    font-family: $b-fontFamily-heading;
+    line-height: em(230px, 330px);
+    text-align: center;
+}  
 
+.h1--right{
+    left: -100%;
+    color: $c-canvasBg1;
 }
 
 h2, .h2 {
@@ -169,20 +181,4 @@ a {
 img {
   height: auto;
   max-width: 100%;
-}
-
-.h1{
-    position: relative;
-    top: 50%;
-    width: 200%;
-    color: $c-text-invert;
-    font-size: em(330px);
-    font-family: $b-fontFamily-heading;
-    line-height: em(230px, 330px);
-    text-align: center;
-}
-
-.h1--right{
-    left: -100%;
-    color: $c-canvasBg1;
 }

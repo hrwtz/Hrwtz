@@ -30,7 +30,8 @@
     z-index: 950;
     @include backface-visibility(hidden);
 
-    @media print {
+    @media  print,
+            screen and (max-width: $g-m) {
         display: none;
     }
     

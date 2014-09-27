@@ -15,7 +15,8 @@
 .row{
     position: relative;
     overflow: hidden;
-    padding: 0 $b-space;
+    padding-left: $b-space;
+    padding-right: $b-space;
 }
 
 // -------------------------------------
@@ -32,6 +33,10 @@
         height: auto;
         padding-top: $b-space-2x;
         padding-bottom: $b-space-2x;
+    }
+
+    @media screen and (max-width: $g-m) {
+        height: auto;
     }
 
 }
