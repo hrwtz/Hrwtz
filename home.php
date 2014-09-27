@@ -55,12 +55,23 @@ $content = array(
 					</div>
 				</div>
 			</div>
+
+			<div class="navigation-clip navigation-clip--mobile">
+				<?php $inverse = ($i % 2); ?>
+				<?php require('nav.php'); ?>
+			</div>
 		</div>
 		<div class="cell cell--half cell--home cell--color">
 			<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
+
+			<div class="navigation-clip navigation-clip--mobile">
+				<?php $inverse = !($i % 2); ?>
+				<?php require('nav.php'); ?>
+			</div>
 		</div>
 
-		<div class="navigation-clip">
+		<div class="navigation-clip navigation-clip--main">
+			<?php $inverse = false; ?>
 			<?php require('nav.php'); ?>
 			<nav class="navigationSide">
 				<ul class="navigationSide-list <?php echo ($i % 2 == 0) ? 'navigation-list--cr navigation-list--bc' . $i : 'navigation-list--bcr navigation-list--c' . $i; ?>">

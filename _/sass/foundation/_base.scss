@@ -107,10 +107,11 @@ h1, .h1 {
 
 .h1--right{
     left: -100%;
-    color: $c-canvasBg1;
+    color: $c-canvasBg2;
 
     @media screen and (max-width: $g-s) {
         left: -50%;
+        color: $c-canvasBg0;
     }
 }
 

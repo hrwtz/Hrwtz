@@ -1,10 +1,12 @@
 <div class="dn--s">
-	<?php $i = 1; ?>
+	<?php $i = 2; ?>
+	<?php $inverse = true; ?>
 	<?php require('nav.php'); ?>
 </div>
 
 <div class="dn db--s">
 	<?php $i = 0; ?>
+	<?php $inverse = false; ?>
 	<?php require('nav.php'); ?>
 </div>
 
