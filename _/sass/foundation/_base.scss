@@ -45,6 +45,7 @@ body {
     overflow-x: hidden;
     width: 100%;
     height: 100%;
+    @include highlight-color($c-canvasBg2);
 
     @media print {
         font-size: 12px;

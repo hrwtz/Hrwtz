@@ -213,6 +213,17 @@ body {
   overflow-x: hidden;
   width: 100%;
   height: 100%; }
+  /* line 63, ../sass/foundation/_helpers.scss */
+  body ::-moz-selection {
+    background: #b0382f;
+    color: white; }
+  /* line 64, ../sass/foundation/_helpers.scss */
+  body ::selection {
+    background: #b0382f;
+    color: white; }
+  /* line 65, ../sass/foundation/_helpers.scss */
+  body a:link {
+    -webkit-tap-highlight-color: #b0382f; }
   @media print {
     /* line 42, ../sass/foundation/_base.scss */
     body {
@@ -221,19 +232,19 @@ body {
 @page {
   margin: 0.5cm; }
 
-/* line 64, ../sass/foundation/_base.scss */
+/* line 65, ../sass/foundation/_base.scss */
 p, .p,
 ul {
   margin-bottom: 0.5em;
   margin-top: 0; }
 
-/* line 69, ../sass/foundation/_base.scss */
+/* line 70, ../sass/foundation/_base.scss */
 .p--h {
   margin-bottom: 0;
   color: #263146;
   font-style: italic; }
 
-/* line 89, ../sass/foundation/_base.scss */
+/* line 90, ../sass/foundation/_base.scss */
 h1, .h1 {
   position: relative;
   top: 50%;
@@ -244,25 +255,25 @@ h1, .h1 {
   line-height: 0.69697em;
   text-align: center; }
   @media print, screen and (max-width: 50em) {
-    /* line 89, ../sass/foundation/_base.scss */
+    /* line 90, ../sass/foundation/_base.scss */
     h1, .h1 {
       font-size: 12.5em; } }
   @media print, screen and (max-width: 41.875em) {
-    /* line 89, ../sass/foundation/_base.scss */
+    /* line 90, ../sass/foundation/_base.scss */
     h1, .h1 {
       font-size: 8.75em; } }
 
-/* line 108, ../sass/foundation/_base.scss */
+/* line 109, ../sass/foundation/_base.scss */
 .h1--right {
   left: -100%;
   color: #b0382f; }
   @media screen and (max-width: 41.875em) {
-    /* line 108, ../sass/foundation/_base.scss */
+    /* line 109, ../sass/foundation/_base.scss */
     .h1--right {
       left: -50%;
       color: #713045; } }
 
-/* line 118, ../sass/foundation/_base.scss */
+/* line 119, ../sass/foundation/_base.scss */
 h2, .h2 {
   margin-bottom: 0.33333em;
   color: #263146;
@@ -271,15 +282,15 @@ h2, .h2 {
   line-height: 0.83333;
   text-transform: uppercase; }
   @media screen and (max-width: 41.875em) {
-    /* line 118, ../sass/foundation/_base.scss */
+    /* line 119, ../sass/foundation/_base.scss */
     h2, .h2 {
       font-size: 2.3em; } }
 
-/* line 131, ../sass/foundation/_base.scss */
+/* line 132, ../sass/foundation/_base.scss */
 .h2--mbl {
   margin-bottom: 1em; }
 
-/* line 135, ../sass/foundation/_base.scss */
+/* line 136, ../sass/foundation/_base.scss */
 h3, .h3 {
   margin-bottom: 0.41667em;
   color: #713045;
@@ -287,11 +298,11 @@ h3, .h3 {
   font-style: italic;
   line-height: 1.33333; }
 
-/* line 143, ../sass/foundation/_base.scss */
+/* line 144, ../sass/foundation/_base.scss */
 h4, .h4 {
   margin-bottom: 1em; }
 
-/* line 154, ../sass/foundation/_base.scss */
+/* line 155, ../sass/foundation/_base.scss */
 h1:last-child, .h1:last-child,
 h2:last-child, .h2:last-child,
 h3:last-child, .h3:last-child,
@@ -300,17 +311,17 @@ p:last-child, .p:last-child,
 ul:last-child {
   margin-bottom: 0; }
 
-/* line 166, ../sass/foundation/_base.scss */
+/* line 167, ../sass/foundation/_base.scss */
 p a,
 .p a {
   border-bottom: 1px solid #713045; }
   @media print {
-    /* line 170, ../sass/foundation/_base.scss */
+    /* line 171, ../sass/foundation/_base.scss */
     p a:after,
     .p a:after {
       content: " (" attr(href) ") "; } }
 
-/* line 176, ../sass/foundation/_base.scss */
+/* line 177, ../sass/foundation/_base.scss */
 a {
   color: #713045; }
 
@@ -325,7 +336,7 @@ a {
     color: $c-subdue;
   }
 }*/
-/* line 194, ../sass/foundation/_base.scss */
+/* line 195, ../sass/foundation/_base.scss */
 img {
   height: auto;
   max-width: 100%; }
