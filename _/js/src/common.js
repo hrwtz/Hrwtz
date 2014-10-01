@@ -379,6 +379,8 @@
             split: [],
             init: function(){
                 // Set up vars
+                split.start = countAniFrame;
+
                 split.split[0] = {Coords: {}};
                 split.split[1] = {Coords: {}};
                 split.triangle = jQuery.extend(true, {}, triangle);
@@ -433,18 +435,138 @@
                     $.each(splitValue.Coords, function(index, Coords){
                         Coords.x +=  splitValue.vx;
                         Coords.y +=  splitValue.vy;
+
+                        // If coordinates are off screen and they are going slow enough, stop them
+                        if (!split.superCharged &&
+                            (!(splitValue.vx > .04 || splitValue.vx < -.04)) && 
+                            ((Coords.x > $(canvas.can).width() / 2 || Coords.x < -$(canvas.can).width() / 2) ||
+                                (Coords.y > $(canvas.can).height() / 2 || Coords.y < -$(canvas.can).height() / 2))){
+                            splitValue.vx = 0;
+                            splitValue.vy = 0;
+                        }
                     })
-                    splitValue.vx *= .9995;
-                    splitValue.vy *= .9995;
+                    if (!split.superCharged){
+                        if ( countAniFrame - split.start >= 40){
+                            
+
+                            if (splitValue.vx > .04 || splitValue.vx < -.04){
+                                splitValue.vx *= .985;
+                            }
+                            if (splitValue.vy > .04 || splitValue.vy < -.04){
+                                splitValue.vy *= .985;
+                            }
+
+                            if ( countAniFrame - split.start > 60){
+                                splitValue.vrotate *= .99;
+                            }
+
+                        }else{
+                            // Slowly slow down shapes for first 40 frames
+                            splitValue.vx *= .9995;
+                            splitValue.vy *= .9995;
+                        }
+                    }
                     splitValue.rotate += splitValue.vrotate;
                 })
+            },
+        };
+         var triStrokes = {
+            runShapes: true,
+            shapesCreated: 0,
+            triStrokesArray: [],
+            init: function(){
 
-/*
-                split.split[1].Coords[0].x += 1;
-                split.split[1].Coords[1].x += 1;
-                split.split[1].Coords[2].x += 1;
-*/
+            },
+            draw: function(){
+                
+                // Call the function that will draw the triStrokes using a loop
+                for (var i = 0; i < triStrokes.triStrokesArray.length; i++) {
+                    triStrokes.triStrokesArray[i].draw();
+                }
 
+            },
+            update: function(){
+                
+                // Add new triStroke every 30 frames
+                if (countAniFrame % 30 == 0 && triStrokes.runShapes){
+                    triStrokes.triStrokesArray.push(new triStrokes.triStroke());
+                    triStrokes.shapesCreated++;
+                }
+                
+                // Call the function that will update the triStrokes using a loop
+                for (var i = 0; i < triStrokes.triStrokesArray.length; i++) {
+                    triStrokes.triStrokesArray[i].update();
+                }
+
+                // If 4 shapes have been made, animation is finished
+                if (triStrokes.shapesCreated == 4)
+                    triStrokes.finished = true;
+
+            },
+            triStroke: function(){
+                // Opacity
+                this.opacity = ( Math.random() * .25 ) + .5;
+
+                this.scale = 1;
+
+                this.rotate = 0;
+
+                // Draw triStroke on the canvas
+                this.draw = function() {
+                    canvas.ctx.save();
+                    canvas.ctx.translate(canvas.can.width/2, canvas.can.height/2);
+
+                    canvas.ctx.rotate(this.rotate);
+
+                    canvas.ctx.strokeStyle = 'rgba(255,255,255,'+this.opacity+')';
+
+                    canvas.ctx.beginPath();
+
+                    canvas.ctx.lineTo(this.scale * 0, this.scale * -5);
+                    canvas.ctx.lineTo(this.scale * 6, this.scale * 5);
+                    canvas.ctx.lineTo(this.scale * -6, this.scale * 5);
+                    canvas.ctx.lineTo(this.scale * 0, this.scale * -5);
+                    canvas.ctx.lineWidth = 2;
+                    canvas.ctx.closePath();
+
+                    canvas.ctx.stroke();
+                    canvas.ctx.restore();
+                }
+
+                // Update values for next round
+                this.update = function(){
+                    this.scale += .1;
+                    this.scale *= 1.02;
+
+                    this.rotate += .001;
+
+                    // Update position of triStroke
+                    this.x = this.x + this.vx;
+                    this.y = this.y + this.vy;
+
+                    // Update velocity to be slower
+                    this.vx = this.vx * .96;
+                    this.vy = this.vy * .96;
+
+                    // Fade out triStroke
+                    this.opacity = this.opacity * .99;
+
+                    // Remove triStroke from array if offscreen or opacity is too low
+                    if (
+                        this.opacity < .1 || 
+                        this.x + this.radius > canvas.can.width || 
+                        this.x - this.radius < 0 || 
+                        this.y + this.radius > canvas.can.height || 
+                        this.y - this.radius < 0
+                        ){
+                        for (var key in triStrokes.triStrokesArray) {
+                            if (triStrokes.triStrokesArray[key] == this) {
+                                triStrokes.triStrokesArray.splice(key, 1);
+                            }
+                        }
+                    }
+
+                }
             },
         };
         var animation = [
@@ -492,6 +614,42 @@
                 },
                 update: function(){
                     split.update();
+                },
+            },
+            {
+                finished: true,
+                triggered: false,
+                init: function(){
+                    // Get split shapes moving along
+                    split.superCharged = true;
+                    split.split[1].vx = .5;
+                    split.split[1].vy = 1.3;
+                    split.split[1].vrotate = .0005;
+                    split.split[0].vx = -.5;
+                    split.split[0].vy = -1.3;
+                    split.split[0].vrotate = .002;
+
+                    triStrokes.init();
+                },
+                draw: function(){
+                    triStrokes.draw();
+                },
+                update: function(){
+                    triStrokes.update();
+                    this.finished = triStrokes.finished;
+                },
+            },
+            {
+                finished: true,
+                triggered: false,
+                init: function(){
+                    triStrokes.runShapes = false;
+                },
+                draw: function(){
+
+                },
+                update: function(){
+
                 },
             }
         ]
