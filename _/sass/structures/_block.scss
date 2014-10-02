@@ -13,17 +13,49 @@
 // -------------------------------------
 //   Structure
 // -------------------------------------
-
 .block-preview{
     position: absolute;
     top: 5px;
     right: 5px;
     bottom: 5px;
     left: 5px;
+    
+
+    
+}
+
+body{
 }
 
 .block-cell{
     height: 80%;
+}
+
+.block-face{
+    display: block;
+    height: 100%;
+}
+
+.block-cube{
+    height: 100%;
+    @include transform-style(preserve-3d);
+    @include transition(transform .33s);
+
+
+    &:hover{
+        @include transform(rotateX(91deg));
+    }
+}
+
+.block-face--top{
+    background-color: $c-text;
+    @include transform(translateZ(150px));
+
+}
+
+.block-face--bottom{
+    background-color: $c-darkBlue;
+    @include transform(rotateX(-90deg) translateZ(-150px));
 }
 
 // -------------------------------------
