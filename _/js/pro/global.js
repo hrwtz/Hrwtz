@@ -966,9 +966,9 @@ if ( typeof Object.create !== 'function' ) {
             }
         }
         var particles = {
-            //particleCount: 100,
             particlesArray: [],
             center: {},
+            runparticles: true,
             init: function(){
 
             },
@@ -983,7 +983,7 @@ if ( typeof Object.create !== 'function' ) {
             update: function(){
                 
                 // Add new particle every 5 frames
-                if (countAniFrame % 3 == 0){
+                if (countAniFrame % 3 == 0 && particles.runparticles == true){
                     particles.particlesArray.push(new particles.particle());
                 }
                 
@@ -1413,6 +1413,7 @@ if ( typeof Object.create !== 'function' ) {
                 triggered: false,
                 init: function(){
                     triStrokes.runShapes = false;
+                    particles.runparticles = false;
                 },
                 draw: function(){
 
