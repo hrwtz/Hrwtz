@@ -64,11 +64,11 @@ $content = array(
 		<div class="cell cell--half cell--home cell--color">
 			
 			<?php if ($i ==0) : ?>
-				<div class="canvas-branding">
-					<div class="canvas-branding-iconWrap">
+				<div class="branding">
+					<div class="branding-iconWrap">
 						<?php include('_/img/svg/logo-main.svg'); ?>
 					</div>
-					<p class="canvas-branding-text">Mike A Hurwitz</p>
+					<p class="branding-text">Mike A Hurwitz</p>
 				</div>
 			<?php endif; ?>
 

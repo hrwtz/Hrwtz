@@ -1,0 +1,69 @@
+// *************************************
+//
+//   Structure
+//   -> This is an example structure
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .structure[.structure--modifier](.is-state)(.has-context)
+//   .structure-scaffolding
+//
+// *************************************
+
+.canvas-branding{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 99999;
+    width: 60%;
+    transform: translateX(-50%) translateY(-50%);
+    margin-top: -150px;
+    opacity: .5;
+
+    @media screen and (max-width: $g-m) {
+        display: none;
+    }   
+}
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// .structure--modifier
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .structure.is-state
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-structure
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.canvas-branding-iconWrap{
+    height: 0;
+    padding-bottom: 76.6233%;
+    margin-bottom: $b-space-o75x;
+    
+    .icon{
+        width: 100%;
+        height: 100%;
+        fill: $c-text-invert;
+    }
+}
+
+.canvas-branding-text{
+    color: $c-text-invert;
+    font-size: em(30px);
+    text-align: center;
+    @extend .h2;
+}

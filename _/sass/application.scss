@@ -19,27 +19,22 @@
 //   Components
 // -------------------------------------
 
-//@import "components/bucket";
-//@import "components/card";
-//@import "components/cell";
-//@import "components/grid";
-//@import "components/row"
 @import "components/well";
-
 @import "components/cell";
 @import "components/row";
-@import "components/navigation";
-@import "components/table";
 @import "components/canvas";
-@import "components/work";
-@import "components/block";
-@import "components/device";
 
 // -------------------------------------
 //   Structures
 // -------------------------------------
 
+@import "structures/work";
+@import "structures/table";
+@import "structures/navigation";
 @import "structures/resumeLine";
+@import "structures/branding";
+@import "structures/device";
+@import "structures/block";
 
 // -------------------------------------
 //   Vendor
