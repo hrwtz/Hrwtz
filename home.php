@@ -61,7 +61,7 @@ $content = array(
 				<?php require('nav.php'); ?>
 			</div>
 		</div>
-		<div class="cell cell--half cell--home cell--color">
+		<div class="cell cell--half cell--home cell--color bc<?php echo $i; ?>">
 			
 			<?php if ($i ==0) : ?>
 				<div class="branding">
@@ -70,9 +70,9 @@ $content = array(
 					</div>
 					<p class="branding-text">Mike A Hurwitz</p>
 				</div>
+			<?php else : ?>
+				<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
 			<?php endif; ?>
-
-			<canvas class="canvas bc<?php echo $i; ?>" id="canvas-<?php echo $i; ?>"></canvas>
 
 			<div class="navigation-clip navigation-clip--mobile">
 				<?php $inverse = !($i % 2); ?>

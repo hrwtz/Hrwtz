@@ -12,18 +12,19 @@
 //
 // *************************************
 
-.canvas-branding{
+.branding{
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 99999;
     width: 60%;
     transform: translateX(-50%) translateY(-50%);
-    margin-top: -150px;
+    //margin-top: -150px;
     opacity: .5;
 
     @media screen and (max-width: $g-m) {
-        display: none;
+        max-width: $b-space * 10;
+        //margin-top: 0;
     }   
 }
 
@@ -49,7 +50,7 @@
 //   Scaffolding
 // -------------------------------------
 
-.canvas-branding-iconWrap{
+.branding-iconWrap{
     height: 0;
     padding-bottom: 76.6233%;
     margin-bottom: $b-space-o75x;
@@ -61,7 +62,7 @@
     }
 }
 
-.canvas-branding-text{
+.branding-text{
     color: $c-text-invert;
     font-size: em(30px);
     text-align: center;
