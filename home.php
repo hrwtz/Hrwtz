@@ -24,26 +24,26 @@ $content = array(
 	<h3 class="h3">Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
 
    '<div class="block block--tall block--narrow">
-   		<a href="'.$page_base.'work/turnkey" class="block-preview"><div class="block-cube"><div class="block-face block-face--top">yooooo</div><div class="block-face block-face--bottom">yooooo</div></div></a>
+   		<a href="'.$page_base.'work/turnkey" class="block-preview"><div class="block-cube"><div class="block-face block-face--top"></div><div class="block-face block-face--bottom"></div></div></a>
    	</div>
     <div class="block block--tall block--long">
     	<div class="block block--half">
-    		<a href="'.$page_base.'work/nine82" class="block-preview"><div class="block-cube"><div class="block-face block-face--top">yooooo</div><div class="block-face block-face--bottom">yooooo</div></div></a>
+    		<a href="'.$page_base.'work/nine82" class="block-preview"><div class="block-cube"><div class="block-face block-face--top"></div><div class="block-face block-face--bottom"></div></div></a>
     	</div>
     	<div class="block block--half">
-    		<a href="'.$page_base.'work/play_it_forward" class="block-preview"><div class="block-cube"><div class="block-face block-face--top">yooooo</div><div class="block-face block-face--bottom">yooooo</div></div></a>
+    		<a href="'.$page_base.'work/play_it_forward" class="block-preview"><div class="block-cube"><div class="block-face block-face--top"></div><div class="block-face block-face--bottom"></div></div></a>
     	</div>
     </div>
     <div class="block block--short block--long">
     	<a href="'.$page_base.'work/the_first_academy" class="block-preview">
 			<div class="block-cube">
-				<div class="block-face block-face--top">yooooo</div>
-				<div class="block-face block-face--bottom">yooooo</div>
+				<div class="block-face block-face--top"></div>
+				<div class="block-face block-face--bottom"></div>
 			</div>
     	</a>
     </div>
     <div class="block block--short block--narrow">
-    	<a href="'.$page_base.'work/world_design_exchange" class="block-preview"><div class="block-cube"><div class="block-face block-face--top">yooooo</div><div class="block-face block-face--bottom">yooooo</div></div></a>
+    	<a href="'.$page_base.'work/world_design_exchange" class="block-preview"><div class="block-cube"><div class="block-face block-face--top"></div><div class="block-face block-face--bottom"></div></div></a>
     </div>',
 
    '<h2 class="h2">Contact Me</h2>

@@ -1263,6 +1263,27 @@ img {
   height: 100%; }
 
 /* line 39, ../sass/structures/_block.scss */
+.block-face--top {
+  background-color: #5d6975; }
+
+/* line 45, ../sass/structures/_block.scss */
+.block-face--bottom {
+  background-color: #263146; }
+  /* line 49, ../sass/structures/_block.scss */
+  .block-face--bottom:after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    content: 'View Work';
+    color: white;
+    font-family: "Khand", sans-serif;
+    font-size: 1.15em;
+    text-align: center;
+    text-transform: uppercase; }
+
+/* line 64, ../sass/structures/_block.scss */
 .block-cube {
   height: 100%;
   -webkit-transform-style: preserve-3d;
@@ -1274,7 +1295,7 @@ img {
   -moz-transition: -moz-transform 0.33s;
   -o-transition: -o-transform 0.33s;
   transition: transform 0.33s; }
-  /* line 45, ../sass/structures/_block.scss */
+  /* line 70, ../sass/structures/_block.scss */
   .block-cube:hover {
     -webkit-transform: rotateX(91deg);
     -moz-transform: rotateX(91deg);
@@ -1282,42 +1303,24 @@ img {
     -o-transform: rotateX(91deg);
     transform: rotateX(91deg); }
 
-/* line 50, ../sass/structures/_block.scss */
-.block-face--top {
-  background-color: #5d6975;
-  -webkit-transform: translateZ(150px);
-  -moz-transform: translateZ(150px);
-  -ms-transform: translateZ(150px);
-  -o-transform: translateZ(150px);
-  transform: translateZ(150px); }
-
-/* line 56, ../sass/structures/_block.scss */
-.block-face--bottom {
-  background-color: #263146;
-  -webkit-transform: rotateX(-90deg) translateZ(-150px);
-  -moz-transform: rotateX(-90deg) translateZ(-150px);
-  -ms-transform: rotateX(-90deg) translateZ(-150px);
-  -o-transform: rotateX(-90deg) translateZ(-150px);
-  transform: rotateX(-90deg) translateZ(-150px); }
-
-/* line 65, ../sass/structures/_block.scss */
+/* line 79, ../sass/structures/_block.scss */
 .block--half {
   width: 100%;
   height: 50%; }
 
-/* line 70, ../sass/structures/_block.scss */
+/* line 84, ../sass/structures/_block.scss */
 .block--tall {
   height: 55%; }
 
-/* line 74, ../sass/structures/_block.scss */
+/* line 88, ../sass/structures/_block.scss */
 .block--short {
   height: 45%; }
 
-/* line 78, ../sass/structures/_block.scss */
+/* line 92, ../sass/structures/_block.scss */
 .block--long {
   width: 55%; }
 
-/* line 82, ../sass/structures/_block.scss */
+/* line 96, ../sass/structures/_block.scss */
 .block--narrow {
   width: 45%; }
 

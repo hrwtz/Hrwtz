@@ -1581,6 +1581,17 @@ if ( typeof Object.create !== 'function' ) {
                 canvasIni[index].init();
             })
 
+            // Block section cubing
+            $(window).resize(function(){
+                $('.block-face').each(function(){
+                    if ($(this).hasClass('block-face--top')){
+                        $(this).css('transform', 'translateZ(' + $(this).outerHeight() / 2 + 'px)')
+                    }else{
+                        $(this).css('transform', 'rotateX(-90deg)  translateZ(' + -$(this).outerHeight() / 2 + 'px)')
+                    }
+                });
+            })
+
             //
             $(window).on('resize', function(){
                 if ($('section[data-panel]').length){

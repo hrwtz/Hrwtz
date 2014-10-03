@@ -36,6 +36,31 @@ body{
     height: 100%;
 }
 
+    .block-face--top{
+        background-color: $c-text;
+        //@include transform(translateZ(150px));
+
+    }
+
+    .block-face--bottom{
+        background-color: $c-darkBlue;
+        //@include transform(rotateX(-90deg) translateZ(-150px));
+        
+        &:after{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            content: 'View Work';
+            color: white;
+            font-family: "Khand", sans-serif;
+            font-size: em(23px);
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+
 .block-cube{
     height: 100%;
     @include transform-style(preserve-3d);
@@ -45,17 +70,6 @@ body{
     &:hover{
         @include transform(rotateX(91deg));
     }
-}
-
-.block-face--top{
-    background-color: $c-text;
-    @include transform(translateZ(150px));
-
-}
-
-.block-face--bottom{
-    background-color: $c-darkBlue;
-    @include transform(rotateX(-90deg) translateZ(-150px));
 }
 
 // -------------------------------------
