@@ -52,7 +52,9 @@
     
     svg{
         position: relative;
-        top: 3px;
+        top: em(3px, $b-fontSize-l-px);
+        width: em(24px, $b-fontSize-l-px);
+        height: em(22px, $b-fontSize-l-px);
         fill: $c-canvasBg0;
     }
 }

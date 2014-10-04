@@ -51,6 +51,7 @@
 // -------------------------------------
 
 .branding-iconWrap{
+    position: relative;
     height: 0;
     padding-bottom: 76.6233%;
     margin-bottom: $b-space-o75x;
@@ -60,6 +61,14 @@
         height: 100%;
         fill: $c-text-invert;
     }
+}
+
+.branding-iconInner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .branding-text{

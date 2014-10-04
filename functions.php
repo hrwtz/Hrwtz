@@ -1,5 +1,5 @@
 <?php 
-function svg_use($id, $title){
+function svg_use($id, $title = NULL){
 	ob_start();
 	?>
 	<svg class="icon">

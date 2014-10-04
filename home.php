@@ -90,8 +90,8 @@ $content = array(
 			<?php if ($i ==0) : ?>
 				<div class="branding">
 					<div class="branding-iconWrap">
-						<div>
-							<?php include('_/img/svg/logo-main.svg'); ?>
+						<div class="branding-iconInner">
+							<?php echo svg_use('logo-main'); ?>
 						</div>
 					</div>
 					<p class="branding-text">Mike A Hurwitz</p>

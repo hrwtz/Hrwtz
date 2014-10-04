@@ -19,6 +19,6 @@
 		<span class="navigation-hamburger"><span class="navigation-hamburger-center"></span></span>
 	</a>
 	<a href="<?php echo $page_base; ?>" class="navigation-button ajax ajax--home <?php echo ($conditional) ? 'bc' . $i . ' navigation-button--bcr' : 'bcr navigation-button--bc' . $i; ?>" data-panel="I&nbsp;Am">
-		<?php include('_/img/svg/logo-main.svg'); ?>
+		<?php echo svg_use('logo-main'); ?>
 	</a>
 </nav>

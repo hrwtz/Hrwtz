@@ -49,11 +49,30 @@
 
 .resumeLine-iconWrap{
     float: right;
+    font-size: $b-fontSize;
+
+    .icon{
+        height: em(42px);
+    }    
 
     @media screen and (max-width: $g-s) {
         float: none;
         display: block;
         margin-top: $b-space-o5x;
+    }
+}
+
+.resumeLine-icon--pdf{
+
+    .icon{
+        width: em(34px);
+    }
+}
+
+.resumeLine-icon--print{
+
+    .icon{
+        width: em(48px);
     }
 }
 

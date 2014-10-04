@@ -75,8 +75,8 @@
 				<span class="resumeLine-dot">•</span>
 				<a href="tel:772.678.0778" class="resumeLine-link">772.678.0778</a>
 				<span class="resumeLine-iconWrap">
-					<a href="" target="_blank" class="resumeLine-icon"><?php include('_/img/svg/icon-pdf.svg'); ?> </a>
-					<a href="javascript:if(window.print)window.print()" class="resumeLine-icon" ><?php include('_/img/svg/icon-print.svg'); ?> </a>
+					<a href="" target="_blank" class="resumeLine-icon resumeLine-icon--pdf"><?php echo svg_use('icon-pdf', 'Download PDF'); ?> </a>
+					<a href="javascript:if(window.print)window.print()" class="resumeLine-icon resumeLine-icon--print" ><?php echo svg_use('icon-print', 'Print'); ?></a>
 				</span>
 			</h3>
 

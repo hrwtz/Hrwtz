@@ -579,7 +579,9 @@ img {
   /* line 53, ../sass/structures/_work.scss */
   .work-launch svg {
     position: relative;
-    top: 3px;
+    top: 0.125em;
+    width: 1em;
+    height: 0.91667em;
     fill: #713045; }
 
 /* line 7, ../sass/structures/_table.scss */
@@ -1074,7 +1076,11 @@ img {
 
 /* line 50, ../sass/structures/_resumeLine.scss */
 .resumeLine-iconWrap {
-  float: right; }
+  float: right;
+  font-size: 20px; }
+  /* line 54, ../sass/structures/_resumeLine.scss */
+  .resumeLine-iconWrap .icon {
+    height: 2.1em; }
   @media screen and (max-width: 41.875em) {
     /* line 50, ../sass/structures/_resumeLine.scss */
     .resumeLine-iconWrap {
@@ -1082,18 +1088,26 @@ img {
       display: block;
       margin-top: 0.5em; } }
 
-/* line 60, ../sass/structures/_resumeLine.scss */
+/* line 67, ../sass/structures/_resumeLine.scss */
+.resumeLine-icon--pdf .icon {
+  width: 1.7em; }
+
+/* line 74, ../sass/structures/_resumeLine.scss */
+.resumeLine-icon--print .icon {
+  width: 2.4em; }
+
+/* line 79, ../sass/structures/_resumeLine.scss */
 .resumeLine-icon {
   margin-left: 0.41667em;
   fill: #713045; }
 
 @media screen and (max-width: 25em) {
-  /* line 65, ../sass/structures/_resumeLine.scss */
+  /* line 84, ../sass/structures/_resumeLine.scss */
   .resumeLine-link {
     display: block; } }
 
 @media screen and (max-width: 25em) {
-  /* line 72, ../sass/structures/_resumeLine.scss */
+  /* line 91, ../sass/structures/_resumeLine.scss */
   .resumeLine-dot {
     display: none; } }
 
@@ -1113,16 +1127,25 @@ img {
 
 /* line 53, ../sass/structures/_branding.scss */
 .branding-iconWrap {
+  position: relative;
   height: 0;
   padding-bottom: 76.6233%;
   margin-bottom: 0.75em; }
-  /* line 58, ../sass/structures/_branding.scss */
+  /* line 59, ../sass/structures/_branding.scss */
   .branding-iconWrap .icon {
     width: 100%;
     height: 100%;
     fill: #ecf0f1; }
 
-/* line 65, ../sass/structures/_branding.scss */
+/* line 66, ../sass/structures/_branding.scss */
+.branding-iconInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
+
+/* line 74, ../sass/structures/_branding.scss */
 .branding-text {
   color: #ecf0f1;
   font-size: 1.5em;
