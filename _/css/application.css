@@ -1260,16 +1260,28 @@ img {
 /* line 34, ../sass/structures/_block.scss */
 .block-face {
   display: block;
-  height: 100%; }
+  height: 100%;
+  -webkit-transition: background-color 0.33s;
+  -moz-transition: background-color 0.33s;
+  -o-transition: background-color 0.33s;
+  transition: background-color 0.33s; }
 
-/* line 39, ../sass/structures/_block.scss */
+/* line 40, ../sass/structures/_block.scss */
 .block-face--top {
   background-color: #5d6975; }
+  /* line 43, ../sass/structures/_block.scss */
+  .block-face--top svg {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translateX(-50%) translateY(-50%);
+    fill: white; }
 
-/* line 45, ../sass/structures/_block.scss */
+/* line 53, ../sass/structures/_block.scss */
 .block-face--bottom {
   background-color: #263146; }
-  /* line 49, ../sass/structures/_block.scss */
+  /* line 56, ../sass/structures/_block.scss */
   .block-face--bottom:after {
     position: absolute;
     top: 50%;
@@ -1283,7 +1295,7 @@ img {
     text-align: center;
     text-transform: uppercase; }
 
-/* line 64, ../sass/structures/_block.scss */
+/* line 71, ../sass/structures/_block.scss */
 .block-cube {
   height: 100%;
   -webkit-transform-style: preserve-3d;
@@ -1295,35 +1307,116 @@ img {
   -moz-transition: -moz-transform 0.33s;
   -o-transition: -o-transform 0.33s;
   transition: transform 0.33s; }
-  /* line 70, ../sass/structures/_block.scss */
+  /* line 77, ../sass/structures/_block.scss */
   .block-cube:hover {
+    position: relative;
+    z-index: 50;
     -webkit-transform: rotateX(91deg);
     -moz-transform: rotateX(91deg);
     -ms-transform: rotateX(91deg);
     -o-transform: rotateX(91deg);
     transform: rotateX(91deg); }
 
-/* line 79, ../sass/structures/_block.scss */
+/* line 88, ../sass/structures/_block.scss */
+.block--long {
+  width: 55%; }
+
+/* line 92, ../sass/structures/_block.scss */
+.block--narrow {
+  width: 45%; }
+
+/* line 96, ../sass/structures/_block.scss */
 .block--half {
   width: 100%;
   height: 50%; }
 
-/* line 84, ../sass/structures/_block.scss */
+/* line 101, ../sass/structures/_block.scss */
 .block--tall {
   height: 55%; }
 
-/* line 88, ../sass/structures/_block.scss */
+/* line 105, ../sass/structures/_block.scss */
 .block--short {
   height: 45%; }
 
-/* line 92, ../sass/structures/_block.scss */
-.block--long {
-  width: 55%; }
+@media screen and (max-width: 50em) {
+  /* line 116, ../sass/structures/_block.scss */
+  .block {
+    height: auto; }
 
-/* line 96, ../sass/structures/_block.scss */
-.block--narrow {
-  width: 45%; }
+  /* line 120, ../sass/structures/_block.scss */
+  .block--half {
+    padding-bottom: 35%; }
 
+  /* line 124, ../sass/structures/_block.scss */
+  .block--tall {
+    width: 50%;
+    padding-bottom: 35%; }
+
+  /* line 129, ../sass/structures/_block.scss */
+  .block--short {
+    padding-bottom: 45%; }
+
+  /* line 133, ../sass/structures/_block.scss */
+  .block--tall.block--long {
+    padding-bottom: 0; }
+
+  /* line 139, ../sass/structures/_block.scss */
+  .block-cube:hover {
+    -webkit-transform: initial;
+    -moz-transform: initial;
+    -ms-transform: initial;
+    -o-transform: initial;
+    transform: initial; }
+    /* line 142, ../sass/structures/_block.scss */
+    .block-cube:hover .test {
+      width: 150%;
+      padding-bottom: 150%;
+      opacity: 1;
+      -webkit-transition: 1.5s width cubic-bezier(0.865, 0.05, 0.855, 0.06), 1.5s padding-bottom cubic-bezier(0.865, 0.05, 0.855, 0.06);
+      -moz-transition: 1.5s width cubic-bezier(0.865, 0.05, 0.855, 0.06), 1.5s padding-bottom cubic-bezier(0.865, 0.05, 0.855, 0.06);
+      -o-transition: 1.5s width cubic-bezier(0.865, 0.05, 0.855, 0.06), 1.5s padding-bottom cubic-bezier(0.865, 0.05, 0.855, 0.06);
+      transition: 1.5s width cubic-bezier(0.865, 0.05, 0.855, 0.06), 1.5s padding-bottom cubic-bezier(0.865, 0.05, 0.855, 0.06); }
+
+  /* line 152, ../sass/structures/_block.scss */
+  .block-face {
+    overflow: hidden; }
+    /* line 155, ../sass/structures/_block.scss */
+    .block-face svg {
+      z-index: 1; }
+
+  /* line 160, ../sass/structures/_block.scss */
+  .test {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #263146;
+    opacity: 0;
+    -webkit-transition: 0.2s width cubic-bezier(1, 0, 1, -0.165), 0.2s padding-bottom cubic-bezier(1, 0, 1, -0.165), 0.4s opacity;
+    -moz-transition: 0.2s width cubic-bezier(1, 0, 1, -0.165), 0.2s padding-bottom cubic-bezier(1, 0, 1, -0.165), 0.4s opacity;
+    -o-transition: 0.2s width cubic-bezier(1, 0, 1, -0.165), 0.2s padding-bottom cubic-bezier(1, 0, 1, -0.165), 0.4s opacity;
+    transition: 0.2s width cubic-bezier(1, 0, 1, -0.165), 0.2s padding-bottom cubic-bezier(1, 0, 1, -0.165), 0.4s opacity;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none; } }
+@media screen and (max-width: 25em) {
+  /* line 179, ../sass/structures/_block.scss */
+  .block--tall {
+    width: 100%; }
+
+  /* line 183, ../sass/structures/_block.scss */
+  .block--half {
+    width: 50%; } }
 /*
 .bch {
   background: $c-highlight;

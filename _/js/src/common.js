@@ -843,8 +843,8 @@
                             if ( isElementInViewport($(this)) ) {
                                 $target = $(this).parents('section[data-panel]');
                                 $.each(canvasIni, function(index){
-                                    if ( $target.index() > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
-                                        canvasIni[index].triggerAnimation = $target.index();
+                                    if ( $target.index() - 1 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
+                                        canvasIni[index].triggerAnimation = $target.index() - 1;
                                     }
                                 });
                             }

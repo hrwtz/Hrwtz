@@ -34,17 +34,24 @@ body{
 .block-face{
     display: block;
     height: 100%;
+    @include transition(background-color .33s);
 }
 
     .block-face--top{
         background-color: $c-text;
-        //@include transform(translateZ(150px));
 
+        svg{
+            position: relative;
+            top: 50%;
+            left: 50%;
+            width: 60%;
+            transform: translateX(-50%) translateY(-50%);
+            fill: white;
+        }
     }
 
     .block-face--bottom{
         background-color: $c-darkBlue;
-        //@include transform(rotateX(-90deg) translateZ(-150px));
         
         &:after{
             position: absolute;
@@ -68,6 +75,8 @@ body{
 
 
     &:hover{
+        position: relative;
+        z-index: 50;
         @include transform(rotateX(91deg));
     }
 }
@@ -75,6 +84,14 @@ body{
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
+
+.block--long{
+    width: 55%;
+}
+
+.block--narrow{
+    width: 45%;
+}
 
 .block--half{
     width: 100%;
@@ -89,10 +106,82 @@ body{
     height: 45%;
 }
 
-.block--long{
-    width: 55%;
+
+// -------------------------------------
+//   Media Queries
+// -------------------------------------
+
+@media screen and (max-width: $g-m) {
+
+    .block{
+        height: auto;
+    }
+
+    .block--half{
+        padding-bottom: 35%
+    }
+
+    .block--tall{
+        width: 50%;
+        padding-bottom: 35%
+    }
+
+    .block--short{
+        padding-bottom: 45%
+    }
+
+    .block--tall.block--long{
+        padding-bottom: 0;
+    }
+
+    .block-cube{
+
+        &:hover{
+            @include transform(initial);
+
+            .test{
+                width: 150%;
+                padding-bottom: 150%;
+                opacity: 1;
+                @include transition(1.5s width cubic-bezier(0.865, 0.050, 0.855, 0.060), 1.5s padding-bottom cubic-bezier(0.865, 0.050, 0.855, 0.060));
+                
+            } 
+        }
+    }
+
+    .block-face{
+        overflow: hidden;
+
+        svg{
+            z-index: 1;
+        }
+    }
+
+    .test{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        padding-bottom: 0;
+        @include border-radius(50%);
+        background-color: $c-darkBlue;
+        opacity: 0;
+        @include transition(.2s width cubic-bezier(1.000, 0, 1.000, -0.165), .2s padding-bottom cubic-bezier(1.000, 0, 1.000, -0.165), .4s opacity);
+        @include transform(translateX(-50%) translateY(-50%));
+        pointer-events: none;
+    }
+
 }
 
-.block--narrow{
-    width: 45%;
+@media screen and (max-width: $g-xs) {
+
+    .block--tall{
+        width: 100%;
+    }
+
+    .block--half{
+        width: 50%;
+    }
+
 }
