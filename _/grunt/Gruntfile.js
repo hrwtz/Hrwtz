@@ -74,6 +74,18 @@ module.exports = function(grunt) {
 
 		},
 
+		svgstore: {
+		    options: {
+		    	//prefix : 'i-', // This will prefix each ID
+		    },
+		    default: {
+		    	files: {
+					'../img/svg-defs.svg': ['../img/svg/*.svg']
+				}
+		    }
+		},
+
+
 
 	});
 
@@ -83,8 +95,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-svgstore');
 
 	// Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'compass', 'watch']);
+	grunt.registerTask('default', ['concat', 'uglify', 'svgstore', 'imagemin', 'compass', 'watch']);
 
 };

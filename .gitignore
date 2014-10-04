@@ -11,3 +11,4 @@ cgi_bin
 **/sass/*.css
 **/sass/config.rb
 node_modules
+npm-debug.log

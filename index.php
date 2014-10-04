@@ -57,6 +57,9 @@ else :
 	endif;
 endif;
 
+// Functions for project
+require('functions.php');
+
 // Load page up!
 
 if (!$is_ajax)
