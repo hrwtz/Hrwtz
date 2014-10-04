@@ -804,16 +804,7 @@ if ( typeof Object.create !== 'function' ) {
 
             // Initialize Background
             background.init();
-/*
-            // Initialize particles
-            particles.init();
 
-            // Initialize Triangle
-            triangle.init();
-
-            // Initialize Split
-            split.init();
-*/
         };
         this.controller = function(){
             // Run n amount of animation for n panels that have been triggered
@@ -839,7 +830,14 @@ if ( typeof Object.create !== 'function' ) {
         };
         this.click = function(){
             $(canvas.can).click(function(e){
-                background.addCircle(e.offsetX, e.offsetY)
+                if ( e.offsetX == undefined ) { // fix for Firefox
+                    xPos = e.pageX-$('#canvas').offset().left;
+                    yPos = e.pageY-$('#canvas').offset().top;
+                }else{
+                    xPos = e.offsetX;
+                    yPos = e.offsetY;
+                }
+                background.addCircle(xPos, yPos)
             })
         };
         this.resize = function(){
