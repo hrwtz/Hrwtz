@@ -24,26 +24,31 @@ $content = array(
 	<h3 class="h3">Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
 
    '<div class="block block--tall block--narrow">
-   		<a href="'.$page_base.'work/turnkey" class="block-preview"><div class="block-cube"><div class="block-face block-face--top">'.file_get_contents('_/img/work/turnkey-icon.svg').'</div><div class="block-face block-face--bottom"></div></div></a>
+   		<a href="'.$page_base.'work/turnkey" class="block-preview">
+   			<div class="block-previewInner bc2"><div class="block-hover"></div>'.file_get_contents('_/img/work/turnkey-icon.svg').'</div>
+   			</a>
    	</div>
     <div class="block block--tall block--long">
     	<div class="block block--half">
-    		<a href="'.$page_base.'work/nine82" class="block-preview"><div class="block-cube"><div class="block-face block-face--top">'.file_get_contents('_/img/work/nine82-icon.svg').'</div><div class="block-face block-face--bottom"></div></div></a>
+    		<a href="'.$page_base.'work/nine82" class="block-preview">
+				<div class="block-previewInner bc4"><div class="block-hover"></div>'.file_get_contents('_/img/work/nine82-icon.svg').'</div>
+    		</a>
     	</div>
     	<div class="block block--half">
-    		<a href="'.$page_base.'work/play_it_forward" class="block-preview"><div class="block-cube"><div class="block-face block-face--top">'.file_get_contents('_/img/work/play_it_forward-icon.svg').'</div><div class="block-face block-face--bottom"></div></div></a>
+    		<a href="'.$page_base.'work/play_it_forward" class="block-preview">
+    			<div class="block-previewInner bc1"><div class="block-hover"></div>'.file_get_contents('_/img/work/play_it_forward-icon.svg').'</div>
+    		</a>
     	</div>
     </div>
     <div class="block block--short block--long">
     	<a href="'.$page_base.'work/the_first_academy" class="block-preview">
-			<div class="block-cube">
-				<div class="block-face block-face--top"><div class="test"></div>'.file_get_contents('_/img/work/the_first_academy-icon.svg').'</div>
-				<div class="block-face block-face--bottom"></div>
-			</div>
+			<div class="block-previewInner  bc0"><div class="block-hover"></div>'.file_get_contents('_/img/work/the_first_academy-icon.svg').'</div>
     	</a>
     </div>
     <div class="block block--short block--narrow">
-    	<a href="'.$page_base.'work/world_design_exchange" class="block-preview"><div class="block-cube"><div class="block-face block-face--top">'.file_get_contents('_/img/work/world_design_exchange-icon.svg').'</div><div class="block-face block-face--bottom"></div></div></a>
+    	<a href="'.$page_base.'work/world_design_exchange" class="block-preview">
+    		<div class="block-previewInner  bc3"><div class="block-hover"></div>'.file_get_contents('_/img/work/world_design_exchange-icon.svg').'</div>
+    	</a>
     </div>',
 
    '<h2 class="h2">Contact Me</h2>
