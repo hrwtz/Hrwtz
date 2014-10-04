@@ -67,13 +67,18 @@ $content = array(
 <?php for ($i=0; $i < $sections; $i++) : ?>
 	<section class="row row--window home" data-panel="<?php echo $section_titles[$i]; ?>">
 		<div class="cell cell--half cell--home cell--mono <?php if ( $i % 2 == 1 ) echo 'fr'; ?>">
-			<div class="table">
-				<div class="table-cell table-cell--middle">
-					<div class="cell cell--s well well--s clearfix <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?> <?php if ($section_titles[$i] == 'Work') echo 'block-cell'; ?>">
-						<?php if (isset($content[$i])) echo $content[$i]; ?>
+			<?php // If work section ?>
+			<?php if ($i != 3) : ?>
+				<div class="table">
+					<div class="table-cell table-cell--middle">
+			<?php endif; ?>
+						<div class="cell cell--s well well--s clearfix <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?> <?php if ($section_titles[$i] == 'Work') echo 'block-cell'; ?>">
+							<?php if (isset($content[$i])) echo $content[$i]; ?>
+						</div>
+			<?php if ($i != 3) : ?>
 					</div>
 				</div>
-			</div>
+			<?php endif; ?>
 
 			<div class="navigation-clip navigation-clip--mobile">
 				<?php $inverse = ($i % 2); ?>
