@@ -785,7 +785,7 @@
                     $menu: $('.navigationSide-list, .navigation-list'),
                     menuSelector: 'li[data-panel]',
                     onSnapFinish: function($target){
-                        var historySection = $('.cell--half').css('float') == 'none' || ($target.index() == 0) ? pagebase : $target.attr('data-panel').toLowerCase();
+                        var historySection = $('.cell--half').css('float') == 'none' || ($target.index() == 1) ? pagebase : $target.attr('data-panel').toLowerCase();
                         history.replaceState({data: $('html').html()}, historySection, historySection);
 
                         $.each(canvasIni, function(index){
