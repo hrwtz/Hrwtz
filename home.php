@@ -69,7 +69,7 @@ $content = array(
 		<div class="cell cell--half cell--home cell--mono <?php if ( $i % 2 == 1 ) echo 'fr'; ?>">
 			<div class="table">
 				<div class="table-cell table-cell--middle">
-					<div class="cell cell--s well well--s <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?> <?php if ($section_titles[$i] == 'Work') echo 'block-cell'; ?>">
+					<div class="cell cell--s well well--s clearfix <?php echo ( $i % 2 == 1) ? 'cell-content--right' : 'cell-content--left'; ?> <?php if ($section_titles[$i] == 'Work') echo 'block-cell'; ?>">
 						<?php if (isset($content[$i])) echo $content[$i]; ?>
 					</div>
 				</div>
