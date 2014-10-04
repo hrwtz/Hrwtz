@@ -825,14 +825,16 @@ if ( typeof Object.create !== 'function' ) {
                     animation[i].draw();
 
                 // Update animation
-                animation[i].update()
-;            };
+                animation[i].update();
+            };
         };
         this.click = function(){
             $(canvas.can).click(function(e){
+                var xPos,
+                    yPos;
                 if ( e.offsetX == undefined ) { // fix for Firefox
-                    xPos = e.pageX-$('#canvas').offset().left;
-                    yPos = e.pageY-$('#canvas').offset().top;
+                    xPos = e.pageX - $(canvas.can).offset().left;
+                    yPos = e.pageY - $(canvas.can).offset().top;
                 }else{
                     xPos = e.offsetX;
                     yPos = e.offsetY;
