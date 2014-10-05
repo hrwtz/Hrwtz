@@ -1118,6 +1118,10 @@ img {
   left: 50%;
   z-index: 99999;
   width: 60%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   opacity: .5; }
   @media screen and (max-width: 50em) {
@@ -1289,6 +1293,10 @@ img {
     left: 50%;
     width: 60%;
     z-index: 1;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     fill: white; }
   /* line 37, ../sass/structures/_block.scss */

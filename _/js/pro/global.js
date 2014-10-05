@@ -771,6 +771,21 @@ if ( typeof Object.create !== 'function' ) {
     // RequestAnimFrame: a browser API for getting smooth animations
     var canvasIni = new Array();
     var countAniFrame = 0;
+    // Start the main animation loop using requestAnimFrame
+    var animloop = function(){
+        // Update frame count
+        countAniFrame++;
+
+        // Call draw and update methods on each canvas
+        $.each(canvasIni, function(index){
+            canvasIni[index].controller();
+            //canvasIni[index].update();
+        });
+        
+        // Recursion
+        requestAnimFrame(animloop);
+
+    }
     var requestAnimFrame = (function(){
         return  window.requestAnimationFrame       || 
                 window.webkitRequestAnimationFrame || 
@@ -1554,8 +1569,10 @@ if ( typeof Object.create !== 'function' ) {
                     $menu: $('.navigationSide-list, .navigation-list'),
                     menuSelector: 'li[data-panel]',
                     onSnapFinish: function($target){
-                        var historySection = $('.cell--half').css('float') == 'none' || ($target.index() == 1) ? pagebase : $target.attr('data-panel').toLowerCase();
-                        history.replaceState({data: $('html').html()}, historySection, historySection);
+                        if (history.replaceState){
+                            var historySection = $('.cell--half').css('float') == 'none' || ($target.index() == 1) ? pagebase : $target.attr('data-panel').toLowerCase();
+                            history.replaceState({data: $('html').html()}, historySection, historySection);
+                        }
 
                         $.each(canvasIni, function(index){
                             if ( $target.index()-1 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
@@ -1630,26 +1647,9 @@ if ( typeof Object.create !== 'function' ) {
     // On Ready
     $(function(){
         common.init();
-        
-
-        // Start the main animation loop using requestAnimFrame
-        var animloop = function(){
-            // Update frame count
-            countAniFrame++;
-
-            // Call draw and update methods on each canvas
-            $.each(canvasIni, function(index){
-                canvasIni[index].controller();
-                //canvasIni[index].update();
-            });
-            
-            // Recursion
-            requestAnimFrame(animloop);
-
-        }
 
         // Kick off animation loop!
-        requestAnimationFrame(animloop);
+        requestAnimFrame(animloop);
     });
 
 

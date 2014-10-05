@@ -18,7 +18,7 @@
     left: 50%;
     z-index: 99999;
     width: 60%;
-    transform: translateX(-50%) translateY(-50%);
+    @include transform(translateX(-50%) translateY(-50%));
     //margin-top: -150px;
     opacity: .5;
 

@@ -5,7 +5,8 @@ $content = array(
 		Professional Problem Solver<br>
 		Maker of the Interwebs<br>
 		Amateur Beer Maker<br>
-		300 Ring Owner based in Orlando, Florida.<br>
+		300 Ring Owner<br>
+		Based in Orlando, Florida.<br>
 	</p>',
 /*
    '<h2 class="h2">I Am A Creator</h2>
