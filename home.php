@@ -24,32 +24,34 @@ $content = array(
 	
 	<h3 class="h3">Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
 
-   '<div class="block block--tall block--narrow">
-   		<a href="'.$page_base.'work/turnkey" class="block-preview">
-   			<div class="block-previewInner bc2"><div class="block-hover"></div>'.svg_use('work-tkm', 'Turnkey Media Solutions').'</div>
-   			</a>
-   	</div>
-    <div class="block block--tall block--long">
-    	<div class="block block--half">
-    		<a href="'.$page_base.'work/nine82" class="block-preview">
-				<div class="block-previewInner bc4"><div class="block-hover"></div>'.svg_use('work-nine82', 'NINE82').'</div>
-    		</a>
-    	</div>
-    	<div class="block block--half">
-    		<a href="'.$page_base.'work/play_it_forward" class="block-preview">
-    			<div class="block-previewInner bc1"><div class="block-hover"></div>'.svg_use('work-pif', 'Kohl\'s Play It Forward').'</div>
-    		</a>
-    	</div>
-    </div>
-    <div class="block block--short block--long">
-    	<a href="'.$page_base.'work/the_first_academy" class="block-preview">
-			<div class="block-previewInner  bc0"><div class="block-hover"></div>'.svg_use('work-tfa', 'The First Academy').'</div>
-    	</a>
-    </div>
-    <div class="block block--short block--narrow">
-    	<a href="'.$page_base.'work/world_design_exchange" class="block-preview">
-    		<div class="block-previewInner  bc3"><div class="block-hover"></div>'.svg_use('work-wdx', 'World Design Exchange').'</div>
-    	</a>
+   '<div class="block-ie">
+	    <div class="block block--tall block--narrow">
+	   		<a href="'.$page_base.'work/turnkey" class="block-preview">
+	   			<div class="block-previewInner bc2"><div class="block-hover"></div>'.svg_use('work-tkm', 'Turnkey Media Solutions').'</div>
+	   			</a>
+	   	</div>
+	    <div class="block block--tall block--long">
+	    	<div class="block block--half">
+	    		<a href="'.$page_base.'work/nine82" class="block-preview">
+					<div class="block-previewInner bc4"><div class="block-hover"></div>'.svg_use('work-nine82', 'NINE82').'</div>
+	    		</a>
+	    	</div>
+	    	<div class="block block--half">
+	    		<a href="'.$page_base.'work/play_it_forward" class="block-preview">
+	    			<div class="block-previewInner bc1"><div class="block-hover"></div>'.svg_use('work-pif', 'Kohl\'s Play It Forward').'</div>
+	    		</a>
+	    	</div>
+	    </div>
+	    <div class="block block--short block--long">
+	    	<a href="'.$page_base.'work/the_first_academy" class="block-preview">
+				<div class="block-previewInner  bc0"><div class="block-hover"></div>'.svg_use('work-tfa', 'The First Academy').'</div>
+	    	</a>
+	    </div>
+	    <div class="block block--short block--narrow">
+	    	<a href="'.$page_base.'work/world_design_exchange" class="block-preview">
+	    		<div class="block-previewInner  bc3"><div class="block-hover"></div>'.svg_use('work-wdx', 'World Design Exchange').'</div>
+	    	</a>
+	    </div>
     </div>',
 
    '<h2 class="h2">Contact Me</h2>

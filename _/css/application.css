@@ -363,16 +363,18 @@ img {
 
 /* line 42, ../sass/components/_well.scss */
 .well--s {
-  margin-bottom: 3em;
-  margin-top: 3em; }
+  padding-bottom: 3em;
+  padding-top: 3em;
+  margin-top: 0;
+  margin-bottom: 0; }
   @media screen and (max-width: 50em) {
     /* line 42, ../sass/components/_well.scss */
     .well--s {
-      margin-top: 5em;
-      margin-bottom: 5em; }
-      /* line 50, ../sass/components/_well.scss */
+      padding-top: 5em;
+      padding-bottom: 5em; }
+      /* line 52, ../sass/components/_well.scss */
       .well--s:first-of-type {
-        margin-top: 6em; } }
+        padding-top: 6em; } }
 
 /* line 15, ../sass/components/_cell.scss */
 .cell {
@@ -455,29 +457,35 @@ img {
 /* line 110, ../sass/components/_cell.scss */
 .cell-content--left {
   float: right;
-  padding-left: 1em;
-  padding-right: 20%; }
+  height: 100%;
+  padding-left: 1em; }
+  /* line 115, ../sass/components/_cell.scss */
+  .cell-content--left > * {
+    padding-right: 20%; }
   @media print, screen and (max-width: 50em) {
-    /* line 116, ../sass/components/_cell.scss */
+    /* line 120, ../sass/components/_cell.scss */
     .cell--home .cell-content--left {
       float: none;
       padding-left: 0;
       padding-right: 0; } }
 
-/* line 125, ../sass/components/_cell.scss */
+/* line 129, ../sass/components/_cell.scss */
 .cell-content--right {
   float: left;
-  padding-right: 1em;
-  padding-left: 20%; }
+  height: 100%;
+  padding-right: 1em; }
+  /* line 134, ../sass/components/_cell.scss */
+  .cell-content--right > * {
+    padding-left: 20%; }
   @media print, screen and (max-width: 50em) {
-    /* line 131, ../sass/components/_cell.scss */
+    /* line 139, ../sass/components/_cell.scss */
     .cell--home .cell-content--right {
       float: none;
       padding-left: 0;
       padding-right: 0; } }
 
 @media print, screen and (max-width: 50em) {
-  /* line 140, ../sass/components/_cell.scss */
+  /* line 148, ../sass/components/_cell.scss */
   .cell--mono.cell--home {
     padding-left: 1em;
     padding-right: 1em; } }
@@ -1272,7 +1280,12 @@ img {
   position: relative;
   float: left; }
 
-/* line 16, ../sass/structures/_block.scss */
+/* line 17, ../sass/structures/_block.scss */
+.block-ie {
+  width: 100%;
+  height: 100%; }
+
+/* line 22, ../sass/structures/_block.scss */
 .block-preview {
   position: absolute;
   top: 5px;
@@ -1286,7 +1299,7 @@ img {
   -moz-transition: background-color 0.33s;
   -o-transition: background-color 0.33s;
   transition: background-color 0.33s; }
-  /* line 27, ../sass/structures/_block.scss */
+  /* line 33, ../sass/structures/_block.scss */
   .block-preview svg {
     position: relative;
     top: 50%;
@@ -1299,14 +1312,14 @@ img {
     -o-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     fill: white; }
-  /* line 37, ../sass/structures/_block.scss */
+  /* line 43, ../sass/structures/_block.scss */
   .block-preview:hover {
     -webkit-transform: initial;
     -moz-transform: initial;
     -ms-transform: initial;
     -o-transform: initial;
     transform: initial; }
-    /* line 40, ../sass/structures/_block.scss */
+    /* line 46, ../sass/structures/_block.scss */
     .block-preview:hover .block-hover {
       width: 425%;
       padding-bottom: 425%;
@@ -1316,15 +1329,11 @@ img {
       -o-transition: 2s width cubic-bezier(0.865, 0.05, 0.855, 0.06), 2s padding-bottom cubic-bezier(0.865, 0.05, 0.855, 0.06);
       transition: 2s width cubic-bezier(0.865, 0.05, 0.855, 0.06), 2s padding-bottom cubic-bezier(0.865, 0.05, 0.855, 0.06); }
 
-/* line 50, ../sass/structures/_block.scss */
+/* line 56, ../sass/structures/_block.scss */
 .block-previewInner {
   height: 100%; }
 
-/* line 54, ../sass/structures/_block.scss */
-.block-cell {
-  height: 80%; }
-
-/* line 58, ../sass/structures/_block.scss */
+/* line 64, ../sass/structures/_block.scss */
 .block-hover {
   position: absolute;
   top: 50%;
@@ -1349,70 +1358,70 @@ img {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none; }
-  /* line 72, ../sass/structures/_block.scss */
+  /* line 78, ../sass/structures/_block.scss */
   .bc0 .block-hover {
     background-color: #a74766; }
-  /* line 73, ../sass/structures/_block.scss */
+  /* line 79, ../sass/structures/_block.scss */
   .bc1 .block-hover {
     background-color: #ac3455; }
-  /* line 74, ../sass/structures/_block.scss */
+  /* line 80, ../sass/structures/_block.scss */
   .bc2 .block-hover {
     background-color: #74251f; }
-  /* line 75, ../sass/structures/_block.scss */
+  /* line 81, ../sass/structures/_block.scss */
   .bc3 .block-hover {
     background-color: #b6451a; }
-  /* line 76, ../sass/structures/_block.scss */
+  /* line 82, ../sass/structures/_block.scss */
   .bc4 .block-hover {
     background-color: #cf780c; }
 
-/* line 85, ../sass/structures/_block.scss */
+/* line 91, ../sass/structures/_block.scss */
 .block--long {
   width: 55%; }
 
-/* line 89, ../sass/structures/_block.scss */
+/* line 95, ../sass/structures/_block.scss */
 .block--narrow {
   width: 45%; }
 
-/* line 93, ../sass/structures/_block.scss */
+/* line 99, ../sass/structures/_block.scss */
 .block--half {
   width: 100%;
   height: 50%; }
 
-/* line 98, ../sass/structures/_block.scss */
+/* line 104, ../sass/structures/_block.scss */
 .block--tall {
   height: 55%; }
 
-/* line 102, ../sass/structures/_block.scss */
+/* line 108, ../sass/structures/_block.scss */
 .block--short {
   height: 45%; }
 
 @media screen and (max-width: 50em) {
-  /* line 113, ../sass/structures/_block.scss */
+  /* line 119, ../sass/structures/_block.scss */
   .block {
     height: auto; }
 
-  /* line 117, ../sass/structures/_block.scss */
+  /* line 123, ../sass/structures/_block.scss */
   .block--half {
     padding-bottom: 35%; }
 
-  /* line 121, ../sass/structures/_block.scss */
+  /* line 127, ../sass/structures/_block.scss */
   .block--tall {
     width: 50%;
     padding-bottom: 35%; }
 
-  /* line 126, ../sass/structures/_block.scss */
+  /* line 132, ../sass/structures/_block.scss */
   .block--short {
     padding-bottom: 45%; }
 
-  /* line 130, ../sass/structures/_block.scss */
+  /* line 136, ../sass/structures/_block.scss */
   .block--tall.block--long {
     padding-bottom: 0; } }
 @media screen and (max-width: 25em) {
-  /* line 140, ../sass/structures/_block.scss */
+  /* line 146, ../sass/structures/_block.scss */
   .block--tall {
     width: 100%; }
 
-  /* line 144, ../sass/structures/_block.scss */
+  /* line 150, ../sass/structures/_block.scss */
   .block--half {
     width: 50%; } }
 /*

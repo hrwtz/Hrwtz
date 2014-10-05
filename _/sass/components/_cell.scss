@@ -109,8 +109,12 @@
 
 .cell-content--left{
     float: right;
+    height: 100%;
     padding-left: $b-space;
-    padding-right: 20%;
+
+    > *{
+        padding-right: 20%; // IE Fix
+    }
 
     @media print, screen and (max-width: $g-m) {
         .cell--home &{
@@ -124,8 +128,12 @@
 
 .cell-content--right{
     float: left;
+    height: 100%;
     padding-right: $b-space;
-    padding-left: 20%;
+    
+    > *{
+        padding-left: 20%; // IE Fix
+    }
 
     @media print, screen and (max-width: $g-m) {
         .cell--home &{

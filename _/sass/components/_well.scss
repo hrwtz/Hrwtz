@@ -40,15 +40,17 @@
 // ----- Sizes ----- //
 
 .well--s{
-    margin-bottom: $b-space-3x;
-    margin-top: $b-space-3x;
+    padding-bottom: $b-space-3x;
+    padding-top: $b-space-3x;
+    margin-top: 0;
+    margin-bottom: 0;
 
     @media screen and (max-width: $g-m) {
-        margin-top: $b-space * 5;
-        margin-bottom: $b-space * 5;
+        padding-top: $b-space * 5;
+        padding-bottom: $b-space * 5;
 
         &:first-of-type{
-            margin-top: $b-space * 6;
+            padding-top: $b-space * 6;
         }
     }
 }
