@@ -88,7 +88,7 @@ $content = array(
 				<?php require('nav.php'); ?>
 			</div>
 		</div>
-		<div class="cell cell--half cell--home cell--color bc<?php echo $i; ?>">
+		<div class="cell cell--half cell--home cell--color bc<?php echo $i; ?> ofh">
 			
 			<?php if ($i ==0) : ?>
 				<div class="branding">
