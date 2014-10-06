@@ -806,8 +806,8 @@
                         }
 
                         $.each(canvasIni, function(index){
-                            if ( $target.index()-1 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
-                                canvasIni[index].triggerAnimation = $target.index()-1;
+                            if ( $target.index() - 2 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
+                                canvasIni[index].triggerAnimation = $target.index() - 2;
                             }
                         });
                     }
