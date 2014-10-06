@@ -194,12 +194,12 @@
 
         &:after{
             @include transform(rotate(-45deg) translate(2px, 4px));
-            transform-origin: bottom left;
+            @include transform-origin(bottom, left);
         }
 
         &:before{
             @include transform(rotate(45deg) translate(1px, -3px));
-            transform-origin: bottom left;
+            @include transform-origin(bottom, left);
         }
 
         .navigation-hamburger-center{
