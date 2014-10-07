@@ -884,18 +884,77 @@
             'I Am A 300 Ring Owner', 
             'I Am Based in Orlando, Florida.', 
             'I Am A Front End Developer'],
+        el: $('.typist'),
+        typeSpeed: 45,
+        backSpeed: 30,
+        backDelay: 3000,
+        typeDelay: 100,
         init: function(){
-            this.el = $('.typist');
-        },
-        build: function(){
-
+            this.backspace();
         },
         // pass current string state to each function, types 1 char per call
-        typwrite: function(curString, curStrPos){
+        typewrite: function(curString, curStrPos){
+            // varying values for setTimeout during typing
+            // can't be global since number changes each time loop is executed
+            var humanize = Math.round(Math.random() * (90)) + this.typeSpeed;
+            var self = this;
 
+            // contain typing function in a timeout humanize'd delay
+            self.timeout = setTimeout(function() {
+
+
+                //self.sayings[0]
+                var length = $('.typist').text().length;
+
+                nextLetter = self.sayings[0].substring(length, length+1);
+
+                var newText = $('<span class="typist-normal"></span>').text(self.el.text() + nextLetter);
+
+                //console.log($('.typist').text())
+                //console.log(self.sayings[0])
+                //console.log(($('.typist').text() == self.sayings[0]))
+
+                self.el.empty().append(newText)
+                
+                if ($('.typist').text() == self.sayings[0]){
+                    setTimeout(function(){
+                        self.sayings.push(self.sayings.shift());
+                        self.backspace();
+                    }, self.backDelay);
+                    return false;
+                }
+
+                self.typewrite();
+
+
+
+            }, humanize);
         },
         backspace: function(){
+            // varying values for setTimeout during typing
+            // can't be global since number changes each time loop is executed
+            var humanize = Math.round(Math.random() * (90)) + this.backSpeed;
+            var self = this;
 
+            self.timeout = setTimeout(function() {
+                var length = $('.typist-normal').length ? $('.typist-normal').text().length : $('.typist').text().length;
+                var first = $('.typist').text().substring(0, length);
+                var currentSaying = self.sayings[0].substring(0, length)
+                var isFirstMatch = (currentSaying == first)
+
+                if (isFirstMatch){
+                    setTimeout(function(){
+                        $('.typist-highlight').remove();
+                        self.typewrite();
+                    }, self.typeDelay)
+                    return false;
+                }
+
+                self.highlightPrevious();
+
+
+                self.backspace();
+            }, humanize);
         },
         highlightPrevious: function(){
             var first = $('.typist-normal').text()
@@ -913,35 +972,14 @@
             
             $('.typist').empty().append(newFirst).append(newSecond);
         },
-        deleteHighlight: function(){
-            $('.typist-highlighted').remove();
-        },
-        checkFirstMatch: function(){
-            var length = $('.typist').clone().children().remove().end().text().length;
-            var first = $('.typist').text().substring(0, length);
-            var currentSaying = this.sayings[0].substring(0, length)
-
-            return (first == currentSaying)
-        },
     }
 
     // On Ready
     $(function(){
         common.init();
-/*
-        $('.typist').typed({
-            strings: [
-                'I Am A Professional Problem Solver', 
-                'I Am A Maker of the Interwebs', 
-                'I Am An Amateur Beer Maker', 
-                'I Am A 300 Ring Owner', 
-                'I Am Based in Orlando, Florida.', 
-                'I Am A Front End Developer'
-            ],
-            loop: true,
-            showCursor: false,
-        })
-*/
+
+        typist.init();
+
         // Kick off animation loop!
         requestAnimFrame(animloop);
     });
