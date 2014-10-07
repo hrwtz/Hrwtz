@@ -163,14 +163,14 @@ h1, h2, h3, h4, h5, h6 {
 html, body {
   min-height: 100%; }
 
-/* line 125, ../sass/foundation/_helpers.scss */
+/* line 133, ../sass/foundation/_helpers.scss */
 .clearfix {
   zoom: 1; }
-  /* line 128, ../sass/foundation/_helpers.scss */
+  /* line 136, ../sass/foundation/_helpers.scss */
   .clearfix:before, .clearfix:after {
     content: "";
     display: table; }
-  /* line 132, ../sass/foundation/_helpers.scss */
+  /* line 140, ../sass/foundation/_helpers.scss */
   .clearfix:after {
     clear: both; }
 
@@ -1445,6 +1445,41 @@ img {
   /* line 150, ../sass/structures/_block.scss */
   .block--half {
     width: 50%; } }
+/* line 7, ../sass/structures/_typist.scss */
+.typist {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/* line 16, ../sass/structures/_typist.scss */
+.typist-highlight {
+  position: relative;
+  color: white; }
+  /* line 20, ../sass/structures/_typist.scss */
+  .typist-highlight:after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #ab3330;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    content: ''; }
+
+/* line 34, ../sass/structures/_typist.scss */
+.typist-normal {
+  position: relative;
+  z-index: 1; }
+
 /*
 .bch {
   background: $c-highlight;

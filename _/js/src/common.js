@@ -875,10 +875,73 @@
         },
     };
 
+
+    typist = {
+        sayings: [
+            'I Am A Professional Problem Solver', 
+            'I Am A Maker of the Interwebs', 
+            'I Am An Amateur Beer Maker', 
+            'I Am A 300 Ring Owner', 
+            'I Am Based in Orlando, Florida.', 
+            'I Am A Front End Developer'],
+        init: function(){
+            this.el = $('.typist');
+        },
+        build: function(){
+
+        },
+        // pass current string state to each function, types 1 char per call
+        typwrite: function(curString, curStrPos){
+
+        },
+        backspace: function(){
+
+        },
+        highlightPrevious: function(){
+            var first = $('.typist-normal').text()
+            var firstLength = (first) ? first.length : $('.typist').text().length;
+            firstLength--;
+
+            var newFirstText = $('.typist').text().substring(0, firstLength)
+            var newSecondText = $('.typist').text().substring(firstLength)
+
+            var newFirst = $('<span class="typist-normal"></span>').text(newFirstText);
+            var newSecond = ''; 
+            for (var i = 0, len = newSecondText.length; i < len; i++) {
+              newSecond += "<span class='typist-highlight'>"+newSecondText[i] +"</span>"
+            }
+            
+            $('.typist').empty().append(newFirst).append(newSecond);
+        },
+        deleteHighlight: function(){
+            $('.typist-highlighted').remove();
+        },
+        checkFirstMatch: function(){
+            var length = $('.typist').clone().children().remove().end().text().length;
+            var first = $('.typist').text().substring(0, length);
+            var currentSaying = this.sayings[0].substring(0, length)
+
+            return (first == currentSaying)
+        },
+    }
+
     // On Ready
     $(function(){
         common.init();
-
+/*
+        $('.typist').typed({
+            strings: [
+                'I Am A Professional Problem Solver', 
+                'I Am A Maker of the Interwebs', 
+                'I Am An Amateur Beer Maker', 
+                'I Am A 300 Ring Owner', 
+                'I Am Based in Orlando, Florida.', 
+                'I Am A Front End Developer'
+            ],
+            loop: true,
+            showCursor: false,
+        })
+*/
         // Kick off animation loop!
         requestAnimFrame(animloop);
     });

@@ -1,13 +1,6 @@
 <?php 
 $content = array(
-   '<h2 class="h2">Front End Developer</h2>
-	<p class="p">
-		Professional Problem Solver<br>
-		Maker of the Interwebs<br>
-		Amateur Beer Maker<br>
-		300 Ring Owner<br>
-		Based in Orlando, Florida.<br>
-	</p>',
+   '<h2 class="h2 typist">I Am A Front End Developer</h2>',
 /*
    '<h2 class="h2">I Am A Creator</h2>
     <h3 class="h3">I pride myself in building top-notch websites.</h3>
