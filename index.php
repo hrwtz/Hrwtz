@@ -22,6 +22,7 @@ $pages_secondary = array(
 
 // Get base path for project
 $page_uri = $_SERVER['PHP_SELF'];
+global $page_base;
 $page_base = str_replace(basename(__FILE__), '', $page_uri);
 
 // Get request path minus the base
