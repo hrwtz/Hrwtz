@@ -1462,9 +1462,9 @@ img {
   .typist-highlight:after {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: -1px;
+    right: -1px;
     display: block;
-    width: 100%;
     height: 100%;
     z-index: -1;
     background-color: #ab3330;

@@ -772,12 +772,11 @@
         }
 
         var rect = el.getBoundingClientRect();
-
         return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= $(window).height() &&
-            rect.right <= $(window).width()
+            Math.floor(rect.top) >= 0 &&
+            Math.floor(rect.left) >= 0 &&
+            Math.floor(rect.bottom) <= $(window).height() &&
+            Math.floor(rect.right) <= $(window).width()
         );
     }
 
@@ -863,8 +862,8 @@
                             if ( isElementInViewport($(this)) ) {
                                 $target = $(this).parents('section[data-panel]');
                                 $.each(canvasIni, function(index){
-                                    if ( $target.index() - 1 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
-                                        canvasIni[index].triggerAnimation = $target.index() - 1;
+                                    if ( $target.index() - 2 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
+                                        canvasIni[index].triggerAnimation = $target.index() - 2;
                                     }
                                 });
                             }
