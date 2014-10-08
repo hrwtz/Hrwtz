@@ -1,6 +1,6 @@
 <?php 
 function svg_use($id, $title = NULL){
-	global $page_base;
+	global $page_base;/*
 	ob_start();
 	?>
 	<svg class="icon">
@@ -13,5 +13,6 @@ function svg_use($id, $title = NULL){
 	<?php
 	$output = ob_get_contents();
 	ob_end_clean();
-	return $output;
+	return $output;*/
+	include( '_/img/svg/' . $id .'.svg');
 }
