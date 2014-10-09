@@ -884,12 +884,19 @@
             'I Am Based in Orlando, Florida.', 
             'I Am A Front End Developer'],
         el: $('.typist'),
+        startDelay: 1000,
         typeSpeed: 45,
         backSpeed: 30,
         backDelay: 3000,
         typeDelay: 100,
         init: function(){
-            this.backspace();
+            var self = this;
+
+            setTimeout(function(){
+
+                self.backspace();
+                
+            }, self.startDelay)
         },
         // pass current string state to each function, types 1 char per call
         typewrite: function(curString, curStrPos){
@@ -903,19 +910,15 @@
 
 
                 //self.sayings[0]
-                var length = $('.typist').text().length;
+                var length = self.el.text().length;
 
                 nextLetter = self.sayings[0].substring(length, length+1);
 
                 var newText = $('<span class="typist-normal"></span>').text(self.el.text() + nextLetter);
 
-                //console.log($('.typist').text())
-                //console.log(self.sayings[0])
-                //console.log(($('.typist').text() == self.sayings[0]))
-
                 self.el.empty().append(newText)
                 
-                if ($('.typist').text() == self.sayings[0]){
+                if (self.el.text() == self.sayings[0]){
                     setTimeout(function(){
                         self.sayings.push(self.sayings.shift());
                         self.backspace();
@@ -936,8 +939,8 @@
             var self = this;
 
             self.timeout = setTimeout(function() {
-                var length = $('.typist-normal').length ? $('.typist-normal').text().length : $('.typist').text().length;
-                var first = $('.typist').text().substring(0, length);
+                var length = $('.typist-normal').length ? $('.typist-normal').text().length : self.el.text().length;
+                var first = self.el.text().substring(0, length);
                 var currentSaying = self.sayings[0].substring(0, length)
                 var isFirstMatch = (currentSaying == first)
 
@@ -957,11 +960,11 @@
         },
         highlightPrevious: function(){
             var first = $('.typist-normal').text()
-            var firstLength = (first) ? first.length : $('.typist').text().length;
+            var firstLength = (first) ? first.length : this.el.text().length;
             firstLength--;
 
-            var newFirstText = $('.typist').text().substring(0, firstLength)
-            var newSecondText = $('.typist').text().substring(firstLength)
+            var newFirstText = this.el.text().substring(0, firstLength)
+            var newSecondText = this.el.text().substring(firstLength)
 
             var newFirst = $('<span class="typist-normal"></span>').text(newFirstText);
             var newSecond = ''; 
@@ -969,7 +972,7 @@
               newSecond += "<span class='typist-highlight'>"+newSecondText[i] +"</span>"
             }
             
-            $('.typist').empty().append(newFirst).append(newSecond);
+            this.el.empty().append(newFirst).append(newSecond);
         },
     }
 
