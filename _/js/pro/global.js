@@ -1952,9 +1952,10 @@ if ( typeof Object.create !== 'function' ) {
                     // Start / Destroy panelSnap depending on window size
                     if ( $('.cell--half').css('float') == 'none' ){
                         $('body').panelSnap('disable');
-                        
+                        common.isMobile = true;
                     }else{
                         $('body').panelSnap('enable');
+                        common.isMobile = false;
                     }
                 }
             });
@@ -2000,6 +2001,8 @@ if ( typeof Object.create !== 'function' ) {
 
             this.plainText = this.el.text();
 
+            $(window).bind('resize', function(){self.setHeight()}).trigger('resize');
+
             setTimeout(function(){
 
                 self.backspace();
@@ -2015,9 +2018,6 @@ if ( typeof Object.create !== 'function' ) {
 
             // contain typing function in a timeout humanize'd delay
             self.timeout = setTimeout(function() {
-
-
-                //self.sayings[0]
                 
 
                 self.el.text(self.el.text().replace(/\s+/g, ' '));
@@ -2033,7 +2033,6 @@ if ( typeof Object.create !== 'function' ) {
                 if (self.el.text() == self.sayings[0]){
                     setTimeout(function(){
                         self.sayings.push(self.sayings.shift());
-                        console.log(self.sayings[0])
                         self.backspace();
                     }, self.backDelay);
                 }else{
@@ -2051,26 +2050,9 @@ if ( typeof Object.create !== 'function' ) {
             var self = this;
 
             self.timeout = setTimeout(function() {
-                /*
-                var normalText = self.el.children().length ? self.el.children().clone().children().remove().end().text() : self.el.text();
-
-                console.log(normalText)
-
-                var length = normalText.length;
-                var first = self.el.text().substring(0, length);
-                
-
-                var currentSaying = self.sayings[0].substring(0, length)
-
-
-                
-
-*/
-
                 var currentSaying = self.sayings[0].substring(0, self.plainText.length)
                 var isFirstMatch = currentSaying == self.plainText.replace(/\s+/g, ' ');
                 
-                console.log(isFirstMatch)
 
                 // If saying and typist text first parts match
                 if (isFirstMatch){
@@ -2135,63 +2117,27 @@ if ( typeof Object.create !== 'function' ) {
             });
 
 
-            self.el.html(fullTextNew);            
-
-
-            //this.el.empty().append(fullTextNew);
-
-            /*
-
-
-
-
-            var first = $('.typist-normal').text()
-
-            var firstLength = (first) ? first.length : this.el.text().length;
-            firstLength--;
-
-            var newFirstText = this.el.text().substring(0, firstLength)
-            var newSecondText = this.el.text().substring(firstLength)
-
-            var fullText = this.el.text().match(/[\s]|[^\s]+/g);
-            this.el.html()
-            var newFullText = '';
-            fullText.forEach(function(element, index){
-                //if (element == ' ') element = '&nbsp;';
-                newFullText += '<span class="typist-word">' + element + '</span>';
-            });
-            this.el.html(newFullText);
-
-            
-
-            // Splitting string into array without losing space
-            var secondWords = newSecondText.match(/[\s]|[^\s]+/g);
-
-            var newFirst = newFirstText;
-            var newSecond = ''; 
-
-            secondWords.forEach(function(element, index){
-                newSecond += '<span class="typist-word">';
-                for (var i = 0, len = element.length; i < len; i++) {
-                    var letter = (element[i] == ' ') ? '&nbsp;' : element[i];
-                    newSecond += "<span class='typist-highlight'>"+letter +"</span>"
-                }
-                newSecond += '</span>';
-            });
-            
-            this.el.empty().append(newFirst).append(newSecond);
-
-            */
+            self.el.html(fullTextNew);
 
         },
-    }
+        setHeight: function(){
+            if (!common.isMobile){
+                this.el.css('height', '');
+                return false;
+            }
 
-    function removeText(element){
-        var newElement = $('<' + element[0].nodeName + '/>');
-        element.children().each(function(){
-            newElement.append(this);
-        });
-        element.replaceWith(newElement);
+            var $fakeH2 = this.el.clone().css({width: this.el.width(), height: '',}).appendTo('body');
+            var typistHeight = 0;
+            this.sayings.forEach(function(element, index){
+                $fakeH2.html(element);
+                if ( $fakeH2.height() > typistHeight ){
+                    typistHeight = $fakeH2.height();
+                }
+            });
+            this.el.css('height', typistHeight);
+
+            $fakeH2.remove();
+        }
     }
 
     // On Ready

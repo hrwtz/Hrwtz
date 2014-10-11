@@ -1483,9 +1483,6 @@ img {
 /* line 39, ../sass/structures/_typist.scss */
 .typist-word {
   display: inline-block; }
-  /* line 42, ../sass/structures/_typist.scss */
-  .typist-word:after {
-    content: " "; }
 
 /*
 .bch {
