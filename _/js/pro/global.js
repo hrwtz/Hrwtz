@@ -1993,13 +1993,17 @@ if ( typeof Object.create !== 'function' ) {
         backSpeed: 30,
         backDelay: 3000,
         typeDelay: 100,
+
+        test: 0,
         init: function(){
             var self = this;
+
+            this.plainText = this.el.text();
 
             setTimeout(function(){
 
                 self.backspace();
-                
+
             }, self.startDelay)
         },
         // pass current string state to each function, types 1 char per call
@@ -2014,23 +2018,27 @@ if ( typeof Object.create !== 'function' ) {
 
 
                 //self.sayings[0]
+                
+
+                self.el.text(self.el.text().replace(/\s+/g, ' '));
+
                 var length = self.el.text().length;
 
-                nextLetter = self.sayings[0].substring(length, length+1);
+                var nextLetter = self.sayings[0].substring(length, length+1);
 
-                var newText = $('<span class="typist-normal"></span>').text(self.el.text() + nextLetter);
+                self.el.html(self.el.text() + nextLetter)
 
-                self.el.empty().append(newText)
-                
+                self.plainText = self.el.text() + nextLetter;
+
                 if (self.el.text() == self.sayings[0]){
                     setTimeout(function(){
                         self.sayings.push(self.sayings.shift());
+                        console.log(self.sayings[0])
                         self.backspace();
                     }, self.backDelay);
-                    return false;
+                }else{
+                    self.typewrite();
                 }
-
-                self.typewrite();
 
 
 
@@ -2043,15 +2051,38 @@ if ( typeof Object.create !== 'function' ) {
             var self = this;
 
             self.timeout = setTimeout(function() {
-                var length = $('.typist-normal').length ? $('.typist-normal').text().length : self.el.text().length;
-                var first = self.el.text().substring(0, length);
-                var currentSaying = self.sayings[0].substring(0, length)
-                var isFirstMatch = (currentSaying == first)
+                /*
+                var normalText = self.el.children().length ? self.el.children().clone().children().remove().end().text() : self.el.text();
 
+                console.log(normalText)
+
+                var length = normalText.length;
+                var first = self.el.text().substring(0, length);
+                
+
+                var currentSaying = self.sayings[0].substring(0, length)
+
+
+                
+
+*/
+
+                var currentSaying = self.sayings[0].substring(0, self.plainText.length)
+                var isFirstMatch = currentSaying == self.plainText.replace(/\s+/g, ' ');
+                
+                console.log(isFirstMatch)
+
+                // If saying and typist text first parts match
                 if (isFirstMatch){
+                    // After set Delay
                     setTimeout(function(){
+
+                        // Remove highlighted text
                         $('.typist-highlight').remove();
+
+                        // And start type writing function
                         self.typewrite();
+
                     }, self.typeDelay)
                     return false;
                 }
@@ -2063,21 +2094,104 @@ if ( typeof Object.create !== 'function' ) {
             }, humanize);
         },
         highlightPrevious: function(){
+            var self = this;
+
+            // Get highlighted text
+            var highlightedText = self.el.find('.typist-highlight').text();
+
+            // Get full text
+            var fullText = self.el.text();
+
+            // Get unhighlighted text
+            //var firstText = fullText.substring(0, fullText.length - secondText.length)
+
+            // Get new unhighlighted text
+            //var secondTextNew = fullText.substring(fullText.length - secondText.length - 1)
+
+            // Get new highlighted text
+            self.plainText = fullText.substring(0, fullText.length - highlightedText.length - 1)
+
+            // Wrap each word in a span
+            var fullWordArray = fullText.match(/[\s]|[^\s]+/g);
+
+            // Get new html / text
+            var fullTextNew = '';
+
+            var count = 0;
+
+            fullWordArray.forEach(function(element, index){
+                fullTextNew += '<span class="typist-word">';
+                for (var i = 0, len = element.length; i < len; i++) {
+                    var letter = (element[i] == ' ') ? '&nbsp;' : element[i];
+
+                    if (count < self.plainText.length){
+                        fullTextNew += letter;
+                    }else{
+                        fullTextNew += "<span class='typist-highlight'>"+letter +"</span>"
+                    }
+                    count++;
+                }
+                fullTextNew += '</span>';
+            });
+
+
+            self.el.html(fullTextNew);            
+
+
+            //this.el.empty().append(fullTextNew);
+
+            /*
+
+
+
+
             var first = $('.typist-normal').text()
+
             var firstLength = (first) ? first.length : this.el.text().length;
             firstLength--;
 
             var newFirstText = this.el.text().substring(0, firstLength)
             var newSecondText = this.el.text().substring(firstLength)
 
-            var newFirst = $('<span class="typist-normal"></span>').text(newFirstText);
+            var fullText = this.el.text().match(/[\s]|[^\s]+/g);
+            this.el.html()
+            var newFullText = '';
+            fullText.forEach(function(element, index){
+                //if (element == ' ') element = '&nbsp;';
+                newFullText += '<span class="typist-word">' + element + '</span>';
+            });
+            this.el.html(newFullText);
+
+            
+
+            // Splitting string into array without losing space
+            var secondWords = newSecondText.match(/[\s]|[^\s]+/g);
+
+            var newFirst = newFirstText;
             var newSecond = ''; 
-            for (var i = 0, len = newSecondText.length; i < len; i++) {
-              newSecond += "<span class='typist-highlight'>"+newSecondText[i] +"</span>"
-            }
+
+            secondWords.forEach(function(element, index){
+                newSecond += '<span class="typist-word">';
+                for (var i = 0, len = element.length; i < len; i++) {
+                    var letter = (element[i] == ' ') ? '&nbsp;' : element[i];
+                    newSecond += "<span class='typist-highlight'>"+letter +"</span>"
+                }
+                newSecond += '</span>';
+            });
             
             this.el.empty().append(newFirst).append(newSecond);
+
+            */
+
         },
+    }
+
+    function removeText(element){
+        var newElement = $('<' + element[0].nodeName + '/>');
+        element.children().each(function(){
+            newElement.append(this);
+        });
+        element.replaceWith(newElement);
     }
 
     // On Ready

@@ -35,3 +35,11 @@
     position: relative;
     z-index: 1;
 }
+
+.typist-word{
+    display: inline-block;
+
+    &:after{
+        content: " ";
+    }
+}
