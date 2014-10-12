@@ -1042,6 +1042,8 @@
 
         typist.init();
 
+        alert($('body').attr('class'))
+
         // Kick off animation loop!
         requestAnimFrame(animloop);
     });
