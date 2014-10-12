@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 		    },
 		    default: {
 		    	files: {
-					'../img/pro/svg-defs.svg': ['../img/svg/src/*.svg']
+					'../img/pro/svg-defs.svg': ['../img/src/svg/*.svg']
 				}
 		    }
 		},

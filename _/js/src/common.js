@@ -784,7 +784,7 @@
         init: function(){
 
             // Use ajax to pull in svg file and enable caching
-            $(document.body).prepend($('<div>').hide().load(pagebase + '_/img/svg-defs.svg', function(){}));
+            $(document.body).prepend($('<div>').hide().load(pagebase + '_/img/pro/svg-defs.svg', function(){}));
 
             // Header functionality
             $('.navigation-menu').click(function(e){
