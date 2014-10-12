@@ -68,7 +68,10 @@
     width: 0;
     height: 0;
     padding-bottom: 0;
-    @include border-radius(50% 50% 50% 50%);
+    @include border-top-left-radius(50%);
+    @include border-top-right-radius(50%);
+    @include border-bottom-left-radius(50%);
+    @include border-bottom-right-radius(50%);
     background-color: $c-darkBlue;
     opacity: 0;
     @include transition(.2s width cubic-bezier(1.000, 0, 1.000, -0.165), .2s padding-bottom cubic-bezier(1.000, 0, 1.000, -0.165), .4s opacity);

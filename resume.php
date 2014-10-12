@@ -8,7 +8,7 @@
 		<div class="cell cell--m">
 			<h2 class="h2 h2--mbl tac">Mike A Hurwitz</h2>
 
-			<h3 class="h3 tct">Cras mattis iudicium purus sit amet fermentum. Fabio vel iudice vincam, sunt in culpa qui officia. Ambitioni dedisse scripsisse iudicaretur. Ullamco laboris nisi ut aliquid ex ea commodi consequat. Plura mihi bona sunt, inclinet, amari petere vellent.</h3>
+			<h3 class="h3 h3--sub">Cras mattis iudicium purus sit amet fermentum. Fabio vel iudice vincam, sunt in culpa qui officia. Ambitioni dedisse scripsisse iudicaretur. Ullamco laboris nisi ut aliquid ex ea commodi consequat. Plura mihi bona sunt, inclinet, amari petere vellent.</h3>
 			
 			<div class="section">
 

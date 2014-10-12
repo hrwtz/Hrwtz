@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	
-	<?php // Force latest IE rendering engine and chrome fram ?>
+	<?php // Force latest IE rendering engine and chrome frame ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
 	<title>Mike A Hurwitz - Front End Developer</title>
