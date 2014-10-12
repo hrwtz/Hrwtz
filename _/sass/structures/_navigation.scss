@@ -248,7 +248,7 @@
     height: $b-space-o5x;
     margin-top: $b-space-o5x;
     margin-bottom: $b-space-o5x;
-    @include border-radius(50%);
+    @include border-radius(50% 50% 50% 50%);
     //@include box-shadow(inset 0 0 0 1px $c-text-invert);
     @include transition(all $t-speed);
 }
@@ -293,7 +293,7 @@
     position: relative;
     overflow: hidden;
     height: 14px;
-    @include border-radius(0);
+    @include border-radius(0 0 0 0);
     &:after{
         position: absolute;
         top: 0;

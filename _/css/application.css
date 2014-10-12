@@ -883,11 +883,11 @@ img {
   height: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
+  -webkit-border-radius: 50% 50% 50% 50%;
+  -moz-border-radius: 50% 50% 50% 50%;
+  -ms-border-radius: 50% 50% 50% 50%;
+  -o-border-radius: 50% 50% 50% 50%;
+  border-radius: 50% 50% 50% 50%;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -929,11 +929,11 @@ img {
   position: relative;
   overflow: hidden;
   height: 14px;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0; }
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  -ms-border-radius: 0 0 0 0;
+  -o-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0; }
   /* line 297, ../sass/structures/_navigation.scss */
   .navigationSide-dot--rectangle:after {
     position: absolute;
@@ -1201,11 +1201,11 @@ img {
   position: absolute;
   width: 0.75em;
   height: 0.75em;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
+  -webkit-border-radius: 50% 50% 50% 50%;
+  -moz-border-radius: 50% 50% 50% 50%;
+  -ms-border-radius: 50% 50% 50% 50%;
+  -o-border-radius: 50% 50% 50% 50%;
+  border-radius: 50% 50% 50% 50%;
   content: ""; }
 /* line 40, ../sass/structures/_device.scss */
 .device-buttons {
@@ -1236,11 +1236,11 @@ img {
 /* line 67, ../sass/structures/_device.scss */
 .device--phone {
   max-width: 19.5em;
-  -webkit-border-radius: 55px;
-  -moz-border-radius: 55px;
-  -ms-border-radius: 55px;
-  -o-border-radius: 55px;
-  border-radius: 55px;
+  -webkit-border-radius: 55px 55px 55px 55px;
+  -moz-border-radius: 55px 55px 55px 55px;
+  -ms-border-radius: 55px 55px 55px 55px;
+  -o-border-radius: 55px 55px 55px 55px;
+  border-radius: 55px 55px 55px 55px;
   margin-left: 1em;
   margin-right: 1em; }
   @media screen and (max-width: 50em) {
@@ -1258,11 +1258,11 @@ img {
 /* line 87, ../sass/structures/_device.scss */
 .device--tablet {
   max-width: 41.25em;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  -ms-border-radius: 40px;
-  -o-border-radius: 40px;
-  border-radius: 40px; }
+  -webkit-border-radius: 40px 40px 40px 40px;
+  -moz-border-radius: 40px 40px 40px 40px;
+  -ms-border-radius: 40px 40px 40px 40px;
+  -o-border-radius: 40px 40px 40px 40px;
+  border-radius: 40px 40px 40px 40px; }
   /* line 91, ../sass/structures/_device.scss */
   .device--tablet .device-image {
     padding: 4.84848% 3.63636%; }
@@ -1362,11 +1362,11 @@ img {
   width: 0;
   height: 0;
   padding-bottom: 0;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
+  -webkit-border-radius: 50% 50% 50% 50%;
+  -moz-border-radius: 50% 50% 50% 50%;
+  -ms-border-radius: 50% 50% 50% 50%;
+  -o-border-radius: 50% 50% 50% 50%;
+  border-radius: 50% 50% 50% 50%;
   background-color: #263146;
   opacity: 0;
   -webkit-transition: 0.2s width cubic-bezier(1, 0, 1, -0.165), 0.2s padding-bottom cubic-bezier(1, 0, 1, -0.165), 0.4s opacity;
@@ -1590,7 +1590,11 @@ img {
 
 /* line 390, ../sass/foundation/_tools.scss */
 .ra {
-  border-radius: 50%; }
+  -webkit-border-radius: 50% 50% 50% 50%;
+  -moz-border-radius: 50% 50% 50% 50%;
+  -ms-border-radius: 50% 50% 50% 50%;
+  -o-border-radius: 50% 50% 50% 50%;
+  border-radius: 50% 50% 50% 50%; }
 
 /*
 .ram {
@@ -1598,7 +1602,11 @@ img {
 }*/
 /* line 398, ../sass/foundation/_tools.scss */
 .ran {
-  border-radius: 0; }
+  -webkit-border-radius: 0 0 0 0;
+  -moz-border-radius: 0 0 0 0;
+  -ms-border-radius: 0 0 0 0;
+  -o-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0; }
 
 /* line 406, ../sass/foundation/_tools.scss */
 .c3 {
