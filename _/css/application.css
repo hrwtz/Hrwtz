@@ -541,6 +541,21 @@ img {
   width: 100%;
   height: 100%; }
 
+/* line 15, ../sass/components/_icon.scss */
+.icon--fallback {
+  display: none;
+  height: 100%;
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+/* line 25, ../sass/components/_icon.scss */
+.no-svg .icon--svg {
+  display: none; }
+/* line 29, ../sass/components/_icon.scss */
+.no-svg .icon--fallback {
+  display: inline-block; }
+
 /* line 16, ../sass/structures/_work.scss */
 .work-skills {
   margin-top: 1em; }
@@ -598,7 +613,7 @@ img {
 .work-launch {
   text-align: right; }
   /* line 53, ../sass/structures/_work.scss */
-  .work-launch svg {
+  .work-launch .icon {
     position: relative;
     top: 0.125em;
     width: 1em;
@@ -1364,7 +1379,7 @@ img {
   -o-transition: background-color 0.33s;
   transition: background-color 0.33s; }
   /* line 33, ../sass/structures/_block.scss */
-  .block-preview svg {
+  .block-preview .icon {
     position: relative;
     top: 50%;
     left: 50%;
@@ -1614,6 +1629,12 @@ img {
 .fn {
   float: none; }
 
-/* line 114, ../sass/foundation/_tools.scss */
+/* line 112, ../sass/foundation/_tools.scss */
 .tac {
   text-align: center; }
+
+/* line 116, ../sass/foundation/_tools.scss */
+.th {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden; }

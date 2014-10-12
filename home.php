@@ -20,29 +20,29 @@ $content = array(
    '<div class="block-ie">
 	    <div class="block block--tall block--narrow">
 	   		<a href="'.$page_base.'work/turnkey" class="block-preview">
-	   			<div class="block-previewInner bc2"><div class="block-hover"></div>'.svg_use('work-tkm', 'Turnkey Media Solutions').'</div>
+	   			<div class="block-previewInner bc2"><div class="block-hover"></div>'.svg_use('work-tkm', 'Turnkey Media Solutions', true).'</div>
 	   			</a>
 	   	</div>
 	    <div class="block block--tall block--long">
 	    	<div class="block block--half">
 	    		<a href="'.$page_base.'work/nine82" class="block-preview">
-					<div class="block-previewInner bc4"><div class="block-hover"></div>'.svg_use('work-nine82', 'NINE82').'</div>
+					<div class="block-previewInner bc4"><div class="block-hover"></div>'.svg_use('work-nine82', 'NINE82', true).'</div>
 	    		</a>
 	    	</div>
 	    	<div class="block block--half">
 	    		<a href="'.$page_base.'work/play_it_forward" class="block-preview">
-	    			<div class="block-previewInner bc1"><div class="block-hover"></div>'.svg_use('work-pif', 'Kohl\'s Play It Forward').'</div>
+	    			<div class="block-previewInner bc1"><div class="block-hover"></div>'.svg_use('work-pif', 'Kohl\'s Play It Forward', true).'</div>
 	    		</a>
 	    	</div>
 	    </div>
 	    <div class="block block--short block--long">
 	    	<a href="'.$page_base.'work/the_first_academy" class="block-preview">
-				<div class="block-previewInner  bc0"><div class="block-hover"></div>'.svg_use('work-tfa', 'The First Academy').'</div>
+				<div class="block-previewInner  bc0"><div class="block-hover"></div>'.svg_use('work-tfa', 'The First Academy', true).'</div>
 	    	</a>
 	    </div>
 	    <div class="block block--short block--narrow">
 	    	<a href="'.$page_base.'work/world_design_exchange" class="block-preview">
-	    		<div class="block-previewInner  bc3"><div class="block-hover"></div>'.svg_use('work-wdx', 'World Design Exchange').'</div>
+	    		<div class="block-previewInner  bc3"><div class="block-hover"></div>'.svg_use('work-wdx', 'World Design Exchange', true).'</div>
 	    	</a>
 	    </div>
     </div>',
@@ -87,7 +87,7 @@ $content = array(
 				<div class="branding">
 					<div class="branding-iconWrap">
 						<div class="branding-iconInner">
-							<?php echo svg_use('logo-main'); ?>
+							<?php echo svg_use('logo-main', NULL, 'logo-main-hero.png'); ?>
 						</div>
 					</div>
 					<p class="branding-text">Mike A Hurwitz</p>

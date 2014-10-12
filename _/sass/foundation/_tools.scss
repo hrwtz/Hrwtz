@@ -109,8 +109,12 @@
 //   Text
 // -------------------------------------
 
-// ----- Alignment ----- //
-
 .tac {
   text-align: center;
+}
+
+.th{ // Hide text
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
 }

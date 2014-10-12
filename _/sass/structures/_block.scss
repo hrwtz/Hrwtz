@@ -30,7 +30,7 @@
     background-color: $c-text;
     @include transition(background-color .33s);
 
-    svg{
+    .icon{
         position: relative;
         top: 50%;
         left: 50%;
@@ -46,7 +46,7 @@
         .block-hover{
             width: 425%;
             padding-bottom: 425%;
-            opacity: 1;
+            opacity: 1; // Causes chrome to blur svg fallback image for some reason
             @include transition(2s width cubic-bezier(0.865, 0.050, 0.855, 0.060), 2s padding-bottom cubic-bezier(0.865, 0.050, 0.855, 0.060));
             
         } 

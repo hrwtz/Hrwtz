@@ -1,0 +1,33 @@
+// *************************************
+//
+//   Icon
+//
+// *************************************
+
+.icon{
+    
+}
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.icon--fallback{
+    display: none;
+    height: 100%;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.no-svg{
+    
+    .icon--svg{
+        display: none;
+    }
+
+    .icon--fallback{
+        display: inline-block;
+    }
+
+}

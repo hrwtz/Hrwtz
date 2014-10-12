@@ -48,4 +48,4 @@
 	
 </head>
 
-<body>
+<body class="no-svg">

@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 			// Configuration for concatinating files goes here.
 			dist: {
 				src: [
-						'../js/libs/typed.js',
+						'../js/libs/modernizr.custom.55707.js',
 						'../js/libs/jquery.panelSnap.js',
 						'../js/src/common.js'  
 				],

@@ -39,7 +39,7 @@
 
 				<h3 class="h3 work-launch">
 					<a href="<?php echo $work['url']; ?>" target="_blank">
-						<?php echo svg_use('work-view'); ?>
+						<?php echo svg_use('work-view', NULL, true); ?>
 						Launch website
 					</a>
 				</h3>
