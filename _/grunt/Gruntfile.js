@@ -41,8 +41,8 @@ module.exports = function(grunt) {
 		        	sassDir: '../sass',
 		        	cssDir: '../css',
 		        	fontsDir: '../fonts',
-		        	imagesDir: '../img/',
-		        	images: '../img/',
+		        	imagesDir: '../img/pro/',
+		        	images: '../img/pro/',
 		        	javascriptsDir: '../js/pro',
 		        	environment: 'development',
 		        	outputStyle: 'nested',
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 		    },
 		    default: {
 		    	files: {
-					'../img/svg-defs.svg': ['../img/svg/*.svg']
+					'../img/pro/svg-defs.svg': ['../img/svg/src/*.svg']
 				}
 		    }
 		},

@@ -8,15 +8,15 @@ $work['skills'] = array('Skills name','Other skill name','Skill');
 $work['url'] = 'http://google.com';
 $work['images'] = array(
 	array(
-		'image' => $page_base . '_/img/work/work-image.png', 
+		'image' => $page_base . '_/img/pro/work/work-image.png', 
 		'size'	=> 'desktop'
 	),
 	array(
-		'image' => $page_base . '_/img/work/work-image.png', 
+		'image' => $page_base . '_/img/pro/work/work-image.png', 
 		'size'	=> 'desktop'
 	),
 	array(
-		'image' => $page_base . '_/img/work/work-image.png', 
+		'image' => $page_base . '_/img/pro/work/work-image.png', 
 		'size'	=> 'desktop'
 	),
 );

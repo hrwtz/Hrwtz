@@ -18,27 +18,27 @@ $work['images'] = array(
 		'size'	=> 'desktop'
 	),*/
 	array(
-		'image' => $page_base . '_/img/work/tkm1.png', 
+		'image' => $page_base . '_/img/pro/work/tkm1.png', 
 		'size'	=> 'desktop'
 	),
 	array(
-		'image' => $page_base . '_/img/work/tkm4.jpg', 
+		'image' => $page_base . '_/img/pro/work/tkm4.jpg', 
 		'size'	=> 'phone'
 	),
 	array(
-		'image' => $page_base . '_/img/work/tkm4.jpg', 
+		'image' => $page_base . '_/img/pro/work/tkm4.jpg', 
 		'size'	=> 'phone'
 	),
 	array(
-		'image' => $page_base . '_/img/work/tkm3.png', 
+		'image' => $page_base . '_/img/pro/work/tkm3.png', 
 		'size'	=> 'tablet'
 	),
 	array(
-		'image' => $page_base . '_/img/work/tkm2.png', 
+		'image' => $page_base . '_/img/pro/work/tkm2.png', 
 		'size'	=> 'desktop'
 	),
 	array(
-		'image' => $page_base . '_/img/work/tkm3.png', 
+		'image' => $page_base . '_/img/pro/work/tkm3.png', 
 		'size'	=> 'desktop'
 	),
 );
