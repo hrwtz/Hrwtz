@@ -1042,7 +1042,7 @@
 
         typist.init();
 
-        alert($('body').attr('class'))
+        alert($('html').attr('class'))
 
         // Kick off animation loop!
         requestAnimFrame(animloop);
