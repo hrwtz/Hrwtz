@@ -7,16 +7,15 @@ $work['copy'] = '<p class="p">With every project comes new challenges, and I mak
 $work['skills'] = array('Skills name','Other skill name','Skill');
 $work['url'] = 'http://google.com';
 $work['images'] = array(
-	/*
 	array(
 		'video' => array(
 			'poster' => '',
 			'webm' => '',
 			'ogg' => '',
-			'mp4' => '',
+			'mp4' => $page_base . '_/video/src/tkm.mp4', 
 		), 
 		'size'	=> 'desktop'
-	),*/
+	),
 	array(
 		'image' => $page_base . '_/img/pro/work/tkm1.png', 
 		'size'	=> 'desktop'

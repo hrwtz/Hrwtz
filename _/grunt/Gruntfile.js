@@ -85,8 +85,6 @@ module.exports = function(grunt) {
 		    }
 		},
 
-
-
 	});
 
 	// Where we tell Grunt we plan to use this plug-in.

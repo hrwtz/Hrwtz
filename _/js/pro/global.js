@@ -2144,8 +2144,6 @@ if ( typeof Object.create !== 'function' ) {
 
         typist.init();
 
-        alert($('html').attr('class'))
-
         // Kick off animation loop!
         requestAnimFrame(animloop);
     });
