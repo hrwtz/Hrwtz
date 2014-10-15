@@ -22,7 +22,9 @@
 
 .no-svg{
     
-    .icon--svg{
+    .icon--svg,
+    svg,
+    svg title{
         display: none;
     }
 
