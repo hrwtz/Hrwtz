@@ -13,9 +13,9 @@ function svg_use($id, $title = NULL, $fallback = NULL){
 	</svg>
 
 	<?php if ($fallback) : ?>
-		<?php if ($fallback === true) : $fallback = $id . '.png'; endif; ?>
-	
-		<div class="icon icon--fallback th" style="background-image: url(<?php echo $page_base . '_/img/pro/fallback/' . $fallback; ?>);">
+		<?php if ($fallback === true) : $fallback = $id; endif; ?>
+
+		<div class="icon icon--fallback icon--fallback--<?php echo $fallback; ?> th">
 			<?php echo $title; ?>
 		</div>
 

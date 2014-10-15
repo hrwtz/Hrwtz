@@ -87,7 +87,7 @@ $content = array(
 				<div class="branding">
 					<div class="branding-iconWrap">
 						<div class="branding-iconInner">
-							<?php echo svg_use('logo-main', NULL, 'logo-main-hero.png'); ?>
+							<?php echo svg_use('logo-main', NULL, 'logo-main-hero'); ?>
 						</div>
 					</div>
 					<p class="branding-text">Mike A Hurwitz</p>

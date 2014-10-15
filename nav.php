@@ -20,6 +20,6 @@
 	</a>
 	<a href="<?php echo $page_base; ?>" class="navigation-button ajax ajax--home <?php echo ($conditional) ? 'bc' . $i . ' navigation-button--bcr' : 'bcr navigation-button--bc' . $i; ?>" data-panel="I&nbsp;Am">
 		<?php $logo_fill = ($conditional) ? 'bcr' : 'bc' . $i; ?>
-		<?php echo svg_use('logo-main', NULL, 'logo-main-' . $logo_fill . '.png'); ?>
+		<?php echo svg_use('logo-main', NULL, 'logo-main-' . $logo_fill); ?>
 	</a>
 </nav>

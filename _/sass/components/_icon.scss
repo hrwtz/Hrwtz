@@ -31,3 +31,135 @@
     }
 
 }
+
+.no-svg{
+
+    .icon--fallback--icon-pdf{
+        background-image: image-url("fallback/1x/icon-pdf.png");
+    }
+
+    .icon--fallback--icon-print{
+        background-image: image-url("fallback/1x/icon-print.png");
+    }
+
+    .icon--fallback--logo-main-bc0{
+        background-image: image-url("fallback/1x/logo-main-bc0.png");
+    }
+
+    .icon--fallback--logo-main-bc1{
+        background-image: image-url("fallback/1x/logo-main-bc1.png");
+    }
+
+    .icon--fallback--logo-main-bc2{
+        background-image: image-url("fallback/1x/logo-main-bc2.png");
+    }
+
+    .icon--fallback--logo-main-bc3{
+        background-image: image-url("fallback/1x/logo-main-bc3.png");
+    }
+
+    .icon--fallback--logo-main-bc4{
+        background-image: image-url("fallback/1x/logo-main-bc4.png");
+    }
+
+    .icon--fallback--logo-main-bcr{
+        background-image: image-url("fallback/1x/logo-main-bcr.png");
+    }
+
+    .icon--fallback--logo-main-hero{
+        background-image: image-url("fallback/1x/logo-main-hero.png");
+    }
+
+    .icon--fallback--work-nine82{
+        background-image: image-url("fallback/1x/work-nine82.png");
+    }
+
+    .icon--fallback--work-pif{
+        background-image: image-url("fallback/1x/work-pif.png");
+    }
+
+    .icon--fallback--work-tfa{
+        background-image: image-url("fallback/1x/work-tfa.png");
+    }
+
+    .icon--fallback--work-tkm{
+        background-image: image-url("fallback/1x/work-tkm.png");
+    }
+
+    .icon--fallback--work-wdx{
+        background-image: image-url("fallback/1x/work-wdx.png");
+    }
+
+    .icon--fallback--work-view{
+        background-image: image-url("fallback/1x/work-view.png");
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+
+    .no-svg{
+
+        .icon--fallback--icon-pdf{
+            background-image: image-url("fallback/1x/icon-pdf.png");
+        }
+
+        .icon--fallback--icon-print{
+            background-image: image-url("fallback/1x/icon-print.png");
+        }
+
+        .icon--fallback--logo-main-bc0{
+            background-image: image-url("fallback/1x/logo-main-bc0.png");
+        }
+
+        .icon--fallback--logo-main-bc1{
+            background-image: image-url("fallback/1x/logo-main-bc1.png");
+        }
+
+        .icon--fallback--logo-main-bc2{
+            background-image: image-url("fallback/1x/logo-main-bc2.png");
+        }
+
+        .icon--fallback--logo-main-bc3{
+            background-image: image-url("fallback/1x/logo-main-bc3.png");
+        }
+
+        .icon--fallback--logo-main-bc4{
+            background-image: image-url("fallback/1x/logo-main-bc4.png");
+        }
+
+        .icon--fallback--logo-main-bcr{
+            background-image: image-url("fallback/1x/logo-main-bcr.png");
+        }
+
+        .icon--fallback--logo-main-hero{
+            background-image: image-url("fallback/1x/logo-main-hero.png");
+        }
+
+        .icon--fallback--work-nine82{
+            background-image: image-url("fallback/1x/work-nine82.png");
+        }
+
+        .icon--fallback--work-pif{
+            background-image: image-url("fallback/1x/work-pif.png");
+        }
+
+        .icon--fallback--work-tfa{
+            background-image: image-url("fallback/1x/work-tfa.png");
+        }
+
+        .icon--fallback--work-tkm{
+            background-image: image-url("fallback/1x/work-tkm.png");
+        }
+
+        .icon--fallback--work-wdx{
+            background-image: image-url("fallback/1x/work-wdx.png");
+        }
+
+        .icon--fallback--work-view{
+            background-image: image-url("fallback/1x/work-view.png");
+        }
+    }
+}
