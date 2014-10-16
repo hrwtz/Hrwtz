@@ -16,7 +16,8 @@ $pages = array(
 $pages_secondary = array(
 	'work' => array(
 		'nine82', 
-		'turnkey'
+		'turnkey',
+		'the-first-academy',
 	),
 );
 
