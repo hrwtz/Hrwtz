@@ -17,15 +17,15 @@ $work['images'] = array(
 		'size'	=> 'desktop'
 	),
 	array(
-		'image' => $page_base . '_/img/pro/work/tfa/1.jpg', 
+		'image' => $page_base . '_/img/pro/work/tfa/1.png', 
 		'size'	=> 'desktop'
 	),
 	array(
 		'image' => $page_base . '_/img/pro/work/tfa/2.png', 
-		'size'	=> 'desktop'
+		'size'	=> 'tablet'
 	),
 	array(
-		'image' => $page_base . '_/img/pro/work/tfa/3.png', 
+		'image' => $page_base . '_/img/pro/work/tfa/3.jpg', 
 		'size'	=> 'desktop'
 	),
 	array(

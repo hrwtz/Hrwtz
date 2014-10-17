@@ -30,18 +30,18 @@ $content = array(
 	    		</a>
 	    	</div>
 	    	<div class="block block--half">
-	    		<a href="'.$page_base.'work/play_it_forward" class="block-preview">
+	    		<a href="'.$page_base.'work/play-it-forward" class="block-preview">
 	    			<div class="block-previewInner bc1"><div class="block-hover"></div>'.svg_use('work-pif', 'Kohl\'s Play It Forward', true).'</div>
 	    		</a>
 	    	</div>
 	    </div>
 	    <div class="block block--short block--long">
-	    	<a href="'.$page_base.'work/the_first_academy" class="block-preview">
+	    	<a href="'.$page_base.'work/the-first-academy" class="block-preview">
 				<div class="block-previewInner  bc0"><div class="block-hover"></div>'.svg_use('work-tfa', 'The First Academy', true).'</div>
 	    	</a>
 	    </div>
 	    <div class="block block--short block--narrow">
-	    	<a href="'.$page_base.'work/world_design_exchange" class="block-preview">
+	    	<a href="'.$page_base.'work/world-design-exchange" class="block-preview">
 	    		<div class="block-previewInner  bc3"><div class="block-hover"></div>'.svg_use('work-wdx', 'World Design Exchange', true).'</div>
 	    	</a>
 	    </div>

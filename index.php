@@ -18,6 +18,8 @@ $pages_secondary = array(
 		'nine82', 
 		'turnkey',
 		'the-first-academy',
+		'world-design-exchange',
+		'play-it-forward',
 	),
 );
 

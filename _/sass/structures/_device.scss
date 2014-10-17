@@ -7,6 +7,7 @@
 .device{
     position: relative;
     display: inline-block;
+    vertical-align: top;
     width: 100%;
 	margin-bottom: $b-space;
     background-color: #333;
@@ -69,7 +70,7 @@
 }
 
 .device--phone{
-    max-width: em(390px);
+    max-width: em(381px);
     @include border-top-left-radius(55px);
     @include border-top-right-radius(55px);
     @include border-bottom-left-radius(55px);
