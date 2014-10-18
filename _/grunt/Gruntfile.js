@@ -85,6 +85,26 @@ module.exports = function(grunt) {
 		    }
 		},
 
+		responsive_videos: {
+		    myTask: {
+		      options: {
+		        sizes: [{
+		          width: 1050,
+		          poster: false
+		        },{
+		          width: 1050,
+		          poster: false
+		        }]
+		      },
+		      files: [{
+		        expand: true,
+		        src: ['src/*.{mov,mp4}'],
+		        cwd: '../video',
+		        dest: 'pro/'
+		      }]
+		    }
+		  },
+
 	});
 
 	// Where we tell Grunt we plan to use this plug-in.
@@ -94,6 +114,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-svgstore');
+
+	grunt.loadNpmTasks('grunt-responsive-videos');
 
 	// Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('default', ['concat', 'uglify', 'svgstore', 'imagemin', 'compass', 'watch']);

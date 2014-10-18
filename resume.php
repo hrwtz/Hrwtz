@@ -17,13 +17,15 @@
 				<div class="section-inner">
 					<h3 class="h3">Bigeye Agency</h3>
 					<p class="p p--h">Lead Developer, Feb 2012 - present</p>
-					<p class="p">Quisque ut dolor gravida, placerat libero vel, euismod. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Nihil hic munitissimus habendi senatus locus, nihil horum? Cum ceteris in veneratione tui montes, nascetur mus. Ut enim ad minim veniam, quis nostrud exercitation. Gallia est omnis divisa in partes tres, quarum.</p>
-				</div>
-
-				<div class="mbm">
-					<h3 class="h3">Bigeye Agency</h3>
-					<p class="p p--h">Lead Developer, Feb 2012 - present</p>
-					<p class="p">Quisque ut dolor gravida, placerat libero vel, euismod. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Nihil hic munitissimus habendi senatus locus, nihil horum? Cum ceteris in veneratione tui montes, nascetur mus. Ut enim ad minim veniam, quis nostrud exercitation. Gallia est omnis divisa in partes tres, quarum.</p>
+					<p class="p">
+						Work closely with art department from concept to completion of project.<br>
+						Oversee developer partners to guide and be responsible for their work.<br>
+						Creating Responsive Email Newsletter templates and signatures<br>
+						Performing maintenance and updates to existing websites and developing new web sites, mostly in WordPress<br>
+						Testing and quality control during the website development process<br>
+						Ensuring that layout of web content is accessible and logical; recommend improvements as necessary<br>
+						Stay on top of latest trends in web development, web design, e-mail design, and social media. Provide recommendations regularly
+					</p>
 				</div>
 			
 			</div>
@@ -33,15 +35,15 @@
 				<h4 class="h4 bc3">Education</h4>
 				
 				<div class="section-inner">
-					<h3 class="h3">University of Central Florida</h3>
-					<p class="p p--h">Digital Meda Major, Information Technology Minor - 2011</p>
-					<p class="p">Quisque ut dolor gravida, placerat libero vel, euismod. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Nihil hic munitissimus habendi senatus locus, nihil horum? Cum ceteris in veneratione tui montes, nascetur mus. Ut enim ad minim veniam, quis nostrud exercitation. Gallia est omnis divisa in partes tres, quarum.</p>
+					<h3 class="h3">Bachelor of Arts in Digital Media, Information Techonoly Minor</h3>
+					<p class="p p--h">University of Central Florida</p>
+					<p>2008 - 2011</p>
 				</div>
 
 				<div class="section-inner">
-					<h3 class="h3">Bigeye Agency</h3>
-					<p class="p p--h">Lead Developer, Feb 2012 - present</p>
-					<p class="p">Quisque ut dolor gravida, placerat libero vel, euismod. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Nihil hic munitissimus habendi senatus locus, nihil horum? Cum ceteris in veneratione tui montes, nascetur mus. Ut enim ad minim veniam, quis nostrud exercitation. Gallia est omnis divisa in partes tres, quarum.</p>
+					<h3 class="h3">Associates of Arts</h3>
+					<p class="p p--h">Indian River Community College</p>
+					<p>2007 - 2008</p>
 				</div>
 			
 			</div>
@@ -50,21 +52,38 @@
 
 				<h4 class="h4 bc4">Skills</h4>
 				
-				<div class="section-inner">
-					<ul class="list clearfix">
-						<li class="w-1of3 fl">Photoshop</li>
-						<li class="w-1of3 fl">Illustrator</li>
-						<li class="w-1of3 fl">HTML5 & CSS3</li>
-						<li class="w-1of3 fl">After Effects</li>
-						<li class="w-1of3 fl">Photoshop</li>
-						<li class="w-1of3 fl">Illustrator</li>
-						<li class="w-1of3 fl">HTML5 & CSS3</li>
-						<li class="w-1of3 fl">After Effects</li>
-						<li class="w-1of3 fl">Photoshop</li>
-						<li class="w-1of3 fl">Illustrator</li>
-						<li class="w-1of3 fl">HTML5 & CSS3</li>
-						<li class="w-1of3 fl">After Effects</li>
-					</ul>
+				<div class="section-inner clearfix">
+					<div class="w-1of3 fl">
+						<div class="p p--h">Skills</div>
+						<ul class="list">
+							<li class="">HTML5</li>
+							<li class="">CSS3 with SASS & Compass</li>
+							<li class="">javascript, jQuery, ajax, modernizr</li>
+							<li class="">Responsive Design</li>
+							<li class="">API Integration</li>
+						</ul>
+					</div>
+					<div class="w-1of3 fl">
+						<div class="p p--h">Skills</div>
+						<ul class="list">
+							<li class="">WordPress Theme Development</li>
+							<li class="">Website optimization</li>
+							<li>Cross Browser Capabilities</li>
+							<li class="">LAMP Stack</li>
+							<li class="">SEO</li>
+							<li>Object Oriented Programming</li>
+						</ul>
+					</div>
+					<div class="w-1of3 fl">
+						<div class="p p--h">Tools</div>
+						<ul class="list">
+							<li class="">Version Control (GIT)</li>
+							<li class="">Grunt</li>
+							<li class="">Sublime Text</li>
+							<li class="">Command Line</li>
+							<li class="">PhotoShop</li>
+						</ul>
+					</div>
 
 				</div>
 			
