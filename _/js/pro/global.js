@@ -1987,20 +1987,23 @@ if ( typeof Object.create !== 'function' ) {
             'I Am Based in Orlando, Florida.', 
             'I Am A Front End Developer'],
         el: $('.typist'),
-        startDelay: 1000,
-        typeSpeed: 45,
-        backSpeed: 30,
-        backDelay: 3000,
-        typeDelay: 100,
-
-        test: 0,
+        startDelay: 1000,       // Delay before typist starts
+        typeSpeed: 45,          // Delay between tpying each letter
+        backSpeed: 30,          // Delay between highlighting previous letter
+        backDelay: 3000,        // Delay before starting to highlight phrase
+        typeDelay: 100,         // Delay before typing phrase
+        plainText: '',          // Non highlighted text
         init: function(){
+            // Create reference for timeouts
             var self = this;
 
+            // Update non-highlighted text
             this.plainText = this.el.text();
 
+            // On resize, set height of typist element
             $(window).bind('resize', function(){self.setHeight()}).trigger('resize');
 
+            // After start delay start highlighting phrase
             setTimeout(function(){
 
                 self.backspace();
@@ -2009,51 +2012,53 @@ if ( typeof Object.create !== 'function' ) {
         },
         // pass current string state to each function, types 1 char per call
         typewrite: function(curString, curStrPos){
-            // varying values for setTimeout during typing
-            // can't be global since number changes each time loop is executed
+            // Slightly randomize typing speed to look more human
             var humanize = Math.round(Math.random() * (90)) + this.typeSpeed;
+            
+            // Create reference for timeouts
             var self = this;
 
-            // contain typing function in a timeout humanize'd delay
+            // Contains typing function in a timeout humanize'd delay
             self.timeout = setTimeout(function() {
-                
 
+                // Make text of element without extra spans or non-space characters
                 self.el.text(self.el.text().replace(/\s+/g, ' '));
 
+                // Get next letter to type
                 var length = self.el.text().length;
-
                 var nextLetter = self.sayings[0].substring(length, length+1);
 
+                // Update DOM and object with next letter
                 self.el.html(self.el.text() + nextLetter)
-
                 self.plainText = self.el.text() + nextLetter;
 
                 if (self.el.text() == self.sayings[0]){
+                    // If done typing phrase go to next phrase and start the highlighting process
                     setTimeout(function(){
                         self.sayings.push(self.sayings.shift());
                         self.backspace();
                     }, self.backDelay);
                 }else{
+                    // Else keep typing
                     self.typewrite();
                 }
-
-
 
             }, humanize);
         },
         backspace: function(){
-            // varying values for setTimeout during typing
-            // can't be global since number changes each time loop is executed
+            // Slightly randomize highlighting speed to look more human
             var humanize = Math.round(Math.random() * (90)) + this.backSpeed;
+
+            // Create reference for timeouts
             var self = this;
 
+            // Contains backspace function in a timeout humanize'd delay
             self.timeout = setTimeout(function() {
+                // Get the current saying with a length the same of what's typed out
                 var currentSaying = self.sayings[0].substring(0, self.plainText.length)
-                var isFirstMatch = currentSaying == self.plainText.replace(/\s+/g, ' ');
-                
 
-                // If saying and typist text first parts match
-                if (isFirstMatch){
+                // If current saying part is the same as the plain text showing
+                if (currentSaying == self.plainText.replace(/\s+/g, ' ')){
                     // After set Delay
                     setTimeout(function(){
 
@@ -2067,10 +2072,12 @@ if ( typeof Object.create !== 'function' ) {
                     return false;
                 }
 
+                // Highlight previous letter
                 self.highlightPrevious();
 
-
+                // Recursion to call this function again
                 self.backspace();
+
             }, humanize);
         },
         highlightPrevious: function(){
@@ -2081,12 +2088,6 @@ if ( typeof Object.create !== 'function' ) {
 
             // Get full text
             var fullText = self.el.text();
-
-            // Get unhighlighted text
-            //var firstText = fullText.substring(0, fullText.length - secondText.length)
-
-            // Get new unhighlighted text
-            //var secondTextNew = fullText.substring(fullText.length - secondText.length - 1)
 
             // Get new highlighted text
             self.plainText = fullText.substring(0, fullText.length - highlightedText.length - 1)
@@ -2099,11 +2100,15 @@ if ( typeof Object.create !== 'function' ) {
 
             var count = 0;
 
+            // For each word in typist wrap in a span
             fullWordArray.forEach(function(element, index){
                 fullTextNew += '<span class="typist-word">';
+                // For each character in word
                 for (var i = 0, len = element.length; i < len; i++) {
+                    // If letter is a space, make it a non breaking space
                     var letter = (element[i] == ' ') ? '&nbsp;' : element[i];
 
+                    // Add highlight span if not plaintext
                     if (count < self.plainText.length){
                         fullTextNew += letter;
                     }else{
@@ -2114,26 +2119,33 @@ if ( typeof Object.create !== 'function' ) {
                 fullTextNew += '</span>';
             });
 
-
+            // Throw updated HTML into DOM
             self.el.html(fullTextNew);
 
         },
         setHeight: function(){
+            // If on non-mobile sizes, keep height as css set value and exit function
             if (!common.isMobile){
                 this.el.css('height', '');
                 return false;
             }
 
+            // Clone typist and remove inline width / height properties
             var $fakeH2 = this.el.clone().css({width: this.el.width(), height: '',}).appendTo('body');
             var typistHeight = 0;
+
+            // For each saying, put it in the fake element and get the greatest height
             this.sayings.forEach(function(element, index){
                 $fakeH2.html(element);
                 if ( $fakeH2.height() > typistHeight ){
                     typistHeight = $fakeH2.height();
                 }
             });
+
+            // Set typist height as the largest the content will make it
             this.el.css('height', typistHeight);
 
+            // Remove cloned element
             $fakeH2.remove();
         }
     }
