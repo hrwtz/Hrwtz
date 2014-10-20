@@ -1,4 +1,12 @@
-<?php 
+<?php
+$page_uri = $_SERVER['PHP_SELF'];
+$page_base_tmp = str_replace(basename(__FILE__), '', $page_uri);
+if(empty($access)) {
+    header("location:" . $page_base_tmp);  
+    die();
+}
+
+
 $content = array(
    '<h2 class="h2 typist">I Am A Front End Developer</h2>',
 /*

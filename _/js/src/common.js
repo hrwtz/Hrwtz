@@ -75,6 +75,7 @@
             };
         };
         this.click = function(){
+            // On canvas click get mouse position and run addCircle method
             $(canvas.can).click(function(e){
                 var xPos,
                     yPos;
@@ -122,42 +123,9 @@
                 }
             }).trigger('scroll');
         };
-        /*
-        this.draw = function(){
-            // Only draw on canvas if canvas is in view
-            if (!canvas.visible)
-                return;
-
-            // Draw gradient background
-            background.draw();
-            // Draw particles
-            particles.draw();
-            // Draw triangle
-            triangle.draw();
-            // Draw split
-            triangle.draw();
-        };
-        this.update = function(){
-            // Update gradient background
-            background.update();
-            // Update particles
-            particles.update();
-            // Update triangle
-            triangle.update();
-            // Update split
-            split.update();
-        };*/
-
         var background = {
             circles: [],
-            //colors: ['#F29727', '#E05723', '#B0382F', '#982E4B', '#713045', ],
-
             init: function(){
-
-                //background.colors.reverse();
-                // Copy colors to array used for circles
-                //background.circleColors = background.colors;
-
                 // Set up background console
                 background.color = rgb2hex($(canvas.can).css('background-color'));
                 background.colorOrig = background.color;
@@ -196,9 +164,6 @@
                 background.color = blendColors(background.color, background.colorOrig, .1);
             },
             addCircle: function(x, y){
-                // Update circle colors
-                //background.circleColors.push(background.circleColors.shift());
-
                 // Get random shaded color based off of original color
                 var colorShaded =  shadeColor(background.colorOrig, Math.random() * (.5 - -.5) + -.5);
 
@@ -359,6 +324,7 @@
                 });
             },
             draw: function(){
+                // Draw triangle
                 canvas.ctx.save();
                 canvas.ctx.fillStyle = 'rgba(255,255,255,'+triangle.opacity+')';
                 canvas.ctx.translate(canvas.can.width/2, canvas.can.height/2);
@@ -424,7 +390,6 @@
                 canvas.ctx.save();
                 canvas.ctx.fillStyle = 'rgba(255,255,255,'+1+')';
                 canvas.ctx.translate(canvas.can.width/2, canvas.can.height/2);
-                //canvas.ctx.rotate(split.triangle.rotate);
                 canvas.ctx.scale(split.triangle.scale, split.triangle.scale);
 
                 $.each(split.split, function(index, splitValue){
@@ -440,7 +405,6 @@
                     canvas.ctx.lineTo(splitValue.Coords[0].x, splitValue.Coords[0].y);
                     canvas.ctx.fill();
                     canvas.ctx.closePath();
-                   // return false;
                 })
 
                 canvas.ctx.restore();
@@ -671,115 +635,6 @@
         ]
     }
 
-
-
-    
-    var ease = {
-        // no easing, no acceleration
-        linear: function (t) { return t },
-        // accelerating from zero velocity
-        easeInQuad: function (t) { return t*t },
-        // decelerating to zero velocity
-        easeOutQuad: function (t) { return t*(2-t) },
-        // acceleration until halfway, then deceleration
-        easeInOutQuad: function (t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
-        // accelerating from zero velocity 
-        easeInCubic: function (t) { return t*t*t },
-        // decelerating to zero velocity 
-        easeOutCubic: function (t) { return (--t)*t*t+1 },
-        // acceleration until halfway, then deceleration 
-        easeInOutCubic: function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 },
-        // accelerating from zero velocity 
-        easeInQuart: function (t) { return t*t*t*t },
-        // decelerating to zero velocity 
-        easeOutQuart: function (t) { return 1-(--t)*t*t*t },
-        // acceleration until halfway, then deceleration
-        easeInOutQuart: function (t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t },
-        // accelerating from zero velocity
-        easeInQuint: function (t) { return t*t*t*t*t },
-        // decelerating to zero velocity
-        easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
-        // acceleration until halfway, then deceleration 
-        easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
-    }
-    function animate(el){
-        var timePassed, 
-            progress;
-        // Set up start time
-        if (!el.start)
-            el.start = countAniFrame;
-        timePassed = countAniFrame - el.start;
-        // Add delay if one set
-        if (el.delay)
-            timePassed -= el.delay;
-        // Get percentage done
-        progress = timePassed / el.duration;
-        if (progress > 1) progress = 1;
-        if ((progress <= 1 && progress >= 0)){
-            var delta = el.delta(progress)
-            el.step(delta)
-        }
-        if (progress == 1){
-            if (el.infinite) { 
-                // If infinite, start over
-                el.delay = 0;
-                el.start = countAniFrame; 
-            }else{
-                // Tell animation we're done when it runs through
-                el.finished = true;
-                if (el.complete)
-                    el.complete();
-            }
-        }
-    }
-    // http://stackoverflow.com/a/13542669/1552042
-    function shadeColor(color, percent) {   
-        var f=parseInt(color.slice(1),16),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=f>>16,G=f>>8&0x00FF,B=f&0x0000FF;
-        return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
-    }
-    function blendColors(c0, c1, p) {
-        var f=parseInt(c0.slice(1),16),t=parseInt(c1.slice(1),16),R1=f>>16,G1=f>>8&0x00FF,B1=f&0x0000FF,R2=t>>16,G2=t>>8&0x00FF,B2=t&0x0000FF;
-        return "#"+(0x1000000+(Math.round((R2-R1)*p)+R1)*0x10000+(Math.round((G2-G1)*p)+G1)*0x100+(Math.round((B2-B1)*p)+B1)).toString(16).slice(1);
-    }
-    // http://stackoverflow.com/a/3627747/1552042
-    function rgb2hex(rgb) {
-        if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
-
-        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-        function hex(x) {
-            return ("0" + parseInt(x).toString(16)).slice(-2);
-        }
-        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-    }
-
-    // Get mid point of a line given two points and midpoint percentage position
-    // http://stackoverflow.com/a/1934226/1552042
-    function getMidPoint(point1, point2, r){
-        var point3 = {};
-
-        point3.x = r * point2.x + (1 - r) * point1.x //find point that divides the segment
-        point3.y = r * point2.y + (1 - r) * point1.y //into the ratio (1-r):r
-
-        return point3;
-    }
-    // Resturn if element is in viewport
-    // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433
-    function isElementInViewport (el) {
-
-        //special bonus for those using jQuery
-        if (typeof jQuery === "function" && el instanceof jQuery) {
-            el = el[0];
-        }
-
-        var rect = el.getBoundingClientRect();
-        return (
-            Math.floor(rect.top) >= 0 &&
-            Math.floor(rect.left) >= 0 &&
-            Math.floor(rect.bottom) <= $(window).height() &&
-            Math.floor(rect.right) <= $(window).width()
-        );
-    }
-
     var common = { // Rename me?
         init: function(){
 
@@ -792,31 +647,6 @@
 
                 $('.navigation').toggleClass('is-open')
             });
-
-            // Panel Snap
-            if ($('section[data-panel]').length){
-                $('body').panelSnap({
-                    $menu: $('.navigationSide-list, .navigation-list'),
-                    menuSelector: 'li[data-panel]',
-                    onSnapFinish: function($target){
-                        if (history.replaceState){
-                            var historySection = $('.cell--half').css('float') == 'none' || ($target.index() == 1) ? pagebase : $target.attr('data-panel').toLowerCase();
-                            history.replaceState({data: $('html').html()}, historySection, historySection);
-                        }
-
-                        $.each(canvasIni, function(index){
-                            if ( $target.index() - 2 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
-                                canvasIni[index].triggerAnimation = $target.index() - 2;
-                            }
-                        });
-                    }
-                });
-                $('.navigation-button.ajax').click(function(e){
-                    e.preventDefault();
-                    $('body').panelSnap('snapToPanel', $('section:first'));
-                });
-
-            }
 
             // Side navigation hover / Click
             $('.navigationSide-item').hover(function(){
@@ -842,19 +672,7 @@
                 });
             })
 
-            //
-            $(window).on('resize', function(){
-                if ($('section[data-panel]').length){
-                    // Start / Destroy panelSnap depending on window size
-                    if ( $('.cell--half').css('float') == 'none' ){
-                        $('body').panelSnap('disable');
-                        common.isMobile = true;
-                    }else{
-                        $('body').panelSnap('enable');
-                        common.isMobile = false;
-                    }
-                }
-            });
+            
             $(window).on('resize scroll', function(){
                  if ($('section[data-panel]').length){
                     if ( $('.cell--half').css('float') == 'none' ){
@@ -872,10 +690,50 @@
                     }
                 }
             }).trigger('resize');
+
+            this.panelSnap();
         },
+        panelSnap: function(){
+            // Panel Snap
+            if ($('section[data-panel]').length){
+                $('body').panelSnap({
+                    $menu: $('.navigationSide-list, .navigation-list'),
+                    menuSelector: 'li[data-panel]',
+                    onSnapFinish: function($target){
+                        if (history.replaceState){
+                            var historySection = $('.cell--half').css('float') == 'none' || ($target.index() == 1) ? pagebase : $target.attr('data-panel').toLowerCase();
+                            history.replaceState({data: $('html').html()}, historySection, historySection);
+                        }
+
+                        $.each(canvasIni, function(index){
+                            if ( $target.index() - 2 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
+                                canvasIni[index].triggerAnimation = $target.index() - 2;
+                            }
+                        });
+                    }
+                });
+                $('.navigation-button.ajax').click(function(e){
+                    e.preventDefault();
+                    $('body').panelSnap('snapToPanel', $('section:first'));
+                });
+            }
+
+            // Start / Destroy panelSnap depending on window size
+            $(window).on('resize', function(){
+                if ($('section[data-panel]').length){
+                    if ( $('.cell--half').css('float') == 'none' ){
+                        $('body').panelSnap('disable');
+                        common.isMobile = true;
+                    }else{
+                        $('body').panelSnap('enable');
+                        common.isMobile = false;
+                    }
+                }
+            });
+        }
     };
 
-
+    // Based off of typed.js
     typist = {
         sayings: [
             'I Am A Professional Problem Solver', 
@@ -1046,6 +904,113 @@
             // Remove cloned element
             $fakeH2.remove();
         }
+    }
+
+    // Multiple easing functions
+    var ease = {
+        // no easing, no acceleration
+        linear: function (t) { return t },
+        // accelerating from zero velocity
+        easeInQuad: function (t) { return t*t },
+        // decelerating to zero velocity
+        easeOutQuad: function (t) { return t*(2-t) },
+        // acceleration until halfway, then deceleration
+        easeInOutQuad: function (t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
+        // accelerating from zero velocity 
+        easeInCubic: function (t) { return t*t*t },
+        // decelerating to zero velocity 
+        easeOutCubic: function (t) { return (--t)*t*t+1 },
+        // acceleration until halfway, then deceleration 
+        easeInOutCubic: function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 },
+        // accelerating from zero velocity 
+        easeInQuart: function (t) { return t*t*t*t },
+        // decelerating to zero velocity 
+        easeOutQuart: function (t) { return 1-(--t)*t*t*t },
+        // acceleration until halfway, then deceleration
+        easeInOutQuart: function (t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t },
+        // accelerating from zero velocity
+        easeInQuint: function (t) { return t*t*t*t*t },
+        // decelerating to zero velocity
+        easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
+        // acceleration until halfway, then deceleration 
+        easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
+    }
+    // Animate function for canvas animations
+    function animate(el){
+        var timePassed, 
+            progress;
+        // Set up start time
+        if (!el.start)
+            el.start = countAniFrame;
+        timePassed = countAniFrame - el.start;
+        // Add delay if one set
+        if (el.delay)
+            timePassed -= el.delay;
+        // Get percentage done
+        progress = timePassed / el.duration;
+        if (progress > 1) progress = 1;
+        if ((progress <= 1 && progress >= 0)){
+            var delta = el.delta(progress)
+            el.step(delta)
+        }
+        if (progress == 1){
+            if (el.infinite) { 
+                // If infinite, start over
+                el.delay = 0;
+                el.start = countAniFrame; 
+            }else{
+                // Tell animation we're done when it runs through
+                el.finished = true;
+                if (el.complete)
+                    el.complete();
+            }
+        }
+    }
+    // http://stackoverflow.com/a/13542669/1552042
+    function shadeColor(color, percent) {   
+        var f=parseInt(color.slice(1),16),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=f>>16,G=f>>8&0x00FF,B=f&0x0000FF;
+        return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
+    }
+    function blendColors(c0, c1, p) {
+        var f=parseInt(c0.slice(1),16),t=parseInt(c1.slice(1),16),R1=f>>16,G1=f>>8&0x00FF,B1=f&0x0000FF,R2=t>>16,G2=t>>8&0x00FF,B2=t&0x0000FF;
+        return "#"+(0x1000000+(Math.round((R2-R1)*p)+R1)*0x10000+(Math.round((G2-G1)*p)+G1)*0x100+(Math.round((B2-B1)*p)+B1)).toString(16).slice(1);
+    }
+    // http://stackoverflow.com/a/3627747/1552042
+    function rgb2hex(rgb) {
+        if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
+
+        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        function hex(x) {
+            return ("0" + parseInt(x).toString(16)).slice(-2);
+        }
+        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
+    // Get mid point of a line given two points and midpoint percentage position
+    // http://stackoverflow.com/a/1934226/1552042
+    function getMidPoint(point1, point2, r){
+        var point3 = {};
+
+        point3.x = r * point2.x + (1 - r) * point1.x //find point that divides the segment
+        point3.y = r * point2.y + (1 - r) * point1.y //into the ratio (1-r):r
+
+        return point3;
+    }
+    // Resturn if element is in viewport
+    // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433
+    function isElementInViewport (el) {
+
+        //special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+            el = el[0];
+        }
+
+        var rect = el.getBoundingClientRect();
+        return (
+            Math.floor(rect.top) >= 0 &&
+            Math.floor(rect.left) >= 0 &&
+            Math.floor(rect.bottom) <= $(window).height() &&
+            Math.floor(rect.right) <= $(window).width()
+        );
     }
 
     // On Ready

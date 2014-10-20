@@ -61,6 +61,9 @@ else :
 	endif;
 endif;
 
+// Var to check if php file is being directly accessed
+$access = true;
+
 // Functions for project
 require('functions.php');
 

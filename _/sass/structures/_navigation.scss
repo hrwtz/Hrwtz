@@ -12,7 +12,6 @@
     width: 100%;
     height: $b-space-3x;
     z-index: 950;
-    //pointer-events: auto;
     @include backface-visibility(hidden);
 
     @media print {
@@ -241,7 +240,6 @@
     &.active{
         .navigationSide-dot{
             opacity: 1;
-            //@include box-shadow(inset 0 0 0 8px $c-text-invert);
         }
     }
 }
@@ -256,7 +254,6 @@
     @include border-top-right-radius(50%);
     @include border-bottom-left-radius(50%);
     @include border-bottom-right-radius(50%);
-    //@include box-shadow(inset 0 0 0 1px $c-text-invert);
     @include transition(all $t-speed);
 }
 
@@ -268,9 +265,7 @@
     opacity: 0;
     pointer-events: none;
     @include transition(all $t-speed);
-    //color: $c-text-invert;
     font-size: $b-fontSize-xs;
-    //display: none;
 }
 
 .navigationSide-item-link{

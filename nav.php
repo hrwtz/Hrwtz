@@ -1,3 +1,12 @@
+<?php
+$page_uri = $_SERVER['PHP_SELF'];
+$page_base_tmp = str_replace(basename(__FILE__), '', $page_uri);
+if(empty($access)) {
+    header("location:" . $page_base_tmp);  
+    die();
+}
+?>
+
 <?php $conditional = (isset($inverse) && $inverse == true) ? ($i % 2 == 0) : ($i % 2); ?>
 
 <nav class="navigation">

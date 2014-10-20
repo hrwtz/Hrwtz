@@ -44,8 +44,8 @@ module.exports = function(grunt) {
 		        	imagesDir: '../img/pro/',
 		        	images: '../img/pro/',
 		        	javascriptsDir: '../js/pro',
-		        	environment: 'development',
-		        	outputStyle: 'nested',
+		        	environment: 'production',
+		        	outputStyle: 'compressed',
 		        	relativeAssets: false,
 		        	httpPath: '.',
 		        }

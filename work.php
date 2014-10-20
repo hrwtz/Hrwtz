@@ -1,4 +1,11 @@
-
+<?php
+$page_uri = $_SERVER['PHP_SELF'];
+$page_base_tmp = str_replace(basename(__FILE__), '', $page_uri);
+if(empty($access)) {
+    header("location:" . $page_base_tmp);  
+    die();
+}
+?>
 <?php $i = 0; ?>
 <?php require('nav.php'); ?>
 

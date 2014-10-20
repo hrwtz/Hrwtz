@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+$page_uri = $_SERVER['PHP_SELF'];
+$page_base_tmp = str_replace(basename(__FILE__), '', $page_uri);
+if(empty($access)) {
+    header("location:" . $page_base_tmp); 
+    die();
+}
+?><!DOCTYPE html>
 
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 no-js"> <![endif]-->
