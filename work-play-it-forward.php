@@ -15,10 +15,15 @@ $work['url'] = 'http://kohlsplayitforward.org/';
 $work['images'] = array(
 	array(
 		'video' => array(
-			'poster' => '',
-			'webm' => '',
-			'ogg' => '',
-			'mp4' => $page_base . '_/video/src/pif.mp4', 
+			'poster' => $page_base . '_/video/pro/pif.jpg',
+			'mp4' => array(
+				'1050' => $page_base . '_/video/pro/pif-1050.mp4', 
+				'600' => $page_base . '_/video/pro/pif-600.mp4', 
+			),
+			'webm' => array(
+				'1050' => $page_base . '_/video/pro/pif-1050.webm', 
+				'600' => $page_base . '_/video/pro/pif-600.webm', 
+			),
 		), 
 		'size'	=> 'desktop'
 	),

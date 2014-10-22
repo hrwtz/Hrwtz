@@ -32,6 +32,14 @@ module.exports = function(grunt) {
 		            src: ['**/*.{png,jpg,gif}'],
 		            dest: '../img/pro/'
 		        }]
+		    },
+		    video: {
+		        files: [{
+		            expand: true,
+		            cwd: '../video/src/',
+		            src: ['**/*.{png,jpg,gif}'],
+		            dest: '../video/pro/'
+		        }]
 		    }
 		},
 
@@ -92,7 +100,7 @@ module.exports = function(grunt) {
 		          width: 1050,
 		          poster: false
 		        },{
-		          width: 1050,
+		          width: 600,
 		          poster: false
 		        }]
 		      },
@@ -100,7 +108,7 @@ module.exports = function(grunt) {
 		        expand: true,
 		        src: ['src/*.{mov,mp4}'],
 		        cwd: '../video',
-		        dest: 'pro/'
+		        dest: '../video/pro/'
 		      }]
 		    }
 		  },
@@ -118,6 +126,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-responsive-videos');
 
 	// Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask('default', ['concat', 'uglify', 'svgstore', 'imagemin', 'compass', 'watch']);
+	grunt.registerTask('default', [/*'responsive_videos', */'concat', 'uglify', 'svgstore', 'imagemin', 'compass', 'watch']);
 
 };

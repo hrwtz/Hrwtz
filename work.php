@@ -63,10 +63,11 @@ if(empty($access)) {
 							
 							<?php if ( isset($image['video']) ) : ?>
 							
-								<video class="device-image" loop="true" autoplay="autoplay" poster="<?php echo $image['video']['poster']; ?>">
-									<?php if ( isset($image['video']['webm']) ) : ?><source type="video/webm" src="<?php echo $image['video']['webm']; ?>"><?php endif; ?>
-									<?php if ( isset($image['video']['ogv']) ) : ?><source type="video/ogg" src="<?php echo $image['video']['ogv']; ?>"><?php endif; ?>
-									<?php if ( isset($image['video']['mp4']) ) : ?><source type="video/mp4" src="<?php echo $image['video']['mp4']; ?>"><?php endif; ?>
+								<video class="device-image" loop="true" autoplay="autoplay" poster="<?php echo $image['video']['poster']; ?>"
+									data-mp4-1050="<?php echo $image['video']['mp4']['1050']; ?>"
+									data-webm-1050="<?php echo $image['video']['webm']['1050']; ?>"
+									data-mp4-600="<?php echo $image['video']['mp4']['600']; ?>"
+									data-webm-600="<?php echo $image['video']['webm']['600']; ?>">
 								</video>
 							
 							<?php else : ?>

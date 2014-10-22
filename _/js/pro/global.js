@@ -1763,6 +1763,20 @@ if ( typeof Object.create !== 'function' ) {
                 canvasIni[index].init();
             })
 
+            // Set correct video source based on device width
+            var $video = $('video');
+            var videoSrc = ''
+
+            if (screen.width < 600) {
+                videoSrc += "<source type='video/mp4' src='" + $video.data('mp4-600') + "' />";
+                videoSrc += "<source type='video/webm' src='" + $video.data('webm-600') + "' />";
+                $video.html(videoSrc);
+            } else {
+                videoSrc += "<source type='video/mp4' src='" + $video.data('mp4-1050') + "' />";
+                videoSrc += "<source type='video/webm' src='" + $video.data('webm-1050') + "' />";
+                $video.html(videoSrc);
+            }
+
             // Block section cubing
             $(window).resize(function(){
                 $('.block-face').each(function(){
