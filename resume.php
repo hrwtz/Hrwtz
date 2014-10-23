@@ -43,7 +43,7 @@ if(empty($access)) {
 				
 				<div class="section-inner">
 					<h3 class="h3">University of Central Florida</h3>
-					<p class="p p--h">Bachelor of Arts in Digital Media (Web Design Track), Information Techonoly Minor, 2011</p>
+					<p class="p p--h">Bachelor of Arts in Digital Media (Web Design Track), Information Technology Minor, 2011</p>
 				</div>
 
 				<div class="section-inner">
@@ -71,7 +71,7 @@ if(empty($access)) {
 						<ul class="list list--half">
 							<li>Responsive Design</li>
 							<li>Website optimization</li>
-							<li>Cross Browser Compatability</li>
+							<li>Cross Browser Compatibility</li>
 							<li>API Integration</li>
 							<li>LAMP Stack</li>
 							<li>SEO</li>
@@ -98,7 +98,7 @@ if(empty($access)) {
 					<a href="mailto:mike@hrwtz.com" class="resumeLine-link">mike@hrwtz.com</a>
 					<span class="resumeLine-dot">•</span>
 					<a href="tel:772.678.0778" class="resumeLine-link">772.678.0778</a>
-					<span class="print-only"><br>Orlando, Florida</span>
+					<span class="print-only"><br>hrwtz.com <span class="resumeLine-dot">•</span> Orlando, Florida</span>
 				</span>
 				<span class="resumeLine-iconWrap">
 					<a href="" target="_blank" class="resumeLine-icon resumeLine-icon--pdf"><?php echo svg_use('icon-pdf', 'Download PDF', true); ?> </a>
