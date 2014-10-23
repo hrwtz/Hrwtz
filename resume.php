@@ -101,7 +101,7 @@ if(empty($access)) {
 					<span class="print-only"><br>hrwtz.com <span class="resumeLine-dot">•</span> Orlando, Florida</span>
 				</span>
 				<span class="resumeLine-iconWrap">
-					<a href="" target="_blank" class="resumeLine-icon resumeLine-icon--pdf"><?php echo svg_use('icon-pdf', 'Download PDF', true); ?> </a>
+					<a href="<?php echo $page_base . '_/misc/resume.pdf'; ?>" download="Mike A Hurwitz - Front End Developer.pdf" class="resumeLine-icon resumeLine-icon--pdf"><?php echo svg_use('icon-pdf', 'Download PDF', true); ?> </a>
 					<a href="javascript:if(window.print)window.print()" class="resumeLine-icon resumeLine-icon--print" ><?php echo svg_use('icon-print', 'Print', true); ?></a>
 				</span>
 			</h3>
