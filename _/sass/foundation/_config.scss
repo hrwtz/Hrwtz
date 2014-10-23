@@ -6,16 +6,6 @@
 // *************************************
 
 // -------------------------------------
-//   @font-face
-// -------------------------------------
-
-// ----- Open Sans ----- //
-
-// +font-face('OpenSans', 'OpenSans')
-// +font-face('OpenSans', 'OpenSansBold', bold)
-// +font-face('OpenSans', 'OpenSansItalic', normal, italic)
-
-// -------------------------------------
 //   Colors
 // -------------------------------------
 
@@ -35,23 +25,12 @@ $c-darkBlue: #263146;
 
 // ----- Base ----- //
 
-//$c-background-invert: white;
 $c-background: $c-offWhite;
 $c-border: $c-darkBlue;
-//$c-highlight: red;
-//$c-subdue: lighten(red, 40%);
 $c-text-invert: $c-offWhite;
 $c-text: #5d6975;
 $c-text-highlight: $c-canvasBg0;
 $c-text-headline: $c-darkBlue;
-
-// ----- Components ----- //
-
-// ...
-
-// ----- Structures ----- //
-
-// ...
 
 // -------------------------------------
 //   Base
@@ -59,11 +38,9 @@ $c-text-headline: $c-darkBlue;
 
 // ----- Borders & Box Shadow ----- //
 
-//$b-borderRadius: 3px;
 $b-borderStyle: solid;
 $b-borderWidth: 1px;
 $b-border: $b-borderWidth $b-borderStyle $c-border;
-//$b-boxShadow: 0 2px 0 rgba($c-text, 0.25);
 
 // ----- Typography ----- //
 
@@ -146,11 +123,3 @@ $g-xs: em(400px, 16px);
 $g-s: em($b-maxWidth-s-px, 16px);
 $g-m: em($b-maxWidth-m-px, 16px);
 $g-l: em($b-maxWidth-px, 16px);
-
-// Settings
-
-// -------------------------------------
-//   Structures
-// -------------------------------------
-
-// ...

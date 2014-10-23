@@ -1,0 +1,29 @@
+// *************************************
+//
+//   List
+//
+// *************************************
+
+.list{
+    padding-left: $b-space;
+}
+
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.list--half{
+    float: left;
+    width: 50%;
+    padding-right: $b-space-o5x;
+    margin-bottom: 0;
+
+    @media screen and (max-width: $g-m) {
+        width: 100%;
+
+        &:last-of-type{
+            margin-bottom: $b-space-o5x;
+        }
+    }
+}

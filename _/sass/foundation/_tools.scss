@@ -78,7 +78,15 @@
 
 .w-1of3{
     width: 33.33%;
+}
 
+.w-2of3{
+    width: 66.66%;
+}
+
+.w-1of3,
+.w-2of3{
+    
     @media screen and (max-width: $g-m) {
         width: 50%;
     }
@@ -87,7 +95,6 @@
         width: 100%;
     }
 }
-
 
 // -------------------------------------
 //   Floats
@@ -117,4 +124,12 @@
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.print-only{
+    display: none;
+
+    @media print{
+        display: inline;
+    }
 }

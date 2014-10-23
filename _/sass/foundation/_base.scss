@@ -5,27 +5,6 @@
 //
 // *************************************
 
-.section{
-    padding-bottom: $b-space-2o5x;
-    border-bottom: $b-border;
-    margin-top: $b-space-3x;
-    &:last-of-type{
-        margin-bottom: $b-space;
-    }
-}
-
-.section-inner{
-    margin-bottom: $b-space-2x;
-    &:last-child{
-        margin-bottom: 0;
-    }
-}
-
-.list{
-    margin-left: $b-space;
-}
-
-
 html {
     background: $c-background;
     color: $c-text;
@@ -48,13 +27,14 @@ body {
     @include highlight-color($c-canvasBg2);
 
     @media print {
+        padding-top: $b-space-2x;
         font-size: 12px;
     }
 
 }
 
 @page {
-    margin: 0.5cm;
+    margin: 0.5cm 1cm;
 }
 
 // -------------------------------------
@@ -172,9 +152,8 @@ p a,
     border-bottom: 1px solid $c-text-highlight;
 
     @media print {
-        &:after{ 
-            content: " (" attr(href) ") "; 
-        }
+        color: inherit;
+        border-bottom: none;
     }
 }
 

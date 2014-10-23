@@ -16,7 +16,8 @@
     line-height: 42px;
 
     @media print {
-        display: none;
+        text-align: center;
+        line-height: $b-lineHeight-subhead;
     }
 
     @media screen and (max-width: $g-s) {
@@ -28,6 +29,18 @@
 // -------------------------------------
 //   Scaffolding
 // -------------------------------------
+
+.resumeLine-infoWrap{
+    float: left;
+
+    @media screen and (max-width: $g-s) {
+        float: none;
+    }
+
+    @media print {
+        float: none;
+    }
+}
 
 .resumeLine-iconWrap{
     float: right;
@@ -41,6 +54,10 @@
         float: none;
         display: block;
         margin-top: $b-space-o5x;
+    }
+
+    @media print {
+        display: none;
     }
 }
 
