@@ -8,9 +8,9 @@ if(empty($access)) {
 
 $work = array();
 $work['title'] = 'World Design Exhange';
-$work['description'] = 'Description goes here';
-$work['copy'] = '<p class="p">With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing the projects and the web in general forward is what I am passionate about. The web has endless potential and I work every day to push new and alternative technologies to use in production</p>';
-$work['skills'] = array('Skills name','Other skill name','Skill');
+//$work['description'] = 'Description goes here';
+$work['copy'] = 'World Design Exchange came with a need for a website with a very tight timeline of less than a month (Not to mention the rest of the brand being developed in that same timeframe). Working on this timeline, we worked as a team to deliver a image-driven, sophistacted website for the client.';
+$work['skills'] = array('WordPress/PHP development','Front End Development','Responsive Design',);
 $work['url'] = 'http://worlddesignexchange.com/';
 $work['images'] = array(
 	array(

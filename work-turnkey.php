@@ -8,9 +8,9 @@ if(empty($access)) {
 
 $work = array();
 $work['title'] = 'Turnkey Media Solutions';
-$work['description'] = 'Description goes here';
-$work['copy'] = '<p class="p">With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing the projects and the web in general forward is what I am passionate about. The web has endless potential and I work every day to push new and alternative technologies to use in production</p>';
-$work['skills'] = array('Skills name','Other skill name','Skill');
+//$work['description'] = 'Description goes here';
+$work['copy'] = 'Turnkey Media Solutions provides in-store music and messaging for their clients. They were looking for a clean and modern site that would focus on their services. To really draw attention to what they do, multiple audio players were created throughout the website. These players give TKM a unique portfolio that is easily accessible to the user.';
+$work['skills'] = array('MVCSS', 'HTML5 Audio Players', 'WordPress/PHP development','Front End Development','Responsive Design',);
 $work['url'] = 'http://turnkeymediasolutions.com';
 $work['images'] = array(
 	array(

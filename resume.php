@@ -25,14 +25,14 @@ if(empty($access)) {
 				<div class="section-inner">
 					<h3 class="h3"><a href="http://bigeyeagency.com" target="_blank">BIGEYE Agency</a></h3>
 					<p class="p p--h">Developer, Mar 2012 - present</p>
-					<p class="p">
-						BIGEYE’s sole web developer responsible for all web projects, including <a href="<?php echo $page_base . 'work/turnkey'; ?>">Turnkey Media Solutions</a>, <a href="<?php echo $page_base . 'work/play-it-forward'; ?>">Kohl's Play it Forward</a>, and <a href="<?php echo $page_base . 'work/the-first-academy'; ?>">The First Academy</a>.
-						Develop new creative websites while maintaining and improving existing client websites.
-						Collaborate with art department on major projects from brain storming to completion as a lead developer advocating for the user experience, consistency, and pushing the envelope.
-						Oversee contract developers to ensure quality projects are delivered to the client on time.
-						Produce web development workflow process, from defining deployment process to creating base front end template.
-						Monitor latest trends in web development, web design, email design, and user experience.
-					</p>
+					<ul class="list p">
+						<li>BIGEYE’s sole web developer responsible for all web projects, including <a href="<?php echo $page_base . 'work/turnkey'; ?>">Turnkey Media Solutions</a>, <a href="<?php echo $page_base . 'work/play-it-forward'; ?>">Kohl's Play it Forward</a>, and <a href="<?php echo $page_base . 'work/the-first-academy'; ?>">The First Academy</a>.</li>
+						<li>Develop new creative websites while maintaining and improving existing client websites.</li>
+						<li>Collaborate with art department on major projects from brain storming to completion as a lead developer advocating for consistency, the user experience, and pushing the envelope.</li>
+						<li>Oversee contract developers to ensure quality projects are delivered to the client on time.</li>
+						<li>Produce web development workflow process, from defining deployment process to creating a starter front end template.</li>
+						<li>Monitor latest trends in web development, web design, email design, and user experience.</li>
+					</ul>
 				</div>
 			
 			</div>
@@ -80,7 +80,7 @@ if(empty($access)) {
 					</div>
 					<div class="w-1of3 fl">
 						<div class="p p--h">Tools</div>
-						<ul class="list list--half">
+						<ul class="list">
 							<li>Git</li>
 							<li>Grunt</li>
 							<li>Sublime Text</li>

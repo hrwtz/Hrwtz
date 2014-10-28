@@ -9,22 +9,20 @@ if(empty($access)) {
 
 $content = array(
    '<h2 class="h2 typist">I Am A Front End Developer</h2>',
-/*
+
    '<h2 class="h2">I Am A Creator</h2>
     <h3 class="h3">I pride myself in building top-notch websites.</h3>
-	<p>With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing the projects and the web in general forward is what I am passionate about.</p>
-	<p>The web has endless potential and I work every day to push new and alternative technologies to use in production</p>',
-*/
+	<p>With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing projects and the web forward is what I am passionate about and what I work towards. </p>',
+
    '<h2 class="h2">Skills</h2>
-	<p>The web is a moving target and it is important to never stop learning. I am constantly looking into tools that can streamline my workflow, along with improving current skills. As any front end developer HTML, CSS, and JavaScript are my bread and butter.</p>
+	<p>The web is a moving target and it is important to never stop learning. I am constantly looking into tools that can streamline my workflow, along with improving my current skills. As with any front end developer, HTML, CSS and JavaScript are my bread and butter.</p>
 	<p>I am also experienced in the LAMP stack, version control, CSS preprocessors, and the command line. See my <a href="' . $page_base . 'resume" class="ajax">résumé</a> for a more complete list of skills.</p>
 	<h3 class="h3">As a web developer, it is vastly important to invest in myself. </h3>',
-
+/*
    '<h2 class="h2">Building usable sites</h2>
 	<p class="p">Anyone can take a PSD and make it into a webpage, but it takes much more consideration to create a thoughtful and beautiful experience. I strive to make websites usable and work in real life situations.</p>
-	
 	<h3 class="h3">Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
-
+*/
    '<div class="block-ie">
 	    <div class="block block--tall block--narrow">
 	   		<a href="'.$page_base.'work/turnkey" class="block-preview">

@@ -8,9 +8,9 @@ if(empty($access)) {
 
 $work = array();
 $work['title'] = 'The First Academy';
-$work['description'] = 'Description goes here';
-$work['copy'] = '<p class="p">With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing the projects and the web in general forward is what I am passionate about. The web has endless potential and I work every day to push new and alternative technologies to use in production</p>';
-$work['skills'] = array('Skills name','Other skill name','Skill');
+//$work['description'] = 'Description goes here';
+$work['copy'] = 'Clocking in at nearly 200 pages, The First Academy is the largest project that I have worked on. The client\'s biggest focus of the website was on a completely custom coded calendar. Users can toggle between two views, export or print events, and can view different months and categories on the AJAX enabled calendar.';
+$work['skills'] = array('WordPress/PHP development','Front End Development','Responsive Design',);
 $work['url'] = 'http://thefirstacademy.com';
 $work['images'] = array(
 	array(

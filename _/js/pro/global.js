@@ -1856,7 +1856,7 @@ if ( typeof Object.create !== 'function' ) {
             'I Am A Maker of the Interwebs', 
             'I Am An Amateur Beer Maker', 
             'I Am A 300 Ring Owner', 
-            'I Am Based in Orlando, Florida.', 
+            'I Am Based in Orlando, Florida', 
             'I Am A Front End Developer'],
         el: $('.typist'),
         startDelay: 1000,       // Delay before typist starts

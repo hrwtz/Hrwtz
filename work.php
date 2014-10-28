@@ -15,22 +15,22 @@ if(empty($access)) {
 
 		<div class="cell cell--s work-content">
 			
-			<?php if ($work['title']) : ?>
+			<?php if (isset($work['title'])) : ?>
 				<h2 class="h2 h2--mbl"><?php echo $work['title']; ?></h2>
 			<?php endif; ?>
 
 
-			<?php if ($work['description']) : ?>
+			<?php if (isset($work['description'])) : ?>
 				<h3 class="h3"><?php echo $work['description']; ?></h3>
 			<?php endif; ?>
 
 
-			<?php if ($work['copy']) : ?>
+			<?php if (isset($work['copy'])) : ?>
 				<p class="p"><?php echo $work['copy']; ?></p>
 			<?php endif; ?>
 
 
-			<?php if ($work['skills']) : ?>
+			<?php if (isset($work['skills'])) : ?>
 				<ul class="work-skills">
 					<?php foreach ($work['skills'] as $skill) : ?>
 						<li class="work-skill"><?php echo $skill; ?></li>
@@ -42,7 +42,7 @@ if(empty($access)) {
 
 		<div class="cell">
 
-			<?php if ($work['url']) : ?>
+			<?php if (isset($work['url'])) : ?>
 
 				<h3 class="h3 work-launch">
 					<a href="<?php echo $work['url']; ?>" target="_blank">
@@ -54,7 +54,7 @@ if(empty($access)) {
 			<?php endif; ?>
 
 
-			<?php if ($work['images']) : ?>
+			<?php if (isset($work['images'])) : ?>
 
 				<div class="tac">
 

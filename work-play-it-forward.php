@@ -8,9 +8,9 @@ if(empty($access)) {
 
 $work = array();
 $work['title'] = 'Kohl\'s Play It Forward';
-$work['description'] = 'Description goes here';
-$work['copy'] = '<p class="p">With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing the projects and the web in general forward is what I am passionate about. The web has endless potential and I work every day to push new and alternative technologies to use in production</p>';
-$work['skills'] = array('Skills name','Other skill name','Skill');
+//$work['description'] = 'A side-scrolling inspired website education website focused on sports safety.';
+$work['copy'] = 'Kohl\'s Play It Forward is a children\'s education website focused on sports safety. Looking to make their content more engaging, as a team we went through a few initial concepts and landed on a side-scrolling video game inspired homepage. The website doesn\'t stop there, and also has several inside pages with more information.';
+$work['skills'] = array('WordPress/PHP development','Front End Development','Responsive Design',);
 $work['url'] = 'http://kohlsplayitforward.org/';
 $work['images'] = array(
 	array(
