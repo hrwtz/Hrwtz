@@ -85,7 +85,7 @@ if(empty($access)) {
 							<li>Grunt</li>
 							<li>Sublime Text</li>
 							<li>Command Line</li>
-							<li>PhotoShop</li>
+							<li>Photoshop</li>
 						</ul>
 					</div>
 

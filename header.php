@@ -56,3 +56,4 @@ if(empty($access)) {
 </head>
 
 <body>
+	<div class="dn"><?php include('_/img/pro/svg-defs.svg'); ?></div>

@@ -9,7 +9,7 @@ if(empty($access)) {
 $work = array();
 $work['title'] = 'NINE82';
 //$work['description'] = 'Description goes here';
-$work['copy'] = 'When you are a web based design shop, you need to put your best foot forward when creating your own website. Me and my partner in crime started this website with the idea to create a simple yet striking interface that will guide users to contact us.';
+$work['copy'] = 'When you are a web based design shop, you need to put your best foot forward when creating your own website. I and my partner in crime started this website with the idea to create a simple yet striking interface that will guide users to contact us.';
 $work['skills'] = array('WordPress/PHP development','Front End Development','Responsive Design',);
 $work['url'] = 'http://nine82.com';
 $work['images'] = array(
