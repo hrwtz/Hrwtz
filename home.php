@@ -65,7 +65,7 @@ $content = array(
 ?>
 
 <?php $sections = 5; ?>
-<?php $section_titles = array('I&nbsp;Am', 'Skills', 'Usability', 'Work', 'Contact'); ?>
+<?php $section_titles = array('I&nbsp;Am', 'About', 'Skills', 'Work', 'Contact'); ?>
 <?php for ($i=0; $i < $sections; $i++) : ?>
 	<section class="row row--window home" data-panel="<?php echo $section_titles[$i]; ?>">
 		<div class="cell cell--half cell--home cell--mono <?php if ( $i % 2 == 1 ) echo 'fr'; ?>">
