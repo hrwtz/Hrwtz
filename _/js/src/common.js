@@ -738,6 +738,8 @@
         init: function(){
             // Set correct video source based on device width
             this.videoSrc();
+
+            this.deviceFade();
         },
         videoSrc: function(){
             // Set correct video source based on device width
@@ -753,6 +755,16 @@
                 videoSrc += "<source type='video/webm' src='" + $video.data('webm-1050') + "' />";
                 $video.html(videoSrc);
             }
+        },
+        deviceFade: function(){
+            $(window).scroll(function(){
+                var windowBottom = $(window).scrollTop() + $(window).height();
+                $('.device').each(function(){
+                    if ($(this).offset().top < windowBottom - ($(window).height() * .10) ){
+                        $(this).addClass('is-showing');
+                    }
+                });
+            }).trigger('scroll');
         }
     }
 

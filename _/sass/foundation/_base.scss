@@ -53,19 +53,7 @@ ul {
     font-style: italic;
 }
 
-li {
-  //margin-bottom: $b-space-s;
-  //margin-top: 0;
-}
-
 // ----- Headings ----- //
-
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4 {
-    //margin-bottom: $b-space-xs;
-}
 
 h1, .h1 {
     position: relative;
@@ -160,18 +148,6 @@ p a,
 a{
     color: $c-text-highlight;
 }
-
-/*
-a {
-  border-bottom: $b-border;
-  color: $c-highlight;
-  text-decoration: none;
-  &:hover,
-  &:focus {
-    border-bottom-color: $c-highlight;
-    color: $c-subdue;
-  }
-}*/
 
 // ----- Images ----- //
 

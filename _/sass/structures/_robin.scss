@@ -1,0 +1,45 @@
+// *************************************
+//
+//   Skills
+//
+// *************************************
+
+.robin{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    @include transform(translateX(-50%));
+}
+
+// -------------------------------------
+//   Structure
+// -------------------------------------
+
+.robin .icon{
+    display: block;
+    width: 163px;
+    height: 97px;
+    fill: none;
+    stroke-width: 3px;
+
+    @media screen and (max-width: $g-m) {
+        width: 115px;
+        height: 69px;
+        stroke-width: 3px;
+    }
+}
+
+.robin-line--left{
+    stroke: $c-canvasBg5;
+    fill: $c-background;
+
+    @media screen and (max-width: $g-m) {
+        stroke: $c-background;
+        fill: $c-canvasBg5;
+    }
+}
+
+.robin-line--right{
+    stroke: $c-background;
+    fill: $c-canvasBg5;
+}

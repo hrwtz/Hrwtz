@@ -124,5 +124,11 @@ $content = array(
 				</ul>
 			</nav>
 		</div>
+
+		<?php if ($i+1 == $sections) : ?>
+			<div class="robin">
+				<?php echo svg_use('robin'); ?>
+			</div>
+		<?php endif; ?>
 	</section>
 <?php endfor; ?>
