@@ -13,14 +13,15 @@ $pages = array(
 	'contact' => 'home',
 	'resume' => 'resume'
 );
+$work_pages = array(
+	'nine82', 
+	'turnkey',
+	'the-first-academy',
+	'world-design-exchange',
+	'play-it-forward',
+);
 $pages_secondary = array(
-	'work' => array(
-		'nine82', 
-		'turnkey',
-		'the-first-academy',
-		'world-design-exchange',
-		'play-it-forward',
-	),
+	'work' => $work_pages
 );
 
 // Get base path for project

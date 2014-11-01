@@ -86,6 +86,16 @@ if(empty($access)) {
 
 			<?php endif; ?>
 
+			<div class="tac">
+				<?php $current = array_search($request_path[1], $work_pages); ?>
+				<?php if (isset($work_pages[$current - 1])) : ?>
+					<a href="<?php echo $page_base.'work/' . $work_pages[$current - 1]; ?>" class="work-nav work-nav--previous">Previous</a>
+				<?php endif; ?>
+				<?php if (isset($work_pages[$current + 1])) : ?>
+					<a href="<?php echo $page_base.'work/' . $work_pages[$current + 1]; ?>" class="work-nav work-nav--next">Next</a>
+				<?php endif; ?>
+			</div>
+
 		</div>
 	</div>
 </section>

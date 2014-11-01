@@ -58,3 +58,32 @@
         fill: $c-canvasBg0;
     }
 }
+
+.work-nav{
+    position: relative;
+    display: inline-block;
+    width: $b-space * 1.5;
+    height: $b-space * 1.5;
+    margin-top: $b-space;
+    margin-left: $b-space;
+    margin-right: $b-space;
+    text-indent: 100%;
+    white-space: nowrap;
+
+    &:after{
+        position: absolute;
+        top:0;right:0;bottom:0;left:0;
+        @include transform(rotate(45deg));
+        content: "";
+    }
+}
+
+.work-nav--previous:after{
+    border-bottom: 2px solid #713045;
+    border-left: 2px solid #713045;
+}
+
+.work-nav--next:after{
+    border-top: 2px solid #713045;
+    border-right: 2px solid #713045;
+}
