@@ -1737,100 +1737,40 @@ if ( typeof Object.create !== 'function' ) {
         ]
     }
 
-    var common = { // Rename me?
+    var panelSnap = {
         init: function(){
 
-            // Header functionality
-            $('.navigation-menu').click(function(e){
-                e.preventDefault();
+            if (!$('section[data-panel]').length)
+                return;
 
-                $('.navigation').toggleClass('is-open')
-            });
+            // Side navigation show title on hover 
+            this.sideNavHover();
 
-            // Side navigation hover / Click
-            $('.navigationSide-item').hover(function(){
-                $('.navigationSide-list .navigationSide-item:nth-of-type('+ ($(this).index()+1) +')').addClass('is-hover');
-            }, function(){
-                $('.navigationSide-list .navigationSide-item:nth-of-type('+ ($(this).index()+1) +')').removeClass('is-hover');
-            });
+            // Set up panelsnap jquery plugin
+            this.initPlugin();
 
-            // Set up each canvas
-            $('canvas').each(function(index){
-                canvasIni[index] = new canvass($(this)[0], index);
-                canvasIni[index].init();
-            })
+            // Start / Destroy panelSnap depending on window size
+            this.toggleStatus();
 
-            // Set correct video source based on device width
-            var $video = $('video');
-            var videoSrc = ''
-
-            if (screen.width < 600) {
-                videoSrc += "<source type='video/mp4' src='" + $video.data('mp4-600') + "' />";
-                videoSrc += "<source type='video/webm' src='" + $video.data('webm-600') + "' />";
-                $video.html(videoSrc);
-            } else {
-                videoSrc += "<source type='video/mp4' src='" + $video.data('mp4-1050') + "' />";
-                videoSrc += "<source type='video/webm' src='" + $video.data('webm-1050') + "' />";
-                $video.html(videoSrc);
-            }
-
-            // Block section cubing
-            $(window).resize(function(){
-                $('.block-face').each(function(){
-                    if ($(this).hasClass('block-face--top')){
-                        $(this).css('transform', 'translateZ(' + $(this).outerHeight() / 2 + 'px)')
-                    }else{
-                        $(this).css('transform', 'rotateX(-90deg)  translateZ(' + -$(this).outerHeight() / 2 + 'px)')
-                    }
-                });
-            })
-
-            
-            $(window).on('resize scroll', function(){
-                 if ($('section[data-panel]').length){
-                    if ( $('.cell--half').css('float') == 'none' ){
-                        // If canvas is in full view, show animation
-                        $('.canvas').each(function(){
-                            if ( isElementInViewport($(this)) ) {
-                                $target = $(this).parents('section[data-panel]');
-                                $.each(canvasIni, function(index){
-                                    if ( $target.index() - 2 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
-                                        canvasIni[index].triggerAnimation = $target.index() - 2;
-                                    }
-                                });
-                            }
-                        });
-                    }
-                }
-            }).trigger('resize');
-
-            this.panelSnap();
         },
-        panelSnap: function(){
+        initPlugin: function(){
             // Panel Snap
-            if ($('section[data-panel]').length){
-                $('body').panelSnap({
-                    $menu: $('.navigationSide-list, .navigation-list'),
-                    menuSelector: 'li[data-panel]',
-                    onSnapFinish: function($target){
-                        if (history.replaceState){
-                            var historySection = $('.cell--half').css('float') == 'none' || ($target.index() == 1) ? pagebase : $target.attr('data-panel').toLowerCase();
-                            history.replaceState({data: $('html').html()}, historySection, historySection);
-                        }
-
-                        $.each(canvasIni, function(index){
-                            if ( $target.index() - 2 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
-                                canvasIni[index].triggerAnimation = $target.index() - 2;
-                            }
-                        });
+            $('body').panelSnap({
+                $menu: $('.navigationSide-list, .navigation-list'),
+                menuSelector: 'li[data-panel]',
+                onSnapFinish: function($target){
+                    // Update URL / History State
+                    if (history.replaceState){
+                        var historySection = $('.cell--half').css('float') == 'none' || ($target.index() == 1) ? pagebase : $target.attr('data-panel').toLowerCase();
+                        history.replaceState({data: $('html').html()}, historySection, historySection);
                     }
-                });
-                $('.navigation-button.ajax').click(function(e){
-                    e.preventDefault();
-                    $('body').panelSnap('snapToPanel', $('section:first'));
-                });
-            }
 
+                    // Trigger animation for next section
+                    canvases.triggerAnimation($target);
+                }
+            });
+        },
+        toggleStatus: function(){
             // Start / Destroy panelSnap depending on window size
             $(window).on('resize', function(){
                 if ($('section[data-panel]').length){
@@ -1843,7 +1783,94 @@ if ( typeof Object.create !== 'function' ) {
                     }
                 }
             });
+        },
+        sideNavHover: function(){   
+            // Side navigation show title on hover 
+            $('.navigationSide-item').hover(function(){
+                $('.navigationSide-list .navigationSide-item:nth-of-type('+ ($(this).index()+1) +')').addClass('is-hover');
+            }, function(){
+                $('.navigationSide-list .navigationSide-item:nth-of-type('+ ($(this).index()+1) +')').removeClass('is-hover');
+            });
         }
+
+    }
+
+    var canvases = {
+        init: function(){
+
+            // Set up each canvas
+            $('canvas').each(function(index){
+                canvasIni[index] = new canvass($(this)[0], index);
+                canvasIni[index].init();
+            })
+
+            // Trigger animations on mobile sizes
+            $(window).on('resize scroll', function(){
+                if (common.isMobile)
+                    canvases.triggerAnimationMobile();
+            }).trigger('resize');
+
+            // Kick off animation loop!
+            requestAnimFrame(animloop);
+        },
+        triggerAnimation: function($target){
+            // Trigger animation for next section
+            $.each(canvasIni, function(index){
+                if ( $target.index() - 2 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
+                    canvasIni[index].triggerAnimation = $target.index() - 2;
+                }
+            });
+        },
+        triggerAnimationMobile: function(){
+            // If canvas is in full view, show animation
+            $('.canvas').each(function(){
+                if ( isElementInViewport($(this)) ) {
+                    $target = $(this).parents('section[data-panel]');
+                    $.each(canvasIni, function(index){
+                        if ( $target.index() - 2 > canvasIni[index].triggerAnimation || !canvasIni[index].triggerAnimation ){
+                            canvasIni[index].triggerAnimation = $target.index() - 2;
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+    var work = {
+        init: function(){
+            // Set correct video source based on device width
+            this.videoSrc();
+        },
+        videoSrc: function(){
+            // Set correct video source based on device width
+            var $video = $('video'),
+                videoSrc = '';
+
+            if (screen.width < 600) {
+                videoSrc += "<source type='video/mp4' src='" + $video.data('mp4-600') + "' />";
+                videoSrc += "<source type='video/webm' src='" + $video.data('webm-600') + "' />";
+                $video.html(videoSrc);
+            } else {
+                videoSrc += "<source type='video/mp4' src='" + $video.data('mp4-1050') + "' />";
+                videoSrc += "<source type='video/webm' src='" + $video.data('webm-1050') + "' />";
+                $video.html(videoSrc);
+            }
+        }
+    }
+
+    var common = { // Rename me?
+        init: function(){
+            // Open / Close main navigation on click
+            this.navigationMainToggle();
+        },
+        navigationMainToggle: function(){
+            // Open / Close main navigation on click
+            $('.navigation-menu').click(function(e){
+                e.preventDefault();
+
+                $('.navigation').toggleClass('is-open')
+            });
+        },
     };
 
     // Based off of typed.js
@@ -2128,12 +2155,20 @@ if ( typeof Object.create !== 'function' ) {
 
     // On Ready
     $(function(){
+        // Common functions 
         common.init();
 
+        // Set up panelSnap
+        panelSnap.init();
+
+        // Set up panel animations
+        canvases.init();
+
+        // Set up typist element
         typist.init();
 
-        // Kick off animation loop!
-        requestAnimFrame(animloop);
+        // Set up work pages
+        work.init();
     });
 
 

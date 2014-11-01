@@ -7,8 +7,8 @@ $is_ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HT
 
 // Define Available Pages
 $pages = array(
+	'about' => 'home',
 	'skills' => 'home',
-	'usability' => 'home',
 	'work' => 'home',
 	'contact' => 'home',
 	'resume' => 'resume'
