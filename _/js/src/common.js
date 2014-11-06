@@ -656,6 +656,7 @@
             $('body').panelSnap({
                 $menu: $('.navigationSide-list, .navigation-list'),
                 menuSelector: 'li[data-panel]',
+                directionThreshold: 25,
                 onSnapFinish: function($target){
                     // Update URL / History State
                     if (history.replaceState){

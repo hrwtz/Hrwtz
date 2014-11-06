@@ -1,5 +1,5 @@
 /* Modernizr 2.8.3 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-flexboxlegacy-canvas-canvastext-svg-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes
+ * Build: http://modernizr.com/download/#-flexboxlegacy-canvas-canvastext-svg-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-cssclassprefix:mdz!
  */
 ;
 
@@ -283,7 +283,7 @@ window.Modernizr = (function( window, document, undefined ) {
          test = typeof test == 'function' ? test() : test;
 
          if (typeof enableClasses !== "undefined" && enableClasses) {
-           docElement.className += ' ' + (test ? '' : 'no-') + feature;
+           docElement.className+=" mdz-" + (test ? '' : 'no-') + feature;
          }
          Modernizr[feature] = test;
 
@@ -325,7 +325,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
 
-                                                    (enableClasses ? ' js ' + classes.join(' ') : '');
+                                                    (enableClasses ? " mdz-js mdz-"+classes.join(" mdz-") : '');
 
     return Modernizr;
 
