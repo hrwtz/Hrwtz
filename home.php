@@ -14,7 +14,7 @@ $content = array(
     <h3 class="h3">I pride myself in building top-notch websites.</h3>
 	<p>With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing projects and the web forward is what I am passionate about and what I work towards. </p>',
 
-   '<h2 class="h2">Skills</h2>
+   '<h2 class="h2">My Skills</h2>
 	<p>The web is a moving target and it is important to never stop learning. I am constantly looking into tools that can streamline my workflow, along with improving my current skills. As with any front end developer, HTML, CSS and JavaScript are my bread and butter.</p>
 	<p>I am also experienced in the LAMP stack, version control, CSS preprocessors, and the command line. See my <a href="' . $page_base . 'resume" class="ajax">résumé</a> for a more complete list of skills.</p>
 	<h3 class="h3">As a web developer, it is vastly important to invest in myself. </h3>',
@@ -57,6 +57,7 @@ $content = array(
 	<p class="p">
 		Mike A Hurwitz <br>
 		<a href="mailto:mike@hrwtz.com">mike@hrwtz.com</a><br>
+		<a href="tel:7726780778">772.678.0778</a><br>
 		Orlando, Florida <br>
 		<a href="'.$page_base.'resume">Résumé</a>
 		
