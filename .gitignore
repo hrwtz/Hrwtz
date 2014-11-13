@@ -12,3 +12,4 @@ cgi_bin
 **/sass/config.rb
 node_modules
 npm-debug.log
+robots.txt
