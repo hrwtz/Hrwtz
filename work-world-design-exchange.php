@@ -11,7 +11,6 @@ $work['title'] = 'World Design Exhange';
 //$work['description'] = 'Description goes here';
 $work['copy'] = 'World Design Exchange came with a need for a website with a very tight timeline of less than a month (Not to mention the rest of the brand being developed in that same timeframe). Working on this timeline, we worked as a team to deliver an image-driven, sophisticated website for the client.';
 $work['skills'] = array('WordPress/PHP development','Front End Development','Responsive Design',);
-$work['url'] = 'http://worlddesignexchange.com/';
 $work['images'] = array(
 	array(
 		'video' => array(
