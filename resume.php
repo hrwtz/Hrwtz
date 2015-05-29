@@ -23,15 +23,26 @@ if(empty($access)) {
 				<h4 class="h4 bc2">Experience</h4>
 				
 				<div class="section-inner">
+					<h3 class="h3"><a href="http://monstermedia.net" target="_blank">Monster Media</a></h3>
+					<p class="p p--h">Web Developer, Dec 2014 - present</p>
+					<ul class="list p">
+						<li>Expand code base and add new functionality to existing web applications, using various technologies including CakePHP, WordPress, and AngularJS.</li>
+						<li>Work on web applications and mobile sites of varying function, from a custom internal CMS to a client facing interactive mobile game.</li>
+						<li>Quickly understand complex pre-existing systems to investiage and resolve backlogged bugs.</li>
+						<li>Assist with production tasks such as testing, debugging and QA.</li>
+						<li>Monitor latest trends in web development, web design, and user experience.</li>
+					</ul>
+				</div>
+
+				<div class="section-inner">
 					<h3 class="h3"><a href="http://bigeyeagency.com" target="_blank">BIGEYE Agency</a></h3>
-					<p class="p p--h">Developer, Mar 2012 - present</p>
+					<p class="p p--h">Web Developer, Mar 2012 - Dec 2014</p>
 					<ul class="list p">
 						<li>BIGEYE’s sole web developer responsible for all web projects, including <a href="<?php echo $page_base . 'work/turnkey'; ?>">Turnkey Media Solutions</a>, <a href="<?php echo $page_base . 'work/play-it-forward'; ?>">Kohl's Play it Forward</a>, and <a href="<?php echo $page_base . 'work/the-first-academy'; ?>">The First Academy</a>.</li>
 						<li>Develop new creative websites while maintaining and improving existing client websites.</li>
 						<li>Collaborate with art department on major projects from brain storming to completion as a lead developer advocating for consistency, the user experience, and pushing the envelope.</li>
 						<li>Oversee contract developers to ensure quality projects are delivered to the client on time.</li>
 						<li>Produce web development workflow process, from defining deployment process to creating a starter front end template.</li>
-						<li>Monitor latest trends in web development, web design, email design, and user experience.</li>
 					</ul>
 				</div>
 			
@@ -44,11 +55,6 @@ if(empty($access)) {
 				<div class="section-inner">
 					<h3 class="h3">University of Central Florida</h3>
 					<p class="p p--h">Bachelor of Arts in Digital Media (Web Design Track), Information Technology Minor, 2011</p>
-				</div>
-
-				<div class="section-inner">
-					<h3 class="h3">Indian River Community College</h3>
-					<p class="p p--h">Associates of Arts, 2008</p>
 				</div>
 			
 			</div>
@@ -63,7 +69,7 @@ if(empty($access)) {
 						<ul class="list list--half">
 							<li>HTML5</li>
 							<li>CSS3 with SASS & Compass</li>
-							<li>JavaScript, jQuery</li>
+							<li>JavaScript, jQuery, AngularJS</li>
 							<li>PHP</li>
 							<li>MySQL</li>
 							<li>WordPress Theme Development</li>
