@@ -2,16 +2,28 @@
 $page_uri = $_SERVER['PHP_SELF'];
 $page_base_tmp = str_replace(basename(__FILE__), '', $page_uri);
 if(empty($access)) {
-    header("location:" . $page_base_tmp);  
-    die();
+	header("location:" . $page_base_tmp);  
+	die();
 }
+?>
 
+<script>
+	var typistSayings = [
+		'I Am A Professional Problem Solver', 
+		'I Am A Maker of the Interwebs', 
+		'I Am An Amateur Beer Maker', 
+		'I Am A 300 Ring Owner', 
+		'I Am Based in Orlando, Florida', 
+		'I Am A Front End Developer'
+	];
+</script>
 
+<?php
 $content = array(
    '<h2 class="h2 typist">I Am A Front End Developer</h2>',
 
    '<h2 class="h2">I Am A Creator</h2>
-    <h3 class="h3">I pride myself in building top-notch websites.</h3>
+	<h3 class="h3">I pride myself in building top-notch websites.</h3>
 	<p>With every project comes new challenges, and I make great efforts to find new and creative solutions. Pushing projects and the web forward is what I am passionate about and what I work towards. </p>',
 
    '<h2 class="h2">My Skills</h2>
@@ -24,34 +36,34 @@ $content = array(
 	<h3 class="h3">Creating websites that focus on usability, performance, and readable code helps me reach this goal.</h3>',
 */
    '<div class="block-ie">
-	    <div class="block block--tall block--narrow">
-	   		<a href="'.$page_base.'work/turnkey" class="block-preview">
-	   			<div class="block-previewInner bc2"><div class="block-hover"></div>'.svg_use('work-tkm', 'Turnkey Media Solutions', true).'</div>
-	   			</a>
-	   	</div>
-	    <div class="block block--tall block--long">
-	    	<div class="block block--half">
-	    		<a href="'.$page_base.'work/nine82" class="block-preview">
+		<div class="block block--tall block--narrow">
+			<a href="'.$page_base.'work/turnkey" class="block-preview">
+				<div class="block-previewInner bc2"><div class="block-hover"></div>'.svg_use('work-tkm', 'Turnkey Media Solutions', true).'</div>
+				</a>
+		</div>
+		<div class="block block--tall block--long">
+			<div class="block block--half">
+				<a href="'.$page_base.'work/nine82" class="block-preview">
 					<div class="block-previewInner bc4"><div class="block-hover"></div>'.svg_use('work-nine82', 'NINE82', true).'</div>
-	    		</a>
-	    	</div>
-	    	<div class="block block--half">
-	    		<a href="'.$page_base.'work/play-it-forward" class="block-preview">
-	    			<div class="block-previewInner bc1"><div class="block-hover"></div>'.svg_use('work-pif', 'Kohl\'s Play It Forward', true).'</div>
-	    		</a>
-	    	</div>
-	    </div>
-	    <div class="block block--short block--long">
-	    	<a href="'.$page_base.'work/the-first-academy" class="block-preview">
+				</a>
+			</div>
+			<div class="block block--half">
+				<a href="'.$page_base.'work/play-it-forward" class="block-preview">
+					<div class="block-previewInner bc1"><div class="block-hover"></div>'.svg_use('work-pif', 'Kohl\'s Play It Forward', true).'</div>
+				</a>
+			</div>
+		</div>
+		<div class="block block--short block--long">
+			<a href="'.$page_base.'work/the-first-academy" class="block-preview">
 				<div class="block-previewInner  bc0"><div class="block-hover"></div>'.svg_use('work-tfa', 'The First Academy', true).'</div>
-	    	</a>
-	    </div>
-	    <div class="block block--short block--narrow">
-	    	<a href="'.$page_base.'work/world-design-exchange" class="block-preview">
-	    		<div class="block-previewInner  bc3"><div class="block-hover"></div>'.svg_use('work-wdx', 'World Design Exchange', true).'</div>
-	    	</a>
-	    </div>
-    </div>',
+			</a>
+		</div>
+		<div class="block block--short block--narrow">
+			<a href="'.$page_base.'work/world-design-exchange" class="block-preview">
+				<div class="block-previewInner  bc3"><div class="block-hover"></div>'.svg_use('work-wdx', 'World Design Exchange', true).'</div>
+			</a>
+		</div>
+	</div>',
 
    '<h2 class="h2">Contact Me</h2>
 	<p class="p">
