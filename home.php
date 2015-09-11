@@ -12,9 +12,10 @@ $sayings = [
 	'I Am A Maker of the Interwebs', 
 	'I Am An Amateur Beer Maker', 
 	'I Am A 300 Ring Owner', 
-	'I Am Based in Orlando, Florida', 
-	'I Am A Front End Developer'
+	'I Am Based in Orlando, Florida'
 ];
+
+$sayings[] = $sayings[0];
 
 $content = array(
    '<h2 class="h2 typist">' . array_shift($sayings) . '</h2>',
