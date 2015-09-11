@@ -27,9 +27,9 @@ if(empty($access)) {
 					<p class="p p--h">Web Developer, Dec 2014 - Sep 2015</p>
 					<ul class="list p">
 						<li>Expand code base and add new functionality to existing web applications, using various technologies including CakePHP, WordPress, and AngularJS.</li>
-						<li>Rebuild from ground up as sole developer a complex CMS used to build, customize, moderate, and manage SWF applications</li>
+						<li>Rebuild from ground up a complex CMS used to build, customize, moderate, and manage SWF applications.</li>
 						<li>Work on web applications and mobile sites of varying function, from custom internal CMS's to a client facing interactive mobile game.</li>
-						<li>Quickly understand complex pre-existing systems to investiage and resolve backlogged bugs.</li>
+						<li>Quickly understand complex pre-existing systems to investigate and resolve backlogged bugs.</li>
 						<li>Assist with production tasks such as testing, debugging and QA.</li>
 						<li>Monitor latest trends in web development, web design, and user experience.</li>
 					</ul>
