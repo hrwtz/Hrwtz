@@ -64,37 +64,27 @@ if(empty($access)) {
 				<h4 class="h4 bc4">Skills</h4>
 				
 				<div class="section-inner clearfix">
-					<div class="w-2of3 fl">
-						<div class="p p--h">Skills</div>
-						<ul class="list list--half">
-							<li>HTML5</li>
-							<li>CSS3 with SASS & Compass</li>
-							<li>JavaScript, jQuery, AngularJS</li>
-							<li>PHP</li>
-							<li>MySQL</li>
-							<li>WordPress Theme Development</li>
-						</ul>
-						<ul class="list list--half">
-							<li>Responsive Design</li>
-							<li>Website optimization</li>
-							<li>Cross Browser Compatibility</li>
-							<li>API Integration</li>
-							<li>LAMP Stack</li>
-							<li>SEO</li>
-							<li>Modular Programming</li>
-						</ul>
-					</div>
-					<div class="w-1of3 fl">
-						<div class="p p--h">Tools</div>
-						<ul class="list">
-							<li>Git</li>
-							<li>Grunt</li>
-							<li>Sublime Text</li>
-							<li>Command Line</li>
-							<li>Photoshop</li>
-						</ul>
-					</div>
+					<div class="g">
+						<div class="p clearfix">
+							<div class="g-b g-b--1of4 g-b--s--1of1 p--h">Languages & Databases</div>
+							<div class="g-b g-b--3of4 g-b--s--1of1">HTML5, CSS3/SASS, JavaScript, PHP, MySQL</div>
+						</div>
 
+						<div class="p clearfix">
+							<div class="g-b g-b--1of4 g-b--s--1of1 p--h">Libraries, CMS's, & Frameworks</div>
+							<div class="g-b g-b--3of4 g-b--s--1of1">WordPress Theme Development, jQuery, CakePHP</div>
+						</div>
+
+						<div class="p clearfix">
+							<div class="g-b g-b--1of4 g-b--s--1of1 p--h">Tools</div>
+							<div class="g-b g-b--3of4 g-b--s--1of1">Git, Grunt, Command Line, Photoshop, Compass</div>
+						</div>
+
+						<div class="p clearfix">
+							<div class="g-b g-b--1of4 g-b--s--1of1 p--h">Misc</div>
+							<div class="g-b g-b--3of4 g-b--s--1of1">Responsive Design, Website Optimization, Cross Browser Compatibility, LAMP Stack, MVC, API Integration, Modular Programming</div>
+						</div>
+					</div>
 				</div>
 			
 			</div>

@@ -1,0 +1,49 @@
+// *************************************
+//
+//   Icon
+//
+// *************************************
+
+.g{
+  display: block;
+  margin-left: -10px;
+  margin-right: -10px;
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.g-b{
+  box-sizing: border-box;
+  float: left;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}
+
+.g-b--1of4{
+  width: 25%;
+}
+
+.g-b--3of4{
+  width: 75%;
+}
+
+@media screen and (max-width: $g-m) {
+    .g-b--m--1of1 {
+      width: 100%;
+    }
+}
+
+@media screen and (max-width: $g-s) {
+    .g-b--s--1of1 {
+      width: 100%;
+    }
+}
