@@ -5,22 +5,19 @@ if(empty($access)) {
 	header("location:" . $page_base_tmp);  
 	die();
 }
-?>
 
-<script>
-	var typistSayings = [
-		'I Am A Professional Problem Solver', 
-		'I Am A Maker of the Interwebs', 
-		'I Am An Amateur Beer Maker', 
-		'I Am A 300 Ring Owner', 
-		'I Am Based in Orlando, Florida', 
-		'I Am A Front End Developer'
-	];
-</script>
+$sayings = [
+	'I Am A Front End Developer',
+	'I Am A Professional Problem Solver', 
+	'I Am A Maker of the Interwebs', 
+	'I Am An Amateur Beer Maker', 
+	'I Am A 300 Ring Owner', 
+	'I Am Based in Orlando, Florida', 
+	'I Am A Front End Developer'
+];
 
-<?php
 $content = array(
-   '<h2 class="h2 typist">I Am A Front End Developer</h2>',
+   '<h2 class="h2 typist">' . array_shift($sayings) . '</h2>',
 
    '<h2 class="h2">I Am A Creator</h2>
 	<h3 class="h3">I pride myself in building top-notch websites.</h3>
@@ -145,3 +142,4 @@ $content = array(
 		<?php endif; ?>
 	</section>
 <?php endfor; ?>
+<script>var typistSayings = <?php echo json_encode($sayings) ?></script>
