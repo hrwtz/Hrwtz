@@ -1888,7 +1888,7 @@ if ( typeof Object.create !== 'function' ) {
 
     // Based off of typed.js
     typist = {
-        sayings: typistSayings,
+        sayings: typeof typistSayings != 'undefined' ? typistSayings : [],
         el: $('.typist'),
         startDelay: 1000,       // Delay before typist starts
         typeSpeed: 45,          // Delay between tpying each letter
@@ -1897,6 +1897,9 @@ if ( typeof Object.create !== 'function' ) {
         typeDelay: 100,         // Delay before typing phrase
         plainText: '',          // Non highlighted text
         init: function(){
+            if (!this.sayings.length)
+                return;
+
             // Create reference for timeouts
             var self = this;
 
