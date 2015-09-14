@@ -27,10 +27,6 @@ $work['images'] = array(
 		'image' => $page_base . '_/img/pro/work/mhg/4.jpg', 
 		'size'	=> 'phone'
 	),
-	array(
-		'image' => $page_base . '_/img/pro/work/mhg/5.jpg', 
-		'size'	=> 'phone'
-	),
 );
 
 ?>
