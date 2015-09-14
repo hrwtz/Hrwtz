@@ -19,7 +19,7 @@ $work_pages = array(
 	'nine82', 
 	'play-it-forward',
 	'the-first-academy',
-	'world-design-exchange',
+	// 'world-design-exchange',
 );
 $pages_secondary = array(
 	'work' => $work_pages
