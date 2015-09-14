@@ -14,11 +14,12 @@ $pages = array(
 	'resume' => 'resume'
 );
 $work_pages = array(
-	'nine82', 
 	'turnkey',
+	'mohegan',
+	'nine82', 
+	'play-it-forward',
 	'the-first-academy',
 	'world-design-exchange',
-	'play-it-forward',
 );
 $pages_secondary = array(
 	'work' => $work_pages

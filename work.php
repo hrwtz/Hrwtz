@@ -76,7 +76,11 @@ if(empty($access)) {
 							
 							<?php endif; ?>
 							
-							<div class="device-buttons"></div>
+							<?php if ($image['size'] != 'full') : ?>
+
+								<div class="device-buttons"></div>
+
+							<?php endif; ?>
 
 						</div>
 
