@@ -23,6 +23,17 @@ if(empty($access)) {
 				<h4 class="h4 bc2">Experience</h4>
 				
 				<div class="section-inner">
+					<h3 class="h3"><a href="http://rightbrainmedia.com/" target="_blank">RiGHT BRAiN MEDiA</a></h3>
+					<p class="p p--h">Developer, Sep 2015 - Current</p>
+					<ul class="list p">
+						<li>Work as a part of a team on a large SPA utilizing the MEAN Stack (MongoDB, Express, AngularJS, Node.js).</li>
+						<li>Communicate continually with engineering, design, and project leads. Deliver progress updates and help meet rapid lifecycle of product development deadlines.</li>
+						<li>Contribute to continuous improvement of projects, executing new features and refactoring as needed.</li>
+						<li>Assist with production tasks such as testing, debugging, and QA.</li>
+					</ul>
+				</div>
+
+				<div class="section-inner">
 					<h3 class="h3"><a href="http://monstermedia.net" target="_blank">Monster Media</a></h3>
 					<p class="p p--h">Web Developer, Dec 2014 - Sep 2015</p>
 					<ul class="list p">
@@ -30,8 +41,6 @@ if(empty($access)) {
 						<li>Rebuild from ground up a complex CMS used to build, customize, moderate, and manage SWF applications.</li>
 						<li>Work on web applications and mobile sites of varying function, from custom internal CMSs to a client facing interactive mobile game.</li>
 						<li>Quickly understand complex pre-existing systems to investigate and resolve backlogged bugs.</li>
-						<li>Assist with production tasks such as testing, debugging and QA.</li>
-						<li>Monitor latest trends in web development, web design, and user experience.</li>
 					</ul>
 				</div>
 
@@ -40,7 +49,6 @@ if(empty($access)) {
 					<p class="p p--h">Web Developer, Mar 2012 - Dec 2014</p>
 					<ul class="list p">
 						<li>BIGEYE’s sole web developer responsible for all web projects, including <a href="<?php echo $page_base . 'work/turnkey'; ?>">Turnkey Media Solutions</a>, <a href="<?php echo $page_base . 'work/play-it-forward'; ?>">Kohl's Play it Forward</a>, and <a href="<?php echo $page_base . 'work/the-first-academy'; ?>">The First Academy</a>.</li>
-						<li>Develop new creative websites while maintaining and improving existing client websites.</li>
 						<li>Collaborate with art department on major projects from brain storming to completion as a lead developer advocating for consistency, the user experience, and pushing the envelope.</li>
 						<li>Oversee contract developers to ensure quality projects are delivered to the client on time.</li>
 						<li>Produce web development workflow process, from defining deployment process to creating a starter front end template.</li>
@@ -73,7 +81,7 @@ if(empty($access)) {
 
 						<div class="p clearfix">
 							<div class="g-b g-b--1of4 g-b--s--1of1 p--h">Libraries, CMSs, & Frameworks</div>
-							<div class="g-b g-b--3of4 g-b--s--1of1">WordPress Theme Development, jQuery, CakePHP</div>
+							<div class="g-b g-b--3of4 g-b--s--1of1">AngularJS, Node.js, WordPress Theme Development, jQuery, CakePHP</div>
 						</div>
 
 						<div class="p clearfix">
@@ -83,7 +91,7 @@ if(empty($access)) {
 
 						<div class="p clearfix">
 							<div class="g-b g-b--1of4 g-b--s--1of1 p--h">Misc</div>
-							<div class="g-b g-b--3of4 g-b--s--1of1">Responsive Design, Website Optimization, Cross Browser Compatibility, LAMP Stack, MVC, API Integration, Modular Programming</div>
+							<div class="g-b g-b--3of4 g-b--s--1of1">Responsive Design, Website Optimization, Cross Browser Compatibility, LAMP Stack, MVC/MVW, API Integration, Modular Programming</div>
 						</div>
 					</div>
 				</div>

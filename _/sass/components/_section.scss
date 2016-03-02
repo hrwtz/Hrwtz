@@ -11,6 +11,11 @@
     &:last-of-type{
         margin-bottom: $b-space;
     }
+
+    @media print {
+        padding-bottom: em($b-space-px * 1.5);
+        margin-top: $b-space-2x;
+    }
 }
 
 // -------------------------------------
@@ -21,5 +26,9 @@
     margin-bottom: $b-space-2x;
     &:last-child{
         margin-bottom: 0;
+    }
+
+    @media print {
+        margin-bottom: em($b-space-px * 1.5);
     }
 }
