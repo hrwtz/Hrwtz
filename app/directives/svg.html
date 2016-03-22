@@ -1,0 +1,8 @@
+<svg class="icon icon--svg">
+  	<use xlink:href="" ng-href="{{'#' + id}}"></use>
+	<title ng-if="title">{{title}}</title>
+</svg>
+
+<div class="icon icon--fallback icon--fallback--{{fallbackValue}} th" ng-if="fallbackValue">
+	{{title}}
+</div>

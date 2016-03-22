@@ -1,22 +1,10 @@
-<?php
-$page_uri = $_SERVER['PHP_SELF'];
-$page_base_tmp = str_replace(basename(__FILE__), '', $page_uri);
-if(empty($access)) {
-    header("location:" . $page_base_tmp);  
-    die();
-}
-?>
-<?php $i = 0; ?>
-<?php require('nav.php'); ?>
-<?php global $page_base; ?>
+<div nav color-index="0"></div>
 
 <section class="row">
 	<div class="well">
 		
 		<div class="cell cell--m">
 			<h2 class="h2 h2--mbl tac">Mike A Hurwitz</h2>
-
-			<?php /*<h3 class="h3 h3--sub">Cras mattis iudicium purus sit amet fermentum. Fabio vel iudice vincam, sunt in culpa qui officia. Ambitioni dedisse scripsisse iudicaretur. Ullamco laboris nisi ut aliquid ex ea commodi consequat. Plura mihi bona sunt, inclinet, amari petere vellent.</h3>*/ ?>
 			
 			<div class="section">
 
@@ -48,7 +36,7 @@ if(empty($access)) {
 					<h3 class="h3"><a href="http://bigeyeagency.com" target="_blank">BIGEYE Agency</a></h3>
 					<p class="p p--h">Web Developer, Mar 2012 - Dec 2014</p>
 					<ul class="list p">
-						<li>BIGEYE’s sole web developer responsible for all web projects, including <a href="<?php echo $page_base . 'work/turnkey'; ?>">Turnkey Media Solutions</a>, <a href="<?php echo $page_base . 'work/play-it-forward'; ?>">Kohl's Play it Forward</a>, and <a href="<?php echo $page_base . 'work/the-first-academy'; ?>">The First Academy</a>.</li>
+						<li>BIGEYE’s sole web developer responsible for all web projects, including <a ui-sref="work({slug: 'turnkey'})">Turnkey Media Solutions</a>, <a ui-sref="work({slug: 'play-it-forward'})">Kohl's Play it Forward</a>, and <a ui-sref="work({slug: 'the-first-academy'})">The First Academy</a>.</li>
 						<li>Collaborate with art department on major projects from brain storming to completion as a lead developer advocating for consistency, the user experience, and pushing the envelope.</li>
 						<li>Oversee contract developers to ensure quality projects are delivered to the client on time.</li>
 						<li>Produce web development workflow process, from defining deployment process to creating a starter front end template.</li>
@@ -106,8 +94,12 @@ if(empty($access)) {
 					<span class="print-only"><br>hrwtz.com <span class="resumeLine-dot">•</span> Orlando, Florida</span>
 				</span>
 				<span class="resumeLine-iconWrap">
-					<a href="<?php echo $page_base . '_/misc/resume.pdf'; ?>" download="Mike A Hurwitz - Front End Developer.pdf" class="resumeLine-icon resumeLine-icon--pdf"><?php echo svg_use('icon-pdf', 'Download PDF', true); ?> </a>
-					<a href="javascript:if(window.print)window.print()" class="resumeLine-icon resumeLine-icon--print" ><?php echo svg_use('icon-print', 'Print', true); ?></a>
+					<a href="assets/misc/resume.pdf" download="Mike A Hurwitz - Front End Developer.pdf" class="resumeLine-icon resumeLine-icon--pdf">
+						<span svg id="icon-pdf" title="Download PDF" fallback="true"></span>
+					</a>
+					<a href="javascript:if(window.print)window.print()" class="resumeLine-icon resumeLine-icon--print" >
+						<span svg id="icon-print" title="Print" fallback="true"></span>
+					</a>
 				</span>
 			</h3>
 

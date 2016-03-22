@@ -1,10 +1,5 @@
+bower_components
 .DS_Store
-.htaccess
-sitemap.xml
-sitemap.xml.gz
-cache
-error_log
-php_error_log
 .sass-cache
 files_mf
 cgi_bin

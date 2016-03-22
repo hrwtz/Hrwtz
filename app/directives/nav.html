@@ -1,0 +1,36 @@
+<nav class="navigation" ng-class="{'is-open': isNavigationOpen}">
+	<ul class="navigation-list" ng-class="listClass">
+		<li class="navigation-item" data-panel="I&nbsp;Am">
+			<a  ui-sref="home"  class="navigation-item-link" ng-class="textLinkClass">
+				Home
+			</a>
+		</li>
+		<li class="navigation-item" data-panel="Work">
+			<a  ui-sref="work"  class="navigation-item-link" ng-class="textLinkClass">
+				Work
+			</a>
+		</li>
+		<li class="navigation-item" data-panel="Contact">
+			<a  ui-sref="contact"  class="navigation-item-link" ng-class="textLinkClass">
+				Contact
+			</a>
+		</li>
+		<li class="navigation-item">
+			<a  ui-sref="resume"  class="navigation-item-link ajax" ng-class="textLinkClass">
+				Résumé
+			</a>
+		</li>
+	</ul>
+	<a 
+		ng-click="isNavigationOpen = !isNavigationOpen" 
+		class="navigation-button navigation-menu" 
+		ng-class="hamburgerLinkClass">
+		<span class="navigation-hamburger">
+			<span class="navigation-hamburger-center"></span>
+		</span>
+	</a>
+	<a ui-sref="home" class="navigation-button" data-panel="I&nbsp;Am" ng-class="logoClass">
+		<!-- FIX INLINE CSS -->
+		<div svg id="logo-main" fallback="logoFallback" style="height: 100%;"></div>
+	</a>
+</nav>
