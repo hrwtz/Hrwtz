@@ -2,7 +2,7 @@
 angular.module('hrwtzApp')
 	.directive('nav', [function(){
 		return {
-			templateUrl: "app/directives/nav.html",
+			templateUrl: "app/shared/directives/nav.html",
 			restrict: 'A',
 			scope: {
 				inverse: '=',

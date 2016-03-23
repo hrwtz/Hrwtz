@@ -2,7 +2,7 @@
 angular.module('hrwtzApp')
 	.directive('svg', [function(){
 		return {
-			templateUrl: "app/directives/svg.html",
+			templateUrl: "app/shared/directives/svg.html",
 			restrict: 'A',
 			scope: {
 				id: '@',

@@ -1,0 +1,64 @@
+<div nav color-index="0"></div>
+
+<section class="row">
+	<div class="well">
+
+		<div class="cell cell--s work-content">
+			
+			<h2 class="h2 h2--mbl" ng-if="work.title">{{work.title}}</h2>
+
+			<h3 class="h3" ng-if="work.description">{{work.description}}</h3>
+
+			<p class="p" ng-if="work.copy">{{work.copy}}</p>
+
+			<ul class="work-skills" ng-if="work.skills">
+				<!-- FIX INLINE CSS, Should also use :after instead of margin-right -->
+				<li class="work-skill" ng-repeat="skill in work.skills" style="margin-right: 1em;">{{skill}}</li>
+			</ul>
+
+		</div>
+
+		<div class="cell">
+
+			<h3 class="h3 work-launch" ng-if="work.url">
+				<a href="{{work.url}}" target="_blank">
+					<span svg id="work-view" fallback="true"></span>
+					Launch website
+				</a>
+			</h3>
+
+
+			<div class="tac" ng-if="work.images">
+
+				<div ng-repeat="image in work.images">
+
+					<div class="device" ng-class="'device--' + image.size" device-fade>
+						
+						<video 
+							ng-if="image.video"
+							class="device-image" 
+							loop="true" 
+							autoplay="autoplay" 
+							video-poster="{{image.video.poster}}">
+							<source type="video/mp4" src="" ng-src="{{image.video.mp4}}" />
+			                <source type="video/webm" src="" ng-src="{{image.video.webm}}" />
+						</video>
+					
+						<img ng-src="{{image.image}}" alt="" class="device-image" ng-if="image.image">
+						
+						<div class="device-buttons" ng-if="image.size !== 'full'"></div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="tac">
+				<a ui-sref="work({slug: prevPage.slug})" class="work-nav work-nav--previous" ng-if="prevPage">Previous</a>
+				<a ui-sref="work({slug: nextPage.slug})" class="work-nav work-nav--next" ng-if="nextPage">Previous</a>
+			</div>
+
+		</div>
+	</div>
+</section>
