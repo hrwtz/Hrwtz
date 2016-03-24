@@ -1,0 +1,57 @@
+<section class="row row--window home" data-panel="I&nbsp;Am">
+	<div class="cell cell--half cell--home cell--mono" ng-class="{fr: index % 2 == 1}">
+		<div class="table">
+			<div class="table-cell table-cell--middle">
+				<div 
+					class="cell cell--s well well--s clearfix"
+					ng-class="{'cell-content--right': index % 2 === 1, 'cell-content--left': index % 2 !== 1}">
+					<ng-transclude></ng-transclude>
+				</div>
+			</div>
+		</div>
+
+		<div class="navigation-clip navigation-clip--mobile">
+			<div nav color-index="index" inverse="!!(index % 2)"></div>
+		</div>
+	</div>
+	<div class="cell cell--half cell--home cell--color ofh" ng-class="'bc' + index">
+		<div class="branding" ng-if="index === 0">
+			<div class="branding-iconWrap">
+				<div class="branding-iconInner">
+					<span svg id="logo-main" fallback="logo-main-hero"></span>
+				</div>
+			</div>
+			<p class="branding-text">Mike A Hurwitz</p>
+		</div>
+		<canvas ng-if="index !== 0" class="canvas" ng-class="'bc' + index"  ng-id="'canvas-' + index"></canvas>
+
+		<div class="navigation-clip navigation-clip--mobile">
+			<div nav color-index="index" inverse="!(index % 2)"></div>
+		</div>
+	</div>
+
+	
+	<div class="navigation-clip navigation-clip--main">
+		<div nav color-index="index" inverse="false"></div>
+		<nav class="navigationSide">
+			<ul class="navigationSide-list"
+				ng-class="[{true: 'navigation-list--cr navigation-list--bc' + index, false: 'navigation-list--bcr navigation-list--c' + index}[index % 2 === 0],{true: 'navigation-list--bc' + index}[index % 2 === 0],]">
+				<li 
+					class="navigationSide-item" 
+					ng-class="{active: request_path === section_titles[index].toLowerCase()}"
+					data-panel="{{section_titles[index]}}"
+					ng-repeat="section in sections track by $index">
+					<a href="#" class="navigationSide-item-link " >
+						<span class="navigationSide-dot"></span>
+						<span class="navigationSide-text">{{section_titles[$index]}}</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	
+
+	<div class="robin" ng-if="index + 1 === 5">
+		<span svg id="robin"></span>
+	</div>
+</section>

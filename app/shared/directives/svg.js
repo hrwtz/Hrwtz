@@ -5,6 +5,7 @@ angular.module('hrwtzApp')
 			templateUrl: "app/shared/directives/svg.html",
 			restrict: 'A',
 			scope: {
+				// Probably should change this to something else
 				id: '@',
 				title: '@?',
 				fallback: '=?'
