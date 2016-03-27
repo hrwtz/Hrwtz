@@ -8,6 +8,14 @@ angular.module('hrwtzApp')
 				inverse: '=',
 				colorIndex: '='
 			},
+			controller : function($scope, $rootScope) {
+				$scope.toggleMenu = function() {
+					$rootScope.$broadcast('toggle_menu');
+				};
+				$rootScope.$on('toggle_menu', function(e, data){
+					$scope.isNavigationOpen = !$scope.isNavigationOpen
+				});
+			},
 			link: function(scope, element, attrs) {
 				// Set up classes for links
 				var conditional = scope.inverse === true ? (scope.colorIndex % 2 == 0) : (scope.colorIndex % 2);
@@ -18,6 +26,4 @@ angular.module('hrwtzApp')
 				scope.logoFallback = conditional ? 'logo-main-bcr' : 'logo-main-bc' + scope.colorIndex;
 			}
 		}
-		
-		
 	}]);
