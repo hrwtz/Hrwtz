@@ -12,8 +12,7 @@
 			<p class="p" ng-if="work.copy">{{work.copy}}</p>
 
 			<ul class="work-skills" ng-if="work.skills">
-				<!-- FIX INLINE CSS, Should also use :after instead of margin-right -->
-				<li class="work-skill" ng-repeat="skill in work.skills" style="margin-right: 1em;">{{skill}}</li>
+				<li class="work-skill" ng-repeat="skill in work.skills">{{skill}}</li>
 			</ul>
 
 		</div>

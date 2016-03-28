@@ -112,7 +112,7 @@
     //height: 100%;
     padding-left: $b-space;
 
-    > *{
+    .cell-innerContent > *{
         padding-right: 20%; // IE Fix
     }
 
@@ -125,7 +125,7 @@
             padding-right: 0;
         }
 
-        > *{
+        .cell-innerContent > *{
             padding-right: 0; // IE Fix
         }
     }
@@ -137,7 +137,7 @@
     //height: 100%;
     padding-right: $b-space;
     
-    > *{
+    .cell-innerContent > *{
         padding-left: 20%; // IE Fix
     }
 
@@ -151,7 +151,7 @@
             padding-right: 0;
         }
 
-        > *{
+        .cell-innerContent > *{
             padding-left: 0; // IE Fix
         }
     }

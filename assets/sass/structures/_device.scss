@@ -13,7 +13,7 @@
 	margin-bottom: $b-space;
     opacity: 0;
     background-color: #333;
-    @include transition(all .8s);
+    @include transition(top .8s, opacity .8s);
 }
 
 // -------------------------------------
