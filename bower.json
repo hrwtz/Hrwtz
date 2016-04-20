@@ -1,9 +1,10 @@
 {
-  	"name": "hrwtz",
-  	"description": "Mike A Hurwitz Portfolio",
-  	"version": "2.0.0",
-  	"dependencies": {
-		"angular": "~1.5.2",
-		"angular-ui-router": "~0.2.18"
-  	}
+  "name": "hrwtz",
+  "description": "Mike A Hurwitz Portfolio",
+  "version": "2.0.0",
+  "dependencies": {
+    "angular": "~1.5.2",
+    "angular-ui-router": "~0.2.18",
+    "panelsnap": "https://github.com/guidobouman/jquery-panelsnap.git#~0.15.1"
+  }
 }
