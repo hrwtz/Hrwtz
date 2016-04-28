@@ -18,9 +18,15 @@ angular.module('hrwtzApp')
 			directionThreshold: 25,
 			panelSelector: '[home-section]',
 			onSnapFinish: function($target){
-				console.log($target.index());
-                // Trigger animation for next section
-                // canvases.triggerAnimation($target);
+
+            }
+		});
+
+		$scope.$watch('isMobile', function (isMobile) {
+			if (isMobile){
+                jQuery('body').panelSnap('disable');
+            }else {
+                jQuery('body').panelSnap('enable');
             }
 		});
 		

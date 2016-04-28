@@ -1,55 +1,6 @@
 'use strict';
 angular.module('hrwtzApp')
-	.controller('canvasAnimationController', ['$scope', '$window', '$timeout', function($scope, $window, $timeout){
-
-	    // Start the main animation loop using requestAnimFrame
-	    var self = {};
-    	self.countAniFrame =  0;
-    	self.animloop =  function(){
-	        // Update frame count
-	        self.countAniFrame++;
-
-	        // Broadcast the event so we can run update functions within our directive
-			$scope.$broadcast('animationFrame', self.countAniFrame);
-	        
-	        // Recursion
-	        self.requestAnimFrame(self.animloop);
-
-	    };
-	    self.requestAnimFrame =  (function(){
-	    	return  $window.requestAnimationFrame.bind(window)       || 
-	                $window.webkitRequestAnimationFrame.bind(window) || 
-	                $window.mozRequestAnimationFrame.bind(window)    || 
-	                $window.oRequestAnimationFrame.bind(window)      || 
-	                $window.msRequestAnimationFrame.bind(window)     ||  
-	                function( callback ){
-	                    $window.setTimeout(function(){
-	                        callback();
-	                    }, 1000 / 60);
-	                };
-	    })();
-	    return self;
-		
-	}]);
-
-// Canvas Pieces:
-// Animation Loop itself - Service
-// resize/scroll/click handlers - Link Function
-// Controller that controls when animations start / stop / triggers animations
-// Animation Objects (init, draw, update) - Each a service
-	// Background
-	// Particles
-	// Triangle
-	// Split
-	// Tri Strokes
-// Animation Settings - Home section?
-
-
-
-
-'use strict';
-angular.module('hrwtzApp')
-	.directive('canvasAnimation', ['$window', '$timeout', 'animationObjBackground', 'animationObjParticles', 'test', function($window, $timeout, animationObjBackground, animationObjParticles, test){
+	.directive('canvasAnimation', ['$window', '$timeout', 'animationObjBackground', 'animationObjParticles', 'animationService', function($window, $timeout, animationObjBackground, animationObjParticles, animationService){
 		return {
 			restrict: 'A',
 			scope: {
@@ -103,7 +54,7 @@ angular.module('hrwtzApp')
 	                    xPos = e.offsetX;
 	                    yPos = e.offsetY;
 	                }
-	                bgService.addCircle(xPos, yPos)
+	                scope.animationObj.bgService.addCircle(xPos, yPos);
 	            })
 
 
@@ -124,70 +75,46 @@ angular.module('hrwtzApp')
 	            var bgService = new animationObjBackground(element);
 	            var particlesService = new animationObjParticles(element);
 
-
-
-            	// scope.animation = {
-            	// 	finished: true,
-	            //     triggered: false,
-	            //     init: function(){
-	            //         bgService.init();
-	            //     },
-	            //     draw: function(){
-	            //         // Draw background
-	            //         bgService.draw();
-
-	            //         // Draw Particles
-	            //         particlesService.draw();
-	            //     },
-	            //     update: function(countAniFrame){
-	            //         bgService.update();
-	            //         particlesService.update(countAniFrame);
-	            //     }
-            	// };
-            	// test.setElement(element);
-            	// scope.animation = test.animations[scope.index - 1];
-
 				ctrl.requestAnimFrame(ctrl.animloop);
 
 				// Service. For each directive, call addCanvasAnimation to get total amount
-				// 
-				var aa = new test(element);
+				scope.animationObj = new animationService(element);
 
 				// Call this in a timeout function so it will run after ng-class in view has run
 				$timeout(function() {
 					scope.$on('animationFrame', function (event, data) {
-						for (var i = 0; i < aa.animations.length; i++) {
+						for (var i = 0; i < scope.animationObj.animations.length; i++) {
 							if ( 
-								( i != 0 && aa.animations[i-1].finished != true )  || 
-								( i > scope.index - 1 ) || ( !aa.animations[i] ) ) {
+								( i != 0 && scope.animationObj.animations[i-1].finished != true )  || 
+								( i > scope.index - 1 ) || ( !scope.animationObj.animations[i] ) ) {
 								break;
 							}
 
 							// console.log(i)
-							if ( aa.animations[i].triggered === false && !scope.visible){
+							if ( scope.animationObj.animations[i].triggered === false && !scope.visible){
 								break;
 							}
 							// console.log(scope.index);
 
 
 
-							// var animation = aa.animations[i];
+							// var animation = scope.animationObj.animations[i];
 							// Initalize animation if not already done
-			                if ( aa.animations[i].triggered === false ){
-			                	// for (var k = i; k < aa.animations.length; k++) {
+			                if ( scope.animationObj.animations[i].triggered === false ){
+			                	// for (var k = i; k < scope.animationObj.animations.length; k++) {
 			                	// 	console.log(k);
-		                		aa.animations[i].init();
-			                    aa.animations[i].triggered = true;
+		                		scope.animationObj.animations[i].init();
+			                    scope.animationObj.animations[i].triggered = true;
 			                	// };
 			                }
 
 			                // Only draw on canvas if canvas is in view
 			                if (scope.visible) {
-			                	aa.animations[i].draw();
+			                	scope.animationObj.animations[i].draw();
 			                }
 
 			                // Update animation
-			                aa.animations[i].update(data);
+			                scope.animationObj.animations[i].update(data);
 
 						};
 						return;
@@ -227,72 +154,4 @@ angular.module('hrwtzApp')
 				});
 			}
 		}
-	}]);
-
-
-'use strict';
-angular.module('hrwtzApp')
-	.factory('test', ['animationObjBackground', 'animationObjParticles', 'animationObjTriangle', 'animationObjSplit', function (animationObjBackground, animationObjParticles, animationObjTriangle, animationObjSplit) {
-		function Service (element) {
-			var self = this;
-
-			this.bgService = new animationObjBackground(element);
-	    	this.particlesService = new animationObjParticles(element);
-	    	this.triangleService = new animationObjTriangle(element);
-	    	this.splitService = new animationObjSplit(element);
-
-	    	this.animations = [
-				{
-					finished: true,
-	                triggered: false,
-	                init: function(){
-	                    self.bgService.init();
-	                },
-	                draw: function(){
-	                    // Draw background
-	                    self.bgService.draw();
-
-	                    // Draw Particles
-	                    self.particlesService.draw();
-	                },
-	                update: function(countAniFrame){
-	                    self.bgService.update();
-	                    self.particlesService.update(countAniFrame);
-	                }
-	            },
-	            {
-	                finished: false,
-	                triggered: false,
-	                init: function(){
-	                    self.triangleService.init();
-	                },
-	                draw: function(){
-	                    self.triangleService.draw();
-	                },
-	                update: function(countAniFrame){
-	                    self.triangleService.update(countAniFrame);
-	                    this.finished = self.triangleService.finished;
-	                },
-	            },
-	            {
-	                finished: true,
-	                triggered: false,
-	                init: function(){
-	                    self.splitService.init(self.triangleService);
-	                },
-	                draw: function(){
-	                    self.splitService.draw();
-	                },
-	                update: function(countAniFrame){
-	                    self.splitService.update(countAniFrame);
-	                },
-	            },
-			];
-		};
-		Service.prototype.setElement = function (element) {
-			this.bgService = new animationObjBackground(element);
-    		this.particlesService = new animationObjParticles(element);
-    		console.log(this.bgService);
-		};
-		return Service;
 	}]);

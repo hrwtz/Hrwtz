@@ -18,7 +18,7 @@ angular.module('hrwtzApp')
                 }
 
             };
-            this.update = function(){
+            this.update = function(countAniFrame){
                 
                 // Add new triStroke every 30 frames
                 if (countAniFrame % 30 == 0 && self.runShapes){
