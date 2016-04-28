@@ -9,6 +9,9 @@ angular.module('hrwtzApp')
 				isMobile: '=?'
 			},
 			transclude: true,
+			controller: function ($scope) {
+
+			},
 			link: function(scope, element, attrs) {
 				// We don't need to set the isMobile variable for every time this reference 
 				// is used, just the one time it's used to grab the variable

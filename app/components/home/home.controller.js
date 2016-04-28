@@ -16,7 +16,12 @@ angular.module('hrwtzApp')
 		// Set up panelSnap jQuery plugin
 		jQuery('body').panelSnap({
 			directionThreshold: 25,
-			panelSelector: '[home-section]'
+			panelSelector: '[home-section]',
+			onSnapFinish: function($target){
+				console.log($target.index());
+                // Trigger animation for next section
+                // canvases.triggerAnimation($target);
+            }
 		});
 		
 	}]);

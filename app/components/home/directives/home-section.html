@@ -23,7 +23,7 @@
 			</div>
 			<p class="branding-text">Mike A Hurwitz</p>
 		</div>
-		<canvas ng-if="index !== 0" class="canvas" ng-class="'bc' + index"  ng-id="'canvas-' + index"></canvas>
+		<canvas canvas-animation index="index" ng-if="index !== 0" class="canvas" ng-class="'bc' + index"></canvas>
 
 		<div class="navigation-clip navigation-clip--mobile">
 			<div nav color-index="index" inverse="!(index % 2)"></div>
