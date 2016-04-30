@@ -1,6 +1,6 @@
 <section class="row row--window home" data-panel="I&nbsp;Am">
 	<div class="cell cell--half cell--home cell--mono" ng-class="{fr: index % 2 == 1}">
-		<div class="table">
+		<div class="table" ng-if="!isWorkSection">
 			<div class="table-cell table-cell--middle">
 				<div 
 					class="cell cell--s well well--s clearfix"
@@ -8,6 +8,12 @@
 					<ng-transclude></ng-transclude>
 				</div>
 			</div>
+		</div>
+		<div 
+			class="cell cell--s well well--s clearfix hf"
+			ng-class="{'cell-content--right': index % 2 === 1, 'cell-content--left': index % 2 !== 1}"
+			ng-if="isWorkSection">
+			<ng-transclude></ng-transclude>
 		</div>
 
 		<div class="navigation-clip navigation-clip--mobile">

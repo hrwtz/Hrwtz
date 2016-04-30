@@ -6,7 +6,8 @@ angular.module('hrwtzApp')
 			restrict: 'A',
 			scope: {
 				index: '=',
-				isMobile: '=?'
+				isMobile: '=?',
+				isWorkSection: '=?'
 			},
 			transclude: true,
 			controller: function ($scope) {
