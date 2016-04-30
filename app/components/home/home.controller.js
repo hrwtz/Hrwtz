@@ -22,6 +22,11 @@ angular.module('hrwtzApp')
             }
 		});
 
+		// On destroy, unhook panelSnap
+		$scope.$on("$destroy", function(){
+			jQuery('body').panelSnap('destroy');
+		});
+
 		$scope.$watch('isMobile', function (isMobile) {
 			if (isMobile){
                 jQuery('body').panelSnap('disable');
