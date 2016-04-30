@@ -2,7 +2,7 @@
 angular.module('hrwtzApp')
 	.directive('svg', [function(){
 		return {
-			templateUrl: "app/shared/directives/svg.html",
+			templateUrl: "shared/directives/svg.html",
 			restrict: 'A',
 			scope: {
 				// Probably should change this to something else

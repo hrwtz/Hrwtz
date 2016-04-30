@@ -2,7 +2,7 @@
 angular.module('hrwtzApp')
 	.directive('typist', ['$window', function($window){
 		return {
-			templateUrl: "app/components/home/directives/typist.html",
+			templateUrl: "components/home/directives/typist.html",
 			restrict: 'A',
 			scope: {
 				sayings: '=typist',

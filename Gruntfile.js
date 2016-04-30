@@ -1,0 +1,158 @@
+module.exports = function(grunt) {
+
+	// All configuration goes here 
+	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
+
+		watch: {
+		    compass: {
+		    	files: ['app/assets/**/*.{scss,sass}'],
+		    	tasks: ['compass:dev'],
+		    },
+		    svgstore: {
+		    	files: ['app/assets/img/svg/**/*.svg'],
+		    	tasks: ['svgstore:dev'],
+		    },
+
+
+		},
+
+		svgstore: {
+		    default: {
+		    	files: {
+					'app/assets/img/svg/svg-defs.svg': ['app/assets/img/svg/*.svg']
+				}
+		    }
+		},
+
+		compass: {
+			dev: {
+		    	options: {              
+		        	sassDir: 'app/assets/sass',
+		        	cssDir: 'app/assets/css',
+		        	fontsDir: 'app/assets/fonts',
+		        	imagesDir: 'app/assets/img/',
+		        	images: 'app/assets/img/',
+		        	environment: 'production',
+		        	outputStyle: 'compressed',
+		        	relativeAssets: false,
+		        	httpPath: '.',
+		        }
+		    },
+		},
+
+		copy: {
+		  	build: {
+		    	files: [
+		    		{expand: true, cwd: 'app/assets/css/', src: ['**'], dest: 'dist/assets/css/'},
+		    		{expand: true, cwd: 'app/assets/misc/', src: ['**'], dest: 'dist/assets/misc/'},
+		    		{expand: true, cwd: 'app/assets/img/', src: ['svg-defs.svg'], dest: 'dist/assets/img/'},
+		    		{expand: true, cwd: 'app/assets/img/favicon/', src: ['**'], dest: 'dist/assets/img/favicon/'},
+		    		{expand: true, cwd: 'app/components/', src: ['**/*.html'], dest: 'dist/components/'},
+		    		{expand: true, cwd: 'app/shared/', src: ['**/*.html'], dest: 'dist/shared/'},
+		    	],
+		  	},
+		},
+
+
+		concat: {
+			build: {
+				src: [
+						'app/**/*.js',
+						'!app/app.config.js',
+						'.tmp/config.js'
+				],
+				dest: 'dist/app.js',
+			},
+		},
+
+		uglify: {
+		    build: {
+		        src: '.tmp/app.js',
+		        dest: 'dist/app.js',
+		    },
+		},
+
+		clean: {
+			tmp: ['.tmp'],
+			dist: ['dist']
+		},
+
+
+		imagemin: {
+		    dynamic: {
+		        files: [{
+		            expand: true,
+		            cwd: 'app/assets/img/fallback/',
+		            src: ['**/*.{png,jpg,gif}'],
+		            dest: 'dist/assets/img/fallback/'
+		        }]
+		    },
+		    video: {
+		        files: [{
+		            expand: true,
+		            cwd: 'app/assets/video/',
+		            src: ['**/*.{png,jpg,gif}'],
+		            dest: 'dist/assets/video/'
+		        }]
+		    },
+		    work: {
+		        files: [{
+		            expand: true,
+		            cwd: 'app/assets/img/work/',
+		            src: ['**/*.{png,jpg,gif}'],
+		            dest: 'dist/assets/img/work/'
+		        }]
+		    }
+		},
+
+		// responsive_videos: {
+		//     myTask: {
+		//       options: {
+		//         sizes: [{
+		//           width: 1050,
+		//           poster: false
+		//         },{
+		//           width: 600,
+		//           poster: false
+		//         }]
+		//       },
+		//       files: [{
+		//         expand: true,
+		//         src: ['*.{mov,mp4}'],
+		//         cwd: 'app/assets/video',
+		//         dest: 'dist/assets/video'
+		//       }]
+		//     }
+		//   },
+
+		ngconstant: {
+    		ngconstant: {
+    			options: {
+      				name: 'hrwtzApp',
+      				dest: '.tmp/config.js',
+      				constants: {
+        				environment: 'production'
+      				},
+      				deps: false
+    			}
+  			},
+
+  		},
+	});
+
+	// Where we tell Grunt we plan to use this plug-in.
+	grunt.loadNpmTasks('grunt-ng-constant');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-svgstore');
+	grunt.loadNpmTasks('grunt-responsive-videos');
+
+	grunt.registerTask('build', ['ngconstant', 'concat', 'uglify', 'clean:tmp', 'svgstore', 'compass', 'imagemin', 'copy']);
+
+};

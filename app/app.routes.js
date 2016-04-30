@@ -12,24 +12,24 @@
 			$stateProvider
 				.state('home', {
 					url: "/",
-					templateUrl: "app/components/home/home.view.html",
+					templateUrl: "components/home/home.view.html",
 					controller: 'homeController',
 				})
 				.state('work', {
 					url: "/work/:slug",
-					templateUrl: "app/components/work/work.view.html",
+					templateUrl: "components/work/work.view.html",
 					controller: 'workController',
 				})
 				.state('resume', {
 					url: "/resume",
-					templateUrl: "app/components/resume/resume.view.html",
+					templateUrl: "components/resume/resume.view.html",
 				})
 				.state('404go', {
-					templateUrl: "app/components/404/404.view.html",
+					templateUrl: "components/404/404.view.html",
 				})
 				.state('404', {
 					url: "*path",
-					templateUrl: "app/components/404/404.view.html",
+					templateUrl: "components/404/404.view.html",
 				});
 		}]);
 })();

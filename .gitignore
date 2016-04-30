@@ -8,3 +8,5 @@ cgi_bin
 node_modules
 npm-debug.log
 robots.txt
+dist/
+.tmp

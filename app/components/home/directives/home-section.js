@@ -2,7 +2,7 @@
 angular.module('hrwtzApp')
 	.directive('homeSection', ['$window', function($window){
 		return {
-			templateUrl: "app/components/home/directives/home-section.html",
+			templateUrl: "components/home/directives/home-section.html",
 			restrict: 'A',
 			scope: {
 				index: '=',

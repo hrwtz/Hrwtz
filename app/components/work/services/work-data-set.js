@@ -1,6 +1,15 @@
 'use strict';
 angular.module('hrwtzApp')
-	.factory('workDataSet', [function(){
+	.factory('workDataSet', ['environment', function(environment){
+		function getVideoFilename(filename, fileType) {
+			if (environment === 'production') {
+				var videoSize = screen.width > 600 ? 500 : 1050;
+				return filename + '-' + videoSize + '.' + fileType;
+			} else {
+				return filename + '.mov';
+			}
+		};
+
 		var workData = [
 			{
 				slug: 'turnkey',
@@ -11,39 +20,39 @@ angular.module('hrwtzApp')
 				images: [
 					{
 						'video': {
-							'poster': 'assets/video/pro/tkm.png',
-							'mp4': screen.width > 600 ? 'assets/video/pro/tkm-600.mp4' : 'assets/video/pro/tkm-1050.mp4',
-							'webm': screen.width > 600 ? 'assets/video/pro/tkm-600.webm' : 'assets/video/pro/tkm-1050.webm',
+							'poster': 'tkm.png',
+							'mp4': getVideoFilename('tkm', 'mp4'),
+							'webm': getVideoFilename('tkm', 'webm')
 						}, 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/tkm/1.png', 
+						'image': 'tkm/1.png', 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/tkm/2.png', 
+						'image': 'tkm/2.png', 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/tkm/3.jpg', 
+						'image': 'tkm/3.jpg', 
 						'size': 'phone'
 					},
 
 					{
-						'image': 'assets/img/pro/work/tkm/4.png', 
+						'image': 'tkm/4.png', 
 						'size': 'phone'
 					},
 					{
-						'image': 'assets/img/pro/work/tkm/5.jpg', 
+						'image': 'tkm/5.jpg', 
 						'size': 'tablet'
 					},
 					{
-						'image': 'assets/img/pro/work/tkm/6.png', 
+						'image': 'tkm/6.png', 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/tkm/7.png', 
+						'image': 'tkm/7.png', 
 						'size': 'tablet'
 					},
 				]
@@ -55,19 +64,19 @@ angular.module('hrwtzApp')
 				skills: ['AngularJS', 'WebSockets', 'SPA', 'Front End Development'],
 				images: [
 					{
-						'image': 'assets/img/pro/work/mhg/1.jpg', 
+						'image': 'mhg/1.jpg', 
 						'size': 'full'
 					},
 					{
-						'image': 'assets/img/pro/work/mhg/2.jpg', 
+						'image': 'mhg/2.jpg', 
 						'size': 'phone'
 					},
 					{
-						'image': 'assets/img/pro/work/mhg/3.jpg', 
+						'image': 'mhg/3.jpg', 
 						'size': 'phone'
 					},
 					{
-						'image': 'assets/img/pro/work/mhg/4.jpg', 
+						'image': 'mhg/4.jpg', 
 						'size': 'phone'
 					}
 				]
@@ -81,22 +90,22 @@ angular.module('hrwtzApp')
 				images: [
 					{
 						'video': {
-							'poster': 'assets/video/pro/982.png',
-							'mp4': screen.width > 600 ? 'assets/video/pro/982-600.mp4' : 'assets/video/pro/982-1050.mp4',
-							'webm': screen.width > 600 ? 'assets/video/pro/982-600.webm' : 'assets/video/pro/982-1050.webm',
+							'poster': '982.png',
+							'mp4': getVideoFilename('982', 'mp4'),
+							'webm': getVideoFilename('982', 'webm')
 						}, 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/nine82/1.png', 
+						'image': 'nine82/1.png', 
 						'size': 'tablet'
 					},
 					{
-						'image': 'assets/img/pro/work/nine82/2.jpg', 
+						'image': 'nine82/2.jpg', 
 						'size': 'tablet'
 					},
 					{
-						'image': 'assets/img/pro/work/nine82/3.png', 
+						'image': 'nine82/3.png', 
 						'size': 'desktop'
 					}
 				]
@@ -110,34 +119,34 @@ angular.module('hrwtzApp')
 				images: [
 					{
 						'video': {
-							'poster': 'assets/video/pro/pif.jpg',
-							'mp4': screen.width > 600 ? 'assets/video/pro/pif-600.mp4' : 'assets/video/pro/pif-1050.mp4',
-							'webm': screen.width > 600 ? 'assets/video/pro/pif-600.webm' : 'assets/video/pro/pif-1050.webm',
+							'poster': 'pif.jpg',
+							'mp4': getVideoFilename('pif', 'mp4'),
+							'webm': getVideoFilename('pif', 'webm')
 						}, 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/pif/1.png', 
+						'image': 'pif/1.png', 
 						'size': 'tablet'
 					},
 					{
-						'image': 'assets/img/pro/work/pif/2.png', 
+						'image': 'pif/2.png', 
 						'size': 'phone'
 					},
 					{
-						'image': 'assets/img/pro/work/pif/3.png', 
+						'image': 'pif/3.png', 
 						'size': 'phone'
 					},
 					{
-						'image': 'assets/img/pro/work/pif/4.jpg', 
+						'image': 'pif/4.jpg', 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/pif/5.png', 
+						'image': 'pif/5.png', 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/pif/6.png', 
+						'image': 'pif/6.png', 
 						'size': 'tablet'
 					},
 					
@@ -152,26 +161,26 @@ angular.module('hrwtzApp')
 				images: [
 					{
 						'video': {
-							'poster': 'assets/video/pro/tfa.png',
-							'mp4': screen.width > 600 ? 'assets/video/pro/tfa-600.mp4' : 'assets/video/pro/tfa-1050.mp4',
-							'webm': screen.width > 600 ? 'assets/video/pro/tfa-600.webm' : 'assets/video/pro/tfa-1050.webm',
+							'poster': 'tfa.png',
+							'mp4': getVideoFilename('tfa', 'mp4'),
+							'webm': getVideoFilename('tfa', 'webm')
 						}, 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/tfa/1.png', 
+						'image': 'tfa/1.png', 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/tfa/2.png', 
+						'image': 'tfa/2.png', 
 						'size': 'tablet'
 					},
 					{
-						'image': 'assets/img/pro/work/tfa/3.jpg', 
+						'image': 'tfa/3.jpg', 
 						'size': 'desktop'
 					},
 					{
-						'image': 'assets/img/pro/work/tfa/4.png', 
+						'image': 'tfa/4.png', 
 						'size': 'desktop'
 					}
 				]
