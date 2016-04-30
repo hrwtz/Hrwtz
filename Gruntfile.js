@@ -58,6 +58,10 @@ module.exports = function(grunt) {
 		concat: {
 			build: {
 				src: [
+					'bower_components/jquery/dist/jquery.min.js',
+						'bower_components/angular/angular.min.js',
+						'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+						'bower_components/panelsnap/jquery.panelSnap.js',
 						'app/**/*.js',
 						'!app/app.config.js',
 						'.tmp/config.js'
@@ -139,9 +143,28 @@ module.exports = function(grunt) {
   			},
 
   		},
+
+  		aws: grunt.file.readJSON('aws_keys.json'),
+  		aws_s3: {
+		  	production: {
+		    	options: {
+					type: "s3",
+					gzip: true,
+					accessKeyId: '<%= aws.AWSAccessKeyId %>',
+					secretAccessKey: '<%= aws.AWSSecretKey %>',
+					region: "us-east-1",
+					bucket: "hrwtz",
+					differential: true
+		    	},
+		    	files: [
+		      		{expand: true, cwd: 'dist/', src: ['**'], dest: '/'},
+		    	]
+		  	},
+		},
 	});
 
 	// Where we tell Grunt we plan to use this plug-in.
+	grunt.loadNpmTasks('grunt-aws-s3');
 	grunt.loadNpmTasks('grunt-ng-constant');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
@@ -154,5 +177,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-responsive-videos');
 
 	grunt.registerTask('build', ['ngconstant', 'concat', 'uglify', 'clean:tmp', 'svgstore', 'compass', 'imagemin', 'copy']);
+	grunt.registerTask('deploy', ['build', 'aws_s3']);
 
 };

@@ -10,3 +10,4 @@ npm-debug.log
 robots.txt
 dist/
 .tmp
+aws_keys.json
