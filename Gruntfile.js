@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 					'!app/app.config.js',
 					'.tmp/config.js'
 				],
-				dest: 'dist/app.js',
+				dest: '.tmp/app.js',
 			},
 		},
 
