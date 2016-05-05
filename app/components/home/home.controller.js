@@ -16,10 +16,7 @@ angular.module('hrwtzApp')
 		// Set up panelSnap jQuery plugin
 		jQuery('body').panelSnap({
 			directionThreshold: 25,
-			panelSelector: '[home-section]',
-			onSnapFinish: function($target){
-
-            }
+			panelSelector: '[home-section]'
 		});
 
 		// On destroy, unhook panelSnap
