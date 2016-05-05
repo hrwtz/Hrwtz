@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.controller('homeController', ['$scope', function($scope){
 		// Array of sayings for typist directive

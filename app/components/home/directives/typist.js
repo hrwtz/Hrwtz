@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.directive('typist', ['$window', function($window){
 		return {
@@ -73,7 +74,7 @@ angular.module('hrwtzApp')
 
 					// Remove cloned element
 					$fakeH2.remove();
-				};
+				}
 
 				// Controls whether we need to highlight previous text or begin typing 
 				// and performs actions based on that
@@ -103,7 +104,7 @@ angular.module('hrwtzApp')
 								// Remove the highlighted text
 								for (var i = 0; i < scope.words.length; i++) {
 									scope.words[i].highlighted = '';
-								};
+								}
 
 								// Set up the next saying
 								scope.sayings.push(scope.sayings.shift());
@@ -114,7 +115,7 @@ angular.module('hrwtzApp')
 								// Apply the changes
 								scope.$apply();
 							
-							}, options.typeDelay)
+							}, options.typeDelay);
 
 						} else {
 							// Else if we need to highlight more letters
@@ -129,7 +130,7 @@ angular.module('hrwtzApp')
 
 					}, humanize);
 
-				};
+				}
 
 				// Highlight the previous letter
 				function highlightPrevious(){
@@ -144,9 +145,9 @@ angular.module('hrwtzApp')
 
 						// Take a letter from the plain text, and add it to the highlighted
 						scope.words[i].highlighted = scope.words[i].plain.substring(scope.words[i].plain.length - 1) + scope.words[i].highlighted;
-						scope.words[i].plain = scope.words[i].plain.substring(0, scope.words[i].plain.length - 1)
+						scope.words[i].plain = scope.words[i].plain.substring(0, scope.words[i].plain.length - 1);
 						break;
-					};
+					}
 
 					// Apply the changes
 					scope.$apply();
@@ -191,7 +192,7 @@ angular.module('hrwtzApp')
 								break;
 
 							}
-						};
+						}
 
 						// Apply the changes since we're in a timeout function
 						scope.$apply();
@@ -214,5 +215,5 @@ angular.module('hrwtzApp')
 					}, humanize);
 				}
 			}
-		}
+		};
 	}]);

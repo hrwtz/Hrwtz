@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.factory('animationService', ['animationObjBackground', 'animationObjParticles', 'animationObjTriangle', 'animationObjSplit', 'animationObjTriStrokes', function (animationObjBackground, animationObjParticles, animationObjTriangle, animationObjSplit, animationObjTriStrokes) {
 		function Service (element) {
@@ -62,12 +63,12 @@ angular.module('hrwtzApp')
 	                init: function(){
 	                    // Get split shapes moving along
 	                    self.splitService.superCharged = true;
-	                    self.splitService.split[1].vx = .5;
+	                    self.splitService.split[1].vx = 0.5;
 	                    self.splitService.split[1].vy = 1.3;
-	                    self.splitService.split[1].vrotate = .0005;
-	                    self.splitService.split[0].vx = -.5;
+	                    self.splitService.split[1].vrotate = 0.0005;
+	                    self.splitService.split[0].vx = -0.5;
 	                    self.splitService.split[0].vy = -1.3;
-	                    self.splitService.split[0].vrotate = .002;
+	                    self.splitService.split[0].vrotate = 0.002;
 	                },
 	                draw: function(){
 	                    self.triStrokesService.draw();
@@ -92,6 +93,6 @@ angular.module('hrwtzApp')
 	                }
 	            }
 			];
-		};
+		}
 		return Service;
 	}]);

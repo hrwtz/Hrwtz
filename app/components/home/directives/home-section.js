@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.directive('homeSection', ['$window', function($window){
 		return {
@@ -29,5 +30,5 @@ angular.module('hrwtzApp')
 					setIsMobile();
 				}
 			}
-		}
+		};
 	}]);

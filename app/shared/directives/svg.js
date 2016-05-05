@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.directive('svg', [function(){
 		return {
@@ -16,5 +17,5 @@ angular.module('hrwtzApp')
 					scope.fallbackValue = scope.id;
 				}
 			}
-		}
+		};
 	}]);

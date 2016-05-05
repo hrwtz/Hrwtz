@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.factory('animationObjTriStrokes', [function () {
         function Service (element) {
@@ -21,7 +22,7 @@ angular.module('hrwtzApp')
             this.update = function(countAniFrame){
                 
                 // Add new triStroke every 30 frames
-                if (countAniFrame % 30 == 0 && self.runShapes){
+                if (countAniFrame % 30 === 0 && self.runShapes) {
                     self.triStrokesArray.push(new self.triStroke());
                     self.shapesCreated++;
                 }
@@ -32,13 +33,14 @@ angular.module('hrwtzApp')
                 }
 
                 // If 4 shapes have been made, animation is finished
-                if (self.shapesCreated == 4)
+                if (self.shapesCreated == 4) {
                     self.finished = true;
+                }
 
             };
             this.triStroke = function(){
                 // Opacity
-                this.opacity = ( Math.random() * .25 ) + .5;
+                this.opacity = ( Math.random() * 0.25 ) + 0.5;
 
                 this.scale = 1;
 
@@ -64,29 +66,29 @@ angular.module('hrwtzApp')
 
                     self.ctx.stroke();
                     self.ctx.restore();
-                }
+                };
 
                 // Update values for next round
                 this.update = function(){
-                    this.scale += .1;
+                    this.scale += 0.1;
                     this.scale *= 1.02;
 
-                    this.rotate += .001;
+                    this.rotate += 0.001;
 
                     // Update position of triStroke
                     this.x = this.x + this.vx;
                     this.y = this.y + this.vy;
 
                     // Update velocity to be slower
-                    this.vx = this.vx * .96;
-                    this.vy = this.vy * .96;
+                    this.vx = this.vx * 0.96;
+                    this.vy = this.vy * 0.96;
 
                     // Fade out triStroke
-                    this.opacity = this.opacity * .99;
+                    this.opacity = this.opacity * 0.99;
 
                     // Remove triStroke from array if offscreen or opacity is too low
                     if (
-                        this.opacity < .1 || 
+                        this.opacity < 0.1 || 
                         this.x + this.radius > self.can.width || 
                         this.x - this.radius < 0 || 
                         this.y + this.radius > self.can.height || 
@@ -99,8 +101,8 @@ angular.module('hrwtzApp')
                         }
                     }
 
-                }
-            }
-        };
+                };
+            };
+        }
   		return Service;
 	}]);

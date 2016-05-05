@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.directive('canvasAnimation', ['$window', '$timeout', 'animationService', 'animationsTriggeredService', function($window, $timeout, animationService, animationsTriggeredService){
 		return {
@@ -45,7 +46,7 @@ angular.module('hrwtzApp')
 				element.on('click', function(e){
 					var xPos,
 						yPos;
-					if ( e.offsetX == undefined ) { // fix for Firefox
+					if ( e.offsetX === undefined ) { // fix for Firefox
 						xPos = e.pageX - element.offset().left;
 						yPos = e.pageY - element.offset().top;
 					}else{
@@ -53,7 +54,7 @@ angular.module('hrwtzApp')
 						yPos = e.offsetY;
 					}
 					scope.animationObj.bgService.addCircle(xPos, yPos);
-				})
+				});
 
 
 				// Logic to handle resizing
@@ -81,7 +82,7 @@ angular.module('hrwtzApp')
 							// Don't continue if previous animation hasn't finished OR 
 							// we don't have an animation for this section
 							if ( 
-								( i != 0 && scope.animationObj.animations[i-1].finished != true ) || 
+								( i !== 0 && scope.animationObj.animations[i-1].finished !== true ) || 
 								( !scope.animationObj.animations[i] ) ) {
 								break;
 							}
@@ -113,10 +114,10 @@ angular.module('hrwtzApp')
 							// Update animation
 							scope.animationObj.animations[i].update(data);
 
-						};
+						}
 						return;
 					});
 				});
 			}
-		}
+		};
 	}]);

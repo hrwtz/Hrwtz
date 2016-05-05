@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.controller('workController', ['$scope', '$state', '$stateParams', 'workDataSet', function($scope, $state, $stateParams, workDataSet){
 		$scope.screenWidth = screen.width;

@@ -1,11 +1,14 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.factory('animationObjBackground', ['$timeout', function ($timeout) {
         // These can all be filters
 
         // http://stackoverflow.com/a/3627747/1552042
         function rgb2hex(rgb) {
-            if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
+            if (/^#[0-9A-F]{6}$/i.test(rgb)) {
+                return rgb;
+            }
 
             rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
             function hex(x) {
@@ -28,7 +31,7 @@ angular.module('hrwtzApp')
             this.can = element[0];
             this.ctx = this.can.getContext('2d');
             this.circles = [];
-        };
+        }
 
         Service.prototype.init = function() {
             var self = this;
@@ -72,13 +75,13 @@ angular.module('hrwtzApp')
                 i++;
             });
             // Gradually bring background color back to the original color
-            self.color = blendColors(self.color, self.colorOrig, .1);
+            self.color = blendColors(self.color, self.colorOrig, 0.1);
         };
         Service.prototype.addCircle = function(x, y){
             var self = this;
 
             // Get random shaded color based off of original color
-            var colorShaded =  shadeColor(self.colorOrig, Math.random() * (.5 - -.5) + -.5);
+            var colorShaded =  shadeColor(self.colorOrig, Math.random() - 0.5);
 
             // Add circle object to circles array
             self.circles.push({
@@ -86,7 +89,7 @@ angular.module('hrwtzApp')
                 y: y,
                 radius : 1,
                 fill: colorShaded,
-            })
+            });
         };
 
   		return Service;

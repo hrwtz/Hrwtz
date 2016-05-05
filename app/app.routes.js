@@ -1,3 +1,5 @@
+'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 

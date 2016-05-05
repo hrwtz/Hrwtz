@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.directive('deviceFade', ['$window', '$timeout', function($window, $timeout){
 		return {
@@ -7,7 +8,7 @@ angular.module('hrwtzApp')
 				var checkShowDevice = function() {
 					var windowBottom = $window.pageYOffset + $window.innerHeight;
 				    var offsetTop = element[0].getBoundingClientRect().top + window.pageYOffset - document.documentElement.clientTop;
-                    if (offsetTop < windowBottom - ($window.innerHeight * .10) ){
+                    if (offsetTop < windowBottom - ($window.innerHeight * 0.10) ){
                         element.addClass('is-showing');
                     }
 				};
@@ -17,5 +18,5 @@ angular.module('hrwtzApp')
 				});
 				$timeout(checkShowDevice);
 			}
-		}
+		};
 	}]);

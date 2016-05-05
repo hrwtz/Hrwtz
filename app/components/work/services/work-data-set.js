@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.factory('workDataSet', ['environment', function(environment){
 		function getVideoFilename(filename, fileType) {
@@ -8,7 +9,7 @@ angular.module('hrwtzApp')
 			} else {
 				return filename + '.mov';
 			}
-		};
+		}
 
 		var workData = [
 			{
@@ -192,7 +193,7 @@ angular.module('hrwtzApp')
 				if (workData[i].slug == slug) {
 					return i;
 				}
-			};
+			}
 			return -1;
 		};
 

@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.controller('canvasAnimationController', ['$scope', '$window', '$timeout', function($scope, $window, $timeout){
 

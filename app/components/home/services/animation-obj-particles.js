@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.factory('animationObjParticles', [function () {
         function Service (element) {
@@ -8,7 +9,7 @@ angular.module('hrwtzApp')
             this.particlesArray = [];
             this.center = {};
             this.runparticles = true;
-        };
+        }
 
         Service.prototype.draw = function() {
             var self = this;
@@ -23,7 +24,7 @@ angular.module('hrwtzApp')
             var self = this;
             
             // Add new particle every 5 frames
-            if (countAniFrame % 3 == 0 && self.runparticles == true){
+            if (countAniFrame % 3 === 0 && self.runparticles === true){
                 self.particlesArray.push(new Particle(this));
             }
             
@@ -46,7 +47,7 @@ angular.module('hrwtzApp')
             this.vy = Math.random()*20-10;
 
             // Opacity
-            this.opacity = ( Math.random() * .25 ) + .5;
+            this.opacity = ( Math.random() * 0.25 ) + 0.5;
 
             // Set up particle radius
             this.radius = Math.random() * 1.5 + 1;
@@ -59,7 +60,7 @@ angular.module('hrwtzApp')
                 self.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
                 self.ctx.fill();
                 self.ctx.restore();
-            }
+            };
 
             // Update values for next round
             this.update = function(){
@@ -68,15 +69,15 @@ angular.module('hrwtzApp')
                 this.y = this.y + this.vy;
 
                 // Update velocity to be slower
-                this.vx = this.vx * .96;
-                this.vy = this.vy * .96;
+                this.vx = this.vx * 0.96;
+                this.vy = this.vy * 0.96;
 
                 // Fade out particle
-                this.opacity = this.opacity * .99;
+                this.opacity = this.opacity * 0.99;
 
                 // Remove particle from array if offscreen or opacity is too low
                 if (
-                    this.opacity < .1 || 
+                    this.opacity < 0.1 || 
                     this.x + this.radius > self.can.width || 
                     this.x - this.radius < 0 || 
                     this.y + this.radius > self.can.height || 
@@ -89,8 +90,8 @@ angular.module('hrwtzApp')
                     }
                 }
 
-            }
-        };
+            };
+        }
 
   		return Service;
 	}]);

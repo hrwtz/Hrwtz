@@ -1,3 +1,5 @@
+'use strict';
+/*global angular: false */
 angular
 	.module('hrwtzApp', ['ui.router'])
 	.run(['$rootScope', function ($rootScope) {

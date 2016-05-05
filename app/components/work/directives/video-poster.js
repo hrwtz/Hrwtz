@@ -1,4 +1,5 @@
 'use strict';
+/*global angular: false */
 angular.module('hrwtzApp')
 	.directive('videoPoster', ['$window', function($window){
 		return {
@@ -12,5 +13,5 @@ angular.module('hrwtzApp')
 		          	attrs.$set('poster', value);
 		        });
 			}
-		}
+		};
 	}]);
