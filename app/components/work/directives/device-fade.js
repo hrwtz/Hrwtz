@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hrwtzApp')
-	.directive('deviceFade', ['$window', function($window){
+	.directive('deviceFade', ['$window', '$timeout', function($window, $timeout){
 		return {
 			restrict: 'A',
 			link: function(scope, element, attrs) {
@@ -14,8 +14,8 @@ angular.module('hrwtzApp')
 
 				angular.element($window).bind('scroll', function() {
 					checkShowDevice();
-	            });
-	            checkShowDevice();
+				});
+				$timeout(checkShowDevice);
 			}
 		}
 	}]);
