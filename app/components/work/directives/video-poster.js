@@ -7,11 +7,11 @@ angular.module('hrwtzApp')
 			priority: 99,
 			link: function(scope, element, attrs) {
 				attrs.$observe('videoPoster', function(value) {
-		          	if (!value) {
-		            	return;
-		          	}
-		          	attrs.$set('poster', value);
-		        });
+					if (!value) {
+						return;
+					}
+					attrs.$set('poster', value);
+				});
 			}
 		};
 	}]);

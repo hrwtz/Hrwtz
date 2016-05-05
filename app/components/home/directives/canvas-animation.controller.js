@@ -12,7 +12,7 @@ angular.module('hrwtzApp')
 		// Start the main animation loop using requestAnimFrame
 		var self = {
 			countAniFrame: 0,
-			animloop:  function (){
+			animloop: function () {
 				// Don't run if the controller was destroyed
 				if (isDestroyed) {
 					return;
@@ -27,13 +27,13 @@ angular.module('hrwtzApp')
 				// Recursion
 				self.requestAnimFrame(self.animloop);
 			},
-			requestAnimFrame:  (function(){
-				return  $window.requestAnimationFrame.bind(window)   || 
-					$window.webkitRequestAnimationFrame.bind(window) || 
-					$window.mozRequestAnimationFrame.bind(window)    || 
-					$window.oRequestAnimationFrame.bind(window)      || 
-					$window.msRequestAnimationFrame.bind(window)     ||  
-					function( callback ){
+			requestAnimFrame: (function() {
+				return $window.requestAnimationFrame.bind(window)	||
+					$window.webkitRequestAnimationFrame.bind(window)||
+					$window.mozRequestAnimationFrame.bind(window)	||
+					$window.oRequestAnimationFrame.bind(window)		||
+					$window.msRequestAnimationFrame.bind(window)	||
+					function (callback) {
 						$timeout(function () {
 							callback();
 						}, 1000 / 60);

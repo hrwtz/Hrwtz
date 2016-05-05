@@ -27,10 +27,10 @@ angular.module('hrwtzApp')
 
 		$scope.$watch('isMobile', function (isMobile) {
 			if (isMobile){
-                jQuery('body').panelSnap('disable');
-            }else {
-                jQuery('body').panelSnap('enable');
-            }
+				jQuery('body').panelSnap('disable');
+			}else {
+				jQuery('body').panelSnap('enable');
+			}
 		});
 		
 	}]);
