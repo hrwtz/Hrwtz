@@ -58,13 +58,11 @@ module.exports = function(grunt) {
 		concat: {
 			build: {
 				src: [
-					'bower_components/jquery/dist/jquery.min.js',
-						'bower_components/angular/angular.min.js',
-						'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-						'bower_components/panelsnap/jquery.panelSnap.js',
-						'app/**/*.js',
-						'!app/app.config.js',
-						'.tmp/config.js'
+					'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+					'bower_components/panelsnap/jquery.panelSnap.js',
+					'app/**/*.js',
+					'!app/app.config.js',
+					'.tmp/config.js'
 				],
 				dest: 'dist/app.js',
 			},
