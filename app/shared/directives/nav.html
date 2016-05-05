@@ -1,22 +1,22 @@
 <nav class="navigation" ng-class="{'is-open': isNavigationOpen}">
 	<ul class="navigation-list" ng-class="listClass">
 		<li class="navigation-item" data-panel="I&nbsp;Am">
-			<a  ui-sref="home"  class="navigation-item-link" ng-class="textLinkClass">
+			<a ui-sref="home({page: ''})"  class="navigation-item-link" ng-class="textLinkClass">
 				Home
 			</a>
 		</li>
 		<li class="navigation-item" data-panel="Work">
-			<a  ui-sref="work"  class="navigation-item-link" ng-class="textLinkClass">
+			<a ui-sref="home({page: 'work'})"  class="navigation-item-link" ng-class="textLinkClass">
 				Work
 			</a>
 		</li>
 		<li class="navigation-item" data-panel="Contact">
-			<a  ui-sref="contact"  class="navigation-item-link" ng-class="textLinkClass">
+			<a ui-sref="home({page: 'contact'})"  class="navigation-item-link" ng-class="textLinkClass">
 				Contact
 			</a>
 		</li>
 		<li class="navigation-item">
-			<a  ui-sref="resume"  class="navigation-item-link ajax" ng-class="textLinkClass">
+			<a ui-sref="resume"  class="navigation-item-link ajax" ng-class="textLinkClass">
 				Résumé
 			</a>
 		</li>
@@ -30,7 +30,7 @@
 			<span class="navigation-hamburger-center"></span>
 		</span>
 	</a>
-	<a ui-sref="home" class="navigation-button" data-panel="I&nbsp;Am" ng-class="logoClass">
+	<a ui-sref="home({page: ''})" class="navigation-button" data-panel="I&nbsp;Am" ng-class="logoClass">
 		<div svg id="logo-main" fallback="logoFallback" class="hf"></div>
 	</a>
 </nav>
