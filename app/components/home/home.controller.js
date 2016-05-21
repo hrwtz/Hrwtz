@@ -14,23 +14,30 @@ angular.module('hrwtzApp')
 		// Set this to null so the directive knows that isMobile is set and to update the value
 		$scope.isMobile = null;
 
+		var initPanelSnap = function () {
+			angular.element('body').panelSnap({
+				$menu: angular.element('.navigationSide-list, .navigation-list'),
+				menuSelector: 'li[data-panel]',
+				directionThreshold: 25,
+				panelSelector: '[home-section]'
+			});
+
+			// On destroy, unhook panelSnap
+			$scope.$on("$destroy", function(){
+				angular.element('body').panelSnap('destroy');
+			});
+
+			// Disable/enable panelsnap based on if screen is mobile
+			$scope.$watch('isMobile', function (isMobile) {
+				if (isMobile){
+					angular.element('body').panelSnap('disable');
+				}else {
+					angular.element('body').panelSnap('enable');
+				}
+			});
+		};
+
 		// Set up panelSnap jQuery plugin
-		jQuery('body').panelSnap({
-			directionThreshold: 25,
-			panelSelector: '[home-section]'
-		});
-
-		// On destroy, unhook panelSnap
-		$scope.$on("$destroy", function(){
-			jQuery('body').panelSnap('destroy');
-		});
-
-		$scope.$watch('isMobile', function (isMobile) {
-			if (isMobile){
-				jQuery('body').panelSnap('disable');
-			}else {
-				jQuery('body').panelSnap('enable');
-			}
-		});
+		$scope.$on('initialised', initPanelSnap);
 		
 	}]);
