@@ -1,6 +1,6 @@
 <nav class="navigation" ng-class="{'is-open': isNavigationOpen}">
 	<ul class="navigation-list" ng-class="listClass">
-		<li class="navigation-item" data-panel="I&nbsp;Am">
+		<li class="navigation-item" data-panel="{{firstPanel}}">
 			<a ui-sref='home({"page": ""})' class="navigation-item-link" ng-class="textLinkClass" un-notify>
 				Home
 			</a>
@@ -30,7 +30,7 @@
 			<span class="navigation-hamburger-center"></span>
 		</span>
 	</a>
-	<a ui-sref='home({"page": ""})' class="navigation-button" data-panel="I&nbsp;Am" ng-class="logoClass">
+	<a ui-sref='home({"page": ""})' class="navigation-button" ng-class="logoClass">
 		<div svg id="logo-main" fallback="logoFallback" class="hf"></div>
 	</a>
 </nav>

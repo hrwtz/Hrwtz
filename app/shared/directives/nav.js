@@ -18,6 +18,9 @@ angular.module('hrwtzApp')
 				});
 			}],
 			link: function(scope, element, attrs) {
+				// This needs to be defined in the scope for it to work
+				scope.firstPanel = 'I&nbsp;Am';
+
 				// Set up classes for links
 				var conditional = scope.inverse === true ? (scope.colorIndex % 2 === 0) : (scope.colorIndex % 2);
 				scope.listClass = conditional ? 'bc' + scope.colorIndex : 'bcr';
