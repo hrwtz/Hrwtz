@@ -44,12 +44,13 @@
 				ng-class="[{true: 'navigation-list--cr navigation-list--bc' + index, false: 'navigation-list--bcr navigation-list--c' + index}[index % 2 === 0],{true: 'navigation-list--bc' + index}[index % 2 === 0],]">
 				<li 
 					class="navigationSide-item" 
-					ng-class="{active: request_path === section_titles[index].toLowerCase()}"
-					data-panel="{{section_titles[index]}}"
-					ng-repeat="section in sections track by $index">
-					<a href="#" class="navigationSide-item-link " >
+					ng-class="{active: !pageParam && !$index || pageParam === sectionTitles[$index].toLowerCase()}"
+					data-panel="{{sectionTitles[$index]}}"
+					ng-repeat="section in sectionTitles track by $index"
+					hover-all>
+					<a href="#" class="navigationSide-item-link">
 						<span class="navigationSide-dot"></span>
-						<span class="navigationSide-text">{{section_titles[$index]}}</span>
+						<span class="navigationSide-text" ng-bind-html="sectionTitles[$index]"></span>
 					</a>
 				</li>
 			</ul>

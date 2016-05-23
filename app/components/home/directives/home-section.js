@@ -8,9 +8,13 @@ angular.module('hrwtzApp')
 			scope: {
 				index: '=',
 				isMobile: '=?',
-				isWorkSection: '=?'
+				isWorkSection: '=?',
+				sectionTitles: '='
 			},
 			transclude: true,
+			controller : ['$scope', '$stateParams', function($scope, $stateParams) {
+				$scope.pageParam = $stateParams.page;
+			}],
 			link: function(scope, element, attrs) {
 				// We don't need to set the isMobile variable for every time this reference 
 				// is used, just the one time it's used to grab the variable
@@ -18,7 +22,7 @@ angular.module('hrwtzApp')
 
 					// Set isMobile variable
 					var setIsMobile = function () {
-						scope.isMobile = $('.cell--half').css('float') === 'none';
+						scope.isMobile = element.children().children('.cell--half').css('float') === 'none';
 					};
 
 					// Set the variable on window resize

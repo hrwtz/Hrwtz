@@ -1,7 +1,7 @@
 'use strict';
 /*global angular: false */
 angular
-	.module('hrwtzApp', ['ui.router'])
+	.module('hrwtzApp', ['ui.router', 'ngSanitize'])
 	.run(['$rootScope', function ($rootScope) {
 		// Scroll to top of page on state change, not to top of ui-view
 		$rootScope.$on('$viewContentLoaded',function(){

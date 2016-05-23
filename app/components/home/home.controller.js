@@ -1,7 +1,7 @@
 'use strict';
 /*global angular: false */
 angular.module('hrwtzApp')
-	.controller('homeController', ['$scope', function($scope){
+	.controller('homeController', ['$scope', '$state', function($scope, $state){
 		// Array of sayings for typist directive
 		$scope.typistSayings = [
 			'I Am A Web Developer',
@@ -11,6 +11,8 @@ angular.module('hrwtzApp')
 			'I Am Based in Orlando, Florida'
 		];
 
+		$scope.sectionTitles = ['I&nbsp;Am', 'About', 'Skills', 'Work', 'Contact'];
+
 		// Set this to null so the directive knows that isMobile is set and to update the value
 		$scope.isMobile = null;
 
@@ -19,7 +21,15 @@ angular.module('hrwtzApp')
 				$menu: angular.element('.navigationSide-list, .navigation-list'),
 				menuSelector: 'li[data-panel]',
 				directionThreshold: 25,
-				panelSelector: '[home-section]'
+				panelSelector: '[home-section]',
+				onSnapFinish: function ($target) {
+					var homePage = $scope.isMobile || $target.index() == 0 ? '' : $target.attr('data-panel').toLowerCase();
+					$state.go('home', {
+						page: homePage
+					}, {
+						notify: false
+					});
+				}
 			});
 
 			// On destroy, unhook panelSnap
