@@ -72,6 +72,18 @@
   height: 100%;
 }
 
+.ha {
+  height: auto;
+}
+
+@media screen and (max-width: $g-m) {
+
+    .ha--m {
+      height: auto;
+    }
+
+}
+
 // -------------------------------------
 //   Overflow
 // -------------------------------------

@@ -16,6 +16,14 @@ angular.module('hrwtzApp')
 		// Set this to null so the directive knows that isMobile is set and to update the value
 		$scope.isMobile = null;
 
+		var toggleEnablePanelSnap = function () {
+			if ($scope.isMobile){
+				angular.element('body').panelSnap('disable');
+			}else {
+				angular.element('body').panelSnap('enable');
+			}
+		}
+
 		var initPanelSnap = function () {
 			angular.element('body').panelSnap({
 				$menu: angular.element('.navigationSide-list, .navigation-list'),
@@ -23,6 +31,9 @@ angular.module('hrwtzApp')
 				directionThreshold: 25,
 				panelSelector: '[home-section]',
 				onSnapFinish: function ($target) {
+					if ($scope.isMobile) {
+						return;
+					}
 					var homePage = $scope.isMobile || $target.index() == 0 ? '' : $target.attr('data-panel').toLowerCase();
 					$state.go('home', {
 						page: homePage
@@ -38,13 +49,10 @@ angular.module('hrwtzApp')
 			});
 
 			// Disable/enable panelsnap based on if screen is mobile
-			$scope.$watch('isMobile', function (isMobile) {
-				if (isMobile){
-					angular.element('body').panelSnap('disable');
-				}else {
-					angular.element('body').panelSnap('enable');
-				}
-			});
+			$scope.$watch('isMobile', toggleEnablePanelSnap);
+
+			toggleEnablePanelSnap();
+
 		};
 
 		// Set up panelSnap jQuery plugin
