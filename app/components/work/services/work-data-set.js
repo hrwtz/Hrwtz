@@ -4,7 +4,7 @@ angular.module('hrwtzApp')
 	.factory('workDataSet', ['environment', function(environment){
 		function getVideoFilename(filename, fileType) {
 			if (environment === 'production') {
-				var videoSize = screen.width > 600 ? 500 : 1050;
+				var videoSize = screen.width < 600 ? 600 : 1050;
 				return filename + '-' + videoSize + '.' + fileType;
 			} else {
 				return filename + '.mov';
