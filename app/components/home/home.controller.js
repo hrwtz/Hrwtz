@@ -1,7 +1,7 @@
 'use strict';
 /*global angular: false */
 angular.module('hrwtzApp')
-	.controller('homeController', ['$scope', '$state', function($scope, $state){
+	.controller('homeController', ['$scope', '$state', 'workDataSet', function($scope, $state, workDataSet){
 		// Array of sayings for typist directive
 		$scope.typistSayings = [
 			'I Am A Web Developer',
@@ -12,6 +12,8 @@ angular.module('hrwtzApp')
 		];
 
 		$scope.sectionTitles = ['I&nbsp;Am', 'About', 'Skills', 'Work', 'Contact'];
+
+		$scope.works = workDataSet.getWorks();
 
 		// Set this to null so the directive knows that isMobile is set and to update the value
 		$scope.isMobile = null;

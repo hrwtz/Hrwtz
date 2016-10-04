@@ -14,6 +14,7 @@ angular.module('hrwtzApp')
 		var workData = [
 			{
 				slug: 'turnkey',
+				slugShortened: 'tkm',
 				title: 'Turnkey Media Solutions',
 				copy: 'Turnkey Media Solutions provides in-store music and messaging for their clients. They were looking for a clean and modern site that would focus on their services. To really draw attention to what they do, multiple audio players were created throughout the website. These players give TKM a unique portfolio that is easily accessible to the user.',
 				skills: ['MVCSS', 'HTML5 Audio Players', 'WordPress/PHP development','Front End Development','Responsive Design'],
@@ -60,6 +61,7 @@ angular.module('hrwtzApp')
 			},
 			{
 				slug: 'mohegan',
+				slugShortened: 'mhg',
 				title: 'The Mohegan Sun Drive Competition',
 				copy: 'The Mohegan Sun Drive Competition is a interactive golf game with a digital storefront located on Wall Street as the monitor and the user\'s phone as a controller. Users navigate to a mobile web app which records the user\'s swings and communicates information with the storefront via WebSockets. My role in this project was to refresh the web app for a relaunch of the marketing campaign. This includes design updates, bug & cross browser fixes, and usability changes.',
 				skills: ['AngularJS', 'WebSockets', 'SPA', 'Front End Development'],
@@ -84,6 +86,7 @@ angular.module('hrwtzApp')
 			},
 			{
 				slug: 'nine82',
+				slugShortened: 'nine82',
 				title: 'NINE82',
 				copy: 'When you are a web based design shop, you need to put your best foot forward when creating your own website. I and my partner in crime started this website with the idea to create a simple yet striking interface that will guide users to contact us.',
 				skills: ['WordPress/PHP development','Front End Development','Responsive Design'],
@@ -113,6 +116,7 @@ angular.module('hrwtzApp')
 			},
 			{
 				slug: 'play-it-forward',
+				slugShortened: 'pif',
 				title: 'Kohl\'s Play It Forward',
 				copy: 'Kohl\'s Play It Forward is a children\'s education website focused on sports safety. Looking to make their content more engaging, as a team we went through a few initial concepts and landed on a side-scrolling video game inspired homepage. The website doesn\'t stop there, and also has several inside pages with more information.',
 				skills: ['WordPress/PHP development','Front End Development','Responsive Design'],
@@ -155,6 +159,7 @@ angular.module('hrwtzApp')
 			},
 			{
 				slug: 'the-first-academy',
+				slugShortened: 'tfa',
 				title: 'The First Academy',
 				copy: 'Clocking in at nearly 200 pages, The First Academy is the largest project that I have worked on. The client\'s biggest focus of the website was on a completely custom coded calendar. Users can toggle between two views, export or print events, and can view different months and categories on the AJAX enabled calendar.',
 				skills: ['WordPress/PHP development','Front End Development','Responsive Design'],
