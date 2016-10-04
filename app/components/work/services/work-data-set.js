@@ -191,6 +191,56 @@ angular.module('hrwtzApp')
 					}
 				]
 			},
+			{
+				slug: 'mivue',
+				slugShortened: 'mv',
+				title: 'miVUE',
+				copy: 'miVUE is an application built on the MEAN stack that allows users to configure multiple CDN based services from either a front end portal or RESTful API. It is integrated with multiple 3rd party and homebrewed services from DNS to streaming delivery to Highwind\'s StrikeTracker. With miVUE, users have access to control content, DNS, origins, streaming applications, accounts, and more. I worked on a part of a small team to complete this product.',
+				skills: ['MongoDB', 'Express', 'AngularJS', 'Node.js'],
+				images: [
+					{
+						'image': 'mv/1.png', 
+						'size': 'desktop'
+					},
+					{
+						'image': 'mv/2.png', 
+						'size': 'desktop'
+					},
+					{
+						'image': 'mv/3.png', 
+						'size': 'desktop'
+					},
+					{
+						'image': 'mv/4.png', 
+						'size': 'desktop'
+					}
+				]
+			},
+			{
+				slug: 'campfyre',
+				slugShortened: 'cf',
+				title: 'Campfyre',
+				copy: 'Campfyre is a product that allows you to build channels for popular streaming platforms including Apple TV, ROKU, and Amazon Fire TV. With the application, you can upload video and audio either from a local file or by URL. With the uploaded content, playlists can be created and edited. Finally, once playlists have been created, the platform channel itself can be customized before submitting the channel for review. My involvement was the rebuilding and refactoring of both the API and UI.',
+				skills: ['MongoDB', 'Express', 'AngularJS', 'Node.js'],
+				images: [
+					{
+						'image': 'cf/1.png', 
+						'size': 'desktop'
+					},
+					{
+						'image': 'cf/2.png', 
+						'size': 'desktop'
+					},
+					{
+						'image': 'cf/3.png', 
+						'size': 'desktop'
+					},
+					{
+						'image': 'cf/4.png', 
+						'size': 'desktop'
+					}
+				]
+			}
 		];
 
 		var getWorkIndex = function (slug) {
