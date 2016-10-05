@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 		svgstore: {
 		    default: {
 		    	files: {
-					'app/assets/img/svg/svg-defs.svg': ['app/assets/img/svg/*.svg']
+					'app/assets/img/svg-defs.svg': ['app/assets/img/svg/*.svg']
 				}
 		    }
 		},

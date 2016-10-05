@@ -20,44 +20,44 @@
 	<div class="cell-innerContent hf">
 		<div class="block-ie">
 			<div class="block block--tall block--narrow">
-				<a ui-sref="work({slug: 'turnkey'})" class="block-preview">
+				<a ui-sref="work({slug: works[0].slug})" class="block-preview">
 					<div class="block-previewInner bc2">
 						<div class="block-hover"></div>
-						<div svg id="work-tkm" fallback="'work-tkm'" title="Turnkey Media Solutions" class="hf"></div>
+						<div svg id="{{'work-' + works[0].slugShortened}}" fallback="'work-' + works[0].slugShortened" title="{{works[0].title}}" class="hf"></div>
 					</div>
 				</a>
 			</div>
 			<div class="block block--tall block--long">
 				<div class="block block--half">
-					<a ui-sref="work({slug: 'mohegan'})" class="block-preview">
+					<a ui-sref="work({slug: works[1].slug})" class="block-preview">
 						<div class="block-previewInner bc4">
 							<div class="block-hover"></div>
-							<div svg id="work-mhg" fallback="'work-mhg'" title="The Mohegan Sun Drive Competition" class="hf"></div>
+							<div svg id="{{'work-' + works[1].slugShortened}}" fallback="'work-' + works[1].slugShortened" title="{{works[1].title}}" class="hf"></div>
 						</div>
 					</a>
 				</div>
 				<div class="block block--half">
-					<a ui-sref="work({slug: 'nine82'})" class="block-preview">
+					<a ui-sref="work({slug: works[2].slug})" class="block-preview">
 						<div class="block-previewInner bc1">
 							<div class="block-hover"></div>
-							<div svg id="work-nine82" fallback="'work-nine82'" title="'NINE82'" class="hf"></div>
+							<div svg id="{{'work-' + works[2].slugShortened}}" fallback="'work-' + works[2].slugShortened" title="{{works[2].title}}" class="hf"></div>
 						</div>
 					</a>
 				</div>
 			</div>
 			<div class="block block--short block--long">
-				<a ui-sref="work({slug: 'play-it-forward'})" class="block-preview">
+				<a ui-sref="work({slug: works[3].slug})" class="block-preview">
 					<div class="block-previewInner bc0">
 						<div class="block-hover"></div>
-						<div svg id="work-pif" fallback="'work-pif'" title="'Kohl\'s Play It Forward'" class="hf"></div>
+						<div svg id="{{'work-' + works[3].slugShortened}}" fallback="'work-' + works[3].slugShortened" title="{{works[3].title}}" class="hf"></div>
 					</div>
 				</a>
 			</div>
 			<div class="block block--short block--narrow">
-				<a ui-sref="work({slug: 'the-first-academy'})" class="block-preview">
+				<a ui-sref="work({slug: works[4].slug})" class="block-preview">
 					<div class="block-previewInner bc3">
 						<div class="block-hover"></div>
-						<div svg id="work-tfa" fallback="'work-tfa'" title="'The First Academy'" class="hf"></div>
+						<div svg id="{{'work-' + works[4].slugShortened}}" fallback="'work-' + works[4].slugShortened" title="{{works[4].title}}" class="hf"></div>
 					</div>
 				</a>
 			</div>
