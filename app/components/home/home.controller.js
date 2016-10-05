@@ -11,7 +11,7 @@ angular.module('hrwtzApp')
 			'I Am Based in Orlando, Florida'
 		];
 
-		$scope.sectionTitles = ['I&nbsp;Am', 'About', 'Skills', 'Work', 'Contact'];
+		$scope.sectionTitles = ['I&nbsp;Am', 'About', 'Experience', 'Work', 'Contact'];
 
 		// Set this to null so the directive knows that isMobile is set and to update the value
 		$scope.isMobile = null;

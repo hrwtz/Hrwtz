@@ -12,7 +12,7 @@ angular.module('hrwtzApp')
 		// use a state provider for routing
 		$stateProvider
 			.state('home', {
-				url: "/{page: |about|skills|work|contact}",
+				url: "/{page: |about|experience|work|contact}",
 				templateUrl: "components/home/home.view.html",
 				controller: 'homeController',
 			})
