@@ -176,6 +176,72 @@ angular.module('hrwtzApp')
 						'size': 'tablet'
 					},
 				]
+			},
+			{
+				slug: 'the-first-academy',
+				slugShortened: 'tfa',
+				title: 'The First Academy',
+				copy: 'Clocking in at nearly 200 pages, The First Academy is the largest project that I have worked on. The client\'s biggest focus of the website was on a completely custom coded calendar. Users can toggle between two views, export or print events, and can view different months and categories on the AJAX enabled calendar.',
+				skills: ['WordPress/PHP development','Front End Development','Responsive Design'],
+				url: 'http://thefirstacademy.com',
+				images: [
+					{
+						'video': {
+							'poster': 'tfa.png',
+							'mp4': getVideoFilename('tfa', 'mp4'),
+							'webm': getVideoFilename('tfa', 'webm')
+						}, 
+						'size': 'desktop'
+					},
+					{
+						'image': 'tfa/1.png', 
+						'size': 'desktop'
+					},
+					{
+						'image': 'tfa/2.png', 
+						'size': 'tablet'
+					},
+					{
+						'image': 'tfa/3.jpg', 
+						'size': 'desktop'
+					},
+					{
+						'image': 'tfa/4.png', 
+						'size': 'desktop'
+					}
+				],
+				hide: true
+			},
+			{
+				slug: 'nine82',
+				slugShortened: 'nine82',
+				title: 'NINE82',
+				copy: 'When you are a web based design shop, you need to put your best foot forward when creating your own website. I and my partner in crime started this website with the idea to create a simple yet striking interface that will guide users to contact us.',
+				skills: ['WordPress/PHP development','Front End Development','Responsive Design'],
+				url: 'http://nine82.com',
+				images: [
+					{
+						'video': {
+							'poster': '982.png',
+							'mp4': getVideoFilename('982', 'mp4'),
+							'webm': getVideoFilename('982', 'webm')
+						}, 
+						'size': 'desktop'
+					},
+					{
+						'image': 'nine82/1.png', 
+						'size': 'tablet'
+					},
+					{
+						'image': 'nine82/2.jpg', 
+						'size': 'tablet'
+					},
+					{
+						'image': 'nine82/3.png', 
+						'size': 'desktop'
+					}
+				],
+				hide: true
 			}
 		];
 
@@ -205,19 +271,17 @@ angular.module('hrwtzApp')
 			},
 			getPrevWork: function (slug) {
 				var index = getWorkIndex(slug);
-				if (index !== -1 && workData[index - 1] !== undefined) {
-					return workData[index - 1];
-				} else {
+				if (index === -1 || workData[index - 1] === undefined || workData[index].hide) {
 					return false;
 				}
+				return workData[index - 1];
 			},
 			getNextWork: function (slug) {
 				var index = getWorkIndex(slug);
-				if (index !== -1 && workData[index + 1] !== undefined) {
-					return workData[index + 1];
-				} else {
+				if (index === -1 || workData[index + 1] === undefined || workData[index].hide || workData[index + 1].hide) {
 					return false;
 				}
+				return workData[index + 1];
 			}
 		};
 		
