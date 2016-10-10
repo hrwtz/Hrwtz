@@ -7,8 +7,7 @@ angular.module('hrwtzApp')
 			'I Am A Web Developer',
 			'I Am A 300 Ring Owner', 
 			'I Am A Professional Problem Solver', 
-			'I Am A Maker of the Interwebs', 
-			'I Am Based in Orlando, Florida'
+			'I Am A Maker of the Interwebs'
 		];
 
 		$scope.sectionTitles = ['I&nbsp;Am', 'About', 'Experience', 'Work', 'Contact'];
