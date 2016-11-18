@@ -5,14 +5,14 @@
 		.module('hrwtzApp')
 		.factory('animationService', animationService);
 		
-	animationService.$inject = 'animationObjBackground', 'animationObjParticles', 'animationObjTriangle', 'animationObjSplit', 'animationObjTriStrokes'];
+	animationService.$inject = ['animationObjBackground', 'animationObjParticles', 'animationObjTriangle', 'animationObjSplit', 'animationObjTriStrokes'];
 
 	function animationService (animationObjBackground, animationObjParticles, animationObjTriangle, animationObjSplit, animationObjTriStrokes) {
 		function Service (element) {
 			var self = this;
 
 			this.bgService = new animationObjBackground(element);
-			this.particlesService = animationObjParticles.setElement(element);
+			this.particlesService = animationObjParticles.getInstance(element);
 			this.triangleService = new animationObjTriangle(element);
 			this.splitService = new animationObjSplit(element);
 			this.triStrokesService = new animationObjTriStrokes(element);
