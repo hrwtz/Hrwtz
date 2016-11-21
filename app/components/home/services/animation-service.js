@@ -13,7 +13,7 @@
 
 			this.bgService = new animationObjBackground(element);
 			this.particlesService = animationObjParticles.getInstance(element);
-			this.triangleService = new animationObjTriangle(element);
+			this.triangleService = new animationObjTriangle.getInstance(element);
 			this.splitService = new animationObjSplit(element);
 			this.triStrokesService = new animationObjTriStrokes(element);
 

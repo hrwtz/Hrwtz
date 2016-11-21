@@ -1,37 +1,133 @@
-'use strict';
-/*global angular: false */
-angular.module('hrwtzApp')
-	.factory('animationObjTriangle', [function () {
-		// Multiple easing functions
-		var ease = {
-			// no easing, no acceleration
-			linear: function (t) { return t; },
-			// accelerating from zero velocity
-			easeInQuad: function (t) { return t*t; },
-			// decelerating to zero velocity
-			easeOutQuad: function (t) { return t*(2-t); },
-			// acceleration until halfway, then deceleration
-			easeInOutQuad: function (t) { return t<0.5 ? 2*t*t : -1+(4-2*t)*t; },
-			// accelerating from zero velocity 
-			easeInCubic: function (t) { return t*t*t; },
-			// decelerating to zero velocity 
-			easeOutCubic: function (t) { return (--t)*t*t+1; },
-			// acceleration until halfway, then deceleration 
-			easeInOutCubic: function (t) { return t<0.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1; },
-			// accelerating from zero velocity 
-			easeInQuart: function (t) { return t*t*t*t; },
-			// decelerating to zero velocity 
-			easeOutQuart: function (t) { return 1-(--t)*t*t*t; },
-			// acceleration until halfway, then deceleration
-			easeInOutQuart: function (t) { return t<0.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t; },
-			// accelerating from zero velocity
-			easeInQuint: function (t) { return t*t*t*t*t; },
-			// decelerating to zero velocity
-			easeOutQuint: function (t) { return 1+(--t)*t*t*t*t; },
-			// acceleration until halfway, then deceleration 
-			easeInOutQuint: function (t) { return t<0.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t; }
-		};
+(function () {
+	'use strict';
+
+	angular
+		.module('hrwtzApp')
+		.factory('animationObjTriangle', animationObjTriangle);
 		
+	animationObjTriangle.$inject = ['easeFactory'];
+
+	function animationObjTriangle (easeFactory) {
+		/* jshint validthis: true */
+
+		var Service = function () {
+
+			this.side = 150;
+
+			this.count = 0;
+			
+			this.rotate = 0;
+			
+			this.opacity = 0;
+			
+			this.scale = 0;
+			
+			this.finished = false;
+
+			this.triCoords = [];
+
+			this.animations = [
+				{
+					duration: 80,
+					delta: easeFactory.easeOutQuad,
+					step: step1.bind(this),
+					complete: complete1.bind(this)
+				},
+				{
+					duration: 40,
+					delta: easeFactory.linear,
+					step: step2.bind(this),
+				},
+				{
+					delay: 40,
+					duration: 75,
+					infinite: true,
+					delta: easeFactory.linear,
+					step: step3.bind(this),
+				}
+			];
+
+		};
+
+		Service.prototype.init = init;
+
+		Service.prototype.draw = draw;
+
+		Service.prototype.update = update;
+
+		Service.prototype.destroy = destroy;
+
+		return {
+			getInstance: getInstance
+		};
+
+		function getInstance (element) {
+			var serviceInstance = new Service();
+			serviceInstance.element = element;
+			serviceInstance.can = element[0];
+			serviceInstance.ctx = element[0].getContext('2d');
+			return serviceInstance;
+		}
+
+		function init (){
+			var h,
+				centerY;
+
+			// Get triangle height
+			h = this.side * (Math.sqrt(3)/2);
+			
+			// Get triangle point coordinates
+			this.triCoords.push(
+				{x: 0, y: -h / 2},
+				{x: -this.side / 2, y: h / 2},
+				{x: this.side / 2, y: h / 2}
+			);
+
+			// Fix Y coords to center triangle
+			centerY = (this.triCoords[0].y + this.triCoords[1].y + this.triCoords[2].y) / 3;
+			this.triCoords.forEach(function(el){
+				el.y = el.y - centerY;
+			});
+		}
+
+		function draw (){
+			// Draw triangle
+			this.ctx.save();
+			this.ctx.fillStyle = 'rgba(255,255,255,'+this.opacity+')';
+			this.ctx.translate(this.can.width/2, this.can.height/2);
+			this.ctx.rotate(this.rotate);
+			this.ctx.scale(this.scale, this.scale);
+
+			this.ctx.beginPath();
+			this.ctx.moveTo(this.triCoords[0].x, this.triCoords[0].y);
+			this.ctx.lineTo(this.triCoords[1].x, this.triCoords[1].y);
+			this.ctx.lineTo(this.triCoords[2].x, this.triCoords[2].y);
+			this.ctx.lineTo(this.triCoords[0].x, this.triCoords[0].y);
+			this.ctx.fill();
+			this.ctx.closePath();
+			this.ctx.restore();
+		}
+
+		function update (countAniFrame){
+			// Animations!
+			var i = 0;
+			this.animations.forEach(function(el){
+				// If object is done animating, unset it
+				if (el.finished) {
+					this.animations.splice(i--, 1);
+				}
+				// Animate based off of object
+				animate.call(this, el, countAniFrame);
+				i++;
+			}.bind(this));
+		}
+
+		function destroy (){
+			this.draw = function(){
+				return false;
+			};
+		}
+
 		// Animate function for canvas animations
 		function animate(el, countAniFrame){
 			var timePassed, 
@@ -52,127 +148,44 @@ angular.module('hrwtzApp')
 			}
 			if ((progress <= 1 && progress >= 0)) {
 				var delta = el.delta(progress);
-				el.step(delta);
+				el.step.call(this, delta);
 			}
-			if (progress == 1){
+			if (progress === 1) {
 				if (el.infinite) { 
 					// If infinite, start over
 					el.delay = 0;
 					el.start = countAniFrame; 
-				}else{
+				} else {
 					// Tell animation we're done when it runs through
 					el.finished = true;
 					if (el.complete) {
-						el.complete();
+						el.complete.call(this);
 					}
 				}
 			}
 		}
 
-
-
-		function Service (element) {
-			var self = this;
-
-			this.element = element;
-			this.can = element[0];
-			this.ctx = this.can.getContext('2d');
-			this.side = 150;
-			this.count = 0;
-			this.rotate = 0;
-			this.opacity = 0;
-			this.scale = 0;
-			this.finished = false;
-			this.animations = [
-				{
-					duration: 80,
-					delta: function(p) {
-						return ease.easeOutQuad(p);
-					},
-					step: function(delta) {
-						self.rotate = 600*delta * Math.PI/180;
-						self.opacity = delta;
-					},
-					complete: function(){
-						self.finished = true;
-					}
-				},
-				{
-					duration: 40,
-					delta: function(p) {return ease.linear(p);},
-					step: function(delta) {
-						self.scale = delta;
-					}
-				},
-				{
-					delay: 40,
-					duration: 75,
-					infinite: true,
-					delta: function(p) {return ease.linear(p);},
-					step: function(delta) {
-						// Scale goes from -1 to 1
-						var variant = 0.05,
-							scale = Math.cos((Math.PI + (Math.PI * delta*2)));
-						scale = scale / (1 / variant);
-						scale = scale + 1 + variant;
-						self.scale = scale ;
-					}
-				}
-			];
-			this.init = function(){
-				var h,
-					centerY;
-				// Get triangle height
-				h = self.side * (Math.sqrt(3)/2);
-				
-				// Get triangle point coordinates
-				self.triCoords = [
-					{x:0,y:-h/2},
-					{x:-self.side / 2,y:h/2},
-					{x:self.side / 2,y:h/2},
-				];
-
-				// Fix Y coords to center triangle
-				centerY = (self.triCoords[0].y + self.triCoords[1].y + self.triCoords[2].y) / 3;
-				self.triCoords.forEach(function(el){
-					el.y = el.y - centerY;
-				});
-			};
-			this.draw = function(){
-				// Draw triangle
-				self.ctx.save();
-				self.ctx.fillStyle = 'rgba(255,255,255,'+self.opacity+')';
-				self.ctx.translate(self.can.width/2, self.can.height/2);
-				self.ctx.rotate(self.rotate);
-				self.ctx.scale(self.scale, self.scale);
-
-				self.ctx.beginPath();
-				self.ctx.moveTo(self.triCoords[0].x, self.triCoords[0].y);
-				self.ctx.lineTo(self.triCoords[1].x, self.triCoords[1].y);
-				self.ctx.lineTo(self.triCoords[2].x, self.triCoords[2].y);
-				self.ctx.lineTo(self.triCoords[0].x, self.triCoords[0].y);
-				self.ctx.fill();
-				self.ctx.closePath();
-				self.ctx.restore();
-			};
-			this.update = function(countAniFrame){
-				// Animations!
-				var i = 0;
-				self.animations.forEach(function(el){
-					// If object is done animating, unset it
-					if (el.finished) {
-						self.animations.splice(i--, 1);
-					}
-					// Animate based off of object
-					animate(el, countAniFrame);
-					i++;
-				});
-			};
-			this.destroy = function(){
-				this.draw = function(){
-					return false;
-				};
-			};
+		function step1 (delta) {
+			this.rotate = 600 * delta * Math.PI / 180;
+			this.opacity = delta;
 		}
-		return Service;
-	}]);
+
+		function complete1 () {
+			this.finished = true;
+		}
+
+		function step2 (delta) {
+			this.scale = delta;
+		}
+
+		function step3 (delta) {
+			// Scale goes from -1 to 1
+			var variant = 0.05,
+				scale = Math.cos((Math.PI + (Math.PI * delta*2)));
+			scale = scale / (1 / variant);
+			scale = scale + 1 + variant;
+			this.scale = scale ;
+		}
+
+	}
+})();
