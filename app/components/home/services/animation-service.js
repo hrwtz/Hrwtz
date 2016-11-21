@@ -11,7 +11,7 @@
 		function Service (element) {
 			var self = this;
 
-			this.bgService = new animationObjBackground(element);
+			this.bgService = new animationObjBackground.getInstance(element);
 			this.particlesService = animationObjParticles.getInstance(element);
 			this.triangleService = new animationObjTriangle.getInstance(element);
 			this.splitService = new animationObjSplit(element);
