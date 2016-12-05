@@ -1,8 +1,13 @@
-'use strict';
-/*global angular: false */
-angular.module('hrwtzApp')
-	.controller('canvasAnimationController', ['$scope', '$window', '$timeout', function($scope, $window, $timeout){
+(function () {
+	'use strict';
 
+	angular
+		.module('hrwtzApp')
+		.controller('canvasAnimationController', canvasAnimationController);
+
+	canvasAnimationController.$inject = ['$scope', '$window', '$timeout'];
+
+	function canvasAnimationController ($scope, $window, $timeout) {
 		// Set up isDestroyed variable to check when the controller gets destroyed
 		var isDestroyed = false;
 		$scope.$on('$destroy', function () {
@@ -41,5 +46,5 @@ angular.module('hrwtzApp')
 			})()
 		};
 		return self;
-		
-	}]);
+	}
+})()

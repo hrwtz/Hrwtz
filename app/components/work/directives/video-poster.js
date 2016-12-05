@@ -1,17 +1,31 @@
-'use strict';
-/*global angular: false */
-angular.module('hrwtzApp')
-	.directive('videoPoster', ['$window', function($window){
-		return {
+(function () {
+	'use strict';
+
+	angular
+		.module('hrwtzApp')
+		.directive('videoPoster', videoPoster);
+
+	videoPoster.$inject = ['$window'];
+
+	function videoPoster ($window) {
+		var directive = {
 			restrict: 'A',
 			priority: 99,
-			link: function(scope, element, attrs) {
-				attrs.$observe('videoPoster', function(value) {
-					if (!value) {
-						return;
-					}
-					attrs.$set('poster', value);
-				});
+			link: link
+		};	
+
+		return directive;
+
+		function link (scope, element, attrs) {
+			
+			attrs.$observe('videoPoster', setPosterAttr);
+
+			function setPosterAttr (newVal) {
+				if (!newVal) {
+					return;
+				}
+				attrs.$set('poster', newVal);
 			}
-		};
-	}]);
+		}
+	}
+})();

@@ -1,9 +1,13 @@
-'use strict';
-/*global angular: false */
-angular.module('hrwtzApp')
-	.directive('svg', [function(){
-		return {
-			templateUrl: "shared/directives/svg.html",
+(function () {
+	'use strict';
+
+	angular
+		.module('hrwtzApp')
+		.directive('svg', svg);
+
+	function svg () {
+		var directive = {
+			templateUrl: 'shared/directives/svg.html',
 			restrict: 'A',
 			scope: {
 				// Probably should change this to something else
@@ -11,11 +15,16 @@ angular.module('hrwtzApp')
 				title: '@?',
 				fallback: '=?'
 			},
-			link: function(scope, element, attrs) {
-				scope.fallbackValue = scope.fallback;
-				if (scope.fallbackValue === true) {
-					scope.fallbackValue = scope.id;
-				}
-			}
+			link: link
 		};
-	}]);
+
+		return directive;
+
+		function link (scope, element, attrs) {
+			scope.fallbackValue = scope.fallback;
+			if (scope.fallbackValue === true) {
+				scope.fallbackValue = scope.id;
+			}
+		}
+	}
+})();

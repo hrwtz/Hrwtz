@@ -1,9 +1,15 @@
-'use strict';
-/*global angular: false */
-angular.module('hrwtzApp')
-	.directive('homeSection', ['$window', function($window){
-		return {
-			templateUrl: "components/home/directives/home-section.html",
+(function () {
+	'use strict';
+
+	angular
+		.module('hrwtzApp')
+		.directive('homeSection', homeSection);
+
+	homeSection.$inject = ['$window'];
+
+	function homeSection ($window) {
+		var directive = {
+			templateUrl: 'components/home/directives/home-section.html',
 			restrict: 'A',
 			scope: {
 				index: '=',
@@ -12,27 +18,33 @@ angular.module('hrwtzApp')
 				sectionTitles: '='
 			},
 			transclude: true,
-			controller : ['$scope', '$stateParams', function($scope, $stateParams) {
-				$scope.pageParam = $stateParams.page;
-			}],
-			link: function(scope, element, attrs) {
-				// We don't need to set the isMobile variable for every time this reference 
-				// is used, just the one time it's used to grab the variable
-				if (scope.isMobile !== undefined) {
-
-					// Set isMobile variable
-					var setIsMobile = function () {
-						scope.isMobile = element.children().children('.cell--half').css('float') === 'none';
-					};
-
-					// Set the variable on window resize
-					angular.element($window).bind('resize', function(){
-						setIsMobile();
-					});
-
-					// Set the variable when the page loads as well
-					setIsMobile();
-				}
-			}
+			controller: homeSectionController,
+			link: link
 		};
-	}]);
+
+		homeSectionController.$inject = ['$scope', '$stateParams'];
+
+		return directive;
+
+		function link (scope, element, attrs) {
+			// We don't need to set the isMobile variable for every time this reference 
+			// is used, just the one time it's used to grab the variable
+			if (scope.isMobile !== undefined) {
+
+				// Set the variable on window resize
+				angular.element($window).bind('resize', setIsMobile);
+
+				// Set the variable when the page loads as well
+				setIsMobile();
+			}
+
+			function setIsMobile () {
+				scope.isMobile = element.children().children('.cell--half').css('float') === 'none';
+			}
+		}
+
+		function homeSectionController ($scope, $stateParams) {
+			$scope.pageParam = $stateParams.page;
+		}
+	}
+})();

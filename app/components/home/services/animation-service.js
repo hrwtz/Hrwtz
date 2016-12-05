@@ -8,14 +8,17 @@
 	animationService.$inject = ['animationObjBackground', 'animationObjParticles', 'animationObjTriangle', 'animationObjSplit', 'animationObjTriStrokes'];
 
 	function animationService (animationObjBackground, animationObjParticles, animationObjTriangle, animationObjSplit, animationObjTriStrokes) {
+
+		return Service;
+		
 		function Service (element) {
 			var self = this;
 
 			this.bgService = new animationObjBackground.getInstance(element);
 			this.particlesService = animationObjParticles.getInstance(element);
 			this.triangleService = new animationObjTriangle.getInstance(element);
-			this.splitService = new animationObjSplit(element);
-			this.triStrokesService = new animationObjTriStrokes(element);
+			this.splitService = new animationObjSplit.getInstance(element);
+			this.triStrokesService = new animationObjTriStrokes.getInstance(element);
 
 			this.animations = [
 				{
@@ -100,6 +103,5 @@
 				}
 			];
 		}
-		return Service;
 	}
-})()
+})();

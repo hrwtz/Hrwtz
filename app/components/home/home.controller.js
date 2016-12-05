@@ -9,6 +9,7 @@
 
 	function HomeController ($scope, $state, workDataSet) {
 		/*jshint validthis: true */
+		
 		var vm = this;
 
 		// Array of sayings for typist directive

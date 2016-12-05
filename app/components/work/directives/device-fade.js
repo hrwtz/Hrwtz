@@ -1,22 +1,34 @@
-'use strict';
-/*global angular: false */
-angular.module('hrwtzApp')
-	.directive('deviceFade', ['$window', '$timeout', function($window, $timeout){
-		return {
-			restrict: 'A',
-			link: function(scope, element, attrs) {
-				var checkShowDevice = function() {
-					var windowBottom = $window.pageYOffset + $window.innerHeight;
-					var offsetTop = element[0].getBoundingClientRect().top + window.pageYOffset - document.documentElement.clientTop;
-					if (offsetTop < windowBottom - ($window.innerHeight * 0.10) ){
-						element.addClass('is-showing');
-					}
-				};
+(function () {
+	'use strict';
 
-				angular.element($window).bind('scroll', function() {
-					checkShowDevice();
-				});
-				$timeout(checkShowDevice);
-			}
+	angular
+		.module('hrwtzApp')
+		.directive('deviceFade', deviceFade);
+
+	deviceFade.$inject = ['$window', '$timeout'];
+
+	function deviceFade ($window, $timeout) {
+		var directive = {
+			restrict: 'A',
+			link: link
 		};
-	}]);
+
+		return directive;
+		
+		function link (scope, element, attrs) {
+			
+			angular.element($window).bind('scroll', checkShowDevice);
+
+			$timeout(checkShowDevice);
+
+			function checkShowDevice () {
+				var windowBottom = $window.pageYOffset + $window.innerHeight;
+				var elementTopPosition = element[0].getBoundingClientRect().top;
+				var offsetTop = elementTopPosition + window.pageYOffset - document.documentElement.clientTop;
+				if (offsetTop < windowBottom - ($window.innerHeight * 0.10) ){
+					element.addClass('is-showing');
+				}
+			}
+		}
+	}
+})();

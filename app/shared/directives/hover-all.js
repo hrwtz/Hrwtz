@@ -1,39 +1,56 @@
-'use strict';
-/*global angular: false */
-angular.module('hrwtzApp')
-	.directive('hoverAll', [function(){
-		return {
+(function () {
+	'use strict';
+
+	angular
+		.module('hrwtzApp')
+		.directive('hoverAll', hoverAll);
+
+	function hoverAll () {
+		var directive = {
 			restrict: 'A',
-			controller : ['$scope', '$rootScope', function($scope, $rootScope) {
-				$scope.broadcastHover = function(isHover) {
-					$rootScope.$broadcast('hoverAll', {
-						index: $scope.$index,
-						isHover: isHover
-					});
-				};
+			controller : HoverAllController,
+			link: link
+		};
 
-				$rootScope.$on('hoverAll', function (event, data) {
-					$scope.changeHoverClass(data);
-				});
-			}],
-			link: function(scope, element, attrs) {
-				element.on('mouseover', function () {
-					scope.broadcastHover(true);
-				});
+		HoverAllController.$inject = ['$scope', '$rootScope'];
 
-				element.on('mouseout', function () {
-					scope.broadcastHover(false);
-				});
+		return directive;
 
-				scope.changeHoverClass = function (data) {
-					if (data.index === scope.$index) {
-						if (data.isHover) {
-							element.addClass('is-hover');
-						} else {
-							element.removeClass('is-hover');
-						}
+		function HoverAllController ($scope, $rootScope) {
+			$scope.broadcastHover = broadcastHover;
+
+			$rootScope.$on('hoverAll', function (event, data) {
+				$scope.changeHoverClass(data);
+			});
+
+			function broadcastHover (isHover) {
+				$rootScope.$broadcast('hoverAll', {
+					index: $scope.$index,
+					isHover: isHover
+				});
+			}
+		}
+
+		function link (scope, element, attrs) {
+			scope.changeHoverClass = changeHoverClass;
+
+			element.on('mouseover', function () {
+				scope.broadcastHover(true);
+			});
+
+			element.on('mouseout', function () {
+				scope.broadcastHover(false);
+			});
+
+			function changeHoverClass (data) {
+				if (data.index === scope.$index) {
+					if (data.isHover) {
+						element.addClass('is-hover');
+					} else {
+						element.removeClass('is-hover');
 					}
 				}
 			}
-		};
-	}]);
+		}
+	}
+})();

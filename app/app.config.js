@@ -1,4 +1,7 @@
-'use strict';
-/*global angular: false */
-angular.module('hrwtzApp')
-	.constant('environment', 'development');
+(function () {
+	'use strict';
+
+	angular
+		.module('hrwtzApp')
+		.constant('environment', 'development');
+})();

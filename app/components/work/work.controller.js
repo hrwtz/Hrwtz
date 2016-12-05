@@ -1,16 +1,31 @@
-'use strict';
-/*global angular: false */
-angular.module('hrwtzApp')
-	.controller('workController', ['$scope', '$state', '$stateParams', 'workDataSet', function($scope, $state, $stateParams, workDataSet){
+(function () {
+	'use strict';
+
+	angular
+		.module('hrwtzApp')
+		.controller('workController', WorkController);
+
+	WorkController.$inject = ['$scope', '$state', '$stateParams', 'workDataSet'];
+
+	function WorkController ($scope, $state, $stateParams, workDataSet){
+
 		$scope.screenWidth = screen.width;
 
 		$scope.work = workDataSet.getWork($stateParams.slug);
 
-		if (!$scope.work) {
-			$state.go('404go');
+		$scope.prevPage = workDataSet.getPrevWork($stateParams.slug);
+
+		$scope.nextPage = workDataSet.getNextWork($stateParams.slug);
+
+		activate();
+
+		function activate () {
+			
+			if (!$scope.work) {
+				$state.go('404go');
+			}
+
 		}
 
-		$scope.prevPage = workDataSet.getPrevWork($stateParams.slug);
-		$scope.nextPage = workDataSet.getNextWork($stateParams.slug);
-		
-	}]);
+	}
+})();
