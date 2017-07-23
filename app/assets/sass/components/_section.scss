@@ -14,7 +14,11 @@
 
     @media print {
         padding-bottom: em($b-space-px * 1.5);
-        margin-top: $b-space-2x;
+        margin-top: em($b-space-px * 1.5);
+
+        &:first-of-type{
+            margin-top: 0;
+        }
     }
 }
 

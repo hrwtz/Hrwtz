@@ -99,6 +99,10 @@ h2, .h2 {
 
 .h2--mbl{
     margin-bottom: em($b-space-3x-px, $b-fontSize-xl-px);
+
+    @media print {
+        margin-bottom: em($b-space-px, $b-fontSize-xl-px);
+    }
 }
 
 h3, .h3 {
