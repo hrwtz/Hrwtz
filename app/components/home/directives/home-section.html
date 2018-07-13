@@ -1,35 +1,20 @@
 <section class="row row--window home">
 	<div class="cell cell--half cell--home cell--mono" ng-class="{fr: index % 2 == 1}">
-		<div class="table" ng-if="!isWorkSection">
+		<div class="table">
 			<div class="table-cell table-cell--middle">
 				<div 
-					class="cell cell--s well well--s clearfix"
+					class="cell cell--s well well--s clearfix cell-content"
 					ng-class="{'cell-content--right': index % 2 === 1, 'cell-content--left': index % 2 !== 1}">
 					<ng-transclude></ng-transclude>
 				</div>
 			</div>
 		</div>
-		<div 
-			class="cell cell--s well well--s clearfix hf"
-			ng-class="{'cell-content--right': index % 2 === 1, 'cell-content--left': index % 2 !== 1}"
-			ng-if="isWorkSection">
-			<ng-transclude></ng-transclude>
-		</div>
-
 		<div class="navigation-clip navigation-clip--mobile">
 			<div nav color-index="index" inverse="!!(index % 2)"></div>
 		</div>
 	</div>
 	<div class="cell cell--half cell--home cell--color ofh" ng-class="'bc' + index">
-		<div class="branding" ng-if="index === 0">
-			<div class="branding-iconWrap">
-				<div class="branding-iconInner">
-					<span svg id="logo-main" fallback="logo-main-hero"></span>
-				</div>
-			</div>
-			<p class="branding-text">Mike Hurwitz</p>
-		</div>
-		<canvas canvas-animation index="index" ng-if="index !== 0" class="canvas" ng-class="'bc' + index"></canvas>
+		<canvas canvas-animation index="index" class="canvas" ng-class="'bc' + index"></canvas>
 
 		<div class="navigation-clip navigation-clip--mobile">
 			<div nav color-index="index" inverse="!(index % 2)"></div>
@@ -44,13 +29,12 @@
 				ng-class="[{true: 'navigation-list--cr navigation-list--bc' + index, false: 'navigation-list--bcr navigation-list--c' + index}[index % 2 === 0],{true: 'navigation-list--bc' + index}[index % 2 === 0],]">
 				<li 
 					class="navigationSide-item" 
-					ng-class="{active: !pageParam && !$index || pageParam === sectionTitles[$index].toLowerCase()}"
+					ng-class="{active: !$index}"
 					data-panel="{{sectionTitles[$index]}}"
 					ng-repeat="section in sectionTitles track by $index"
 					hover-all>
 					<a href="#" class="navigationSide-item-link">
 						<span class="navigationSide-dot"></span>
-						<span class="navigationSide-text" ng-bind-html="sectionTitles[$index]"></span>
 					</a>
 				</li>
 			</ul>
@@ -58,7 +42,7 @@
 	</div>
 	
 
-	<div class="robin" ng-if="index + 1 === 5">
+	<div class="robin" ng-if="index + 1 === sectionTitles.length">
 		<span svg id="robin"></span>
 	</div>
 </section>

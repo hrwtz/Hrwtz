@@ -89,7 +89,7 @@
 			// Call this in a timeout function so it will run after ng-class in view has run
 			$timeout(function() {
 				scope.$on('animationFrame', function (event, data) {
-					for (var i = 0; i < scope.index; i++) {
+					for (var i = 0; i <= scope.index; i++) {
 						// Don't continue if previous animation hasn't finished OR 
 						// we don't have an animation for this section
 						if ( 

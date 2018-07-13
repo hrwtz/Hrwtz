@@ -13,18 +13,7 @@
 // *************************************
 
 .branding{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 99999;
-    width: 60%;
-    @include transform(translateX(-50%) translateY(-50%));
-    opacity: .5;
-
-    @media screen and (max-width: $g-m) {
-        max-width: $b-space * 10;
-        //margin-top: 0;
-    }   
+    margin-bottom: $b-space;
 }
 
 // -------------------------------------
@@ -36,11 +25,30 @@
     height: 0;
     padding-bottom: 76.6233%;
     margin-bottom: $b-space-o75x;
-    
+
     .icon{
         width: 100%;
         height: 100%;
-        fill: $c-text-invert;
+    }
+
+    .branding--0 & .icon{
+        fill: $c-canvasBg0;
+    }
+
+    .branding--1 & .icon{
+        fill: $c-canvasBg1;
+    }
+
+    .branding--2 & .icon{
+        fill: $c-canvasBg2;
+    }
+
+    .branding--3 & .icon{
+        fill: $c-canvasBg3;
+    }
+
+    .branding--4 & .icon{
+        fill: $c-canvasBg4;
     }
 }
 
@@ -53,8 +61,28 @@
 }
 
 .branding-text{
-    color: $c-text-invert;
+    color: $c-text;
     font-size: em(30px);
     text-align: center;
     @extend .h2;
+
+    .branding--0 &{
+        color: $c-canvasBg0;
+    }
+
+    .branding--1 &{
+        color: $c-canvasBg1;
+    }
+
+    .branding--2 &{
+        color: $c-canvasBg2;
+    }
+
+    .branding--3 &{
+        color: $c-canvasBg3;
+    }
+
+    .branding--4 &{
+        color: $c-canvasBg4;
+    }
 }

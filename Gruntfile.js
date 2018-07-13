@@ -89,44 +89,8 @@ module.exports = function(grunt) {
 		            src: ['**/*.{png,jpg,gif}'],
 		            dest: 'dist/assets/img/fallback/'
 		        }]
-		    },
-		    video: {
-		        files: [{
-		            expand: true,
-		            cwd: 'app/assets/video/',
-		            src: ['**/*.{png,jpg,gif}'],
-		            dest: 'dist/assets/video/'
-		        }]
-		    },
-		    work: {
-		        files: [{
-		            expand: true,
-		            cwd: 'app/assets/img/work/',
-		            src: ['**/*.{png,jpg,gif}'],
-		            dest: 'dist/assets/img/work/'
-		        }]
 		    }
 		},
-
-		// responsive_videos: {
-		//     myTask: {
-		//       options: {
-		//         sizes: [{
-		//           width: 1050,
-		//           poster: false
-		//         },{
-		//           width: 600,
-		//           poster: false
-		//         }]
-		//       },
-		//       files: [{
-		//         expand: true,
-		//         src: ['*.{mov,mp4}'],
-		//         cwd: 'app/assets/video',
-		//         dest: 'dist/assets/video'
-		//       }]
-		//     }
-		//   },
 
 		ngconstant: {
     		ngconstant: {

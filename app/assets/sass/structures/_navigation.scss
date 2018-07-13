@@ -173,10 +173,12 @@
 
     &:before{
         top: -7px;
+        left: 0;
     }
     
     &:after {
         top: 7px;
+        left: 0;
     }
     
     /* Close State */
@@ -255,21 +257,6 @@
     @include border-bottom-left-radius(50%);
     @include border-bottom-right-radius(50%);
     @include transition(all $t-speed);
-}
-
-.navigationSide-text{
-    position: absolute;
-    top: 50%;
-    right: em($b-space-3x-px, $b-fontSize-xs-px);
-    margin-top: em(-12px, $b-fontSize-xs-px);  // MAGIC NUMBER
-    opacity: 0;
-    pointer-events: none;
-    @include transition(all $t-speed);
-    font-size: $b-fontSize-xs;
-}
-
-.navigationSide-item-link{
-    display: block;
 }
 
 // -------------------------------------
@@ -407,9 +394,6 @@
             background: $c-background;
         }
     }
-    .navigationSide-text{
-        color: $c-background;
-    }
 }
 
 .navigation-list--c1{
@@ -426,9 +410,6 @@
             background: $c-canvasBg1;
         }
     }
-    .navigationSide-text{
-        color: $c-canvasBg1;
-    }
 }
 
 .navigation-list--c3{
@@ -444,15 +425,5 @@
         &:after{
             background: $c-canvasBg3;
         }
-    }
-    .navigationSide-text{
-        color: $c-canvasBg3;
-    }
-}
-
-.navigation-list--bcr{
-    .navigationSide-text{
-        background-color: $c-background;
-        @include box-shadow(0 0 7px 7px $c-background);
     }
 }

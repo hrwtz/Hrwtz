@@ -17,15 +17,10 @@
 		// use a state provider for routing
 		$stateProvider
 			.state('home', {
-				url: '/{page: |about|experience|work|contact}',
+				url: '/',
 				templateUrl: 'components/home/home.view.html',
 				controller: 'HomeController',
 				controllerAs: 'vm'
-			})
-			.state('work', {
-				url: '/work/:slug',
-				templateUrl: 'components/work/work.view.html',
-				controller: 'workController',
 			})
 			.state('resume', {
 				url: '/resume',

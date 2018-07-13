@@ -30,7 +30,10 @@ body {
         padding-top: $b-space-2x;
         font-size: 11.75px;
     }
-
+    
+    @media screen and (max-width: $g-m) {
+        overflow: auto;
+    }
 }
 
 @page {
@@ -150,7 +153,7 @@ p a,
 }
 
 a{
-    color: $c-text-highlight;
+    color: $c-text-dark;
 }
 
 // ----- Images ----- //

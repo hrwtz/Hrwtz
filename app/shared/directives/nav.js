@@ -35,9 +35,6 @@
 		}
 
 		function link (scope, element, attrs) {
-			// This needs to be defined in the scope for it to work
-			scope.firstPanel = 'I&nbsp;Am';
-
 			// Set up classes for links
 			if (scope.inverse === true ? (scope.colorIndex % 2 === 0) : (scope.colorIndex % 2)) {
 				scope.listClass = 'bc' + scope.colorIndex;

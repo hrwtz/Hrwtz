@@ -5,24 +5,14 @@
 		.module('hrwtzApp')
 		.controller('HomeController', HomeController);
 
-	HomeController.$inject = ['$scope', '$state', 'workDataSet'];
+	HomeController.$inject = ['$scope', '$state', '$window'];
 
-	function HomeController ($scope, $state, workDataSet) {
+	function HomeController ($scope, $state, $window) {
 		/*jshint validthis: true */
 		
 		var vm = this;
 
-		// Array of sayings for typist directive
-		vm.typistSayings = [
-			'I Am A Web Developer',
-			'I Am A 300 Ring Owner', 
-			'I Am A Professional Problem Solver', 
-			'I Am A Maker of the Interwebs'
-		];
-
-		vm.sectionTitles = ['I&nbsp;Am', 'About', 'Experience', 'Work', 'Contact'];
-
-		vm.works = workDataSet.getWorks();
+		vm.sectionTitles = [0,1,2,3,4];
 
 		// Set this to null so the directive knows that isMobile is set and to update the value
 		vm.isMobile = null;
@@ -35,8 +25,7 @@
 				$menu: angular.element('.navigationSide-list, .navigation-list'),
 				menuSelector: 'li[data-panel]',
 				directionThreshold: 25,
-				panelSelector: '[home-section]',
-				onSnapFinish: finishPanelSnap
+				panelSelector: '[home-section]'
 			});
 
 			// On destroy, unhook panelSnap
@@ -45,25 +34,12 @@
 			});
 
 			// Disable/enable panelsnap based on if screen is mobile
-			$scope.$watch('vm.isMobile', toggleEnablePanelSnap);
-
+			angular.element($window).bind('resize', toggleEnablePanelSnap);
 			toggleEnablePanelSnap();
-
 		}
 
-		function finishPanelSnap ($target) {
-			if (vm.isMobile) {
-				return;
-			}
-			var homePage = vm.isMobile || $target.index() === 0 ? '' : $target.attr('data-panel').toLowerCase();
-			$state.go('home', {
-				page: homePage
-			}, {
-				notify: false
-			});
-		}
-
-		function toggleEnablePanelSnap () {
+		function toggleEnablePanelSnap() {
+			vm.isMobile = angular.element('body').css('overflow') === 'auto';
 			var panelAction = vm.isMobile ? 'disable' : 'enable';
 			angular.element('body').panelSnap(panelAction);
 		}
