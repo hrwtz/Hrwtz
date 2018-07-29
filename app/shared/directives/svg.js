@@ -1,30 +1,19 @@
-(function () {
-	'use strict';
+export default svg;
 
-	angular
-		.module('hrwtzApp')
-		.directive('svg', svg);
+svg.$inject = ['$sce'];
 
-	function svg () {
-		var directive = {
-			templateUrl: 'shared/directives/svg.html',
-			restrict: 'A',
-			scope: {
-				// Probably should change this to something else
-				id: '@',
-				title: '@?',
-				fallback: '=?'
-			},
-			link: link
-		};
-
-		return directive;
-
-		function link (scope, element, attrs) {
-			scope.fallbackValue = scope.fallback;
-			if (scope.fallbackValue === true) {
-				scope.fallbackValue = scope.id;
-			}
+function svg ($sce) {
+	var directive = {
+		template: require('./svg.html'),
+		restrict: 'A',
+		scope: {
+			id: '@',
+			title: '@?'
+		},
+		link: function (scope, element, attrs) {
+			scope.svg = $sce.trustAsHtml(require('!svg-inline-loader!../../assets/img/svg/' + scope.id + '.svg'));
 		}
-	}
-})();
+	};
+
+	return directive;
+}

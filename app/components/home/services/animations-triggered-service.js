@@ -1,13 +1,7 @@
-(function () {
-	'use strict';
+export default animationsTriggeredService;
 
-	angular
-		.module('hrwtzApp')
-		.service('animationsTriggeredService', animationsTriggeredService);
-
-	function animationsTriggeredService () {
-		/* jshint validthis: true */
-		
-		this.triggered = [];
-	}
-})();
+function animationsTriggeredService () {
+	/* jshint validthis: true */
+	
+	this.triggered = [];
+}

@@ -28,7 +28,7 @@
     display: block;
     overflow: hidden;
     background-color: $c-text;
-    @include transition(background-color .33s);
+    transition: background-color .33s;
 
     .icon{
         position: relative;
@@ -36,18 +36,18 @@
         left: 50%;
         width: 60%;
         z-index: 1;
-        @include transform(translateX(-50%) translateY(-50%));
+        transform: translateX(-50%) translateY(-50%);
         fill: white;
     }
 
      &:hover{
-        @include transform(initial);
+        transform: initial;
 
         .block-hover{
             width: 425%;
             padding-bottom: 425%;
             opacity: 1; // Causes chrome to blur svg fallback image for some reason
-            @include transition(2s width cubic-bezier(0.865, 0.050, 0.855, 0.060), 2s padding-bottom cubic-bezier(0.865, 0.050, 0.855, 0.060));
+            transition: 2s width cubic-bezier(0.865, 0.050, 0.855, 0.060), 2s padding-bottom cubic-bezier(0.865, 0.050, 0.855, 0.060);
             
         } 
     }
@@ -68,14 +68,14 @@
     width: 0;
     height: 0;
     padding-bottom: 0;
-    @include border-top-left-radius(50%);
-    @include border-top-right-radius(50%);
-    @include border-bottom-left-radius(50%);
-    @include border-bottom-right-radius(50%);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
     background-color: $c-darkBlue;
     opacity: 0;
-    @include transition(.2s width cubic-bezier(1.000, 0, 1.000, -0.165), .2s padding-bottom cubic-bezier(1.000, 0, 1.000, -0.165), .4s opacity);
-    @include transform(translateX(-50%) translateY(-50%));
+    transition: .2s width cubic-bezier(1.000, 0, 1.000, -0.165), .2s padding-bottom cubic-bezier(1.000, 0, 1.000, -0.165), .4s opacity;
+    transform: translateX(-50%) translateY(-50%);
     pointer-events: none;
 
     .bc0 &{background-color: lighten($c-canvasBg0, 15);}

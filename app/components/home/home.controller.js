@@ -1,47 +1,70 @@
-(function () {
-	'use strict';
+import PanelSnap from 'panelsnap';
 
-	angular
-		.module('hrwtzApp')
-		.controller('HomeController', HomeController);
+export default HomeController;
 
-	HomeController.$inject = ['$scope', '$state', '$window'];
+HomeController.$inject = ['$element', '$scope', '$state', '$window', 'animationsTriggeredService'];
 
-	function HomeController ($scope, $state, $window) {
-		/*jshint validthis: true */
-		
-		var vm = this;
+function HomeController ($element, $scope, $state, $window, animationsTriggeredService) {
+	/*jshint validthis: true */
+	
+	var vm = this,
+		panelsSnapInstance,
+		inDigestCycle;
 
-		vm.sectionTitles = [0,1,2,3,4];
+	vm.onPanelSelect = onPanelSelect;
 
-		// Set this to null so the directive knows that isMobile is set and to update the value
-		vm.isMobile = null;
+	vm.container = $element;
 
-		// Set up panelSnap jQuery plugin
-		$scope.$on('initialised', initPanelSnap);
+	vm.sectionTitles = [0,1,2,3];
 
-		function initPanelSnap () {
-			angular.element('body').panelSnap({
-				$menu: angular.element('.navigationSide-list, .navigation-list'),
-				menuSelector: 'li[data-panel]',
-				directionThreshold: 25,
-				panelSelector: '[home-section]'
-			});
+	// Set this to null so the directive knows that isMobile is set and to update the value
+	vm.isMobile = null;
 
-			// On destroy, unhook panelSnap
-			$scope.$on('$destroy', function(){
-				angular.element('body').panelSnap('destroy');
-			});
+	// Set up panelSnap jQuery plugin
+	$scope.$on('initialised', initPanelSnap);
 
-			// Disable/enable panelsnap based on if screen is mobile
-			angular.element($window).bind('resize', toggleEnablePanelSnap);
-			toggleEnablePanelSnap();
-		}
+	$scope.$on('$destroy', function(){
+		animationsTriggeredService.triggered = [];
+		panelsSnapInstance && panelsSnapInstance.disable();
+		angular.element($window).off('resize', toggleEnablePanelSnap);
+	});
 
-		function toggleEnablePanelSnap() {
-			vm.isMobile = angular.element('body').css('overflow') === 'auto';
-			var panelAction = vm.isMobile ? 'disable' : 'enable';
-			angular.element('body').panelSnap(panelAction);
+	function onPanelSelect(index) {
+		var element = document.querySelectorAll('[home-section]')[index];
+
+		inDigestCycle = true;
+		panelsSnapInstance.snapToPanel(element);
+	}
+
+	function initPanelSnap () {
+		// Set the panel, set up the menu manually, store instance somewhere so we can
+		// visit the home page multiple times without getting an error
+		panelsSnapInstance = new PanelSnap({
+			container: $element[0],
+			directionThreshold: 25,
+			panelSelector: '[home-section]'
+		});
+
+		panelsSnapInstance.on('activatePanel', function (panelItem) {
+			vm.activeSection = angular.element(panelItem).isolateScope().index;
+			if (!inDigestCycle) {
+				$scope.$apply();
+			}
+			inDigestCycle = false;
+		});
+
+		// Disable/enable panelsnap based on if screen is mobile
+		angular.element($window).bind('resize', toggleEnablePanelSnap);
+		toggleEnablePanelSnap();
+	}
+
+	function toggleEnablePanelSnap() {
+		vm.isMobile = getComputedStyle(document.body).overflow === 'auto';
+
+		if (vm.isMobile) {
+			panelsSnapInstance.disable();
+		} else {
+			panelsSnapInstance.enable();
 		}
 	}
-})();
+}

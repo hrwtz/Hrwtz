@@ -1,0 +1,10 @@
+{
+  "syntax": "postcss-scss",
+  "plugins": {
+    "autoprefixer": {
+      "browsers": [
+        "last 2 versions"
+      ]
+    }
+  }
+}

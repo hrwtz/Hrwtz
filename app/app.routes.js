@@ -1,37 +1,36 @@
-(function () {
-	'use strict';
+export default angular
+	.module('hrwtzApp.routes', [
+		
+	])
+	.config(routes)
+	.name;
 
-	angular
-		.module('hrwtzApp')
-		.config(config);
-			
-	config.$inject = ['$stateProvider', '$urlRouterProvider'];
+routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-	function config ($stateProvider, $urlRouterProvider) {
-		// any unknown URLS go to 404
-		$urlRouterProvider.otherwise('/404');
+function routes ($stateProvider, $urlRouterProvider) {
+	// any unknown URLS go to 404
+	$urlRouterProvider.otherwise('/404');
 
-		// no route goes to index
-		$urlRouterProvider.when('', '/');
+	// no route goes to index
+	$urlRouterProvider.when('', '/');
 
-		// use a state provider for routing
-		$stateProvider
-			.state('home', {
-				url: '/',
-				templateUrl: 'components/home/home.view.html',
-				controller: 'HomeController',
-				controllerAs: 'vm'
-			})
-			.state('resume', {
-				url: '/resume',
-				templateUrl: 'components/resume/resume.view.html',
-			})
-			.state('404go', {
-				templateUrl: 'components/404/404.view.html',
-			})
-			.state('404', {
-				url: '*path',
-				templateUrl: 'components/404/404.view.html',
-			});
-	}
-})();
+	// use a state provider for routing
+	$stateProvider
+		.state('home', {
+			url: '/',
+			template: require('./components/home/home.view.html'),
+			controller: 'HomeController',
+			controllerAs: 'vm'
+		})
+		.state('resume', {
+			url: '/resume',
+			template: require('./components/resume/resume.view.html')
+		})
+		.state('404go', {
+			template: require('./components/404/404.view.html')
+		})
+		.state('404', {
+			url: '*path',
+			template: require('./components/404/404.view.html')
+		});
+}

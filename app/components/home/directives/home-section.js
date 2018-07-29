@@ -1,31 +1,28 @@
-(function () {
-	'use strict';
+export default homeSection;
 
-	angular
-		.module('hrwtzApp')
-		.directive('homeSection', homeSection);
+homeSection.$inject = ['$window'];
 
-	homeSection.$inject = ['$window'];
+function homeSection ($window) {
+	var directive = {
+		template: require('./home-section.html'),
+		restrict: 'A',
+		scope: {
+			index: '=',
+			isWorkSection: '=?',
+			sectionTitles: '=',
+			container: '=',
+			activeSection: '=',
+			onPanelSelect: '&'
+		},
+		transclude: true,
+		controller: homeSectionController
+	};
 
-	function homeSection ($window) {
-		var directive = {
-			templateUrl: 'components/home/directives/home-section.html',
-			restrict: 'A',
-			scope: {
-				index: '=',
-				isWorkSection: '=?',
-				sectionTitles: '='
-			},
-			transclude: true,
-			controller: homeSectionController
-		};
+	homeSectionController.$inject = ['$scope', '$stateParams'];
 
-		homeSectionController.$inject = ['$scope', '$stateParams'];
+	return directive;
 
-		return directive;
-
-		function homeSectionController ($scope, $stateParams) {
-			$scope.pageParam = $stateParams.page;
-		}
+	function homeSectionController ($scope, $stateParams) {
+		$scope.pageParam = $stateParams.page;
 	}
-})();
+}

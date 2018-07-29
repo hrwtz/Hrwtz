@@ -32,11 +32,11 @@
 
     @media print {
         color: $c-text-invert !important;
-        &.bc0{@include box-shadow(0 0 0 $b-space $c-canvasBg0 inset)}
-        &.bc1{@include box-shadow(0 0 0 $b-space $c-canvasBg1 inset)}
-        &.bc2{@include box-shadow(0 0 0 $b-space $c-canvasBg2 inset)}
-        &.bc3{@include box-shadow(0 0 0 $b-space $c-canvasBg3 inset)}
-        &.bc4{@include box-shadow(0 0 0 $b-space $c-canvasBg4 inset)}
+        &.bc0{box-shadow: 0 0 0 $b-space $c-canvasBg0 inset;}
+        &.bc1{box-shadow: 0 0 0 $b-space $c-canvasBg1 inset;}
+        &.bc2{box-shadow: 0 0 0 $b-space $c-canvasBg2 inset;}
+        &.bc3{box-shadow: 0 0 0 $b-space $c-canvasBg3 inset;}
+        &.bc4{box-shadow: 0 0 0 $b-space $c-canvasBg4 inset;}
     }
 }
 
@@ -79,7 +79,7 @@
         left: 50%;
         width: $b-space * 1.5;
         height: $b-space * 1.5;
-        @include transform(translateY(-50%) translateX(-50%) rotate(45deg));
+        transform: translateY(-50%) translateX(-50%) rotate(45deg);
         content: '';
     }
 

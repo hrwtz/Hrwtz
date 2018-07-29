@@ -12,7 +12,7 @@
     width: 100%;
     height: $b-space-3x;
     z-index: 950;
-    @include backface-visibility(hidden);
+    backface-visibility: hidden;
 
     @media print {
         display: none;
@@ -27,7 +27,7 @@
     right: 0;
     width: 100px;
     z-index: 950;
-    @include backface-visibility(hidden);
+    backface-visibility: hidden;
 
     @media  print,
             screen and (max-width: $g-m) {
@@ -59,7 +59,7 @@
     padding: 0;
     margin-bottom: 0;
     overflow: hidden;
-    @include transition($t-trans-easeInBack);
+    transition: $t-trans-easeInBack;
     pointer-events: auto;
     font-family: $b-fontFamily-heading;
     line-height: $b-space-3x;
@@ -68,18 +68,18 @@
     white-space: nowrap;
 
     @media screen and (max-width: $g-m) {
-        @include transition(all $t-speed-s ease);
+        transition: all $t-speed-s ease;
     }
     
     .is-open &{
-        @include transition($t-trans-easeOutBack);
+        transition: $t-trans-easeOutBack;
         left: 0;
         width: 50%;
         padding-right: $b-space-3x;
 
         @media screen and (max-width: $g-m) {
             width: 100%;
-            @include transition(all $t-speed-s ease);
+            transition: all $t-speed-s ease;
         }
     }
 }
@@ -109,7 +109,7 @@
     height: $b-space-3x;
     margin-left: -$b-space-3x;
     pointer-events: auto;
-    @include transition(left $t-speed);
+    transition: left $t-speed;
 
     &:nth-of-type(2){
         margin-left: 0;
@@ -124,7 +124,7 @@
     }
 
     @media screen and (max-width: $g-m) {
-        @include transition(left $t-speed-s ease);
+        transition: left $t-speed-s ease;
     }
 
     .is-open &{
@@ -153,15 +153,15 @@
         position: absolute;
         width: 100%;
         height: 2px;
-        @include transition($t-trans-easeInBack, background-color 1ms);
-        @include transform(translate3d(0,0,0));
+        transition: $t-trans-easeInBack, background-color 1ms;
+        transform: translate3d(0,0,0);
         content: "";
         /* Webkit fix for weird bugs */
         -webkit-backface-visibility: hidden;
         -webkit-transform: translateZ(0);
 
         @media screen and (max-width: $g-m) {
-            @include transition(all $t-speed-s ease, background-color 1ms);
+            transition: all $t-speed-s ease, background-color 1ms;
         }
     }
 
@@ -186,21 +186,21 @@
         .navigation-hamburger-center,
         &:before,
         &:after{
-            @include transition($t-trans-easeOutBack, background-color 1ms);
+            transition: $t-trans-easeOutBack, background-color 1ms;
 
             @media screen and (max-width: $g-m) {
-                @include transition(all $t-speed-s ease, background-color 1ms);
+                transition: all $t-speed-s ease, background-color 1ms;
             }
         }
 
         &:after{
-            @include transform(rotate(-45deg) translate(2px, 4px));
-            @include transform-origin(bottom, left);
+            transform: rotate(-45deg) translate(2px, 4px);
+            transform-origin: bottom left;
         }
 
         &:before{
-            @include transform(rotate(45deg) translate(1px, -3px));
-            @include transform-origin(bottom, left);
+            transform: rotate(45deg) translate(1px, -3px);
+            transform-origin: bottom left;
         }
 
         .navigation-hamburger-center{
@@ -216,7 +216,7 @@
     top: 50%;
     //right: em(($b-space-px - $b-space-o5x-px) / 2);
     right: $b-space;
-    @include transform(translateY(-50%));
+    transform: translateY(-50%);
     pointer-events: auto;
 
     @media screen and (max-width: em(1390px, 16px)) {
@@ -252,11 +252,11 @@
     height: $b-space-o5x;
     margin-top: $b-space-o5x;
     margin-bottom: $b-space-o5x;
-    @include border-top-left-radius(50%);
-    @include border-top-right-radius(50%);
-    @include border-bottom-left-radius(50%);
-    @include border-bottom-right-radius(50%);
-    @include transition(all $t-speed);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transition: all $t-speed;
 }
 
 // -------------------------------------
@@ -282,10 +282,10 @@
     position: relative;
     overflow: hidden;
     height: 14px;
-    @include border-top-left-radius(0);
-    @include border-top-right-radius(0);
-    @include border-bottom-left-radius(0);
-    @include border-bottom-right-radius(0);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     &:after{
         position: absolute;
         top: 0;
@@ -293,7 +293,7 @@
         width: 3px;
         height: 3px;
         content: '';
-        @include transform(rotate(45deg));
+        transform: rotate(45deg);
         backface-visibility: hidden;
     }
 }
@@ -384,12 +384,12 @@
     .navigationSide-item{
         &.active{
             .navigationSide-dot{
-                @include box-shadow(inset 0 0 0 8px $c-background);
+                box-shadow: inset 0 0 0 8px $c-background;
             }
         }
     }
     .navigationSide-dot{
-        @include box-shadow(inset 0 0 0 1px $c-background);
+        box-shadow: inset 0 0 0 1px $c-background;
         &:after{
             background: $c-background;
         }
@@ -400,12 +400,12 @@
     .navigationSide-item{
         &.active{
             .navigationSide-dot{
-                @include box-shadow(inset 0 0 0 8px $c-canvasBg1);
+                box-shadow: inset 0 0 0 8px $c-canvasBg1;
             }
         }
     }
     .navigationSide-dot{
-        @include box-shadow(inset 0 0 0 1px $c-canvasBg1);
+        box-shadow: inset 0 0 0 1px $c-canvasBg1;
         &:after{
             background: $c-canvasBg1;
         }
@@ -416,12 +416,12 @@
     .navigationSide-item{
         &.active{
             .navigationSide-dot{
-                @include box-shadow(inset 0 0 0 8px $c-canvasBg3);
+                box-shadow: inset 0 0 0 8px $c-canvasBg3;
             }
         }
     }
     .navigationSide-dot{
-        @include box-shadow(inset 0 0 0 1px $c-canvasBg3);
+        box-shadow: inset 0 0 0 1px $c-canvasBg3;
         &:after{
             background: $c-canvasBg3;
         }

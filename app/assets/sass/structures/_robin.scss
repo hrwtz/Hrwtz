@@ -8,7 +8,7 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    @include transform(translateX(-50%));
+    transform: translateX(-50%);
 }
 
 // -------------------------------------
@@ -29,17 +29,17 @@
     }
 }
 
-.robin-line--left{
-    stroke: $c-canvasBg5;
+.robin-line--right{
+    stroke: $c-canvasBg3;
     fill: $c-background;
 
     @media screen and (max-width: $g-m) {
         stroke: $c-background;
-        fill: $c-canvasBg5;
+        fill: $c-canvasBg3;
     }
 }
 
-.robin-line--right{
+.robin-line--left{
     stroke: $c-background;
-    fill: $c-canvasBg5;
+    fill: $c-canvasBg3;
 }

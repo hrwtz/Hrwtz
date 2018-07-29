@@ -14,7 +14,7 @@
 		</div>
 	</div>
 	<div class="cell cell--half cell--home cell--color ofh" ng-class="'bc' + index">
-		<canvas canvas-animation index="index" class="canvas" ng-class="'bc' + index"></canvas>
+		<canvas canvas-animation container="container" index="index" class="canvas" ng-class="'bc' + index"></canvas>
 
 		<div class="navigation-clip navigation-clip--mobile">
 			<div nav color-index="index" inverse="!(index % 2)"></div>
@@ -29,11 +29,11 @@
 				ng-class="[{true: 'navigation-list--cr navigation-list--bc' + index, false: 'navigation-list--bcr navigation-list--c' + index}[index % 2 === 0],{true: 'navigation-list--bc' + index}[index % 2 === 0],]">
 				<li 
 					class="navigationSide-item" 
-					ng-class="{active: !$index}"
+					ng-class="{active: $index === activeSection}"
 					data-panel="{{sectionTitles[$index]}}"
 					ng-repeat="section in sectionTitles track by $index"
 					hover-all>
-					<a href="#" class="navigationSide-item-link">
+					<a href="#" class="navigationSide-item-link" ng-click="onPanelSelect({index: $index})">
 						<span class="navigationSide-dot"></span>
 					</a>
 				</li>

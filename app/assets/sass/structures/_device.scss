@@ -13,7 +13,7 @@
 	margin-bottom: $b-space;
     opacity: 0;
     background-color: #333;
-    @include transition(top .8s, opacity .8s);
+    transition: top .8s, opacity .8s;
 }
 
 // -------------------------------------
@@ -33,10 +33,10 @@
         position: absolute;
         width: $b-space-o75x;
         height: $b-space-o75x;
-        @include border-top-left-radius(50%);
-        @include border-top-right-radius(50%);
-        @include border-bottom-left-radius(50%);
-        @include border-bottom-right-radius(50%);
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
         content: "";
     }
 
@@ -63,17 +63,17 @@
 
 .device--desktop{
     padding-top: 32px;
-    @include border-top-left-radius(8px);
-    @include border-top-right-radius(8px);
-    @include box-shadow(0px 1px 0px 0px #ccc, 1px 0px 0px 0px #ccc, -1px 0px 0px 0px #ccc);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0px 1px 0px 0px #ccc, 1px 0px 0px 0px #ccc, -1px 0px 0px 0px #ccc;
 }
 
 .device--phone{
     max-width: em(381px);
-    @include border-top-left-radius(55px);
-    @include border-top-right-radius(55px);
-    @include border-bottom-left-radius(55px);
-    @include border-bottom-right-radius(55px);
+    border-top-left-radius: 55px;
+    border-top-right-radius: 55px;
+    border-bottom-left-radius: 55px;
+    border-bottom-right-radius: 55px;
     margin-left: $b-space;
     margin-right: $b-space;   
 
@@ -93,10 +93,10 @@
 
 .device--tablet{
     max-width: em(825px);
-    @include border-top-left-radius(40px);
-    @include border-top-right-radius(40px);
-    @include border-bottom-left-radius(40px);
-    @include border-bottom-right-radius(40px);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
 
     .device-image{
         padding: per(40px, 825px) per(30px, 825px);
@@ -113,11 +113,11 @@
     @media screen and (max-width: $g-s) {
         // Match device--desktop
         padding-top: 32px;
-        @include border-top-left-radius(8px);
-        @include border-top-right-radius(8px);
-        @include border-bottom-left-radius(0);
-        @include border-bottom-right-radius(0);
-        @include box-shadow(0px 1px 0px 0px #ccc, 1px 0px 0px 0px #ccc, -1px 0px 0px 0px #ccc);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        box-shadow: 0px 1px 0px 0px #ccc, 1px 0px 0px 0px #ccc, -1px 0px 0px 0px #ccc;
 
         // Reset other styles
         .device-image{

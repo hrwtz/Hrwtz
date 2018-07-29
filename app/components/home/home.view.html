@@ -5,12 +5,15 @@
 	data-panel="{{n}}"
 	section-titles="vm.sectionTitles"
 	initialisation="$index === 0"
-	ng-repeat="n in [0,1,2,3,4]">
+	container="vm.container"
+	active-section="vm.activeSection"
+	on-panel-select="vm.onPanelSelect(index)"
+	ng-repeat="n in [0,1,2,3]">
 	<div class="cell-innerContent">
 		<div class="branding" ng-class="'branding--' + $index">
 			<div class="branding-iconWrap">
 				<div class="branding-iconInner">
-					<span svg id="logo-main" fallback="logo-main-hero"></span>
+					<span svg id="logo-main"></span>
 				</div>
 			</div>
 			<p class="branding-text">Mike Hurwitz</p>

@@ -80,18 +80,6 @@ module.exports = function(grunt) {
 			dist: ['dist']
 		},
 
-
-		imagemin: {
-		    dynamic: {
-		        files: [{
-		            expand: true,
-		            cwd: 'app/assets/img/fallback/',
-		            src: ['**/*.{png,jpg,gif}'],
-		            dest: 'dist/assets/img/fallback/'
-		        }]
-		    }
-		},
-
 		ngconstant: {
     		ngconstant: {
     			options: {
@@ -132,13 +120,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-responsive-videos');
 
-	grunt.registerTask('build', ['ngconstant', 'concat', 'uglify', 'clean:tmp', 'svgstore', 'compass', 'imagemin', 'copy']);
+	grunt.registerTask('build', ['ngconstant', 'concat', 'uglify', 'clean:tmp', 'svgstore', 'compass', 'copy']);
 	grunt.registerTask('deploy', ['build', 'aws_s3']);
 
 };
