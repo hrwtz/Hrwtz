@@ -27,7 +27,7 @@ body {
     @include highlight-color($c-canvasBg2);
 
     @media print {
-        padding-top: $b-space-2x;
+        padding: $b-space-4x $b-space-3x $b-space-2x;
         font-size: 11.75px;
     }
     
@@ -37,7 +37,8 @@ body {
 }
 
 @page {
-    margin: 0.5cm 1cm;
+    size: auto;
+    margin: 0;
 }
 
 // -------------------------------------
@@ -54,6 +55,14 @@ ul {
     margin-bottom: 0;
     color: $c-text-headline;
     font-style: italic;
+}
+
+strong {
+    color: $c-text-headline;
+
+    @media print {
+        font-weight: normal;
+    }
 }
 
 // ----- Headings ----- //

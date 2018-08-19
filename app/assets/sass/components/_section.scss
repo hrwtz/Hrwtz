@@ -13,8 +13,8 @@
     }
 
     @media print {
-        padding-bottom: em($b-space-px * 1.5);
-        margin-top: em($b-space-px * 1.5);
+        padding-bottom: em($b-space-px * 1.25);
+        margin-top: em($b-space-px * 1.25);
 
         &:first-of-type{
             margin-top: 0;
@@ -33,6 +33,6 @@
     }
 
     @media print {
-        margin-bottom: em($b-space-px * 1.5);
+        margin-bottom: em($b-space-px * 1.25);
     }
 }

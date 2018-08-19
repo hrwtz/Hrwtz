@@ -28,7 +28,10 @@
     "angular": "^1.7.2",
     "angular-sanitize": "^1.7.2",
     "angular-ui-router": "^1.0.18",
+    "fs": "0.0.1-security",
+    "net": "^1.0.2",
     "panelsnap": "^1.2.1",
+    "tls": "0.0.1",
     "universal-analytics": "^0.4.17"
   }
 }
