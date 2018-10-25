@@ -5,9 +5,9 @@ export default angular
 	.config(routes)
 	.name;
 
-routes.$inject = ['$stateProvider', '$urlRouterProvider'];
+routes.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 
-function routes ($stateProvider, $urlRouterProvider) {
+function routes ($locationProvider, $stateProvider, $urlRouterProvider) {
 	// any unknown URLS go to 404
 	$urlRouterProvider.otherwise('/404');
 
@@ -33,4 +33,6 @@ function routes ($stateProvider, $urlRouterProvider) {
 			url: '*path',
 			template: require('./components/404/404.view.html')
 		});
+
+	$locationProvider.html5Mode(true);
 }
