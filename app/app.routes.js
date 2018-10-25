@@ -1,7 +1,5 @@
 export default angular
-	.module('hrwtzApp.routes', [
-		
-	])
+	.module('hrwtzApp.routes', [])
 	.config(routes)
 	.name;
 
@@ -35,4 +33,5 @@ function routes ($locationProvider, $stateProvider, $urlRouterProvider) {
 		});
 
 	$locationProvider.html5Mode(true);
+	$locationProvider.hashPrefix('');
 }
