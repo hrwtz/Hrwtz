@@ -16,6 +16,7 @@
     line-height: 42px;
 
     @media print {
+        color: $c-text-dark;
         text-align: center;
         line-height: $b-lineHeight-subhead;
     }
