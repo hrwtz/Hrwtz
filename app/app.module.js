@@ -1,18 +1,14 @@
 import angular from 'angular';
 import 'angular-ui-router';
-import 'angular-sanitize'
 
 import routes from './app.routes';
 import sharedModule from './shared/shared.module';
-import homeModule from './components/home/home.module';
 
 angular
 	.module('hrwtzApp', [
 		'ui.router',
-		'ngSanitize',
 		routes,
-		sharedModule,
-		homeModule
+		sharedModule
 	])
 	.run(runBlock);
 	

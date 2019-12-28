@@ -20,10 +20,6 @@ html {
 
 body {
     font-size: 100%;
-    position: absolute;
-    //overflow-x: hidden;
-    width: 100%;
-    height: 100%;
     @include highlight-color($c-canvasBg2);
 
     @media print {
@@ -130,8 +126,26 @@ h3, .h3 {
 }
 
 h4, .h4 {
+    display: inline-block;
+    padding-left: $b-space;
+    padding-right: $b-space;
+    margin-right: $b-space-o25x;
     margin-bottom: $b-space;
-    @extend .work-skill;
+    background-color: $c-canvasBg2;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    list-style: none;
+    color: $c-text-invert;
+    font-style: italic;
+
+    @media print {
+        color: $c-text-invert !important;
+        &.bc0{box-shadow: 0 0 0 $b-space $c-canvasBg0 inset;}
+        &.bc1{box-shadow: 0 0 0 $b-space $c-canvasBg1 inset;}
+        &.bc2{box-shadow: 0 0 0 $b-space $c-canvasBg2 inset;}
+        &.bc3{box-shadow: 0 0 0 $b-space $c-canvasBg3 inset;}
+        &.bc4{box-shadow: 0 0 0 $b-space $c-canvasBg4 inset;}
+    }
 }
 
 h1, .h1,
