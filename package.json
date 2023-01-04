@@ -16,7 +16,7 @@
     "postcss-scss": "^1.0.6",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
-    "svg-inline-loader": "^0.8.0",
+    "svg-inline-loader": "^0.8.2",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.16.0",
     "webpack-bundle-analyzer": "^2.13.1",
