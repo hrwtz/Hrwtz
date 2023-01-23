@@ -23,7 +23,7 @@ body {
     @include highlight-color($c-canvasBg2);
 
     @media print {
-        padding: $b-space-4x $b-space-4x $b-space-2x;
+        padding: $b-space-8x $b-space-6x $b-space-2x;
         font-size: 11.75px;
     }
     
@@ -115,7 +115,7 @@ h2, .h2 {
 
 h3, .h3 {
     margin-bottom: em($b-space-o5x-px, $b-fontSize-l-px);
-    color: $c-text-highlight;
+    color: $c-text-dark;
     font-size: $b-fontSize-l;
     font-style: italic;
     line-height: $b-lineHeight-subhead;
@@ -173,6 +173,10 @@ p a,
         color: inherit;
         border-bottom: none;
     }
+}
+
+.p--h a {
+    border-bottom: 0;
 }
 
 a{
